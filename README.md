@@ -4,7 +4,10 @@ YggdrAshill.Unity is a [Unity](https://unity.com/ja) extension for YggdrAshill f
 
 ## Dependencies
 
-Now writing...
+This framework depends on
+
+- .NET Standard 2.0.
+- Unity 2020.3.15f1.
 
 ## Installation
 
