@@ -1,7 +1,4 @@
-# Release notes for version 0.1.0
+# Release notes for version 0.2.0
 
-- Added files for repository management.
-  - templates for issues and pull requests
-  - license file
-  - release note
-- Added template items for readme.
+- Open as Unity 2020.3.15f1.
+- Add assembly for this project.
