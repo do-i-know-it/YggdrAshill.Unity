@@ -1,0 +1,1706 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>YggdrAshill.Nuadha</name>
+    </assembly>
+    <members>
+        <member name="T:YggdrAshill.Nuadha.ConductionExtension">
+            <summary>
+            Defines extensions for <see cref="T:YggdrAshill.Nuadha.Signalization.IPropagation`1"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.ConductionExtension.Transmit``1(YggdrAshill.Nuadha.Signalization.IPropagation{``0},System.Func{``0})">
+            <summary>
+            Creates <see cref="T:YggdrAshill.Nuadha.Conduction.ITransmission`1"/>.
+            </summary>
+            <typeparam name="TSignal">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to transmit.
+            </typeparam>
+            <param name="propagation">
+            <see cref="T:YggdrAshill.Nuadha.Signalization.IPropagation`1"/> to propagate <typeparamref name="TSignal"/>.
+            </param>
+            <param name="generation">
+            <see cref="T:System.Func`1"/> to generate <typeparamref name="TSignal"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.ITransmission`1"/> to transmit.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="propagation"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="generation"/> is null.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Generate">
+            <summary>
+            Defines implementations of <see cref="T:YggdrAshill.Nuadha.Conduction.IGeneration`1"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Generate.Signal``1(System.Func{``0})">
+            <summary>
+            Executes <see cref="T:System.Func`1"/>.
+            </summary>
+            <typeparam name="TSignal">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to generate.
+            </typeparam>
+            <param name="generation">
+            <see cref="T:System.Func`1"/> to generate <typeparamref name="TSignal"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IGeneration`1"/> created.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="generation"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Generate.Generation`1.Generate">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Generate.Signal``1(``0)">
+            <summary>
+            Generates same <typeparamref name="TSignal"/>.
+            </summary>
+            <typeparam name="TSignal">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to generate.
+            </typeparam>
+            <param name="signal">
+            <typeparamref name="TSignal"/> to generate.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IGeneration`1"/> created.
+            </returns>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Cancellation">
+            <summary>
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ICancellation"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Cancellation.Of(System.Action)">
+            <summary>
+            Executes <see cref="T:System.Action"/>.
+            </summary>
+            <param name="cancellation">
+            <see cref="T:System.Action"/> to cancel.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Cancellation"/> created.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="cancellation"/> is null.
+            </exception>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Cancellation.None">
+            <summary>
+            Executes none.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Cancellation.Cancel">
+            <inheritdoc/>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.CompositeCancellation">
+            <summary>
+            Executes each of synthesized <see cref="T:YggdrAshill.Nuadha.Signalization.ICancellation"/> simultaneously.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.CompositeCancellation.Cancel">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.CompositeCancellation.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Consume">
+            <summary>
+            Defines implementations of <see cref="T:YggdrAshill.Nuadha.Signalization.IConsumption`1"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Consume.Signal``1(System.Action{``0})">
+            <summary>
+            Executes <see cref="T:System.Action`1"/>.
+            </summary>
+            <typeparam name="TSignal">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to consume.
+            </typeparam>
+            <param name="consumption">
+            <see cref="T:System.Action`1"/> to consume <typeparamref name="TSignal"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signalization.IConsumption`1"/> created.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="consumption"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Consume.Consumption`1.Consume(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Consume.None``1">
+            <summary>
+            Executes none.
+            </summary>
+            <typeparam name="TSignal">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to consume.
+            </typeparam>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signalization.IConsumption`1"/> created.
+            </returns>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Propagate">
+            <summary>
+            Defines implementations of <see cref="T:YggdrAshill.Nuadha.Signalization.IPropagation`1"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Propagate.WithoutCache``1">
+            <summary>
+            Propagates <typeparamref name="TSignal"/> without cache.
+            </summary>
+            <typeparam name="TSignal">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to propagate.
+            </typeparam>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signalization.IPropagation`1"/> created.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Propagate.WithLatestCache``1(YggdrAshill.Nuadha.Conduction.IGeneration{``0})">
+            <summary>
+            Propagates <typeparamref name="TSignal"/> with latest cache.
+            </summary>
+            <typeparam name="TSignal">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to propagate.
+            </typeparam>
+            <param name="generation">
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IGeneration`1"/> to initialize cache of <typeparamref name="TSignal"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signalization.IPropagation`1"/> created.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="generation"/> is null.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.SignalizationExtension">
+            <summary>
+            Defines extensions for Signalization.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalizationExtension.Produce``1(YggdrAshill.Nuadha.Signalization.IProduction{``0},System.Action{``0})">
+            <summary>
+            Sends <typeparamref name="TSignal"/> to <see cref="T:YggdrAshill.Nuadha.Signalization.IConsumption`1"/>.
+            </summary>
+            <typeparam name="TSignal">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to produce.
+            </typeparam>
+            <param name="production">
+            <see cref="T:YggdrAshill.Nuadha.Signalization.IProduction`1"/> to send <typeparamref name="TSignal"/>.
+            </param>
+            <param name="consumption">
+            <see cref="T:System.Action`1"/> to receive <typeparamref name="TSignal"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signalization.ICancellation"/> to cancel.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="production"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="consumption"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalizationExtension.Synthesize(YggdrAshill.Nuadha.Signalization.ICancellation,YggdrAshill.Nuadha.CompositeCancellation)">
+            <summary>
+            Collects <see cref="T:YggdrAshill.Nuadha.Signalization.ICancellation"/> to cancel simultaneously.
+            </summary>
+            <param name="cancellation">
+            <see cref="T:YggdrAshill.Nuadha.Signalization.ICancellation"/> collected.
+            </param>
+            <param name="composite">
+            <see cref="T:YggdrAshill.Nuadha.CompositeCancellation"/> to collect.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="cancellation"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="composite"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalizationExtension.ToDisposable(YggdrAshill.Nuadha.Signalization.ICancellation)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signalization.ICancellation"/> to <see cref="T:System.IDisposable"/>.
+            </summary>
+            <param name="cancellation">
+            <see cref="T:YggdrAshill.Nuadha.Signalization.ICancellation"/>.
+            </param>
+            <returns>
+            <see cref="T:System.IDisposable"/>
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="cancellation"/> is null.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.HysteresisThreshold">
+            <summary>
+            Threshold to convert analog signal into digital signal.
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> has two threshold.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.HysteresisThreshold.Minimum">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.HysteresisThreshold.Minimum"/> of <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.HysteresisThreshold.Maximum">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.HysteresisThreshold.Maximum"/> of <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.HysteresisThreshold.Lower">
+            <summary>
+            Lower threshold.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.HysteresisThreshold.Upper">
+            <summary>
+            Upper threshold.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.HysteresisThreshold.#ctor(System.Single,System.Single)">
+            <summary>
+            Constructs instance.
+            </summary>
+            <param name="lower">
+            Threshold for <see cref="P:YggdrAshill.Nuadha.HysteresisThreshold.Lower"/>.
+            </param>
+            <param name="upper">
+            Threshold for <see cref="P:YggdrAshill.Nuadha.HysteresisThreshold.Upper"/>.
+            </param>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="lower"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="upper"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="lower"/> is out of range between <see cref="P:YggdrAshill.Nuadha.HysteresisThreshold.Minimum"/> and <see cref="P:YggdrAshill.Nuadha.HysteresisThreshold.Maximum"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="upper"/> is out of range between <see cref="P:YggdrAshill.Nuadha.HysteresisThreshold.Minimum"/> and <see cref="P:YggdrAshill.Nuadha.HysteresisThreshold.Maximum"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="lower"/> is greater than <paramref name="upper"/>.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.HysteresisThreshold.#ctor(System.Single)">
+            <summary>
+            Constructs instance.
+            </summary>
+            <param name="threshold">
+            Threshold for <see cref="P:YggdrAshill.Nuadha.HysteresisThreshold.Lower"/> and <see cref="P:YggdrAshill.Nuadha.HysteresisThreshold.Upper"/>.
+            </param>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="threshold"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="threshold"/> is out of range between <see cref="P:YggdrAshill.Nuadha.HysteresisThreshold.Minimum"/> and <see cref="P:YggdrAshill.Nuadha.HysteresisThreshold.Maximum"/>.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.PullInto">
+            <summary>
+            Defines implementations of <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PullInto.Push(YggdrAshill.Nuadha.HysteresisThreshold)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> into <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </summary>
+            <param name="threshold">
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> to convert <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> into <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="threshold"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PullInto.Condition.IsSatisfiedBy(YggdrAshill.Nuadha.Signals.Pull)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PullInto.Pulse(YggdrAshill.Nuadha.HysteresisThreshold)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> into <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/>.
+            </summary>
+            <param name="threshold">
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> to convert <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> into <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="threshold"/> is null.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.PushInto">
+            <summary>
+            Defines implementations of <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.PushInto.Touch">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> into <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.PushInto.Pulse">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> into <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/>.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.PushIs">
+            <summary>
+            Defines implementations of <see cref="T:YggdrAshill.Nuadha.Transformation.ICondition`1"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.PushIs.Disabled">
+            <summary>
+            When <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> is <see cref="P:YggdrAshill.Nuadha.Signals.Push.Disabled"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.PushIs.Enabled">
+            <summary>
+            When <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> is <see cref="P:YggdrAshill.Nuadha.Signals.Push.Enabled"/>.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.SignalExtension">
+            <summary>
+            Defines extensions for Signals.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToTouch(System.Boolean)">
+            <summary>
+            Converts <see cref="T:System.Boolean"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:System.Boolean"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToBoolean(YggdrAshill.Nuadha.Signals.Touch)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to <see cref="T:System.Boolean"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:System.Boolean"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToPush(System.Boolean)">
+            <summary>
+            Converts <see cref="T:System.Boolean"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:System.Boolean"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToBoolean(YggdrAshill.Nuadha.Signals.Push)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to <see cref="T:System.Boolean"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:System.Boolean"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToPull(System.Single)">
+            <summary>
+            Converts <see cref="T:System.Single"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:System.Single"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToSingle(YggdrAshill.Nuadha.Signals.Pull)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> to <see cref="T:System.Single"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:System.Single"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToRadian(System.Single)">
+            <summary>
+            Converts <see cref="T:System.Single"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:System.Single"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToSingle(YggdrAshill.Nuadha.Signals.Angle.Radian)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> to <see cref="T:System.Single"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:System.Single"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToDegree(System.Single)">
+            <summary>
+            Converts <see cref="T:System.Single"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:System.Single"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToSingle(YggdrAshill.Nuadha.Signals.Angle.Degree)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> to <see cref="T:System.Single"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:System.Single"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToRadian(YggdrAshill.Nuadha.Signals.Angle.Degree)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToDegree(YggdrAshill.Nuadha.Signals.Angle.Radian)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> converted.
+            </returns>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Space3DPositionTo">
+            <summary>
+            Defines implementations of Trasformation for <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Space3DPositionTo.Calibrate">
+            <summary>
+            Calibrates <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/>.
+            </summary>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.ICalibration`1"/> to correct <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/>.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Space3DPositionTo.Calibrate(YggdrAshill.Nuadha.Conduction.IGeneration{YggdrAshill.Nuadha.Signals.Space3D.Position})">
+            <summary>
+            Corrects <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/> to calibrate.
+            </summary>
+            <param name="generation">
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IGeneration`1"/> to generate offset of <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> to correct <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/>.
+            </returns>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Space3DRotationTo">
+            <summary>
+            Defines implementations of Transformation for <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Space3DRotationTo.Calibrate">
+            <summary>
+            Calibrates <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/>.
+            </summary>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.ICalibration`1"/> to correct <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/>.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Space3DRotationTo.Calibrate(YggdrAshill.Nuadha.Conduction.IGeneration{YggdrAshill.Nuadha.Signals.Space3D.Rotation})">
+            <summary>
+            Corrects <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> to calibrate.
+            </summary>
+            <param name="generation">
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IGeneration`1"/> to generate offset of <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> to correct <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/>.
+            </returns>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.TiltInto">
+            <summary>
+            Defines implementations of <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.TiltInto.PullBy.Distance">
+            <summary>
+            Converts <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Distance"/> into <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.TiltInto.PullBy.Left">
+            <summary>
+            Converts <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Horizontal"/> into <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.TiltInto.PullBy.Right">
+            <summary>
+            Converts <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Horizontal"/> into <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.TiltInto.PullBy.Forward">
+            <summary>
+            Converts <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Vertical"/> into <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.TiltInto.PullBy.Backward">
+            <summary>
+            Converts <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Vertical"/> into <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.TiltInto.PullBy.Translate(YggdrAshill.Nuadha.Signals.Tilt)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.TiltInto.PushBy.Distance(YggdrAshill.Nuadha.HysteresisThreshold)">
+            <summary>
+            Converts <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Distance"/> into <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </summary>
+            <param name="threshold">
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> to convert <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Distance"/> into <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="threshold"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.TiltInto.PushBy.Left(YggdrAshill.Nuadha.HysteresisThreshold)">
+            <summary>
+            Converts <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Horizontal"/> into <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </summary>
+            <param name="threshold">
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> to convert <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Horizontal"/> into <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="threshold"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.TiltInto.PushBy.Right(YggdrAshill.Nuadha.HysteresisThreshold)">
+            <summary>
+            Converts <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Horizontal"/> into <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </summary>
+            <param name="threshold">
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> to convert <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Horizontal"/> into <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="threshold"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.TiltInto.PushBy.Forward(YggdrAshill.Nuadha.HysteresisThreshold)">
+            <summary>
+            Converts <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Vertical"/> into <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </summary>
+            <param name="threshold">
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> to convert <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Vertical"/> into <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="threshold"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.TiltInto.PushBy.Backward(YggdrAshill.Nuadha.HysteresisThreshold)">
+            <summary>
+            Converts <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Vertical"/> into <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </summary>
+            <param name="threshold">
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> to convert <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Vertical"/> into <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="threshold"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.TiltInto.PulseBy.Distance(YggdrAshill.Nuadha.HysteresisThreshold)">
+            <summary>
+            Converts <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Distance"/> into <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/>.
+            </summary>
+            <param name="threshold">
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> to convert <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Distance"/> into <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="threshold"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.TiltInto.PulseBy.Left(YggdrAshill.Nuadha.HysteresisThreshold)">
+            <summary>
+            Converts <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Horizontal"/> into <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/>.
+            </summary>
+            <param name="threshold">
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> to convert <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Horizontal"/> into <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="threshold"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.TiltInto.PulseBy.Right(YggdrAshill.Nuadha.HysteresisThreshold)">
+            <summary>
+            Converts <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Horizontal"/> into <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/>.
+            </summary>
+            <param name="threshold">
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> to convert <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Horizontal"/> into <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="threshold"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.TiltInto.PulseBy.Forward(YggdrAshill.Nuadha.HysteresisThreshold)">
+            <summary>
+            Converts <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Vertical"/> into <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/>.
+            </summary>
+            <param name="threshold">
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> to convert <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Vertical"/> into <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="threshold"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.TiltInto.PulseBy.Backward(YggdrAshill.Nuadha.HysteresisThreshold)">
+            <summary>
+            Converts <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Vertical"/> into <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/>.
+            </summary>
+            <param name="threshold">
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> to convert <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Vertical"/> into <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="threshold"/> is null.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.TouchInto">
+            <summary>
+            Defines implementations of <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/>
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.TouchInto.Push">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> into <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.TouchInto.Pulse">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> into <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/>.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.TouchIs">
+            <summary>
+            Defines implementations of <see cref="T:YggdrAshill.Nuadha.Transformation.ICondition`1"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/>
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.TouchIs.Disabled">
+            <summary>
+            When <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> is <see cref="P:YggdrAshill.Nuadha.Signals.Touch.Disabled"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.TouchIs.Enabled">
+            <summary>
+            When <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> is <see cref="P:YggdrAshill.Nuadha.Signals.Touch.Enabled"/>.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.ICalibration`1">
+            <summary>
+            Calibrates <typeparamref name="TSignal"/> to correct.
+            </summary>
+            <typeparam name="TSignal">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to calibrate.
+            </typeparam>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.ICalibration`1.Calibrate(`0,`0)">
+            <summary>
+            Calibrates <typeparamref name="TSignal"/> to correct.
+            </summary>
+            <param name="signal">
+            Original <typeparamref name="TSignal"/>.
+            </param>
+            <param name="offset">
+            Offset <typeparamref name="TSignal"/>.
+            </param>
+            <returns>
+            <typeparamref name="TSignal"/> corrected.
+            </returns>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.IFiltration`1">
+            <summary>
+            Filtrates <typeparamref name="TSignal"/> to correct.
+            </summary>
+            <typeparam name="TSignal">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to filtrate.
+            </typeparam>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.IFiltration`1.Filtrate(`0,`0)">
+            <summary>
+            Filtrates <typeparamref name="TSignal"/> to correct.
+            </summary>
+            <param name="current">
+            Current <typeparamref name="TSignal"/>.
+            </param>
+            <param name="previous">
+            Previouis <typeparamref name="TSignal"/>.
+            </param>
+            <returns>
+            Next <typeparamref name="TSignal"/>.
+            </returns>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.NoticeOf">
+            <summary>
+            Defines implementations for <see cref="T:YggdrAshill.Nuadha.Transformation.ICondition`1"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.NoticeOf.Signal``1(System.Func{``0,System.Boolean})">
+            <summary>
+            Executes <see cref="T:System.Func`2"/>.
+            </summary>
+            <typeparam name="TSignal">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to detect.
+            </typeparam>
+            <param name="condition">
+            <see cref="T:System.Func`2"/> to detect <see cref="T:YggdrAshill.Nuadha.Transformation.Notice"/> of <typeparamref name="TSignal"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ICondition`1"/> created.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="condition"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.NoticeOf.All``1">
+            <summary>
+            Satisfied by all of <typeparamref name="TSignal"/> even if <typeparamref name="TSignal"/> is <see cref="!:null"/>.
+            </summary>
+            <typeparam name="TSignal">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to detect.
+            </typeparam>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ICondition`1"/> created.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.NoticeOf.None``1">
+            <summary>
+            Satisfied by none of <typeparamref name="TSignal"/> even if <typeparamref name="TSignal"/> is <see cref="!:null"/>.
+            </summary>
+            <typeparam name="TSignal">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to detect.
+            </typeparam>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ICondition`1"/> created.
+            </returns>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.SignalInto">
+            <summary>
+            Defines implementations of <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalInto.Signal``2(System.Func{``0,``1})">
+            <summary>
+            Executes <see cref="T:System.Func`2"/>.
+            </summary>
+            <typeparam name="TInput">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to convert.
+            </typeparam>
+            <typeparam name="TOutput">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> converted.
+            </typeparam>
+            <param name="translation">
+            <see cref="T:System.Func`2"/> to convert <typeparamref name="TInput"/> into <typeparamref name="TOutput"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> created.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="translation"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalInto.None``1">
+            <summary>
+            Executes none.
+            </summary>
+            <typeparam name="TSignal">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to convert.
+            </typeparam>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> created.
+            </returns>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.SignalTo">
+            <summary>
+            Defines implementations of <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> with <see cref="T:YggdrAshill.Nuadha.ICalibration`1"/> or <see cref="T:YggdrAshill.Nuadha.IFiltration`1"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalTo.Correct``1(YggdrAshill.Nuadha.ICalibration{``0},YggdrAshill.Nuadha.Conduction.IGeneration{``0})">
+            <summary>
+            Calibrates <typeparamref name="TSignal"/> to correct.
+            </summary>
+            <typeparam name="TSignal">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to correct.
+            </typeparam>
+            <param name="calibration">
+            <see cref="T:YggdrAshill.Nuadha.ICalibration`1"/> to correct.
+            </param>
+            <param name="generation">
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IGeneration`1"/> to generate offset of <typeparamref name="TSignal"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> to correct <typeparamref name="TSignal"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="calibration"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="generation"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalTo.Correct``1(YggdrAshill.Nuadha.IFiltration{``0},YggdrAshill.Nuadha.Conduction.IGeneration{``0})">
+            <summary>
+            Corrects <typeparamref name="TSignal"/> to filtrate.
+            </summary>
+            <typeparam name="TSignal">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to correct.
+            </typeparam>
+            <param name="filtration">
+            <see cref="T:YggdrAshill.Nuadha.IFiltration`1"/> to correct.
+            </param>
+            <param name="generation">
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IGeneration`1"/> to initialize <typeparamref name="TSignal"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> to correct <typeparamref name="TSignal"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="filtration"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="generation"/> is null.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.TransformationExtension">
+            <summary>
+            Defines extensions for Transformation.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.TransformationExtension.Convert``2(YggdrAshill.Nuadha.Signalization.IProduction{``0},System.Func{``0,``1})">
+            <summary>
+            Converts <typeparamref name="TInput"/> into <typeparamref name="TOutput"/>.
+            </summary>
+            <typeparam name="TInput">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to convert.
+            </typeparam>
+            <typeparam name="TOutput">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> converted.
+            </typeparam>
+            <param name="production">
+            <see cref="T:YggdrAshill.Nuadha.Signalization.IProduction`1"/> to send <typeparamref name="TInput"/>.
+            </param>
+            <param name="translation">
+            <see cref="T:System.Func`2"/> to convert <typeparamref name="TInput"/> into <typeparamref name="TOutput"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signalization.IProduction`1"/> to send <typeparamref name="TOutput"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="production"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="translation"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.TransformationExtension.Detect``1(YggdrAshill.Nuadha.Signalization.IProduction{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Detects <see cref="T:YggdrAshill.Nuadha.Transformation.Notice"/> of <typeparamref name="TSignal"/>.
+            </summary>
+            <typeparam name="TSignal">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to detect.
+            </typeparam>
+            <param name="production">
+            <see cref="T:YggdrAshill.Nuadha.Signalization.IProduction`1"/> to send <typeparamref name="TSignal"/>.
+            </param>
+            <param name="condition">
+            <see cref="T:System.Func`2"/> to detect <see cref="T:YggdrAshill.Nuadha.Transformation.Notice"/> of <typeparamref name="TSignal"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signalization.IProduction`1"/> to send <see cref="T:YggdrAshill.Nuadha.Transformation.Notice"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="production"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="condition"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.TransformationExtension.Produce(YggdrAshill.Nuadha.Signalization.IProduction{YggdrAshill.Nuadha.Transformation.Notice},System.Action)">
+            <summary>
+            Sends <see cref="T:YggdrAshill.Nuadha.Transformation.Notice"/> to <see cref="T:System.Action"/>.
+            </summary>
+            <param name="production">
+            <see cref="T:YggdrAshill.Nuadha.Signalization.IProduction`1"/> to send <see cref="T:YggdrAshill.Nuadha.Transformation.Notice"/>.
+            </param>
+            <param name="consumption">
+            <see cref="T:System.Action"/> to receive <see cref="T:YggdrAshill.Nuadha.Transformation.Notice"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signalization.ICancellation"/> to cancel.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="production"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="consumption"/> is null.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Button">
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IButtonHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IButtonSoftware"/>.
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Button.WithoutCache">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Button"/> without cache.
+            </summary>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Button"/> without cache.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Button.WithLatestCache">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Button"/> with latest cache.
+            </summary>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Button"/> with latest cache.
+            </returns>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Button.Hardware">
+            <inheritdoc/>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Button.Software">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Button.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.ButtonExtension">
+            <summary>
+            Defines extensions for <see cref="T:YggdrAshill.Nuadha.Button"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.ButtonExtension.Ignite(YggdrAshill.Nuadha.Button,YggdrAshill.Nuadha.IButtonConfiguration)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Button"/> into <see cref="T:YggdrAshill.Nuadha.Conduction.IIgnition`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IButtonSoftware"/>.
+            </summary>
+            <param name="protocol">
+            <see cref="T:YggdrAshill.Nuadha.Button"/> to convert.
+            </param>
+            <param name="configuration">
+            <see cref="T:YggdrAshill.Nuadha.IButtonConfiguration"/> to ignite.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IIgnition`1"/> to ignite <see cref="T:YggdrAshill.Nuadha.Units.IButtonSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="protocol"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="configuration"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.ButtonExtension.Convert(YggdrAshill.Nuadha.Units.IButtonHardware)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IButtonHardware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedButtonSoftware"/>.
+            </summary>
+            <param name="module">
+            <see cref="T:YggdrAshill.Nuadha.Units.IButtonHardware"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> to connect <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedButtonSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="module"/> is null.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.PulsatedButton">
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedButtonHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedButtonSoftware"/>.
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PulsatedButton.WithoutCache">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.PulsatedButton"/> without cache.
+            </summary>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.PulsatedButton"/> without cache.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PulsatedButton.WithLatestCache">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.PulsatedButton"/> with latest cache.
+            </summary>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.PulsatedButton"/> with latest cache.
+            </returns>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.PulsatedButton.Hardware">
+            <inheritdoc/>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.PulsatedButton.Software">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PulsatedButton.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.HandController">
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerSoftware"/>.
+        </member>
+        <member name="M:YggdrAshill.Nuadha.HandController.WithoutCache">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.HandController"/> without cache.
+            </summary>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.HandController"/> without cache.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.HandController.WithLatestCache">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.HandController"/> with latest cache.
+            </summary>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.HandController"/> with latest cache.
+            </returns>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.HandController.Hardware">
+            <inheritdoc/>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.HandController.Software">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.HandController.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.HandControllerExtension">
+            <summary>
+            Defines extensions for <see cref="T:YggdrAshill.Nuadha.HandController"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.HandControllerExtension.Ignite(YggdrAshill.Nuadha.HandController,YggdrAshill.Nuadha.IHandControllerConfiguration)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.HandController"/> into <see cref="T:YggdrAshill.Nuadha.Conduction.IIgnition`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerSoftware"/>.
+            </summary>
+            <param name="protocol">
+            <see cref="T:YggdrAshill.Nuadha.HandController"/> to convert.
+            </param>
+            <param name="configuration">
+            <see cref="T:YggdrAshill.Nuadha.IHandControllerConfiguration"/> to ignite.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IIgnition`1"/> to ignite <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="protocol"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="configuration"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.HandControllerExtension.Convert(YggdrAshill.Nuadha.Units.IHandControllerHardware,YggdrAshill.Nuadha.HandControllerThreshold)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerHardware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerSoftware"/>.
+            </summary>
+            <param name="module">
+            <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerHardware"/> to convert.
+            </param>
+            <param name="threshold">
+            <see cref="T:YggdrAshill.Nuadha.HandControllerThreshold"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> to connect <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="module"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="threshold"/> is null.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.HandControllerThreshold">
+            <summary>
+            Threshold to convert HandController into PulsatedHandController.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.HandControllerThreshold.Thumb">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.TiltThreshold"/> for <see cref="P:YggdrAshill.Nuadha.HandControllerThreshold.Thumb"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.HandControllerThreshold.IndexFinger">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.TiltThreshold"/> for <see cref="P:YggdrAshill.Nuadha.HandControllerThreshold.IndexFinger"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.HandControllerThreshold.HandGrip">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.TiltThreshold"/> for <see cref="P:YggdrAshill.Nuadha.HandControllerThreshold.HandGrip"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.HandControllerThreshold.#ctor(YggdrAshill.Nuadha.TiltThreshold,YggdrAshill.Nuadha.HysteresisThreshold,YggdrAshill.Nuadha.HysteresisThreshold)">
+            <summary>
+            Constructs instance.
+            </summary>
+            <param name="thumb">
+            <see cref="T:YggdrAshill.Nuadha.TiltThreshold"/> for <see cref="P:YggdrAshill.Nuadha.HandControllerThreshold.Thumb"/>.
+            </param>
+            <param name="indexFinger">
+            <see cref="T:YggdrAshill.Nuadha.TiltThreshold"/> for <see cref="P:YggdrAshill.Nuadha.HandControllerThreshold.IndexFinger"/>.
+            </param>
+            <param name="handGrip">
+            <see cref="T:YggdrAshill.Nuadha.TiltThreshold"/> for <see cref="P:YggdrAshill.Nuadha.HandControllerThreshold.HandGrip"/>.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="thumb"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="indexFinger"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="handGrip"/> is null.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.PulsatedHandController">
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerSoftware"/>.
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PulsatedHandController.WithoutCache">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.PulsatedHandController"/> without cache.
+            </summary>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.PulsatedHandController"/> without cache.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PulsatedHandController.WithLatestCache">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.PulsatedHandController"/> with latest cache.
+            </summary>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.PulsatedHandController"/> with latest cache.
+            </returns>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.PulsatedHandController.Hardware">
+            <inheritdoc/>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.PulsatedHandController.Software">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PulsatedHandController.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.HeadTracker">
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerSoftware"/>.
+        </member>
+        <member name="M:YggdrAshill.Nuadha.HeadTracker.WithoutCache">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.HeadTracker"/> without cache.
+            </summary>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.HeadTracker"/> without cache.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.HeadTracker.WithLatestCache">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.HeadTracker"/> with latest cache.
+            </summary>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.HeadTracker"/> with latest cache.
+            </returns>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.HeadTracker.Hardware">
+            <inheritdoc/>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.HeadTracker.Software">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.HeadTracker.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.HeadTrackerExtension">
+            <summary>
+            Defines extensions for <see cref="T:YggdrAshill.Nuadha.HeadTracker"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.HeadTrackerExtension.Ignite(YggdrAshill.Nuadha.HeadTracker,YggdrAshill.Nuadha.IHeadTrackerConfiguration)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.HeadTracker"/> into <see cref="T:YggdrAshill.Nuadha.Conduction.IIgnition`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerSoftware"/>.
+            </summary>
+            <param name="protocol">
+            <see cref="T:YggdrAshill.Nuadha.HeadTracker"/> to convert.
+            </param>
+            <param name="configuration">
+            <see cref="T:YggdrAshill.Nuadha.IHeadTrackerConfiguration"/> to ignite.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IIgnition`1"/> to ignite <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="protocol"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="configuration"/> is null.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.PoseTracker">
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware"/>.
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PoseTracker.WithoutCache">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.PoseTracker"/> without cache.
+            </summary>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.PoseTracker"/> without cache.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PoseTracker.WithLatestCache">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.PoseTracker"/> with latest cache.
+            </summary>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.PoseTracker"/> with latest cache.
+            </returns>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.PoseTracker.Hardware">
+            <inheritdoc/>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.PoseTracker.Software">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PoseTracker.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.PoseTrackerExtension">
+            <summary>
+            Defines extensions for <see cref="T:YggdrAshill.Nuadha.PoseTracker"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PoseTrackerExtension.Ignite(YggdrAshill.Nuadha.PoseTracker,YggdrAshill.Nuadha.IPoseTrackerConfiguration)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.PoseTracker"/> into <see cref="T:YggdrAshill.Nuadha.Conduction.IIgnition`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware"/>.
+            </summary>
+            <param name="protocol">
+            <see cref="T:YggdrAshill.Nuadha.PoseTracker"/> to convert.
+            </param>
+            <param name="configuration">
+            <see cref="T:YggdrAshill.Nuadha.IPoseTrackerConfiguration"/> to ignite.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IIgnition`1"/> to ignite <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="protocol"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="configuration"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PoseTrackerExtension.Convert(YggdrAshill.Nuadha.Units.IPoseTrackerHardware,YggdrAshill.Nuadha.IPoseTrackerConfiguration)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerHardware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware"/>.
+            </summary>
+            <param name="module">
+            <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerHardware"/> to convert.
+            </param>
+            <param name="configuration">
+            <see cref="T:YggdrAshill.Nuadha.IPoseTrackerConfiguration"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> to connect <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="module"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="configuration"/> is null.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.PulsatedTilt">
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware"/>.
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PulsatedTilt.WithoutCache">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.PulsatedTilt"/> without cache.
+            </summary>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.PulsatedTilt"/> without cache.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PulsatedTilt.WithLatestCache">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.PulsatedTilt"/> with latest cache.
+            </summary>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.PulsatedTilt"/> with latest cache.
+            </returns>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.PulsatedTilt.Hardware">
+            <inheritdoc/>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.PulsatedTilt.Software">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PulsatedTilt.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.PulsatedTiltExtension">
+            <summary>
+            Defines extensions for <see cref="T:YggdrAshill.Nuadha.PulsatedTilt"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PulsatedTiltExtension.Convert(YggdrAshill.Nuadha.Signalization.IProduction{YggdrAshill.Nuadha.Signals.Tilt},YggdrAshill.Nuadha.TiltThreshold)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signalization.IProduction`1"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware"/>.
+            </summary>
+            <param name="production">
+            <see cref="T:YggdrAshill.Nuadha.Signalization.IProduction`1"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/> to convert.
+            </param>
+            <param name="threshold">
+            <see cref="T:YggdrAshill.Nuadha.TiltThreshold"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> to connect <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="production"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="threshold"/> is null.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.TiltThreshold">
+            <summary>
+            Threshold to convert <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/> into <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.TiltThreshold.Distance">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Distance"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.TiltThreshold.Left">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Left"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.TiltThreshold.Right">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Right"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.TiltThreshold.Forward">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Upward"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.TiltThreshold.Backward">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Downward"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.TiltThreshold.#ctor(YggdrAshill.Nuadha.HysteresisThreshold,YggdrAshill.Nuadha.HysteresisThreshold,YggdrAshill.Nuadha.HysteresisThreshold,YggdrAshill.Nuadha.HysteresisThreshold,YggdrAshill.Nuadha.HysteresisThreshold)">
+            <summary>
+            Constructs instance.
+            </summary>
+            <param name="distance">
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Distance"/>.
+            </param>
+            <param name="left">
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Left"/>.
+            </param>
+            <param name="right">
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Right"/>.
+            </param>
+            <param name="forward">
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Upward"/>.
+            </param>
+            <param name="backward">
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Downward"/>.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="distance"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="left"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="right"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="forward"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="backward"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.TiltThreshold.#ctor(YggdrAshill.Nuadha.HysteresisThreshold)">
+            <summary>
+            Constructs instance.
+            </summary>
+            <param name="threshold">
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> for all.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="threshold"/> is null.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.PulsatedStick">
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickSoftware"/>.
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PulsatedStick.WithoutCache">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.PulsatedStick"/> without cache.
+            </summary>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.PulsatedStick"/> without cache.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PulsatedStick.WithLatestCache">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.PulsatedStick"/> with latest cache.
+            </summary>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.PulsatedStick"/> with latest cache.
+            </returns>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.PulsatedStick.Hardware">
+            <inheritdoc/>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.PulsatedStick.Software">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PulsatedStick.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Stick">
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IStickHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IStickHardware"/>.
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Stick.WithoutCache">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Stick"/> without cache.
+            </summary>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Stick"/> without cache.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Stick.WithLatestCache">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Stick"/> with latest cache.
+            </summary>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Stick"/> with latest cache.
+            </returns>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Stick.Hardware">
+            <inheritdoc/>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Stick.Software">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Stick.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.StickExtension">
+            <summary>
+            Defines extensions for <see cref="T:YggdrAshill.Nuadha.Stick"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.StickExtension.Ignite(YggdrAshill.Nuadha.Stick,YggdrAshill.Nuadha.IStickConfiguration)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Stick"/> into <see cref="T:YggdrAshill.Nuadha.Conduction.IIgnition`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IStickSoftware"/>.
+            </summary>
+            <param name="protocol">
+            <see cref="T:YggdrAshill.Nuadha.Stick"/> to convert.
+            </param>
+            <param name="configuration">
+            <see cref="T:YggdrAshill.Nuadha.IStickConfiguration"/> to ignite.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IIgnition`1"/> to ignite <see cref="T:YggdrAshill.Nuadha.Units.IStickSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="protocol"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="configuration"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.StickExtension.Convert(YggdrAshill.Nuadha.Units.IStickHardware,YggdrAshill.Nuadha.TiltThreshold)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IStickHardware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickSoftware"/>.
+            </summary>
+            <param name="module">
+            <see cref="T:YggdrAshill.Nuadha.Units.IStickHardware"/> to convert.
+            </param>
+            <param name="threshold">
+            <see cref="T:YggdrAshill.Nuadha.TiltThreshold"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> to connect <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="module"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="threshold"/> is null.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.PulsatedTrigger">
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerSoftware"/>.
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PulsatedTrigger.WithoutCache">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.PulsatedTrigger"/> without cache.
+            </summary>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.PulsatedTrigger"/> without cache.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PulsatedTrigger.WithLatestCache">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.PulsatedTrigger"/> with latest cache.
+            </summary>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.PulsatedTrigger"/> with latest cache.
+            </returns>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.PulsatedTrigger.Hardware">
+            <inheritdoc/>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.PulsatedTrigger.Software">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PulsatedTrigger.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Trigger">
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.ITriggerHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.ITriggerSoftware"/>.
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Trigger.WithoutCache">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Trigger"/> without cache.
+            </summary>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Trigger"/> without cache.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Trigger.WithLatestCache">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Trigger"/> with latest cache.
+            </summary>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Trigger"/> with latest cache.
+            </returns>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Trigger.Hardware">
+            <inheritdoc/>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Trigger.Software">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Trigger.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.TriggerExtension">
+            <summary>
+            Defines extensions for <see cref="T:YggdrAshill.Nuadha.Trigger"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.TriggerExtension.Ignite(YggdrAshill.Nuadha.Trigger,YggdrAshill.Nuadha.ITriggerConfiguration)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Trigger"/> into <see cref="T:YggdrAshill.Nuadha.Conduction.IIgnition`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.ITriggerSoftware"/>.
+            </summary>
+            <param name="protocol">
+            <see cref="T:YggdrAshill.Nuadha.Trigger"/> to convert.
+            </param>
+            <param name="configuration">
+            <see cref="T:YggdrAshill.Nuadha.ITriggerConfiguration"/> to ignite.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IIgnition`1"/> to ignite <see cref="T:YggdrAshill.Nuadha.Units.ITriggerSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="protocol"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="configuration"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.TriggerExtension.Convert(YggdrAshill.Nuadha.Units.ITriggerHardware,YggdrAshill.Nuadha.HysteresisThreshold)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.ITriggerHardware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerSoftware"/>.
+            </summary>
+            <param name="module">
+            <see cref="T:YggdrAshill.Nuadha.Units.ITriggerHardware"/> to convert.
+            </param>
+            <param name="threshold">
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> to connect <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="module"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="threshold"/> is null.
+            </exception>
+        </member>
+    </members>
+</doc>
