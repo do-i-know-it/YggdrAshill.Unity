@@ -1005,6 +1005,11 @@
             <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Direction.Maximum"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Horizontal"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Vertical"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Frontal"/>.
             </summary>
         </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Tolerance">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Tolerance"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Direction"/>.
+            </summary>
+        </member>
         <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Right">
             <summary>
             <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Right"/> in the coordinate.
@@ -1077,14 +1082,17 @@
             <exception cref="T:System.ArgumentException">
             Thrown if <paramref name="frontal"/> is <see cref="F:System.Single.NaN"/>.
             </exception>
-            <exception cref="T:System.ArgumentException">
-            Thrown if <paramref name="horizontal"/> out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Direction.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Direction.Maximum"/>.
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="horizontal"/> is out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Direction.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Direction.Maximum"/>.
             </exception>
-            <exception cref="T:System.ArgumentException">
-            Thrown if <paramref name="vertical"/> out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Direction.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Direction.Maximum"/>.
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="vertical"/> is  out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Direction.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Direction.Maximum"/>.
             </exception>
-            <exception cref="T:System.ArgumentException">
-            Thrown if <paramref name="frontal"/> out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Direction.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Direction.Maximum"/>.
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="frontal"/> is out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Direction.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Direction.Maximum"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="horizontal"/>^2 + <paramref name="vertical"/>^2 + <paramref name="frontal"/>^2 is larger than <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Tolerance"/>.
             </exception>
         </member>
         <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Direction.RotationFrom(YggdrAshill.Nuadha.Signals.Space3D.Direction)">
@@ -1158,6 +1166,21 @@
             Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Space3D"/>.
             </summary>
         </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Minimum">
+            <summary>
+            <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Minimum"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Horizontal"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Vertical"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Frontal"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Real"/>.
+            </summary>
+        </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Maximum">
+            <summary>
+            <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Maximum"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Horizontal"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Vertical"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Frontal"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Real"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Tolerance">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Tolerance"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/>.
+            </summary>
+        </member>
         <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.None">
             <summary>
             <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> not rotated.
@@ -1210,6 +1233,21 @@
             </exception>
             <exception cref="T:System.ArgumentException">
             Thrown if <paramref name="real"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="horizontal"/> is out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Maximum"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="vertical"/> is  out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Maximum"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="frontal"/> is out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Maximum"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="real"/> is out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Maximum"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="horizontal"/>^2 + <paramref name="vertical"/>^2 + <paramref name="frontal"/>^2 + <paramref name="real"/>^2 is larger than <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Tolerance"/>.
             </exception>
         </member>
         <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Rotation.ToString">
