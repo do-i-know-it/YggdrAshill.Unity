@@ -1,0 +1,398 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>YggdrAshill.Nuadha.Units</name>
+    </assembly>
+    <members>
+        <member name="T:YggdrAshill.Nuadha.Units.IButtonHardware">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for button as hardware.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IButtonHardware.Touch">
+            <summary>
+            Sends <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to software.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IButtonHardware.Push">
+            <summary>
+            Sends <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to software.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IButtonSoftware">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for button as software.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IButtonSoftware.Touch">
+            <summary>
+            Receives <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> sent from hardware.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IButtonSoftware.Push">
+            <summary>
+            Receives <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> sent from hardware.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IPulsatedButtonHardware">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for pulsated button as hardware.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedButtonHardware.Touch">
+            <summary>
+            Sends <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to software.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedButtonHardware.Push">
+            <summary>
+            Sends <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to software.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IPulsatedButtonSoftware">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for pulsated button as software.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedButtonSoftware.Touch">
+            <summary>
+            Receives <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> sent from hardware.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedButtonSoftware.Push">
+            <summary>
+            Receives <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> sent from hardware.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IHandControllerHardware">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for hand controller as hardware.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IHandControllerHardware.Pose">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerHardware"/> of hand controler.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IHandControllerHardware.Thumb">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.IStickHardware"/> of hand controler.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IHandControllerHardware.IndexFinger">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.ITriggerHardware"/> of hand controler.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IHandControllerHardware.HandGrip">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.ITriggerHardware"/> of hand controler.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IHandControllerSoftware">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for hand controller as software.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IHandControllerSoftware.Pose">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware"/> of hand controller.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IHandControllerSoftware.Thumb">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.IStickSoftware"/> of hand controller.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IHandControllerSoftware.IndexFinger">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.ITriggerSoftware"/> of hand controller.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IHandControllerSoftware.HandGrip">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.ITriggerSoftware"/> of hand controller.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerHardware">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for pulsated hand controller as hardware.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedHandControllerHardware.Thumb">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickHardware"/> of hand controler.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedHandControllerHardware.IndexFinger">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerHardware"/> of hand controler.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedHandControllerHardware.HandGrip">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerHardware"/> of hand controler.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerSoftware">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for pulsated hand controller as software.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedHandControllerSoftware.Thumb">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickSoftware"/> of hand controler.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedHandControllerSoftware.IndexFinger">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerSoftware"/> of hand controler.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedHandControllerSoftware.HandGrip">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerSoftware"/> of hand controler.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IHeadTrackerHardware">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for head tracker as hardware.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IHeadTrackerHardware.Pose">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware"/> of head tracker.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IHeadTrackerHardware.Direction">
+            <summary>
+            Sends <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Direction"/> to software.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IHeadTrackerSoftware">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for head tracker as software.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IHeadTrackerSoftware.Pose">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware"/> of head tracker.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IHeadTrackerSoftware.Direction">
+            <summary>
+            Receives <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Direction"/> sent from hardware.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IPoseTrackerHardware">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for pose tracker as hardware.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPoseTrackerHardware.Position">
+            <summary>
+            Sends <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/> to software.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPoseTrackerHardware.Rotation">
+            <summary>
+            Sends <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> to software.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for pose tracker as software.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware.Position">
+            <summary>
+            Receives <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/> sent from hardware.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware.Rotation">
+            <summary>
+            Receives <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> sent from hardware.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IPulsatedTiltHardware">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for pulsated <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/> as hardware.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTiltHardware.Distance">
+            <summary>
+            Sends <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Distance"/> to software.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTiltHardware.Left">
+            <summary>
+            Sends <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Left"/> to software.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTiltHardware.Right">
+            <summary>
+            Sends <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Right"/> to software.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTiltHardware.Forward">
+            <summary>
+            Sends <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Upward"/> to software.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTiltHardware.Backward">
+            <summary>
+            Sends <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Downward"/> to software.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for pulsated <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/> as software.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware.Distance">
+            <summary>
+            Receives <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Distance"/> sent from hardware.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware.Left">
+            <summary>
+            Receives <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Left"/> sent from hardware.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware.Right">
+            <summary>
+            Receives <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Right"/> sent from hardware.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware.Forward">
+            <summary>
+            Receives <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Upward"/> sent from hardware.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware.Backward">
+            <summary>
+            Receives <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Downward"/> sent from hardware.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IPulsatedStickHardware">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for pulsated stick as hardware.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedStickHardware.Touch">
+            <summary>
+            Sends <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to software.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedStickHardware.Tilt">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltHardware"/> of stick.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IPulsatedStickSoftware">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for pulsated stick as software.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedStickSoftware.Touch">
+            <summary>
+            Receives <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> sent from hardware.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedStickSoftware.Tilt">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware"/> of stick.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IStickHardware">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for stick as hardware.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IStickHardware.Touch">
+            <summary>
+            Sends <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to software.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IStickHardware.Tilt">
+            <summary>
+            Sends <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/> to software.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IStickSoftware">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for stick as software.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IStickSoftware.Touch">
+            <summary>
+            Receives <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> sent from hardware.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IStickSoftware.Tilt">
+            <summary>
+            Receives <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/> sent from hardware.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerHardware">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for pulsated trigger as hardware.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTriggerHardware.Touch">
+            <summary>
+            Sends <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to software.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTriggerHardware.Pull">
+            <summary>
+            Sends <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> to software.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerSoftware">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for pulsated trigger as software.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTriggerSoftware.Touch">
+            <summary>
+            Receives <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> sent from hardware.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTriggerSoftware.Pull">
+            <summary>
+            Receives <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> sent from hardware.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.ITriggerHardware">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for trigger as hardware.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.ITriggerHardware.Touch">
+            <summary>
+            Sends <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to software.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.ITriggerHardware.Pull">
+            <summary>
+            Sends <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> to software.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.ITriggerSoftware">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for trigger as software.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.ITriggerSoftware.Touch">
+            <summary>
+            Receives <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> sent from hardware.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.ITriggerSoftware.Pull">
+            <summary>
+            Receives <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> sent from hardware.
+            </summary>
+        </member>
+    </members>
+</doc>

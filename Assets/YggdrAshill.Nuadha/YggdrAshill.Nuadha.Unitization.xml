@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>YggdrAshill.Nuadha.Unitization</name>
+    </assembly>
+    <members>
+        <member name="T:YggdrAshill.Nuadha.Unitization.IConnection`1">
+            <summary>
+            Connects <typeparamref name="TModule"/>.
+            </summary>
+            <typeparam name="TModule">
+            Type of <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> to connect.
+            </typeparam>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Unitization.IConnection`1.Connect(`0)">
+            <summary>
+            Connects <typeparamref name="TModule"/>.
+            </summary>
+            <param name="module">
+            <typeparamref name="TModule"/> to connect.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signalization.ICancellation"/> to cancel.
+            </returns>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Unitization.IModule">
+            <summary>
+            Defines device or system.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Unitization.IProtocol`2">
+            <summary>
+            Defines hardware <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> and software <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/>.
+            </summary>
+            <typeparam name="THardware">
+            Type of <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for hardware.
+            </typeparam>
+            <typeparam name="TSoftware">
+            Type of <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for software.
+            </typeparam>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Unitization.IProtocol`2.Hardware">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for hardware.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Unitization.IProtocol`2.Software">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for software.
+            </summary>
+        </member>
+    </members>
+</doc>
