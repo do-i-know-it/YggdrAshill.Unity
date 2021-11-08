@@ -29,7 +29,7 @@ namespace YggdrAshill.Nuadha.Unity.Specification
                 consumed = signal;
             });
 
-            var generation = GenerateSpace3D.Position(() => expected);
+            var generation = GenerateSpace3D.Position(expected);
 
             var transmission = Propagate.WithoutCache<Space3D.Position>().Transmit(generation);
 
@@ -111,7 +111,7 @@ namespace YggdrAshill.Nuadha.Unity.Specification
                 consumed = signal;
             });
 
-            var generation = GenerateSpace3D.Direction(() => expected);
+            var generation = GenerateSpace3D.Direction(expected);
 
             var transmission = Propagate.WithoutCache<Space3D.Direction>().Transmit(generation);
 
@@ -139,7 +139,7 @@ namespace YggdrAshill.Nuadha.Unity.Specification
                 consumed = signal;
             });
 
-            var generation = GenerateSpace3D.Rotation(() => expected);
+            var generation = GenerateSpace3D.Rotation(expected);
 
             var transmission = Propagate.WithoutCache<Space3D.Rotation>().Transmit(generation);
 

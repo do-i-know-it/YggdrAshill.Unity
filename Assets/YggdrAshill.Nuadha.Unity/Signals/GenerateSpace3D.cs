@@ -13,7 +13,7 @@ namespace YggdrAshill.Nuadha.Unity
         #region Position
 
         /// <summary>
-        /// Executes <see cref="Func{TResult}"/> to generate <see cref="Space3D.Position"/> from <see cref="Vector3"/>.
+        /// Generates <see cref="Space3D.Position"/> from <see cref="Vector3"/>.
         /// </summary>
         /// <param name="generation">
         /// <see cref="Func{TResult}"/> to generate <see cref="Vector3"/>.
@@ -35,6 +35,20 @@ namespace YggdrAshill.Nuadha.Unity
             {
                 return generation.Invoke().ToPosition();
             });
+        }
+
+        /// <summary>
+        /// Generates <see cref="Space3D.Position"/> from <see cref="Vector3"/>.
+        /// </summary>
+        /// <param name="signal">
+        /// <see cref="Vector3"/> to generate.
+        /// </param>
+        /// <returns>
+        /// <see cref="IGeneration{TSignal}"/> to generate <see cref="Space3D.Position"/>.
+        /// </returns>
+        public static IGeneration<Space3D.Position> Position(Vector3 signal)
+        {
+            return Position(() => signal);
         }
 
         /// <summary>
@@ -171,7 +185,7 @@ namespace YggdrAshill.Nuadha.Unity
         #region Direction
 
         /// <summary>
-        /// Executes <see cref="Func{TResult}"/> to generate <see cref="Space3D.Direction"/> from <see cref="Vector3"/>.
+        /// Generates <see cref="Space3D.Direction"/> from <see cref="Vector3"/>.
         /// </summary>
         /// <param name="generation">
         /// <see cref="Func{TResult}"/> to generate <see cref="Vector3"/>.
@@ -193,6 +207,20 @@ namespace YggdrAshill.Nuadha.Unity
             {
                 return generation.Invoke().ToDirection();
             });
+        }
+
+        /// <summary>
+        /// Generates <see cref="Space3D.Direction"/> from <see cref="Vector3"/>.
+        /// </summary>
+        /// <param name="signal">
+        /// <see cref="Vector3"/> to generate.
+        /// </param>
+        /// <returns>
+        /// <see cref="IGeneration{TSignal}"/> to generate <see cref="Space3D.Direction"/>.
+        /// </returns>
+        public static IGeneration<Space3D.Direction> Direction(Vector3 signal)
+        {
+            return Direction(() => signal);
         }
 
         /// <summary>
@@ -329,7 +357,7 @@ namespace YggdrAshill.Nuadha.Unity
         #region Rotation
 
         /// <summary>
-        /// Executes <see cref="Func{TResult}"/> to generate <see cref="Space3D.Rotation"/> from <see cref="Quaternion"/>.
+        /// Generates <see cref="Space3D.Rotation"/> from <see cref="Quaternion"/>.
         /// </summary>
         /// <param name="generation">
         /// <see cref="Func{TResult}"/> to generate <see cref="Quaternion"/>.
@@ -351,6 +379,20 @@ namespace YggdrAshill.Nuadha.Unity
             {
                 return generation.Invoke().ToRotation();
             });
+        }
+
+        /// <summary>
+        /// Generates <see cref="Space3D.Rotation"/> from <see cref="Quaternion"/>.
+        /// </summary>
+        /// <param name="signal">
+        /// <see cref="Quaternion"/> to generate.
+        /// </param>
+        /// <returns>
+        /// <see cref="IGeneration{TSignal}"/> to generate <see cref="Space3D.Rotation"/>.
+        /// </returns>
+        public static IGeneration<Space3D.Rotation> Rotation(Quaternion signal)
+        {
+            return Rotation(() => signal);
         }
 
         /// <summary>

@@ -13,9 +13,9 @@ namespace YggdrAshill.Nuadha.Unity
         {
             var thumb = SimulatedStick.WASD;
 
-            var indexFinger = SimulatedTrigger.Keyboard(KeyCode.E);
+            var indexFinger = SimulatedTrigger.Keyboard(KeyCode.F);
 
-            var handGrip = SimulatedTrigger.Keyboard(KeyCode.F);
+            var handGrip = SimulatedTrigger.Keyboard(KeyCode.C);
 
             return new SimulatedHandController(pose, thumb, indexFinger, handGrip);
         }
@@ -24,7 +24,7 @@ namespace YggdrAshill.Nuadha.Unity
         {
             var thumb = SimulatedStick.IJKL;
 
-            var indexFinger = SimulatedTrigger.Keyboard(KeyCode.N);
+            var indexFinger = SimulatedTrigger.Keyboard(KeyCode.H);
 
             var handGrip = SimulatedTrigger.Keyboard(KeyCode.M);
 
