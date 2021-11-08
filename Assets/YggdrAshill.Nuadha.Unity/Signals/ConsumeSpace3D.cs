@@ -10,6 +10,8 @@ namespace YggdrAshill.Nuadha.Unity
     /// </summary>
     public static class ConsumeSpace3D
     {
+        #region Position
+
         /// <summary>
         /// Executes <see cref="Action{T}"/> to consume <see cref="Space3D.Position"/> as <see cref="Vector3"/>.
         /// </summary>
@@ -35,6 +37,18 @@ namespace YggdrAshill.Nuadha.Unity
             });
         }
 
+        /// <summary>
+        /// Consumes <see cref="Space3D.Position"/> as absolute position of <see cref="Transform"/>.
+        /// </summary>
+        /// <param name="transform">
+        /// <see cref="Transform"/> for absolute position.
+        /// </param>
+        /// <returns>
+        /// <see cref="IConsumption{TSignal}"/> to consume <see cref="Space3D.Position"/>.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown if <paramref name="transform"/> is null.
+        /// </exception>
         public static IConsumption<Space3D.Position> AbsolutePosition(Transform transform)
         {
             if (transform == null)
@@ -73,6 +87,24 @@ namespace YggdrAshill.Nuadha.Unity
             }
         }
 
+        /// <summary>
+        /// Consumes <see cref="Space3D.Position"/> as relative position of <see cref="Transform"/>.
+        /// </summary>
+        /// <param name="origin">
+        /// <see cref="Transform"/> for origin.
+        /// </param>
+        /// <param name="transform">
+        /// <see cref="Transform"/> for relative position.
+        /// </param>
+        /// <returns>
+        /// <see cref="IConsumption{TSignal}"/> to consume <see cref="Space3D.Position"/>.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown if <paramref name="origin"/> is null.
+        /// </exception>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown if <paramref name="transform"/> is null.
+        /// </exception>
         public static IConsumption<Space3D.Position> RelativePosition(Transform origin, Transform transform)
         {
             if (origin == null)
@@ -132,6 +164,10 @@ namespace YggdrAshill.Nuadha.Unity
             }
         }
 
+        #endregion
+
+        #region Direction
+
         /// <summary>
         /// Executes <see cref="Action{T}"/> to consume <see cref="Space3D.Direction"/> as <see cref="Vector3"/>.
         /// </summary>
@@ -156,6 +192,10 @@ namespace YggdrAshill.Nuadha.Unity
                 consumption.Invoke(signal.ToVector());
             });
         }
+
+        #endregion
+
+        #region Rotation
 
         /// <summary>
         /// Executes <see cref="Action{T}"/> to consume <see cref="Space3D.Rotation"/> as <see cref="Quaternion"/>.
@@ -182,6 +222,18 @@ namespace YggdrAshill.Nuadha.Unity
             });
         }
 
+        /// <summary>
+        /// Consumes <see cref="Space3D.Rotation"/> as absolute rotation of <see cref="Transform"/>.
+        /// </summary>
+        /// <param name="transform">
+        /// <see cref="Transform"/> for absolute rotation.
+        /// </param>
+        /// <returns>
+        /// <see cref="IConsumption{TSignal}"/> to consume <see cref="Space3D.Rotation"/>.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown if <paramref name="transform"/> is null.
+        /// </exception>
         public static IConsumption<Space3D.Rotation> AbsoluteRotation(Transform transform)
         {
             if (transform == null)
@@ -220,6 +272,24 @@ namespace YggdrAshill.Nuadha.Unity
             }
         }
 
+        /// <summary>
+        /// Consumes <see cref="Space3D.Rotation"/> as relative rotation of <see cref="Transform"/>.
+        /// </summary>
+        /// <param name="origin">
+        /// <see cref="Transform"/> for origin.
+        /// </param>
+        /// <param name="transform">
+        /// <see cref="Transform"/> for relative rotation.
+        /// </param>
+        /// <returns>
+        /// <see cref="IConsumption{TSignal}"/> to consume <see cref="Space3D.Rotation"/>.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown if <paramref name="origin"/> is null.
+        /// </exception>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown if <paramref name="transform"/> is null.
+        /// </exception>
         public static IConsumption<Space3D.Rotation> RelativeRotation(Transform origin, Transform transform)
         {
             if (origin == null)
@@ -278,5 +348,7 @@ namespace YggdrAshill.Nuadha.Unity
                 Transform.rotation = signal.ToQuaternion() * Origin.rotation;
             }
         }
+
+        #endregion
     }
 }

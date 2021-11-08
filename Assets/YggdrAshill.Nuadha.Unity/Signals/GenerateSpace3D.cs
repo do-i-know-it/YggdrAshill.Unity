@@ -10,6 +10,8 @@ namespace YggdrAshill.Nuadha.Unity
     /// </summary>
     public static class GenerateSpace3D
     {
+        #region Position
+
         /// <summary>
         /// Executes <see cref="Func{TResult}"/> to generate <see cref="Space3D.Position"/> from <see cref="Vector3"/>.
         /// </summary>
@@ -35,6 +37,18 @@ namespace YggdrAshill.Nuadha.Unity
             });
         }
 
+        /// <summary>
+        /// Generates <see cref="Space3D.Position"/> from absolute position of <see cref="Transform"/>.
+        /// </summary>
+        /// <param name="transform">
+        /// <see cref="Transform"/> for absolute position.
+        /// </param>
+        /// <returns>
+        /// <see cref="IGeneration{TSignal}"/> to generate <see cref="Space3D.Position"/>.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown if <paramref name="transform"/> is null.
+        /// </exception>
         public static IGeneration<Space3D.Position> AbsolutePosition(Transform transform)
         {
             if (transform == null)
@@ -73,6 +87,24 @@ namespace YggdrAshill.Nuadha.Unity
             }
         }
 
+        /// <summary>
+        /// Generates <see cref="Space3D.Position"/> from relative position of <see cref="Transform"/>.
+        /// </summary>
+        /// <param name="origin">
+        /// <see cref="Transform"/> for origin.
+        /// </param>
+        /// <param name="transform">
+        /// <see cref="Transform"/> for relative position.
+        /// </param>
+        /// <returns>
+        /// <see cref="IGeneration{TSignal}"/> to generate <see cref="Space3D.Position"/>.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown if <paramref name="origin"/> is null.
+        /// </exception>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown if <paramref name="transform"/> is null.
+        /// </exception>
         public static IGeneration<Space3D.Position> RelativePosition(Transform origin, Transform transform)
         {
             if (origin == null)
@@ -134,6 +166,10 @@ namespace YggdrAshill.Nuadha.Unity
             }
         }
 
+        #endregion
+
+        #region Direction
+
         /// <summary>
         /// Executes <see cref="Func{TResult}"/> to generate <see cref="Space3D.Direction"/> from <see cref="Vector3"/>.
         /// </summary>
@@ -159,6 +195,18 @@ namespace YggdrAshill.Nuadha.Unity
             });
         }
 
+        /// <summary>
+        /// Generates <see cref="Space3D.Direction"/> from absolute direction of <see cref="Transform"/>.
+        /// </summary>
+        /// <param name="transform">
+        /// <see cref="Transform"/> for absolute direction.
+        /// </param>
+        /// <returns>
+        /// <see cref="IGeneration{TSignal}"/> to generate <see cref="Space3D.Direction"/>.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown if <paramref name="transform"/> is null.
+        /// </exception>
         public static IGeneration<Space3D.Direction> AbsoluteDirection(Transform transform)
         {
             if (transform == null)
@@ -201,6 +249,18 @@ namespace YggdrAshill.Nuadha.Unity
             }
         }
 
+        /// <summary>
+        /// Generates <see cref="Space3D.Direction"/> from relative direction of <see cref="Transform"/>.
+        /// </summary>
+        /// <param name="transform">
+        /// <see cref="Transform"/> for relative direction.
+        /// </param>
+        /// <returns>
+        /// <see cref="IGeneration{TSignal}"/> to generate <see cref="Space3D.Direction"/>.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown if <paramref name="transform"/> is null.
+        /// </exception>
         public static IGeneration<Space3D.Direction> RelativeDirection(Transform origin, Transform transform)
         {
             if (origin == null)
@@ -264,6 +324,10 @@ namespace YggdrAshill.Nuadha.Unity
             }
         }
 
+        #endregion
+
+        #region Rotation
+
         /// <summary>
         /// Executes <see cref="Func{TResult}"/> to generate <see cref="Space3D.Rotation"/> from <see cref="Quaternion"/>.
         /// </summary>
@@ -289,6 +353,18 @@ namespace YggdrAshill.Nuadha.Unity
             });
         }
 
+        /// <summary>
+        /// Generates <see cref="Space3D.Rotation"/> from absolute rotation of <see cref="Transform"/>.
+        /// </summary>
+        /// <param name="transform">
+        /// <see cref="Transform"/> for absolute rotation.
+        /// </param>
+        /// <returns>
+        /// <see cref="IGeneration{TSignal}"/> to generate <see cref="Space3D.Rotation"/>.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown if <paramref name="transform"/> is null.
+        /// </exception>
         public static IGeneration<Space3D.Rotation> AbsoluteRotation(Transform transform)
         {
             if (transform == null)
@@ -327,6 +403,24 @@ namespace YggdrAshill.Nuadha.Unity
             }
         }
 
+        /// <summary>
+        /// Generates <see cref="Space3D.Rotation"/> from relative rotation of <see cref="Transform"/>.
+        /// </summary>
+        /// <param name="origin">
+        /// <see cref="Transform"/> for origin.
+        /// </param>
+        /// <param name="transform">
+        /// <see cref="Transform"/> for relative rotation.
+        /// </param>
+        /// <returns>
+        /// <see cref="IGeneration{TSignal}"/> to generate <see cref="Space3D.Rotation"/>.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown if <paramref name="origin"/> is null.
+        /// </exception>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown if <paramref name="transform"/> is null.
+        /// </exception>
         public static IGeneration<Space3D.Rotation> RelativeRotation(Transform origin, Transform transform)
         {
             if (origin == null)
@@ -387,5 +481,7 @@ namespace YggdrAshill.Nuadha.Unity
                 return signal.ToRotation();
             }
         }
+
+        #endregion
     }
 }
