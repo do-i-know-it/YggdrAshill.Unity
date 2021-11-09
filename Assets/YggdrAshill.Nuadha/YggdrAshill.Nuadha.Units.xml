@@ -236,12 +236,12 @@
         </member>
         <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTiltHardware.Forward">
             <summary>
-            Sends <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Upward"/> to software.
+            Sends <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Forward"/> to software.
             </summary>
         </member>
         <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTiltHardware.Backward">
             <summary>
-            Sends <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Downward"/> to software.
+            Sends <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Backward"/> to software.
             </summary>
         </member>
         <member name="T:YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware">
@@ -266,12 +266,12 @@
         </member>
         <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware.Forward">
             <summary>
-            Receives <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Upward"/> sent from hardware.
+            Receives <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Forward"/> sent from hardware.
             </summary>
         </member>
         <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware.Backward">
             <summary>
-            Receives <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Downward"/> sent from hardware.
+            Receives <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Backward"/> sent from hardware.
             </summary>
         </member>
         <member name="T:YggdrAshill.Nuadha.Units.IPulsatedStickHardware">

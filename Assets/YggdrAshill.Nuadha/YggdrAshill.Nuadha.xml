@@ -54,9 +54,6 @@
             Thrown if <paramref name="generation"/> is null.
             </exception>
         </member>
-        <member name="M:YggdrAshill.Nuadha.Generate.Generation`1.Generate">
-            <inheritdoc/>
-        </member>
         <member name="M:YggdrAshill.Nuadha.Generate.Signal``1(``0)">
             <summary>
             Generates same <typeparamref name="TSignal"/>.
@@ -95,9 +92,6 @@
             Executes none.
             </summary>
         </member>
-        <member name="M:YggdrAshill.Nuadha.Cancellation.Cancel">
-            <inheritdoc/>
-        </member>
         <member name="T:YggdrAshill.Nuadha.CompositeCancellation">
             <summary>
             Executes each of synthesized <see cref="T:YggdrAshill.Nuadha.Signalization.ICancellation"/> simultaneously.
@@ -130,9 +124,6 @@
             <exception cref="T:System.ArgumentNullException">
             Thrown if <paramref name="consumption"/> is null.
             </exception>
-        </member>
-        <member name="M:YggdrAshill.Nuadha.Consume.Consumption`1.Consume(`0)">
-            <inheritdoc/>
         </member>
         <member name="M:YggdrAshill.Nuadha.Consume.None``1">
             <summary>
@@ -1007,7 +998,9 @@
             </exception>
         </member>
         <member name="T:YggdrAshill.Nuadha.Button">
+            <summary>
             Implementation of <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IButtonHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IButtonSoftware"/>.
+            </summary>
         </member>
         <member name="M:YggdrAshill.Nuadha.Button.WithoutCache">
             <summary>
@@ -1059,7 +1052,7 @@
             Thrown if <paramref name="configuration"/> is null.
             </exception>
         </member>
-        <member name="M:YggdrAshill.Nuadha.ButtonExtension.Convert(YggdrAshill.Nuadha.Units.IButtonHardware)">
+        <member name="M:YggdrAshill.Nuadha.ButtonExtension.Pulsate(YggdrAshill.Nuadha.Units.IButtonHardware)">
             <summary>
             Converts <see cref="T:YggdrAshill.Nuadha.Units.IButtonHardware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedButtonSoftware"/>.
             </summary>
@@ -1073,8 +1066,41 @@
             Thrown if <paramref name="module"/> is null.
             </exception>
         </member>
+        <member name="T:YggdrAshill.Nuadha.IButtonConfiguration">
+            <summary>
+            Defines configuration of <see cref="T:YggdrAshill.Nuadha.Button"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.IButtonConfiguration.Touch">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IGeneration`1"/> to generate <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.IButtonConfiguration.Push">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IGeneration`1"/> to generate <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.ImitatedButton">
+            <summary>
+            Imitation of <see cref="T:YggdrAshill.Nuadha.IButtonConfiguration"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.ImitatedButton.Instance">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.ImitatedButton"/> singleton.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.ImitatedButton.Touch">
+            <inheritdoc/>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.ImitatedButton.Push">
+            <inheritdoc/>
+        </member>
         <member name="T:YggdrAshill.Nuadha.PulsatedButton">
+            <summary>
             Implementation of <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedButtonHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedButtonSoftware"/>.
+            </summary>
         </member>
         <member name="M:YggdrAshill.Nuadha.PulsatedButton.WithoutCache">
             <summary>
@@ -1102,7 +1128,9 @@
             <inheritdoc/>
         </member>
         <member name="T:YggdrAshill.Nuadha.HandController">
+            <summary>
             Implementation of <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerSoftware"/>.
+            </summary>
         </member>
         <member name="M:YggdrAshill.Nuadha.HandController.WithoutCache">
             <summary>
@@ -1154,7 +1182,7 @@
             Thrown if <paramref name="configuration"/> is null.
             </exception>
         </member>
-        <member name="M:YggdrAshill.Nuadha.HandControllerExtension.Convert(YggdrAshill.Nuadha.Units.IHandControllerHardware,YggdrAshill.Nuadha.HandControllerThreshold)">
+        <member name="M:YggdrAshill.Nuadha.HandControllerExtension.Pulsate(YggdrAshill.Nuadha.Units.IHandControllerHardware,YggdrAshill.Nuadha.HandControllerThreshold)">
             <summary>
             Converts <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerHardware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerSoftware"/>.
             </summary>
@@ -1217,8 +1245,57 @@
             Thrown if <paramref name="handGrip"/> is null.
             </exception>
         </member>
+        <member name="T:YggdrAshill.Nuadha.IHandControllerConfiguration">
+            <summary>
+            Defines configuration of <see cref="T:YggdrAshill.Nuadha.HandController"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.IHandControllerConfiguration.Pose">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.IPoseTrackerConfiguration"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.IHandControllerConfiguration.Thumb">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.IStickConfiguration"/> for <see cref="P:YggdrAshill.Nuadha.IHandControllerConfiguration.Thumb"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.IHandControllerConfiguration.IndexFinger">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.ITriggerConfiguration"/> for <see cref="P:YggdrAshill.Nuadha.IHandControllerConfiguration.IndexFinger"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.IHandControllerConfiguration.HandGrip">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.ITriggerConfiguration"/> for <see cref="P:YggdrAshill.Nuadha.IHandControllerConfiguration.HandGrip"/>.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.ImitatedHandController">
+            <summary>
+            Imitation of <see cref="T:YggdrAshill.Nuadha.IHandControllerConfiguration"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.ImitatedHandController.Instance">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.ImitatedHandController"/> singleton.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.ImitatedHandController.Pose">
+            <inheritdoc/>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.ImitatedHandController.Thumb">
+            <inheritdoc/>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.ImitatedHandController.IndexFinger">
+            <inheritdoc/>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.ImitatedHandController.HandGrip">
+            <inheritdoc/>
+        </member>
         <member name="T:YggdrAshill.Nuadha.PulsatedHandController">
+            <summary>
             Implementation of <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerSoftware"/>.
+            </summary>
         </member>
         <member name="M:YggdrAshill.Nuadha.PulsatedHandController.WithoutCache">
             <summary>
@@ -1246,7 +1323,9 @@
             <inheritdoc/>
         </member>
         <member name="T:YggdrAshill.Nuadha.HeadTracker">
+            <summary>
             Implementation of <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerSoftware"/>.
+            </summary>
         </member>
         <member name="M:YggdrAshill.Nuadha.HeadTracker.WithoutCache">
             <summary>
@@ -1298,8 +1377,72 @@
             Thrown if <paramref name="configuration"/> is null.
             </exception>
         </member>
+        <member name="T:YggdrAshill.Nuadha.IHeadTrackerConfiguration">
+            <summary>
+            Defines configuration of <see cref="T:YggdrAshill.Nuadha.HeadTracker"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.IHeadTrackerConfiguration.Pose">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.IPoseTrackerConfiguration"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.IHeadTrackerConfiguration.Direction">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IGeneration`1"/> to generate <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Direction"/>.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.ImitatedHeadTracker">
+            <summary>
+            Imitation of <see cref="T:YggdrAshill.Nuadha.IHeadTrackerConfiguration"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.ImitatedHeadTracker.Instance">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.ImitatedHeadTracker"/> singleton.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.ImitatedHeadTracker.Pose">
+            <inheritdoc/>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.ImitatedHeadTracker.Direction">
+            <inheritdoc/>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.ImitatedPoseTracker">
+            <summary>
+            Imitation of <see cref="T:YggdrAshill.Nuadha.IPoseTrackerConfiguration"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.ImitatedPoseTracker.Instance">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.ImitatedPoseTracker"/> singleton.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.ImitatedPoseTracker.Position">
+            <inheritdoc/>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.ImitatedPoseTracker.Rotation">
+            <inheritdoc/>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.IPoseTrackerConfiguration">
+            <summary>
+            Defines configuration of <see cref="T:YggdrAshill.Nuadha.PoseTracker"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.IPoseTrackerConfiguration.Position">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IGeneration`1"/> to generate <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.IPoseTrackerConfiguration.Rotation">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IGeneration`1"/> to generate <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/>.
+            </summary>
+        </member>
         <member name="T:YggdrAshill.Nuadha.PoseTracker">
+            <summary>
             Implementation of <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware"/>.
+            </summary>
         </member>
         <member name="M:YggdrAshill.Nuadha.PoseTracker.WithoutCache">
             <summary>
@@ -1351,7 +1494,7 @@
             Thrown if <paramref name="configuration"/> is null.
             </exception>
         </member>
-        <member name="M:YggdrAshill.Nuadha.PoseTrackerExtension.Convert(YggdrAshill.Nuadha.Units.IPoseTrackerHardware,YggdrAshill.Nuadha.IPoseTrackerConfiguration)">
+        <member name="M:YggdrAshill.Nuadha.PoseTrackerExtension.Calibrate(YggdrAshill.Nuadha.Units.IPoseTrackerHardware,YggdrAshill.Nuadha.IPoseTrackerConfiguration)">
             <summary>
             Converts <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerHardware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware"/>.
             </summary>
@@ -1372,7 +1515,9 @@
             </exception>
         </member>
         <member name="T:YggdrAshill.Nuadha.PulsatedTilt">
+            <summary>
             Implementation of <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware"/>.
+            </summary>
         </member>
         <member name="M:YggdrAshill.Nuadha.PulsatedTilt.WithoutCache">
             <summary>
@@ -1404,7 +1549,7 @@
             Defines extensions for <see cref="T:YggdrAshill.Nuadha.PulsatedTilt"/>.
             </summary>
         </member>
-        <member name="M:YggdrAshill.Nuadha.PulsatedTiltExtension.Convert(YggdrAshill.Nuadha.Signalization.IProduction{YggdrAshill.Nuadha.Signals.Tilt},YggdrAshill.Nuadha.TiltThreshold)">
+        <member name="M:YggdrAshill.Nuadha.PulsatedTiltExtension.Pulsate(YggdrAshill.Nuadha.Signalization.IProduction{YggdrAshill.Nuadha.Signals.Tilt},YggdrAshill.Nuadha.TiltThreshold)">
             <summary>
             Converts <see cref="T:YggdrAshill.Nuadha.Signalization.IProduction`1"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware"/>.
             </summary>
@@ -1446,12 +1591,12 @@
         </member>
         <member name="P:YggdrAshill.Nuadha.TiltThreshold.Forward">
             <summary>
-            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Upward"/>.
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Forward"/>.
             </summary>
         </member>
         <member name="P:YggdrAshill.Nuadha.TiltThreshold.Backward">
             <summary>
-            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Downward"/>.
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Backward"/>.
             </summary>
         </member>
         <member name="M:YggdrAshill.Nuadha.TiltThreshold.#ctor(YggdrAshill.Nuadha.HysteresisThreshold,YggdrAshill.Nuadha.HysteresisThreshold,YggdrAshill.Nuadha.HysteresisThreshold,YggdrAshill.Nuadha.HysteresisThreshold,YggdrAshill.Nuadha.HysteresisThreshold)">
@@ -1468,10 +1613,10 @@
             <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Right"/>.
             </param>
             <param name="forward">
-            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Upward"/>.
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Forward"/>.
             </param>
             <param name="backward">
-            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Downward"/>.
+            <see cref="T:YggdrAshill.Nuadha.HysteresisThreshold"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Backward"/>.
             </param>
             <exception cref="T:System.ArgumentNullException">
             Thrown if <paramref name="distance"/> is null.
@@ -1500,8 +1645,41 @@
             Thrown if <paramref name="threshold"/> is null.
             </exception>
         </member>
+        <member name="T:YggdrAshill.Nuadha.ImitatedStick">
+            <summary>
+            Imitation of <see cref="T:YggdrAshill.Nuadha.IStickConfiguration"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.ImitatedStick.Instance">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.ImitatedStick"/> singleton.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.ImitatedStick.Touch">
+            <inheritdoc/>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.ImitatedStick.Tilt">
+            <inheritdoc/>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.IStickConfiguration">
+            <summary>
+            Defines configuration of <see cref="T:YggdrAshill.Nuadha.Stick"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.IStickConfiguration.Touch">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IGeneration`1"/> to generate <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.IStickConfiguration.Tilt">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IGeneration`1"/> to generate <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/>.
+            </summary>
+        </member>
         <member name="T:YggdrAshill.Nuadha.PulsatedStick">
+            <summary>
             Implementation of <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickSoftware"/>.
+            </summary>
         </member>
         <member name="M:YggdrAshill.Nuadha.PulsatedStick.WithoutCache">
             <summary>
@@ -1529,7 +1707,9 @@
             <inheritdoc/>
         </member>
         <member name="T:YggdrAshill.Nuadha.Stick">
+            <summary>
             Implementation of <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IStickHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IStickHardware"/>.
+            </summary>
         </member>
         <member name="M:YggdrAshill.Nuadha.Stick.WithoutCache">
             <summary>
@@ -1581,7 +1761,7 @@
             Thrown if <paramref name="configuration"/> is null.
             </exception>
         </member>
-        <member name="M:YggdrAshill.Nuadha.StickExtension.Convert(YggdrAshill.Nuadha.Units.IStickHardware,YggdrAshill.Nuadha.TiltThreshold)">
+        <member name="M:YggdrAshill.Nuadha.StickExtension.Pulsate(YggdrAshill.Nuadha.Units.IStickHardware,YggdrAshill.Nuadha.TiltThreshold)">
             <summary>
             Converts <see cref="T:YggdrAshill.Nuadha.Units.IStickHardware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickSoftware"/>.
             </summary>
@@ -1601,8 +1781,41 @@
             Thrown if <paramref name="threshold"/> is null.
             </exception>
         </member>
+        <member name="T:YggdrAshill.Nuadha.ImitatedTrigger">
+            <summary>
+            Imitation of <see cref="T:YggdrAshill.Nuadha.ITriggerConfiguration"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.ImitatedTrigger.Instance">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.ImitatedTrigger"/> singleton.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.ImitatedTrigger.Touch">
+            <inheritdoc/>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.ImitatedTrigger.Pull">
+            <inheritdoc/>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.ITriggerConfiguration">
+            <summary>
+            Defines configuration of <see cref="T:YggdrAshill.Nuadha.Trigger"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.ITriggerConfiguration.Touch">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IGeneration`1"/> to generate <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.ITriggerConfiguration.Pull">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IGeneration`1"/> to generate <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
+            </summary>
+        </member>
         <member name="T:YggdrAshill.Nuadha.PulsatedTrigger">
+            <summary>
             Implementation of <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerSoftware"/>.
+            </summary>
         </member>
         <member name="M:YggdrAshill.Nuadha.PulsatedTrigger.WithoutCache">
             <summary>
@@ -1630,7 +1843,9 @@
             <inheritdoc/>
         </member>
         <member name="T:YggdrAshill.Nuadha.Trigger">
+            <summary>
             Implementation of <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.ITriggerHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.ITriggerSoftware"/>.
+            </summary>
         </member>
         <member name="M:YggdrAshill.Nuadha.Trigger.WithoutCache">
             <summary>
@@ -1682,7 +1897,7 @@
             Thrown if <paramref name="configuration"/> is null.
             </exception>
         </member>
-        <member name="M:YggdrAshill.Nuadha.TriggerExtension.Convert(YggdrAshill.Nuadha.Units.ITriggerHardware,YggdrAshill.Nuadha.HysteresisThreshold)">
+        <member name="M:YggdrAshill.Nuadha.TriggerExtension.Pulsate(YggdrAshill.Nuadha.Units.ITriggerHardware,YggdrAshill.Nuadha.HysteresisThreshold)">
             <summary>
             Converts <see cref="T:YggdrAshill.Nuadha.Units.ITriggerHardware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerSoftware"/>.
             </summary>

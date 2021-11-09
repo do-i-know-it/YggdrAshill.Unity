@@ -576,6 +576,21 @@
             Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Direction"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Space2D"/>.
             </summary>
         </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Space2D.Direction.Minimum">
+            <summary>
+            <see cref="F:YggdrAshill.Nuadha.Signals.Space2D.Direction.Minimum"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Horizontal"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Vertical"/>.
+            </summary>
+        </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Space2D.Direction.Maximum">
+            <summary>
+            <see cref="F:YggdrAshill.Nuadha.Signals.Space2D.Direction.Maximum"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Horizontal"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Vertical"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Tolerance">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Tolerance"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Direction"/>.
+            </summary>
+        </member>
         <member name="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Right">
             <summary>
             <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Right"/> in the coordinate.
@@ -626,6 +641,15 @@
             </exception>
             <exception cref="T:System.ArgumentException">
             Thrown if <paramref name="vertical"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="horizontal"/> is out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Space2D.Direction.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Space2D.Direction.Maximum"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="vertical"/> is  out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Space2D.Direction.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Space2D.Direction.Maximum"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="horizontal"/>^2 + <paramref name="vertical"/>^2 is larger than <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Tolerance"/>.
             </exception>
         </member>
         <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Direction.RotationFrom(YggdrAshill.Nuadha.Signals.Space2D.Direction)">
@@ -681,9 +705,34 @@
             Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Space2D"/>.
             </summary>
         </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Minimum">
+            <summary>
+            <see cref="F:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Minimum"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Horizontal"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Vertical"/>.
+            </summary>
+        </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Maximum">
+            <summary>
+            <see cref="F:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Maximum"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Horizontal"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Vertical"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Tolerance">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Tolerance"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/>.
+            </summary>
+        </member>
         <member name="P:YggdrAshill.Nuadha.Signals.Space2D.Rotation.None">
             <summary>
             <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/> not rotated.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Horizontal">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Horizontal"/> of the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Vertical">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Vertical"/> of the coordinate.
             </summary>
         </member>
         <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Rotation.#ctor(System.Single,System.Single)">
@@ -701,6 +750,15 @@
             </exception>
             <exception cref="T:System.ArgumentException">
             Thrown if <paramref name="vertical"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="horizontal"/> is out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Maximum"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="vertical"/> is  out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Maximum"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="horizontal"/>^2 + <paramref name="vertical"/>^2 is larger than <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Tolerance"/>.
             </exception>
         </member>
         <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Rotation.ToString">
@@ -1372,14 +1430,14 @@
             <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Left"/> in the coordinate.
             </summary>
         </member>
-        <member name="P:YggdrAshill.Nuadha.Signals.Tilt.Upward">
+        <member name="P:YggdrAshill.Nuadha.Signals.Tilt.Forward">
             <summary>
-            <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Upward"/> in the coordinate.
+            <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Forward"/> in the coordinate.
             </summary>
         </member>
-        <member name="P:YggdrAshill.Nuadha.Signals.Tilt.Downward">
+        <member name="P:YggdrAshill.Nuadha.Signals.Tilt.Backward">
             <summary>
-            <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Downward"/> in the coordinate.
+            <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Backward"/> in the coordinate.
             </summary>
         </member>
         <member name="P:YggdrAshill.Nuadha.Signals.Tilt.Horizontal">
