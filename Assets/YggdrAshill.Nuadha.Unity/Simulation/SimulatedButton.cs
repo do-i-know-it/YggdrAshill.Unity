@@ -7,88 +7,49 @@ namespace YggdrAshill.Nuadha.Unity
     /// <summary>
     /// Defines implementations for <see cref="IButtonConfiguration"/> simulated using <see cref="Input"/>.
     /// </summary>
-    public static class SimulatedButton
+    public sealed class SimulatedButton :
+        IButtonConfiguration
     {
         /// <summary>
         /// Simulated <see cref="IButtonConfiguration"/> using keyboard.
         /// </summary>
         /// <param name="code">
-        /// <see cref="KeyCode"/> to generate <see cref="Signals.Touch"/> and <see cref="Push"/>.
+        /// <see cref="KeyCode"/> to generate <see cref="Signals.Touch"/> and <see cref="Signals.Push"/>.
         /// </param>
         /// <returns>
         /// <see cref="IButtonConfiguration"/> created.
         /// </returns>
         public static IButtonConfiguration Keyboard(KeyCode code)
         {
-            return new KeyboardButton(code);
-        }
-        private sealed class KeyboardButton :
-            IGeneration<Signals.Touch>,
-            IGeneration<Push>,
-            IButtonConfiguration
-        {
-            private readonly KeyCode code;
-
-            internal KeyboardButton(KeyCode code)
-            {
-                this.code = code;
-            }
-
-            Signals.Touch IGeneration<Signals.Touch>.Generate()
-            {
-                return Input.GetKey(code).ToTouch();
-            }
-
-            Push IGeneration<Push>.Generate()
-            {
-                return Input.GetKey(code).ToPush();
-            }
-
-            public IGeneration<Signals.Touch> Touch => this;
-
-            public IGeneration<Push> Push => this;
+            return new SimulatedButton(Generate.KeyboardTouch(code), Generate.KeyboardPush(code));
         }
 
         /// <summary>
         /// Simulated <see cref="IButtonConfiguration"/> using left button of mouse.
         /// </summary>
-        public static IButtonConfiguration MouseLeftClick { get; } = new MouseButton(0);
+        public static IButtonConfiguration MouseLeftClick { get; } = new SimulatedButton(Generate.MouseLeftTouch, Generate.MouseLeftPush);
 
         /// <summary>
         /// Simulated <see cref="IButtonConfiguration"/> using right button of mouse.
         /// </summary>
-        public static IButtonConfiguration MouseRightClick { get; } = new MouseButton(1);
+        public static IButtonConfiguration MouseRightClick { get; } = new SimulatedButton(Generate.MouseRightTouch, Generate.MouseRightPush);
 
         /// <summary>
         /// Simulated <see cref="IButtonConfiguration"/> using middle button of mouse.
         /// </summary>
-        public static IButtonConfiguration MouseMiddleClick { get; } = new MouseButton(2);
+        public static IButtonConfiguration MouseMiddleClick { get; } = new SimulatedButton(Generate.MouseMiddleTouch, Generate.MouseMiddlePush);
 
-        private sealed class MouseButton :
-            IGeneration<Signals.Touch>,
-            IGeneration<Push>,
-            IButtonConfiguration
+        private SimulatedButton(IGeneration<Signals.Touch> touch, IGeneration<Push> push)
         {
-            private readonly int button;
+            Touch = touch;
 
-            internal MouseButton(int button)
-            {
-                this.button = button;
-            }
-
-            Signals.Touch IGeneration<Signals.Touch>.Generate()
-            {
-                return Input.GetMouseButton(button).ToTouch();
-            }
-
-            Push IGeneration<Push>.Generate()
-            {
-                return Input.GetMouseButton(button).ToPush();
-            }
-
-            public IGeneration<Signals.Touch> Touch => this;
-
-            public IGeneration<Push> Push => this;
+            Push = push;
         }
+
+        /// <inheritdoc/>
+        public IGeneration<Signals.Touch> Touch { get; }
+
+        /// <inheritdoc/>
+        public IGeneration<Push> Push { get; }
     }
 }

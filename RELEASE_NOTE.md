@@ -1,6 +1,4 @@
-# Release notes for version 0.3.0
+# Release notes for version 0.3.1
 
-- Imported `YggdrAshill.Nuadha` 1.0.2.
-- Added Unity extensions for `YggdrAshill.Nuadha`.
-- Added Unity implementations for `YggdrAshill.Nuadha`.
-- Added Unity definition for `YggdrAshill.Unity`.
+- Upgraded Nuadha to version 1.0.3.
+- Modified implementations for Nuadha.
