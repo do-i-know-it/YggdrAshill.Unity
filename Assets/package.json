@@ -1,0 +1,22 @@
+{
+    "name": "com.yggdrashill.unity",
+    "version": "0.3.2",
+    "displayName": "YggdrAshill.Unity",
+    "description": "A Unity extension for YggdrAshill framework.",
+    "unity": "2020.3",
+    "dependencies":
+    {
+    },
+    "keywords":
+    [
+      "YggdrAshill",
+      "XR Framework",
+      "Extension"
+    ],
+    "author":
+    {
+      "name": "know",
+      "email": "do.i.know.it@yggdrashill.com",
+      "url": "https://github.com/do-i-know-it"
+    }
+}
