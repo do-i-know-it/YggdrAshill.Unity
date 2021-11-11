@@ -1,6 +1,6 @@
 {
     "name": "com.yggdrashill.unity",
-    "version": "0.3.2",
+    "version": "0.4.0",
     "displayName": "YggdrAshill.Unity",
     "description": "A Unity extension for YggdrAshill framework.",
     "unity": "2020.3",
