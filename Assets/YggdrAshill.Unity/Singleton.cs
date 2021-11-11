@@ -48,7 +48,7 @@ namespace YggdrAshill.Unity
                 return;
             }
 
-            DestroyImmediate(this);
+            DestroyImmediate(gameObject);
         }
 
         protected virtual void OnDestroy()
