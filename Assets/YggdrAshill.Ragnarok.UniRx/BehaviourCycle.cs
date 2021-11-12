@@ -9,15 +9,14 @@ namespace YggdrAshill.Ragnarok.UniRx
     public abstract class BehaviourCycle : BehaviourSpan
     {
         [SerializeField] private Clock clock;
-        protected Clock Clock => clock;
-
+        
         protected abstract IExecution Execution { get; }
 
         protected override void Awake()
         {
             base.Awake();
 
-            switch (Clock)
+            switch (clock)
             {
                 case Clock.Update:
                     this.UpdateAsObservable()
@@ -35,7 +34,7 @@ namespace YggdrAshill.Ragnarok.UniRx
                         .AddTo(this);
                     break;
                 default:
-                    throw new NotSupportedException(nameof(UniRx.Clock));
+                    throw new NotSupportedException(nameof(Clock));
             }
         }
     }
