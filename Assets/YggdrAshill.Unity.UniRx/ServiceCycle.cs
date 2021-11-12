@@ -1,4 +1,5 @@
 ﻿using YggdrAshill.Ragnarok;
+using YggdrAshill.Ragnarok.Periodization;
 using YggdrAshill.Ragnarok.Construction;
 using System;
 using UnityEngine;
@@ -12,17 +13,23 @@ namespace YggdrAshill.Unity.UniRx
         [SerializeField] private UniRxUpdateClock clock;
         protected UniRxUpdateClock Clock => clock;
 
+        private IOrigination origination;
+
+        private ITermination termination;
+
+        private IExecution execution;
+
         protected abstract IService Configure(IService service);
 
         protected virtual void Awake()
         {
             var cycle = Configure(Service.Default).Build();
 
-            var origination = cycle.Span.Origination;
+            origination = cycle.Span.Origination;
 
-            var termination = cycle.Span.Termination;
+            termination = cycle.Span.Termination;
 
-            var execution = cycle.Execution;
+            execution = cycle.Execution;
 
             this.OnEnableAsObservable()
                 .Subscribe(_ => origination.Originate())
@@ -52,6 +59,15 @@ namespace YggdrAshill.Unity.UniRx
                 default:
                     throw new NotSupportedException(nameof(UniRxUpdateClock));
             }
+        }
+
+        protected virtual void OnDestroy()
+        {
+            origination = null;
+
+            termination = null;
+
+            execution = null;
         }
     }
 }
