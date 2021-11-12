@@ -1,4 +1,4 @@
-﻿namespace YggdrAshill.Ragnarok.UniRx
+﻿namespace YggdrAshill.Unity.UniRx
 {
     public enum Clock
     {

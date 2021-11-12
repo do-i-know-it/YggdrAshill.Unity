@@ -4,7 +4,7 @@ using UnityEngine;
 using UniRx;
 using UniRx.Triggers;
 
-namespace YggdrAshill.Ragnarok.UniRx
+namespace YggdrAshill.Unity.UniRx
 {
     public abstract class BehaviourCycle : BehaviourSpan
     {

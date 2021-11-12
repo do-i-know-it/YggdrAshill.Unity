@@ -1,4 +1,4 @@
-﻿namespace YggdrAshill.Ragnarok.VContainer
+﻿namespace YggdrAshill.Unity.VContainer
 {
     public enum Clock
     {

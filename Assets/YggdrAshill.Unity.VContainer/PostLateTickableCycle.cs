@@ -3,7 +3,7 @@ using System;
 using VContainer;
 using VContainer.Unity;
 
-namespace YggdrAshill.Ragnarok.VContainer
+namespace YggdrAshill.Unity.VContainer
 {
     internal sealed class PostLateTickableCycle :
         IInitializable,
