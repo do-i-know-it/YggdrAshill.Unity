@@ -1,6 +1,6 @@
 ﻿namespace YggdrAshill.Ragnarok.VContainer
 {
-    public enum UpdateCycle
+    public enum Clock
     {
         PreUpdate,
         PostUpdate,

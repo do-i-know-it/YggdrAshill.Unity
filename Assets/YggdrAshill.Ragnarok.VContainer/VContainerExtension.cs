@@ -20,7 +20,7 @@ namespace YggdrAshill.Ragnarok.VContainer
             return builder.RegisterEntryPoint<InitializableSpan>();
         }
         
-        public static RegistrationBuilder RegisterEntryPoint<TCycle>(this IContainerBuilder builder, Lifetime lifetime, UpdateCycle cycle)
+        public static RegistrationBuilder RegisterEntryPoint<TCycle>(this IContainerBuilder builder, Lifetime lifetime, Clock clock)
             where TCycle : ICycle
         {
             if (builder is null)
@@ -30,18 +30,18 @@ namespace YggdrAshill.Ragnarok.VContainer
 
             builder.Register<TCycle>(lifetime).AsImplementedInterfaces();
 
-            switch (cycle)
+            switch (clock)
             {
-                case UpdateCycle.PreUpdate:
+                case Clock.PreUpdate:
                     return builder.RegisterEntryPoint<PreTickableCycle>();
-                case UpdateCycle.PostUpdate:
+                case Clock.PostUpdate:
                     return builder.RegisterEntryPoint<PostTickableCycle>();
-                case UpdateCycle.PreLateUpdate:
+                case Clock.PreLateUpdate:
                     return builder.RegisterEntryPoint<PreLateTickableCycle>();
-                case UpdateCycle.PostLateUpdate:
+                case Clock.PostLateUpdate:
                     return builder.RegisterEntryPoint<PostLateTickableCycle>();
                 default:
-                    throw new NotSupportedException(nameof(UpdateCycle));
+                    throw new NotSupportedException(nameof(Clock));
             }
         }
     }
