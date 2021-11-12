@@ -8,8 +8,9 @@ namespace YggdrAshill.Unity.UniRx
 {
     public abstract class BehaviourCycle : BehaviourSpan
     {
-        [SerializeField] private Clock clock;
-        
+        [SerializeField] private UniRxUpdateClock clock;
+        protected UniRxUpdateClock Clock => clock;
+
         protected abstract IExecution Execution { get; }
 
         protected override void Awake()
@@ -18,23 +19,23 @@ namespace YggdrAshill.Unity.UniRx
 
             switch (clock)
             {
-                case Clock.Update:
+                case UniRxUpdateClock.Update:
                     this.UpdateAsObservable()
                         .Subscribe(_ => Execution.Execute())
                         .AddTo(this);
                     break;
-                case Clock.LateUpdate:
+                case UniRxUpdateClock.LateUpdate:
                     this.LateUpdateAsObservable()
                         .Subscribe(_ => Execution.Execute())
                         .AddTo(this);
                     break;
-                case Clock.FixedUpdate:
+                case UniRxUpdateClock.FixedUpdate:
                     this.FixedUpdateAsObservable()
                         .Subscribe(_ => Execution.Execute())
                         .AddTo(this);
                     break;
                 default:
-                    throw new NotSupportedException(nameof(Clock));
+                    throw new NotSupportedException(nameof(UniRxUpdateClock));
             }
         }
     }

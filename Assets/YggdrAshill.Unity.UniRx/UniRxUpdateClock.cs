@@ -1,6 +1,6 @@
 ﻿namespace YggdrAshill.Unity.UniRx
 {
-    public enum Clock
+    public enum UniRxUpdateClock
     {
         Update,
         LateUpdate,

@@ -20,7 +20,7 @@ namespace YggdrAshill.Unity.VContainer
             return builder.RegisterEntryPoint<InitializableSpan>();
         }
         
-        public static RegistrationBuilder RegisterEntryPoint<TCycle>(this IContainerBuilder builder, Lifetime lifetime, Clock clock)
+        public static RegistrationBuilder RegisterEntryPoint<TCycle>(this IContainerBuilder builder, Lifetime lifetime, VContainerUpdateClock clock)
             where TCycle : ICycle
         {
             if (builder is null)
@@ -32,16 +32,16 @@ namespace YggdrAshill.Unity.VContainer
 
             switch (clock)
             {
-                case Clock.PreUpdate:
+                case VContainerUpdateClock.PreUpdate:
                     return builder.RegisterEntryPoint<PreTickableCycle>();
-                case Clock.PostUpdate:
+                case VContainerUpdateClock.PostUpdate:
                     return builder.RegisterEntryPoint<PostTickableCycle>();
-                case Clock.PreLateUpdate:
+                case VContainerUpdateClock.PreLateUpdate:
                     return builder.RegisterEntryPoint<PreLateTickableCycle>();
-                case Clock.PostLateUpdate:
+                case VContainerUpdateClock.PostLateUpdate:
                     return builder.RegisterEntryPoint<PostLateTickableCycle>();
                 default:
-                    throw new NotSupportedException(nameof(Clock));
+                    throw new NotSupportedException(nameof(VContainerUpdateClock));
             }
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace YggdrAshill.Unity.VContainer
 {
-    public enum Clock
+    public enum VContainerUpdateClock
     {
         PreUpdate,
         PostUpdate,
