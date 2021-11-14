@@ -1,20 +1,23 @@
 # YggdrAshill.Unity
 
-![GitHub](https://img.shields.io/github/license/do-i-know-it/YggdrAshill.Unity)
-![GitHub Release Date](https://img.shields.io/github/release-date/do-i-know-it/YggdrAshill.Unity)
-![GitHub last commit](https://img.shields.io/github/last-commit/do-i-know-it/YggdrAshill.Unity)
+![GitHub](https://img.shields.io/github/license/do-i-know-it/YggdrAshill.Unity)<!-- ![GitHub Release Date](https://img.shields.io/github/release-date/do-i-know-it/YggdrAshill.Unity) -->
 ![GitHub repo size](https://img.shields.io/github/repo-size/do-i-know-it/YggdrAshill.Unity)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/do-i-know-it/YggdrAshill.Unity)
-![GitHub file size in bytes](https://img.shields.io/github/size/do-i-know-it/YggdrAshill.Unity)
 
-YggdrAshill.Unity is a [Unity](https://unity.com/ja) extension for YggdrAshill framework.
+YggdrAshill.Unity is a [Unity](https://unity.com/ja) extension for below.
+
+- [YggdrAshill.Ragnarok](https://github.com/do-i-know-it/YggdrAshill.Ragnarok)
+- [YggdrAshill.Nuadha](https://github.com/do-i-know-it/YggdrAshill.Nuadha)
 
 ## Dependencies
 
-This framework depends on
+This framework also depends on below.
 
-- .NET Standard 2.0.
-- Unity 2020.3.15f1.
+- .NET Standard 2.0
+- [Unity](https://unity.com/ja) 2020.3.x
+- [UniRx](https://github.com/neuecc/UniRx) 7.1.0
+- [UniTask](https://github.com/Cysharp/UniTask) 2.2.5
+- [VContainer](https://github.com/hadashiA/VContainer) 1.9.0
 
 ## Installation
 

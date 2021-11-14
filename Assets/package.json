@@ -1,6 +1,6 @@
 {
     "name": "com.yggdrashill.unity",
-    "version": "0.4.0",
+    "version": "0.5.0",
     "displayName": "YggdrAshill.Unity",
     "description": "A Unity extension for YggdrAshill framework.",
     "unity": "2020.3",
@@ -10,9 +10,14 @@
     "keywords":
     [
       "YggdrAshill",
-      "XR Framework",
-      "Extension"
+      "XR",
+      "framework",
+      "extensions"
     ],
+    "license": "MIT",
+    "documentationUrl": "https://github.com/do-i-know-it/YggdrAshill.Unity/blob/main/README.md",
+    "changelogUrl": "https://github.com/do-i-know-it/YggdrAshill.Unity/releases",
+    "licensesUrl": "https://github.com/do-i-know-it/YggdrAshill.Unity/blob/master/LICENSE.md",
     "author":
     {
       "name": "know",

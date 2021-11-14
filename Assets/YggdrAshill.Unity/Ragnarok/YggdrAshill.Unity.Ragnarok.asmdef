@@ -1,6 +1,6 @@
 {
-    "name": "YggdrAshill.Unity",
-    "rootNamespace": "YggdrAshill.Unity",
+    "name": "YggdrAshill.Unity.Ragnarok",
+    "rootNamespace": "YggdrAshill.Unity.Ragnarok",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

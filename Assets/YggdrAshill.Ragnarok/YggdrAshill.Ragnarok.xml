@@ -1,0 +1,238 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>YggdrAshill.Ragnarok</name>
+    </assembly>
+    <members>
+        <member name="T:YggdrAshill.Ragnarok.ConstructionExtension">
+            <summary>
+            Defines extensions for Construction.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Ragnarok.ConstructionExtension.OnOriginated(YggdrAshill.Ragnarok.Construction.IService,System.Action)">
+            <summary>
+            Adds <see cref="T:System.Action"/> to initialize.
+            </summary>
+            <param name="origination">
+            <see cref="T:System.Action"/> to initialize.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Ragnarok.Construction.IService"/> added <paramref name="origination"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="origination"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Ragnarok.ConstructionExtension.OnTerminated(YggdrAshill.Ragnarok.Construction.IService,System.Action)">
+            <summary>
+            Adds <see cref="T:System.Action"/> to finalize.
+            </summary>
+            <param name="termination">
+            <see cref="T:System.Action"/> to finalize.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Ragnarok.Construction.IService"/> added <paramref name="termination"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="termination"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Ragnarok.ConstructionExtension.InSpan(YggdrAshill.Ragnarok.Construction.IService,System.Action,System.Action)">
+            <summary>
+            Adds <see cref="T:System.Action"/> to initialize and finalize.
+            </summary>
+            <param name="origination">
+            <see cref="T:System.Action"/> to initialize.
+            </param>
+            <param name="termination">
+            <see cref="T:System.Action"/> to finalize.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Ragnarok.Construction.IService"/> added <paramref name="origination"/> and <paramref name="termination"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="origination"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="termination"/> is null.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Ragnarok.Service">
+            <summary>
+            Implementation of <see cref="T:YggdrAshill.Ragnarok.Construction.IService"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Ragnarok.Service.Default">
+            <summary>
+            <see cref="T:YggdrAshill.Ragnarok.Service"/> to initialize, run and finalize nothing.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Ragnarok.Service.Configure(YggdrAshill.Ragnarok.Periodization.IOrigination)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Ragnarok.Service.Configure(YggdrAshill.Ragnarok.Periodization.ITermination)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Ragnarok.Service.Configure(YggdrAshill.Ragnarok.Periodization.IExecution)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Ragnarok.Service.Configure(YggdrAshill.Ragnarok.Periodization.ISpan)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Ragnarok.Service.Build">
+            <inheritdoc/>
+        </member>
+        <member name="T:YggdrAshill.Ragnarok.Execution">
+            <summary>
+            Implementation of <see cref="T:YggdrAshill.Ragnarok.Periodization.IExecution"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Ragnarok.Execution.Of(System.Action)">
+            <summary>
+            Executes <see cref="T:System.Action"/>.
+            </summary>
+            <param name="execution">
+            <see cref="T:System.Action"/> to <see cref="M:YggdrAshill.Ragnarok.Execution.Execute"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Ragnarok.Execution"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="execution"/> is null.
+            </exception>
+        </member>
+        <member name="P:YggdrAshill.Ragnarok.Execution.None">
+            <summary>
+            Executes none.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Ragnarok.Execution.Execute">
+            <inheritdoc/>
+        </member>
+        <member name="T:YggdrAshill.Ragnarok.Origination">
+            <summary>
+            Implementation of <see cref="T:YggdrAshill.Ragnarok.Periodization.IOrigination"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Ragnarok.Origination.Of(System.Action)">
+            <summary>
+            Executes <see cref="T:System.Action"/>.
+            </summary>
+            <param name="origination">
+            <see cref="T:System.Action"/> to <see cref="M:YggdrAshill.Ragnarok.Origination.Originate"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Ragnarok.Origination"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="origination"/> is null.
+            </exception>
+        </member>
+        <member name="P:YggdrAshill.Ragnarok.Origination.None">
+            <summary>
+            Executes none.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Ragnarok.Origination.Originate">
+            <inheritdoc/>
+        </member>
+        <member name="T:YggdrAshill.Ragnarok.PeriodizationExtension">
+            <summary>
+            Defines extensions for Periodization.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Ragnarok.PeriodizationExtension.To(YggdrAshill.Ragnarok.Periodization.IOrigination,System.Action)">
+            <summary>
+            Creates <see cref="T:YggdrAshill.Ragnarok.Periodization.ISpan"/> from <see cref="T:YggdrAshill.Ragnarok.Periodization.IOrigination"/> and <see cref="T:System.Action"/>.
+            </summary>
+            <param name="origination">
+            <see cref="T:YggdrAshill.Ragnarok.Periodization.IOrigination"/> to originate in <see cref="T:YggdrAshill.Ragnarok.Periodization.ISpan"/>.
+            </param>
+            <param name="termination">
+            <see cref="T:System.Action"/> to terminate in <see cref="T:YggdrAshill.Ragnarok.Periodization.ISpan"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Ragnarok.Periodization.ISpan"/> created.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="origination"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="termination"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Ragnarok.PeriodizationExtension.From(YggdrAshill.Ragnarok.Periodization.ITermination,System.Action)">
+            <summary>
+            Creates <see cref="T:YggdrAshill.Ragnarok.Periodization.ISpan"/> from <see cref="T:YggdrAshill.Ragnarok.Periodization.ITermination"/> and <see cref="T:System.Action"/>.
+            </summary>
+            <param name="termination">
+            <see cref="T:YggdrAshill.Ragnarok.Periodization.ITermination"/> to terminate in <see cref="T:YggdrAshill.Ragnarok.Periodization.ISpan"/>.
+            </param>
+            <param name="origination">
+            <see cref="T:System.Action"/> to originate in <see cref="T:YggdrAshill.Ragnarok.Periodization.ISpan"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Ragnarok.Periodization.ISpan"/> created.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="termination"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="origination"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Ragnarok.PeriodizationExtension.Between(YggdrAshill.Ragnarok.Periodization.IExecution,System.Action,System.Action)">
+            <summary>
+            Creates <see cref="T:YggdrAshill.Ragnarok.Periodization.ICycle"/> from <see cref="T:YggdrAshill.Ragnarok.Periodization.IExecution"/>, two <see cref="T:System.Action"/>s.
+            </summary>
+            <param name="execution">
+            <see cref="T:YggdrAshill.Ragnarok.Periodization.IExecution"/> to execute in <see cref="T:YggdrAshill.Ragnarok.Periodization.ICycle"/>.
+            </param>
+            <param name="origination">
+            <see cref="T:System.Action"/> to originate in <see cref="T:YggdrAshill.Ragnarok.Periodization.ICycle"/>.
+            </param>
+            <param name="termination">
+            <see cref="T:System.Action"/> to terminate in <see cref="T:YggdrAshill.Ragnarok.Periodization.ICycle"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Ragnarok.Periodization.ICycle"/> created.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="execution"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="origination"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="termination"/> is null.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Ragnarok.Termination">
+            <summary>
+            Implementation of <see cref="T:YggdrAshill.Ragnarok.Periodization.ITermination"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Ragnarok.Termination.Of(System.Action)">
+            <summary>
+            Executes <see cref="T:System.Action"/>.
+            </summary>
+            <param name="termination">
+            <see cref="T:System.Action"/> to <see cref="M:YggdrAshill.Ragnarok.Termination.Terminate"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Ragnarok.Termination"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="termination"/> is null.
+            </exception>
+        </member>
+        <member name="P:YggdrAshill.Ragnarok.Termination.None">
+            <summary>
+            Executes none.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Ragnarok.Termination.Terminate">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>
