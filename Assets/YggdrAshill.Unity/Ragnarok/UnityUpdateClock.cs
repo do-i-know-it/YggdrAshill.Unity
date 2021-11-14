@@ -1,4 +1,4 @@
-﻿namespace YggdrAshill.Ragnarok.Unity
+namespace YggdrAshill.Unity.Ragnarok
 {
     public enum UnityUpdateClock
     {

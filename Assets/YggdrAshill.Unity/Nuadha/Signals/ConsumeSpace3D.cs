@@ -1,9 +1,10 @@
-﻿using YggdrAshill.Nuadha.Signalization;
+using YggdrAshill.Nuadha;
+using YggdrAshill.Nuadha.Signalization;
 using YggdrAshill.Nuadha.Signals;
 using System;
 using UnityEngine;
 
-namespace YggdrAshill.Nuadha.Unity
+namespace YggdrAshill.Unity.Nuadha
 {
     /// <summary>
     /// Defines implementations of <see cref="IConsumption{TSignal}"/> for Unity.
@@ -31,7 +32,7 @@ namespace YggdrAshill.Nuadha.Unity
                 throw new ArgumentNullException(nameof(consumption));
             }
 
-            return Nuadha.Consume.Signal<Space3D.Position>(signal =>
+            return YggdrAshill.Nuadha.Consume.Signal<Space3D.Position>(signal =>
             {
                 consumption.Invoke(signal.ToVector());
             });
@@ -187,7 +188,7 @@ namespace YggdrAshill.Nuadha.Unity
                 throw new ArgumentNullException(nameof(consumption));
             }
 
-            return Nuadha.Consume.Signal<Space3D.Direction>(signal =>
+            return YggdrAshill.Nuadha.Consume.Signal<Space3D.Direction>(signal =>
             {
                 consumption.Invoke(signal.ToVector());
             });
@@ -216,7 +217,7 @@ namespace YggdrAshill.Nuadha.Unity
                 throw new ArgumentNullException(nameof(consumption));
             }
 
-            return Nuadha.Consume.Signal<Space3D.Rotation>(signal =>
+            return YggdrAshill.Nuadha.Consume.Signal<Space3D.Rotation>(signal =>
             {
                 consumption.Invoke(signal.ToQuaternion());
             });

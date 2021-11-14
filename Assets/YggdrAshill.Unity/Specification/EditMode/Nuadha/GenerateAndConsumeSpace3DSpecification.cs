@@ -1,12 +1,14 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
+using YggdrAshill.Nuadha;
 using YggdrAshill.Nuadha.Conduction;
 using YggdrAshill.Nuadha.Signals;
 using UnityEngine;
+using UnityEngine.TestTools.Utils;
 
-namespace YggdrAshill.Nuadha.Unity.Specification
+namespace YggdrAshill.Unity.Specification
 {
-    [TestFixture(TestOf = typeof(GenerateSpace3D))]
-    [TestFixture(TestOf = typeof(ConsumeSpace3D))]
+    [TestFixture(TestOf = typeof(Nuadha.GenerateSpace3D))]
+    [TestFixture(TestOf = typeof(Nuadha.ConsumeSpace3D))]
     internal class GenerateAndConsumeSpace3DSpecification
     {
         private static object[] TestSuiteForPosition => new[]
@@ -24,12 +26,12 @@ namespace YggdrAshill.Nuadha.Unity.Specification
         public void PositionShouldBeGeneratedAndConsumed(Vector3 expected)
         {
             var consumed = default(Vector3);
-            var consumption = ConsumeSpace3D.Position(signal =>
+            var consumption = Nuadha.ConsumeSpace3D.Position(signal =>
             {
                 consumed = signal;
             });
 
-            var generation = GenerateSpace3D.Position(expected);
+            var generation = Nuadha.GenerateSpace3D.Position(expected);
 
             var transmission = Propagate.WithoutCache<Space3D.Position>().Transmit(generation);
 
@@ -37,7 +39,7 @@ namespace YggdrAshill.Nuadha.Unity.Specification
             {
                 transmission.Emit();
 
-                Assert.AreEqual(expected, consumed);
+                Assert.That(consumed, Is.EqualTo(expected).Using(QuaternionEqualityComparer.Instance));
             }
         }
 
@@ -50,9 +52,9 @@ namespace YggdrAshill.Nuadha.Unity.Specification
             one.transform.position = new Vector3(Random.value, Random.value, Random.value);
             another.transform.position = Vector3.zero;
 
-            var generation = GenerateSpace3D.AbsolutePosition(one.transform);
+            var generation = Nuadha.GenerateSpace3D.AbsolutePosition(one.transform);
 
-            var consumption = ConsumeSpace3D.AbsolutePosition(another.transform);
+            var consumption = Nuadha.ConsumeSpace3D.AbsolutePosition(another.transform);
 
             var transmission = Propagate.WithoutCache<Space3D.Position>().Transmit(generation);
 
@@ -60,7 +62,7 @@ namespace YggdrAshill.Nuadha.Unity.Specification
             {
                 transmission.Emit();
 
-                Assert.AreEqual(one.transform.position, another.transform.position);
+                Assert.That(another.transform.position, Is.EqualTo(one.transform.position).Using(Vector3EqualityComparer.Instance));
             }
         }
 
@@ -78,9 +80,9 @@ namespace YggdrAshill.Nuadha.Unity.Specification
             one.transform.parent = origin.transform;
             another.transform.parent = origin.transform;
 
-            var generation = GenerateSpace3D.RelativePosition(origin.transform, one.transform);
+            var generation = Nuadha.GenerateSpace3D.RelativePosition(origin.transform, one.transform);
 
-            var consumption = ConsumeSpace3D.RelativePosition(origin.transform, another.transform);
+            var consumption = Nuadha.ConsumeSpace3D.RelativePosition(origin.transform, another.transform);
 
             var transmission = Propagate.WithoutCache<Space3D.Position>().Transmit(generation);
 
@@ -88,7 +90,7 @@ namespace YggdrAshill.Nuadha.Unity.Specification
             {
                 transmission.Emit();
 
-                Assert.AreEqual(one.transform.localPosition, another.transform.localPosition);
+                Assert.That(another.transform.localPosition, Is.EqualTo(one.transform.localPosition).Using(Vector3EqualityComparer.Instance));
             }
         }
 
@@ -106,12 +108,12 @@ namespace YggdrAshill.Nuadha.Unity.Specification
         public void DirectionShouldBeGeneratedAndConsumed(Vector3 expected)
         {
             var consumed = default(Vector3);
-            var consumption = ConsumeSpace3D.Direction(signal =>
+            var consumption = Nuadha.ConsumeSpace3D.Direction(signal =>
             {
                 consumed = signal;
             });
 
-            var generation = GenerateSpace3D.Direction(expected);
+            var generation = Nuadha.GenerateSpace3D.Direction(expected);
 
             var transmission = Propagate.WithoutCache<Space3D.Direction>().Transmit(generation);
 
@@ -119,7 +121,7 @@ namespace YggdrAshill.Nuadha.Unity.Specification
             {
                 transmission.Emit();
 
-                Assert.AreEqual(expected.normalized, consumed);
+                Assert.That(consumed, Is.EqualTo(expected.normalized).Using(Vector3EqualityComparer.Instance));
             }
         }
 
@@ -134,12 +136,12 @@ namespace YggdrAshill.Nuadha.Unity.Specification
         public void RotationShouldBeGeneratedAndConsumed(Quaternion expected)
         {
             var consumed = default(Quaternion);
-            var consumption = ConsumeSpace3D.Rotation(signal =>
+            var consumption = Nuadha.ConsumeSpace3D.Rotation(signal =>
             {
                 consumed = signal;
             });
 
-            var generation = GenerateSpace3D.Rotation(expected);
+            var generation = Nuadha.GenerateSpace3D.Rotation(expected);
 
             var transmission = Propagate.WithoutCache<Space3D.Rotation>().Transmit(generation);
 
@@ -147,7 +149,7 @@ namespace YggdrAshill.Nuadha.Unity.Specification
             {
                 transmission.Emit();
 
-                Assert.AreEqual(expected.normalized, consumed);
+                Assert.That(consumed, Is.EqualTo(expected.normalized).Using(QuaternionEqualityComparer.Instance));
             }
         }
 
@@ -160,9 +162,9 @@ namespace YggdrAshill.Nuadha.Unity.Specification
             one.transform.rotation = Quaternion.AngleAxis(Random.Range(0.0f, 360.0f), new Vector3(Random.value, Random.value, Random.value));
             another.transform.rotation = Quaternion.identity;
 
-            var generation = GenerateSpace3D.AbsoluteRotation(one.transform);
+            var generation = Nuadha.GenerateSpace3D.AbsoluteRotation(one.transform);
 
-            var consumption = ConsumeSpace3D.AbsoluteRotation(another.transform);
+            var consumption = Nuadha.ConsumeSpace3D.AbsoluteRotation(another.transform);
 
             var transmission = Propagate.WithoutCache<Space3D.Rotation>().Transmit(generation);
 
@@ -170,7 +172,7 @@ namespace YggdrAshill.Nuadha.Unity.Specification
             {
                 transmission.Emit();
 
-                Assert.AreEqual(one.transform.rotation, another.transform.rotation);
+                Assert.That(another.transform.rotation, Is.EqualTo(one.transform.rotation).Using(QuaternionEqualityComparer.Instance));
             }
         }
 
@@ -188,9 +190,9 @@ namespace YggdrAshill.Nuadha.Unity.Specification
             one.transform.parent = origin.transform;
             another.transform.parent = origin.transform;
 
-            var generation = GenerateSpace3D.RelativeRotation(origin.transform, one.transform);
+            var generation = Nuadha.GenerateSpace3D.RelativeRotation(origin.transform, one.transform);
 
-            var consumption = ConsumeSpace3D.RelativeRotation(origin.transform, another.transform);
+            var consumption = Nuadha.ConsumeSpace3D.RelativeRotation(origin.transform, another.transform);
 
             var transmission = Propagate.WithoutCache<Space3D.Rotation>().Transmit(generation);
 
@@ -198,7 +200,7 @@ namespace YggdrAshill.Nuadha.Unity.Specification
             {
                 transmission.Emit();
 
-                Assert.AreEqual(one.transform.localRotation, another.transform.localRotation);
+                Assert.That(another.transform.localRotation, Is.EqualTo(one.transform.localRotation).Using(QuaternionEqualityComparer.Instance));
             }
         }
     }

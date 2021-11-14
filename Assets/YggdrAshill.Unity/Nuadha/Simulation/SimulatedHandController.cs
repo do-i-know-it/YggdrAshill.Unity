@@ -1,7 +1,8 @@
-﻿using System;
+using YggdrAshill.Nuadha;
+using System;
 using UnityEngine;
 
-namespace YggdrAshill.Nuadha.Unity
+namespace YggdrAshill.Unity.Nuadha
 {
     /// <summary>
     /// Defines implementations for <see cref="IPoseTrackerConfiguration"/> simulated using <see cref="Input"/> and <see cref="Transform"/>.

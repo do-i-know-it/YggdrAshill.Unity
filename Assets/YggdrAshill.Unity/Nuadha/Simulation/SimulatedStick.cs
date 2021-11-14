@@ -1,8 +1,9 @@
-﻿using YggdrAshill.Nuadha.Conduction;
+using YggdrAshill.Nuadha;
+using YggdrAshill.Nuadha.Conduction;
 using YggdrAshill.Nuadha.Signals;
 using UnityEngine;
 
-namespace YggdrAshill.Nuadha.Unity
+namespace YggdrAshill.Unity.Nuadha
 {
     /// <summary>
     /// Defines implementations for <see cref="IStickConfiguration"/> simulated using <see cref="Input"/>.
@@ -14,16 +15,16 @@ namespace YggdrAshill.Nuadha.Unity
         /// Simulated <see cref="IStickConfiguration"/> using keyboard.
         /// </summary>
         /// <param name="forward">
-        /// <see cref="KeyCode"/> to generate <see cref="Signals.Tilt"/>.
+        /// <see cref="KeyCode"/> to generate <see cref="YggdrAshill.Nuadha.Signals.Tilt"/>.
         /// </param>
         /// <param name="backward">
-        /// <see cref="KeyCode"/> to generate <see cref="Signals.Tilt"/>.
+        /// <see cref="KeyCode"/> to generate <see cref="YggdrAshill.Nuadha.Signals.Tilt"/>.
         /// </param>
         /// <param name="left">
-        /// <see cref="KeyCode"/> to generate <see cref="Signals.Tilt"/>.
+        /// <see cref="KeyCode"/> to generate <see cref="YggdrAshill.Nuadha.Signals.Tilt"/>.
         /// </param>
         /// <param name="right">
-        /// <see cref="KeyCode"/> to generate <see cref="Signals.Tilt"/>.
+        /// <see cref="KeyCode"/> to generate <see cref="YggdrAshill.Nuadha.Signals.Tilt"/>.
         /// </param>
         /// <returns>
         /// <see cref="IStickConfiguration"/> created.
@@ -58,7 +59,7 @@ namespace YggdrAshill.Nuadha.Unity
         /// </summary>
         public static IStickConfiguration ArrowKeys { get; } = Keyboard(KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.LeftArrow, KeyCode.RightArrow);
 
-        private SimulatedStick(IGeneration<Signals.Touch> touch, IGeneration<Tilt> tilt)
+        private SimulatedStick(IGeneration<YggdrAshill.Nuadha.Signals.Touch> touch, IGeneration<Tilt> tilt)
         {
             Touch = touch;
 
@@ -66,7 +67,7 @@ namespace YggdrAshill.Nuadha.Unity
         }
 
         /// <inheritdoc/>
-        public IGeneration<Signals.Touch> Touch { get; }
+        public IGeneration<YggdrAshill.Nuadha.Signals.Touch> Touch { get; }
 
         /// <inheritdoc/>
         public IGeneration<Tilt> Tilt { get; }

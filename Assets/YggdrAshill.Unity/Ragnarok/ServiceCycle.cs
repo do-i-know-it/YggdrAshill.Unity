@@ -1,12 +1,15 @@
-﻿using YggdrAshill.Ragnarok.Periodization;
+using YggdrAshill.Ragnarok;
+using YggdrAshill.Ragnarok.Periodization;
 using YggdrAshill.Ragnarok.Construction;
 using UnityEngine;
 
-namespace YggdrAshill.Ragnarok.Unity
+namespace YggdrAshill.Unity.Ragnarok
 {
     public abstract class ServiceCycle : MonoBehaviour
     {
+#pragma warning disable IDE0044
         [SerializeField] private UnityUpdateClock clock;
+#pragma warning restore IDE0044
         protected UnityUpdateClock Clock => clock;
 
         private IOrigination origination;

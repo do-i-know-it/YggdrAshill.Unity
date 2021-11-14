@@ -1,13 +1,14 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
+using YggdrAshill.Nuadha;
 using YggdrAshill.Nuadha.Conduction;
 using YggdrAshill.Nuadha.Signals;
 using System;
 using UnityEngine;
 
-namespace YggdrAshill.Nuadha.Unity.Specification
+namespace YggdrAshill.Unity.Specification
 {
-    [TestFixture(TestOf = typeof(Generate))]
-    [TestFixture(TestOf = typeof(Consume))]
+    [TestFixture(TestOf = typeof(Nuadha.Generate))]
+    [TestFixture(TestOf = typeof(Nuadha.Consume))]
     internal class GenerateAndConsumeSpecification
     {
         [TestCase(true)]
@@ -15,14 +16,14 @@ namespace YggdrAshill.Nuadha.Unity.Specification
         public void TouchShouldBeGeneratedAndConsumed(bool expected)
         {
             var consumed = false;
-            var consumption = Consume.Touch(signal =>
+            var consumption = Nuadha.Consume.Touch(signal =>
             {
                 consumed = signal;
             });
 
-            var generation = Generate.Touch(expected);
+            var generation = Nuadha.Generate.Touch(expected);
 
-            var transmission = Propagate.WithoutCache<Signals.Touch>().Transmit(generation);
+            var transmission = Propagate.WithoutCache<YggdrAshill.Nuadha.Signals.Touch>().Transmit(generation);
 
             using (transmission.Produce(consumption).ToDisposable())
             {
@@ -37,12 +38,12 @@ namespace YggdrAshill.Nuadha.Unity.Specification
         public void PushShouldBeGeneratedAndConsumed(bool expected)
         {
             var consumed = false;
-            var consumption = Consume.Push(signal =>
+            var consumption = Nuadha.Consume.Push(signal =>
             {
                 consumed = signal;
             });
 
-            var generation = Generate.Push(expected);
+            var generation = Nuadha.Generate.Push(expected);
 
             var transmission = Propagate.WithoutCache<Push>().Transmit(generation);
 
@@ -60,12 +61,12 @@ namespace YggdrAshill.Nuadha.Unity.Specification
         public void PullShouldBeGeneratedAndConsumed(float expected)
         {
             var consumed = default(float);
-            var consumption = Consume.Pull(signal =>
+            var consumption = Nuadha.Consume.Pull(signal =>
             {
                 consumed = signal;
             });
 
-            var generation = Generate.Pull(expected);
+            var generation = Nuadha.Generate.Pull(expected);
 
             var transmission = Propagate.WithoutCache<Pull>().Transmit(generation);
 
@@ -90,12 +91,12 @@ namespace YggdrAshill.Nuadha.Unity.Specification
         public void TiltShouldBeGeneratedAndConsumed(Vector2 expected)
         {
             var consumed = default(Vector2);
-            var consumption = Consume.Tilt(signal =>
+            var consumption = Nuadha.Consume.Tilt(signal =>
             {
                 consumed = signal;
             });
 
-            var generation = Generate.Tilt(expected);
+            var generation = Nuadha.Generate.Tilt(expected);
 
             var transmission = Propagate.WithoutCache<Tilt>().Transmit(generation);
 
@@ -112,38 +113,38 @@ namespace YggdrAshill.Nuadha.Unity.Specification
         {
             Assert.Throws<ArgumentNullException>(() =>
             {
-                var generation = Generate.Touch(default(Func<bool>));
+                var generation = Nuadha.Generate.Touch(default(Func<bool>));
             });
             Assert.Throws<ArgumentNullException>(() =>
             {
-                var consumption = Consume.Touch(default);
-            });
-
-            Assert.Throws<ArgumentNullException>(() =>
-            {
-                var generation = Generate.Push(default(Func<bool>));
-            });
-            Assert.Throws<ArgumentNullException>(() =>
-            {
-                var consumption = Consume.Push(default);
+                var consumption = Nuadha.Consume.Touch(default);
             });
 
             Assert.Throws<ArgumentNullException>(() =>
             {
-                var generation = Generate.Pull(default(Func<float>));
+                var generation = Nuadha.Generate.Push(default(Func<bool>));
             });
             Assert.Throws<ArgumentNullException>(() =>
             {
-                var consumption = Consume.Pull(default);
+                var consumption = Nuadha.Consume.Push(default);
             });
 
             Assert.Throws<ArgumentNullException>(() =>
             {
-                var generation = Generate.Tilt(default(Func<Vector2>));
+                var generation = Nuadha.Generate.Pull(default(Func<float>));
             });
             Assert.Throws<ArgumentNullException>(() =>
             {
-                var consumption = Consume.Tilt(default);
+                var consumption = Nuadha.Consume.Pull(default);
+            });
+
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                var generation = Nuadha.Generate.Tilt(default(Func<Vector2>));
+            });
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                var consumption = Nuadha.Consume.Tilt(default);
             });
         }
     }

@@ -1,8 +1,9 @@
-﻿using YggdrAshill.Nuadha.Conduction;
+using YggdrAshill.Nuadha;
+using YggdrAshill.Nuadha.Conduction;
 using YggdrAshill.Nuadha.Signals;
 using UnityEngine;
 
-namespace YggdrAshill.Nuadha.Unity
+namespace YggdrAshill.Unity.Nuadha
 {
     /// <summary>
     /// Defines implementations for <see cref="ITriggerConfiguration"/> simulated using <see cref="Input"/>.
@@ -39,7 +40,7 @@ namespace YggdrAshill.Nuadha.Unity
         /// </summary>
         public static ITriggerConfiguration MouseMiddleClick { get; } = new SimulatedTrigger(Generate.MouseMiddleTouch, Generate.MouseMiddlePull);
 
-        private SimulatedTrigger(IGeneration<Signals.Touch> touch, IGeneration<Pull> pull)
+        private SimulatedTrigger(IGeneration<YggdrAshill.Nuadha.Signals.Touch> touch, IGeneration<Pull> pull)
         {
             Touch = touch;
 
@@ -47,7 +48,7 @@ namespace YggdrAshill.Nuadha.Unity
         }
 
         /// <inheritdoc/>
-        public IGeneration<Signals.Touch> Touch { get; }
+        public IGeneration<YggdrAshill.Nuadha.Signals.Touch> Touch { get; }
 
         /// <inheritdoc/>
         public IGeneration<Pull> Pull { get; }

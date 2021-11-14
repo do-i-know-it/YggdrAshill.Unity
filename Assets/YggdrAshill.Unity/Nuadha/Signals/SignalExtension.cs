@@ -1,7 +1,7 @@
 using YggdrAshill.Nuadha.Signals;
 using UnityEngine;
 
-namespace YggdrAshill.Nuadha.Unity
+namespace YggdrAshill.Unity.Nuadha
 {
     /// <summary>
     /// Defines extensions for Signals in Unity.
