@@ -259,6 +259,150 @@
             <param name="right"></param>
             <returns></returns>
         </member>
+        <member name="T:YggdrAshill.Nuadha.Signals.Battery">
+            <summary>
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/>.
+            </summary>
+        </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Battery.Empty">
+            <summary>
+            <see cref="F:YggdrAshill.Nuadha.Signals.Battery.Empty"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/>.
+            </summary>
+        </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Battery.Full">
+            <summary>
+            <see cref="F:YggdrAshill.Nuadha.Signals.Battery.Full"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Battery.#ctor(System.Single)">
+            <summary>
+            Construcs instance.
+            </summary>
+            <param name="level">
+            <see cref="T:System.Single"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/>
+            </param>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="level"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="level"/> is out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Battery.Empty"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Battery.Full"/>.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Battery.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Battery.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Battery.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Battery.Equals(YggdrAshill.Nuadha.Signals.Battery)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Battery.op_Explicit(System.Single)~YggdrAshill.Nuadha.Signals.Battery">
+            <summary>
+            Converts explicitly <see cref="T:System.Single"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:System.Single"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Battery.op_Explicit(YggdrAshill.Nuadha.Signals.Battery)~System.Single">
+            <summary>
+            Converts explicitly <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/> to <see cref="T:System.Single"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:System.Single"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Battery.op_Equality(YggdrAshill.Nuadha.Signals.Battery,YggdrAshill.Nuadha.Signals.Battery)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/> are equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Battery.op_Inequality(YggdrAshill.Nuadha.Signals.Battery,YggdrAshill.Nuadha.Signals.Battery)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/> are not equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Signals.MemoryUsage">
+            <summary>
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> for <see cref="T:YggdrAshill.Nuadha.Signals.MemoryUsage"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.MemoryUsage.UsedSize">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.MemoryUsage.UsedSize"/> in byte.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.MemoryUsage.UnusedSize">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.MemoryUsage.UnusedSize"/> in byte.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.MemoryUsage.#ctor(System.Int64,System.Int64)">
+            <summary>
+            Construcs instance.
+            </summary>
+            <param name="usedSize">
+            <see cref="T:System.Int64"/> for <see cref="P:YggdrAshill.Nuadha.Signals.MemoryUsage.UsedSize"/> in byte.
+            </param>
+            <param name="unusedSize">
+            <see cref="T:System.Int64"/> for <see cref="P:YggdrAshill.Nuadha.Signals.MemoryUsage.UnusedSize"/> in byte.
+            </param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="usedSize"/> is negative.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="unusedSize"/> is negative.
+            </exception>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.MemoryUsage.TotalSize">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.MemoryUsage.TotalSize"/> of <see cref="T:YggdrAshill.Nuadha.Signals.MemoryUsage"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.MemoryUsage.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.MemoryUsage.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.MemoryUsage.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.MemoryUsage.Equals(YggdrAshill.Nuadha.Signals.MemoryUsage)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.MemoryUsage.op_Equality(YggdrAshill.Nuadha.Signals.MemoryUsage,YggdrAshill.Nuadha.Signals.MemoryUsage)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.MemoryUsage"/> and <see cref="T:YggdrAshill.Nuadha.Signals.MemoryUsage"/> are equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.MemoryUsage.op_Inequality(YggdrAshill.Nuadha.Signals.MemoryUsage,YggdrAshill.Nuadha.Signals.MemoryUsage)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.MemoryUsage"/> and <see cref="T:YggdrAshill.Nuadha.Signals.MemoryUsage"/> are not equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
         <member name="T:YggdrAshill.Nuadha.Signals.Pull">
             <summary>
             Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
@@ -1622,6 +1766,165 @@
             <param name="left"></param>
             <param name="right"></param>
             <returns></returns>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.SignalExtension">
+            <summary>
+            Defines extensions for Signals.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToTouch(System.Boolean)">
+            <summary>
+            Converts <see cref="T:System.Boolean"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:System.Boolean"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToBoolean(YggdrAshill.Nuadha.Signals.Touch)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to <see cref="T:System.Boolean"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:System.Boolean"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToPush(System.Boolean)">
+            <summary>
+            Converts <see cref="T:System.Boolean"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:System.Boolean"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToBoolean(YggdrAshill.Nuadha.Signals.Push)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to <see cref="T:System.Boolean"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:System.Boolean"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToPull(System.Single)">
+            <summary>
+            Converts <see cref="T:System.Single"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:System.Single"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToSingle(YggdrAshill.Nuadha.Signals.Pull)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> to <see cref="T:System.Single"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:System.Single"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToRadian(System.Single)">
+            <summary>
+            Converts <see cref="T:System.Single"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:System.Single"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToSingle(YggdrAshill.Nuadha.Signals.Angle.Radian)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> to <see cref="T:System.Single"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:System.Single"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToDegree(System.Single)">
+            <summary>
+            Converts <see cref="T:System.Single"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:System.Single"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToSingle(YggdrAshill.Nuadha.Signals.Angle.Degree)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> to <see cref="T:System.Single"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:System.Single"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToRadian(YggdrAshill.Nuadha.Signals.Angle.Degree)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToDegree(YggdrAshill.Nuadha.Signals.Angle.Radian)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToBattery(System.Single)">
+            <summary>
+            Converts <see cref="T:System.Single"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:System.Single"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToSingle(YggdrAshill.Nuadha.Signals.Battery)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/> to <see cref="T:System.Single"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:System.Single"/> converted.
+            </returns>
         </member>
     </members>
 </doc>

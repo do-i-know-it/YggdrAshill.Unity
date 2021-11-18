@@ -1,7 +1,5 @@
 using NUnit.Framework;
 using YggdrAshill.Nuadha;
-using YggdrAshill.Nuadha.Conduction;
-using YggdrAshill.Nuadha.Signals;
 using System;
 using UnityEngine;
 
@@ -23,7 +21,7 @@ namespace YggdrAshill.Unity.Nuadha.Specification
 
             var generation = Generate.Touch(expected);
 
-            var transmission = Propagate.WithoutCache<YggdrAshill.Nuadha.Signals.Touch>().Transmit(generation);
+            var transmission = Transmit.Signal(generation);
 
             using (transmission.Produce(consumption).ToDisposable())
             {
@@ -45,7 +43,7 @@ namespace YggdrAshill.Unity.Nuadha.Specification
 
             var generation = Generate.Push(expected);
 
-            var transmission = Propagate.WithoutCache<Push>().Transmit(generation);
+            var transmission = Transmit.Signal(generation);
 
             using (transmission.Produce(consumption).ToDisposable())
             {
@@ -68,7 +66,7 @@ namespace YggdrAshill.Unity.Nuadha.Specification
 
             var generation = Generate.Pull(expected);
 
-            var transmission = Propagate.WithoutCache<Pull>().Transmit(generation);
+            var transmission = Transmit.Signal(generation);
 
             using (transmission.Produce(consumption).ToDisposable())
             {
@@ -98,7 +96,7 @@ namespace YggdrAshill.Unity.Nuadha.Specification
 
             var generation = Generate.Tilt(expected);
 
-            var transmission = Propagate.WithoutCache<Tilt>().Transmit(generation);
+            var transmission = Transmit.Signal(generation);
 
             using (transmission.Produce(consumption).ToDisposable())
             {

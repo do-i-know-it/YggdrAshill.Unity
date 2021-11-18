@@ -1,7 +1,5 @@
 using NUnit.Framework;
 using YggdrAshill.Nuadha;
-using YggdrAshill.Nuadha.Conduction;
-using YggdrAshill.Nuadha.Signals;
 using UnityEngine;
 using UnityEngine.TestTools.Utils;
 
@@ -33,7 +31,7 @@ namespace YggdrAshill.Unity.Nuadha.Specification
 
             var generation = GenerateSpace3D.Position(expected);
 
-            var transmission = Propagate.WithoutCache<Space3D.Position>().Transmit(generation);
+            var transmission = Transmit.Signal(generation);
 
             using (transmission.Produce(consumption).ToDisposable())
             {
@@ -56,7 +54,7 @@ namespace YggdrAshill.Unity.Nuadha.Specification
 
             var consumption = ConsumeSpace3D.AbsolutePosition(another.transform);
 
-            var transmission = Propagate.WithoutCache<Space3D.Position>().Transmit(generation);
+            var transmission = Transmit.Signal(generation);
 
             using (transmission.Produce(consumption).ToDisposable())
             {
@@ -84,7 +82,7 @@ namespace YggdrAshill.Unity.Nuadha.Specification
 
             var consumption = ConsumeSpace3D.RelativePosition(origin.transform, another.transform);
 
-            var transmission = Propagate.WithoutCache<Space3D.Position>().Transmit(generation);
+            var transmission = Transmit.Signal(generation);
 
             using (transmission.Produce(consumption).ToDisposable())
             {
@@ -115,7 +113,7 @@ namespace YggdrAshill.Unity.Nuadha.Specification
 
             var generation = GenerateSpace3D.Direction(expected);
 
-            var transmission = Propagate.WithoutCache<Space3D.Direction>().Transmit(generation);
+            var transmission = Transmit.Signal(generation);
 
             using (transmission.Produce(consumption).ToDisposable())
             {
@@ -143,7 +141,7 @@ namespace YggdrAshill.Unity.Nuadha.Specification
 
             var generation = GenerateSpace3D.Rotation(expected);
 
-            var transmission = Propagate.WithoutCache<Space3D.Rotation>().Transmit(generation);
+            var transmission = Transmit.Signal(generation);
 
             using (transmission.Produce(consumption).ToDisposable())
             {
@@ -166,7 +164,7 @@ namespace YggdrAshill.Unity.Nuadha.Specification
 
             var consumption = ConsumeSpace3D.AbsoluteRotation(another.transform);
 
-            var transmission = Propagate.WithoutCache<Space3D.Rotation>().Transmit(generation);
+            var transmission = Transmit.Signal(generation);
 
             using (transmission.Produce(consumption).ToDisposable())
             {
@@ -194,7 +192,7 @@ namespace YggdrAshill.Unity.Nuadha.Specification
 
             var consumption = ConsumeSpace3D.RelativeRotation(origin.transform, another.transform);
 
-            var transmission = Propagate.WithoutCache<Space3D.Rotation>().Transmit(generation);
+            var transmission = Transmit.Signal(generation);
 
             using (transmission.Produce(consumption).ToDisposable())
             {

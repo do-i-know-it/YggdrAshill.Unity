@@ -19,6 +19,21 @@
             Sends <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to software.
             </summary>
         </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IButtonProtocol">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IButtonHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IButtonSoftware"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IButtonProtocol.Touch">
+            <summary>
+            Propagates <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IButtonProtocol.Push">
+            <summary>
+            Propagates <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </summary>
+        </member>
         <member name="T:YggdrAshill.Nuadha.Units.IButtonSoftware">
             <summary>
             Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for button as software.
@@ -87,6 +102,31 @@
         <member name="P:YggdrAshill.Nuadha.Units.IHandControllerHardware.HandGrip">
             <summary>
             <see cref="T:YggdrAshill.Nuadha.Units.ITriggerHardware"/> of hand controler.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IHandControllerProtocol">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerSoftware"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IHandControllerProtocol.Pose">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerProtocol"/> of hand controller.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IHandControllerProtocol.Thumb">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.IStickProtocol"/> of hand controller.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IHandControllerProtocol.IndexFinger">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.ITriggerProtocol"/> of hand controller.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IHandControllerProtocol.HandGrip">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.ITriggerProtocol"/> of hand controller.
             </summary>
         </member>
         <member name="T:YggdrAshill.Nuadha.Units.IHandControllerSoftware">
@@ -169,6 +209,21 @@
             Sends <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Direction"/> to software.
             </summary>
         </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IHeadTrackerProtocol">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerSoftware"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IHeadTrackerProtocol.Pose">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerProtocol"/> of head tracker.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IHeadTrackerProtocol.Direction">
+            <summary>
+            Propagates <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Direction"/>.
+            </summary>
+        </member>
         <member name="T:YggdrAshill.Nuadha.Units.IHeadTrackerSoftware">
             <summary>
             Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for head tracker as software.
@@ -197,6 +252,21 @@
         <member name="P:YggdrAshill.Nuadha.Units.IPoseTrackerHardware.Rotation">
             <summary>
             Sends <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> to software.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IPoseTrackerProtocol">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPoseTrackerProtocol.Position">
+            <summary>
+            Propagates <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPoseTrackerProtocol.Rotation">
+            <summary>
+            Propagates <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/>.
             </summary>
         </member>
         <member name="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware">
@@ -319,6 +389,21 @@
             Sends <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/> to software.
             </summary>
         </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IStickProtocol">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IStickHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IStickSoftware"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IStickProtocol.Touch">
+            <summary>
+            Propagates <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IStickProtocol.Tilt">
+            <summary>
+            Propagates <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/>.
+            </summary>
+        </member>
         <member name="T:YggdrAshill.Nuadha.Units.IStickSoftware">
             <summary>
             Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for stick as software.
@@ -377,6 +462,21 @@
         <member name="P:YggdrAshill.Nuadha.Units.ITriggerHardware.Pull">
             <summary>
             Sends <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> to software.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.ITriggerProtocol">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.ITriggerHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.ITriggerSoftware"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.ITriggerProtocol.Touch">
+            <summary>
+            Propagates <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.ITriggerProtocol.Pull">
+            <summary>
+            Propagates <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
             </summary>
         </member>
         <member name="T:YggdrAshill.Nuadha.Units.ITriggerSoftware">

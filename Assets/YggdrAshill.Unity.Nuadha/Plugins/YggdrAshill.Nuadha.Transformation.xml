@@ -64,12 +64,38 @@
             Thrown if <paramref name="second"/> is null.
             </exception>
         </member>
-        <member name="T:YggdrAshill.Nuadha.Transformation.ConversionExtension">
+        <member name="T:YggdrAshill.Nuadha.Transformation.ConvertTo">
             <summary>
-            Defines extensions to convert one <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> into another <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/>.
+            Defines <see cref="T:YggdrAshill.Nuadha.Signalization.IProduction`1"/> and <see cref="T:YggdrAshill.Nuadha.Transformation.ICondition`1"/> for <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/>.
             </summary>
         </member>
-        <member name="M:YggdrAshill.Nuadha.Transformation.ConversionExtension.Convert``2(YggdrAshill.Nuadha.Signalization.IProduction{``0},YggdrAshill.Nuadha.Transformation.ITranslation{``0,``1})">
+        <member name="M:YggdrAshill.Nuadha.Transformation.ConvertTo.Consume``2(YggdrAshill.Nuadha.Transformation.ITranslation{``0,``1},YggdrAshill.Nuadha.Signalization.IConsumption{``1})">
+            <summary>
+            Converts <typeparamref name="TInput"/> into <typeparamref name="TOutput"/>.
+            </summary>
+            <typeparam name="TInput">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to convert.
+            </typeparam>
+            <typeparam name="TOutput">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> converted.
+            </typeparam>
+            <param name="translation">
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> to convert <typeparamref name="TInput"/> into <typeparamref name="TOutput"/>.
+            </param>
+            <param name="consumption">
+            <see cref="T:YggdrAshill.Nuadha.Signalization.IConsumption`1"/> to consume <typeparamref name="TOutput"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signalization.IConsumption`1"/> to consume <typeparamref name="TInput"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="translation"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="consumption"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Transformation.ConvertTo.Produce``2(YggdrAshill.Nuadha.Signalization.IProduction{``0},YggdrAshill.Nuadha.Transformation.ITranslation{``0,``1})">
             <summary>
             Converts <typeparamref name="TInput"/> into <typeparamref name="TOutput"/>.
             </summary>
@@ -80,13 +106,13 @@
             Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> converted.
             </typeparam>
             <param name="production">
-            <see cref="T:YggdrAshill.Nuadha.Signalization.IProduction`1"/> to send <typeparamref name="TInput"/>.
+            <see cref="T:YggdrAshill.Nuadha.Signalization.IProduction`1"/> to produce <typeparamref name="TInput"/>.
             </param>
             <param name="translation">
-            <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> to convert.
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> to convert <typeparamref name="TInput"/> into <typeparamref name="TOutput"/>.
             </param>
             <returns>
-            <see cref="T:YggdrAshill.Nuadha.Signalization.IProduction`1"/> to send <typeparamref name="TOutput"/>.
+            <see cref="T:YggdrAshill.Nuadha.Signalization.IProduction`1"/> to produce <typeparamref name="TOutput"/>.
             </returns>
             <exception cref="T:System.ArgumentNullException">
             Thrown if <paramref name="production"/> is null.
@@ -95,12 +121,35 @@
             Thrown if <paramref name="translation"/> is null.
             </exception>
         </member>
-        <member name="T:YggdrAshill.Nuadha.Transformation.DetectionExtension">
+        <member name="T:YggdrAshill.Nuadha.Transformation.DetectTo">
             <summary>
-            Defines extensions to detect <see cref="T:YggdrAshill.Nuadha.Transformation.Notice"/> of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/>.
+            Defines <see cref="T:YggdrAshill.Nuadha.Signalization.IProduction`1"/> and <see cref="T:YggdrAshill.Nuadha.Transformation.ICondition`1"/> for <see cref="T:YggdrAshill.Nuadha.Transformation.ICondition`1"/>.
             </summary>
         </member>
-        <member name="M:YggdrAshill.Nuadha.Transformation.DetectionExtension.Detect``1(YggdrAshill.Nuadha.Signalization.IProduction{``0},YggdrAshill.Nuadha.Transformation.ICondition{``0})">
+        <member name="M:YggdrAshill.Nuadha.Transformation.DetectTo.Consume``1(YggdrAshill.Nuadha.Transformation.ICondition{``0},YggdrAshill.Nuadha.Signalization.IConsumption{YggdrAshill.Nuadha.Transformation.Notice})">
+            <summary>
+            Detects <see cref="T:YggdrAshill.Nuadha.Transformation.Notice"/> of <typeparamref name="TSignal"/>.
+            </summary>
+            <typeparam name="TSignal">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to detect.
+            </typeparam>
+            <param name="condition">
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ICondition`1"/> to detect.
+            </param>
+            <param name="consumption">
+            <see cref="T:YggdrAshill.Nuadha.Signalization.IConsumption`1"/> to consume <see cref="T:YggdrAshill.Nuadha.Transformation.Notice"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signalization.IConsumption`1"/> to consume <typeparamref name="TSignal"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="condition"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="consumption"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Transformation.DetectTo.Produce``1(YggdrAshill.Nuadha.Signalization.IProduction{``0},YggdrAshill.Nuadha.Transformation.ICondition{``0})">
             <summary>
             Detects <see cref="T:YggdrAshill.Nuadha.Transformation.Notice"/> of <typeparamref name="TSignal"/>.
             </summary>
@@ -108,13 +157,13 @@
             Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to detect.
             </typeparam>
             <param name="production">
-            <see cref="T:YggdrAshill.Nuadha.Signalization.IProduction`1"/> to send <typeparamref name="TSignal"/>.
+            <see cref="T:YggdrAshill.Nuadha.Signalization.IProduction`1"/> to produce <typeparamref name="TSignal"/>.
             </param>
             <param name="condition">
             <see cref="T:YggdrAshill.Nuadha.Transformation.ICondition`1"/> to detect.
             </param>
             <returns>
-            <see cref="T:YggdrAshill.Nuadha.Signalization.IProduction`1"/> to send <see cref="T:YggdrAshill.Nuadha.Transformation.Notice"/>.
+            <see cref="T:YggdrAshill.Nuadha.Signalization.IProduction`1"/> to produce <see cref="T:YggdrAshill.Nuadha.Transformation.Notice"/>.
             </returns>
             <exception cref="T:System.ArgumentNullException">
             Thrown if <paramref name="production"/> is null.
@@ -164,9 +213,85 @@
             <typeparamref name="TOutput"/> converted.
             </returns>
         </member>
+        <member name="T:YggdrAshill.Nuadha.Transformation.Note">
+            <summary>
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> for <see cref="T:YggdrAshill.Nuadha.Transformation.Note"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Transformation.Note.None">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Transformation.Note.None"/> of <see cref="T:YggdrAshill.Nuadha.Transformation.Note"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Transformation.Note.#ctor(System.String)">
+            <summary>
+            Constructs instance.
+            </summary>
+            <param name="content">
+            <see cref="T:System.String"/> for <see cref="T:YggdrAshill.Nuadha.Transformation.Note"/>.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="content"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Transformation.Note.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Transformation.Note.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Transformation.Note.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Transformation.Note.Equals(YggdrAshill.Nuadha.Transformation.Note)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Transformation.Note.op_Explicit(System.String)~YggdrAshill.Nuadha.Transformation.Note">
+            <summary>
+            Converts explicitly <see cref="T:System.String"/> to <see cref="T:YggdrAshill.Nuadha.Transformation.Note"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:System.String"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Transformation.Note"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Transformation.Note.op_Explicit(YggdrAshill.Nuadha.Transformation.Note)~System.String">
+            <summary>
+            Converts explicitly <see cref="T:YggdrAshill.Nuadha.Transformation.Note"/> to <see cref="T:System.String"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Transformation.Note"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:System.String"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Transformation.Note.op_Equality(YggdrAshill.Nuadha.Transformation.Note,YggdrAshill.Nuadha.Transformation.Note)">
+            <summary>
+            Checks if one <see cref="T:YggdrAshill.Nuadha.Transformation.Note"/> and another <see cref="T:YggdrAshill.Nuadha.Transformation.Note"/> are equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Transformation.Note.op_Inequality(YggdrAshill.Nuadha.Transformation.Note,YggdrAshill.Nuadha.Transformation.Note)">
+            <summary>
+            Checks if one <see cref="T:YggdrAshill.Nuadha.Transformation.Note"/> and another <see cref="T:YggdrAshill.Nuadha.Transformation.Note"/> are not equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Transformation.NoteExtension">
+            <summary>
+            Defines extensions for <see cref="T:YggdrAshill.Nuadha.Transformation.Note"/>.
+            </summary>
+        </member>
         <member name="T:YggdrAshill.Nuadha.Transformation.Notice">
             <summary>
-            Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> <see cref="T:YggdrAshill.Nuadha.Transformation.Notice"/>.
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> for <see cref="T:YggdrAshill.Nuadha.Transformation.Notice"/>.
             </summary>
         </member>
         <member name="P:YggdrAshill.Nuadha.Transformation.Notice.Instance">
