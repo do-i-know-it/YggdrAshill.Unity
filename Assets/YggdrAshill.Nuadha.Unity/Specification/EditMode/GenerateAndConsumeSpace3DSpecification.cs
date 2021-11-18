@@ -1,9 +1,8 @@
 using NUnit.Framework;
-using YggdrAshill.Nuadha;
 using UnityEngine;
 using UnityEngine.TestTools.Utils;
 
-namespace YggdrAshill.Unity.Nuadha.Specification
+namespace YggdrAshill.Nuadha.Unity.Specification
 {
     [TestFixture(TestOf = typeof(GenerateSpace3D))]
     [TestFixture(TestOf = typeof(ConsumeSpace3D))]

@@ -1,10 +1,9 @@
-using YggdrAshill.Nuadha;
 using YggdrAshill.Nuadha.Signalization;
 using YggdrAshill.Nuadha.Signals;
 using System;
 using UnityEngine;
 
-namespace YggdrAshill.Unity.Nuadha
+namespace YggdrAshill.Nuadha.Unity
 {
     /// <summary>
     /// Defines implementations of <see cref="IConsumption{TSignal}"/> for Unity.
@@ -14,25 +13,25 @@ namespace YggdrAshill.Unity.Nuadha
         #region Touch
 
         /// <summary>
-        /// Executes <see cref="Action{T}"/> to consume <see cref="YggdrAshill.Nuadha.Signals.Touch"/> as <see cref="bool"/>.
+        /// Executes <see cref="Action{T}"/> to consume <see cref="Signals.Touch"/> as <see cref="bool"/>.
         /// </summary>
         /// <param name="consumption">
         /// <see cref="Action{T}"/> to consume <see cref="bool"/>.
         /// </param>
         /// <returns>
-        /// <see cref="IConsumption{TSignal}"/> to consume <see cref="YggdrAshill.Nuadha.Signals.Touch"/>.
+        /// <see cref="IConsumption{TSignal}"/> to consume <see cref="Signals.Touch"/>.
         /// </returns>
         /// <exception cref="ArgumentNullException">
         /// Thrown if <paramref name="consumption"/> is null.
         /// </exception>
-        public static IConsumption<YggdrAshill.Nuadha.Signals.Touch> Touch(Action<bool> consumption)
+        public static IConsumption<Signals.Touch> Touch(Action<bool> consumption)
         {
             if (consumption == null)
             {
                 throw new ArgumentNullException(nameof(consumption));
             }
 
-            return YggdrAshill.Nuadha.Consume.Signal<YggdrAshill.Nuadha.Signals.Touch>(signal =>
+            return Nuadha.Consume.Signal<Signals.Touch>(signal =>
             {
                 consumption.Invoke(signal.ToBoolean());
             });
@@ -43,13 +42,13 @@ namespace YggdrAshill.Unity.Nuadha
         #region Push
 
         /// <summary>
-        /// Executes <see cref="Action{T}"/> to consume <see cref="YggdrAshill.Nuadha.Signals.Push"/> as <see cref="bool"/>.
+        /// Executes <see cref="Action{T}"/> to consume <see cref="Signals.Push"/> as <see cref="bool"/>.
         /// </summary>
         /// <param name="consumption">
         /// <see cref="Action{T}"/> to consume <see cref="bool"/>.
         /// </param>
         /// <returns>
-        /// <see cref="IConsumption{TSignal}"/> to consume <see cref="YggdrAshill.Nuadha.Signals.Push"/>.
+        /// <see cref="IConsumption{TSignal}"/> to consume <see cref="Signals.Push"/>.
         /// </returns>
         /// <exception cref="ArgumentNullException">
         /// Thrown if <paramref name="consumption"/> is null.
@@ -61,7 +60,7 @@ namespace YggdrAshill.Unity.Nuadha
                 throw new ArgumentNullException(nameof(consumption));
             }
 
-            return YggdrAshill.Nuadha.Consume.Signal<Push>(signal =>
+            return Nuadha.Consume.Signal<Push>(signal =>
             {
                 consumption.Invoke(signal.ToBoolean());
             });
@@ -72,13 +71,13 @@ namespace YggdrAshill.Unity.Nuadha
         #region Pull
 
         /// <summary>
-        /// Executes <see cref="Action{T}"/> to consume <see cref="YggdrAshill.Nuadha.Signals.Pull"/> as <see cref="float"/>.
+        /// Executes <see cref="Action{T}"/> to consume <see cref="Signals.Pull"/> as <see cref="float"/>.
         /// </summary>
         /// <param name="consumption">
         /// <see cref="Action{T}"/> to consume <see cref="float"/>.
         /// </param>
         /// <returns>
-        /// <see cref="IConsumption{TSignal}"/> to consume <see cref="YggdrAshill.Nuadha.Signals.Pull"/>.
+        /// <see cref="IConsumption{TSignal}"/> to consume <see cref="Signals.Pull"/>.
         /// </returns>
         /// <exception cref="ArgumentNullException">
         /// Thrown if <paramref name="consumption"/> is null.
@@ -90,7 +89,7 @@ namespace YggdrAshill.Unity.Nuadha
                 throw new ArgumentNullException(nameof(consumption));
             }
 
-            return YggdrAshill.Nuadha.Consume.Signal<Pull>(signal =>
+            return Nuadha.Consume.Signal<Pull>(signal =>
             {
                 consumption.Invoke(signal.ToSingle());
             });
@@ -101,13 +100,13 @@ namespace YggdrAshill.Unity.Nuadha
         #region Tilt
 
         /// <summary>
-        /// Executes <see cref="Action{T}"/> to consume <see cref="YggdrAshill.Nuadha.Signals.Tilt"/> as <see cref="Vector2"/>.
+        /// Executes <see cref="Action{T}"/> to consume <see cref="Signals.Tilt"/> as <see cref="Vector2"/>.
         /// </summary>
         /// <param name="consumption">
         /// <see cref="Action{T}"/> to consume <see cref="Vector2"/>.
         /// </param>
         /// <returns>
-        /// <see cref="IConsumption{TSignal}"/> to consume <see cref="YggdrAshill.Nuadha.Signals.Tilt"/>.
+        /// <see cref="IConsumption{TSignal}"/> to consume <see cref="Signals.Tilt"/>.
         /// </returns>
         /// <exception cref="ArgumentNullException">
         /// Thrown if <paramref name="consumption"/> is null.
@@ -119,7 +118,7 @@ namespace YggdrAshill.Unity.Nuadha
                 throw new ArgumentNullException(nameof(consumption));
             }
 
-            return YggdrAshill.Nuadha.Consume.Signal<Tilt>(signal =>
+            return Nuadha.Consume.Signal<Tilt>(signal =>
             {
                 consumption.Invoke(signal.ToVector());
             });

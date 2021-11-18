@@ -1,7 +1,7 @@
 using YggdrAshill.Nuadha.Signals;
 using UnityEngine;
 
-namespace YggdrAshill.Unity.Nuadha
+namespace YggdrAshill.Nuadha.Unity
 {
     /// <summary>
     /// Defines extensions for <see cref="Space3D"/> in Unity.

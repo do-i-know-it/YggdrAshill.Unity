@@ -1,8 +1,7 @@
-using YggdrAshill.Nuadha;
 using YggdrAshill.Nuadha.Signals;
 using UnityEngine;
 
-namespace YggdrAshill.Unity.Nuadha
+namespace YggdrAshill.Nuadha.Unity
 {
     /// <summary>
     /// Defines implementations for <see cref="IButtonConfiguration"/> simulated using <see cref="Input"/>.
@@ -39,7 +38,7 @@ namespace YggdrAshill.Unity.Nuadha
         /// </summary>
         public static IButtonConfiguration MouseMiddleClick { get; } = new SimulatedButton(Generate.MouseMiddleTouch, Generate.MouseMiddlePush);
 
-        private SimulatedButton(IGeneration<YggdrAshill.Nuadha.Signals.Touch> touch, IGeneration<Push> push)
+        private SimulatedButton(IGeneration<Signals.Touch> touch, IGeneration<Push> push)
         {
             Touch = touch;
 
@@ -47,7 +46,7 @@ namespace YggdrAshill.Unity.Nuadha
         }
 
         /// <inheritdoc/>
-        public IGeneration<YggdrAshill.Nuadha.Signals.Touch> Touch { get; }
+        public IGeneration<Signals.Touch> Touch { get; }
 
         /// <inheritdoc/>
         public IGeneration<Push> Push { get; }

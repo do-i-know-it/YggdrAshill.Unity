@@ -1,9 +1,8 @@
-using YggdrAshill.Nuadha;
 using YggdrAshill.Nuadha.Signals;
 using System;
 using UnityEngine;
 
-namespace YggdrAshill.Unity.Nuadha
+namespace YggdrAshill.Nuadha.Unity
 {
     /// <summary>
     /// Defines implementations of <see cref="IGeneration{TSignal}"/> for Unity.
@@ -31,7 +30,7 @@ namespace YggdrAshill.Unity.Nuadha
                 throw new ArgumentNullException(nameof(generation));
             }
 
-            return YggdrAshill.Nuadha.Generate.Signal(() =>
+            return Nuadha.Generate.Signal(() =>
             {
                 return generation.Invoke().ToPosition();
             });
@@ -203,7 +202,7 @@ namespace YggdrAshill.Unity.Nuadha
                 throw new ArgumentNullException(nameof(generation));
             }
 
-            return YggdrAshill.Nuadha.Generate.Signal(() =>
+            return Nuadha.Generate.Signal(() =>
             {
                 return generation.Invoke().ToDirection();
             });
@@ -375,7 +374,7 @@ namespace YggdrAshill.Unity.Nuadha
                 throw new ArgumentNullException(nameof(generation));
             }
 
-            return YggdrAshill.Nuadha.Generate.Signal(() =>
+            return Nuadha.Generate.Signal(() =>
             {
                 return generation.Invoke().ToRotation();
             });

@@ -1,6 +1,6 @@
 {
-    "name": "YggdrAshill.Unity.Nuadha",
-    "rootNamespace": "YggdrAshill.Unity.Nuadha",
+    "name": "YggdrAshill.Nuadha.Unity",
+    "rootNamespace": "YggdrAshill.Nuadha.Unity",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

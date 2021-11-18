@@ -1,9 +1,8 @@
 using NUnit.Framework;
-using YggdrAshill.Nuadha;
 using System;
 using UnityEngine;
 
-namespace YggdrAshill.Unity.Nuadha.Specification
+namespace YggdrAshill.Nuadha.Unity.Specification
 {
     [TestFixture(TestOf = typeof(Generate))]
     [TestFixture(TestOf = typeof(Consume))]

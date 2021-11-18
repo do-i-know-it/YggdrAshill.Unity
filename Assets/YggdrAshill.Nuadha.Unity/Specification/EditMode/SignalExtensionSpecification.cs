@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using UnityEngine;
 
-namespace YggdrAshill.Unity.Nuadha.Specification
+namespace YggdrAshill.Nuadha.Unity.Specification
 {
     [TestFixture(TestOf = typeof(SignalExtension))]
     internal class SignalExtensionSpecification
