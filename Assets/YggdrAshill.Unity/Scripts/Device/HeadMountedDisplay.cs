@@ -6,11 +6,11 @@ using UnityEngine;
 namespace YggdrAshill.Unity
 {
     /// <summary>
-    /// Implementation of <see cref="IHeadMountedDisplay"/>.
+    /// Implementation of <see cref="IHeadMountedDisplayProtocol"/>.
     /// </summary>
     [DisallowMultipleComponent]
     public sealed class HeadMountedDisplay : Singleton<HeadMountedDisplay>,
-        IHeadMountedDisplay
+        IHeadMountedDisplayProtocol
     {
         /// <inheritdoc/>
         public IHeadTrackerProtocol Head { get; } = HeadTracker.WithLatestCache();

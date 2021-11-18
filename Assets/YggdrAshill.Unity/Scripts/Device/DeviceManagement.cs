@@ -10,13 +10,13 @@ namespace YggdrAshill.Unity
     public sealed class DeviceManagement : Singleton<DeviceManagement>
     {
         /// <summary>
-        /// <see cref="IHeadMountedDisplay"/> accessed globally.
+        /// <see cref="IHeadMountedDisplayProtocol"/> accessed globally.
         /// </summary>
-        public static IHeadMountedDisplay HeadMountedDisplay => Unity.HeadMountedDisplay.Instance;
+        public static IHeadMountedDisplayProtocol HeadMountedDisplay => Unity.HeadMountedDisplay.Instance;
 
         /// <summary>
-        /// <see cref="IThreePointPoseTracker"/> accessed globally.
+        /// <see cref="IThreePointPoseTrackerProtocol"/> accessed globally.
         /// </summary>
-        public static IThreePointPoseTracker ThreePointPoseTracker => Unity.ThreePointPoseTracker.Instance;
+        public static IThreePointPoseTrackerProtocol ThreePointPoseTracker => Unity.ThreePointPoseTracker.Instance;
     }
 }

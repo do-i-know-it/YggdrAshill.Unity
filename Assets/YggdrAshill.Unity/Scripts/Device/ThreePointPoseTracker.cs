@@ -6,11 +6,11 @@ using UnityEngine;
 namespace YggdrAshill.Unity
 {
     /// <summary>
-    /// Implementation of <see cref="IHeadMountedDisplay"/>.
+    /// Implementation of <see cref="IHeadMountedDisplayProtocol"/>.
     /// </summary>
     [DisallowMultipleComponent]
     public sealed class ThreePointPoseTracker : Singleton<ThreePointPoseTracker>,
-        IThreePointPoseTracker
+        IThreePointPoseTrackerProtocol
     {
         /// <inheritdoc/>
         public IPoseTrackerProtocol Head { get; } = PoseTracker.WithLatestCache();

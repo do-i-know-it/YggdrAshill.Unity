@@ -1,8 +1,8 @@
-﻿using YggdrAshill.Nuadha.Units;
+using YggdrAshill.Nuadha.Units;
 
 namespace YggdrAshill.Nuadha.Unity
 {
-    public interface IThreePointPoseTracker
+    public interface IThreePointPoseTrackerProtocol
     {
         IPoseTrackerProtocol Head { get; }
 
