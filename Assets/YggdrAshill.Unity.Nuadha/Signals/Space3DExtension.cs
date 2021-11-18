@@ -49,8 +49,6 @@ namespace YggdrAshill.Unity.Nuadha
         {
             var normalized = signal.normalized;
 
-            Debug.Log($"{normalized}, {normalized.magnitude}");
-
             return new Space3D.Direction(normalized.x, normalized.y, normalized.z);
         }
 
