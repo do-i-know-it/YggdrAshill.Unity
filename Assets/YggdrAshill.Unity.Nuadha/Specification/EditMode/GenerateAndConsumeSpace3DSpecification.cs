@@ -5,10 +5,10 @@ using YggdrAshill.Nuadha.Signals;
 using UnityEngine;
 using UnityEngine.TestTools.Utils;
 
-namespace YggdrAshill.Unity.Specification
+namespace YggdrAshill.Unity.Nuadha.Specification
 {
-    [TestFixture(TestOf = typeof(Nuadha.GenerateSpace3D))]
-    [TestFixture(TestOf = typeof(Nuadha.ConsumeSpace3D))]
+    [TestFixture(TestOf = typeof(GenerateSpace3D))]
+    [TestFixture(TestOf = typeof(ConsumeSpace3D))]
     internal class GenerateAndConsumeSpace3DSpecification
     {
         private static object[] TestSuiteForPosition => new[]
@@ -26,12 +26,12 @@ namespace YggdrAshill.Unity.Specification
         public void PositionShouldBeGeneratedAndConsumed(Vector3 expected)
         {
             var consumed = default(Vector3);
-            var consumption = Nuadha.ConsumeSpace3D.Position(signal =>
+            var consumption = ConsumeSpace3D.Position(signal =>
             {
                 consumed = signal;
             });
 
-            var generation = Nuadha.GenerateSpace3D.Position(expected);
+            var generation = GenerateSpace3D.Position(expected);
 
             var transmission = Propagate.WithoutCache<Space3D.Position>().Transmit(generation);
 
@@ -52,9 +52,9 @@ namespace YggdrAshill.Unity.Specification
             one.transform.position = new Vector3(Random.value, Random.value, Random.value);
             another.transform.position = Vector3.zero;
 
-            var generation = Nuadha.GenerateSpace3D.AbsolutePosition(one.transform);
+            var generation = GenerateSpace3D.AbsolutePosition(one.transform);
 
-            var consumption = Nuadha.ConsumeSpace3D.AbsolutePosition(another.transform);
+            var consumption = ConsumeSpace3D.AbsolutePosition(another.transform);
 
             var transmission = Propagate.WithoutCache<Space3D.Position>().Transmit(generation);
 
@@ -80,9 +80,9 @@ namespace YggdrAshill.Unity.Specification
             one.transform.parent = origin.transform;
             another.transform.parent = origin.transform;
 
-            var generation = Nuadha.GenerateSpace3D.RelativePosition(origin.transform, one.transform);
+            var generation = GenerateSpace3D.RelativePosition(origin.transform, one.transform);
 
-            var consumption = Nuadha.ConsumeSpace3D.RelativePosition(origin.transform, another.transform);
+            var consumption = ConsumeSpace3D.RelativePosition(origin.transform, another.transform);
 
             var transmission = Propagate.WithoutCache<Space3D.Position>().Transmit(generation);
 
@@ -108,12 +108,12 @@ namespace YggdrAshill.Unity.Specification
         public void DirectionShouldBeGeneratedAndConsumed(Vector3 expected)
         {
             var consumed = default(Vector3);
-            var consumption = Nuadha.ConsumeSpace3D.Direction(signal =>
+            var consumption = ConsumeSpace3D.Direction(signal =>
             {
                 consumed = signal;
             });
 
-            var generation = Nuadha.GenerateSpace3D.Direction(expected);
+            var generation = GenerateSpace3D.Direction(expected);
 
             var transmission = Propagate.WithoutCache<Space3D.Direction>().Transmit(generation);
 
@@ -136,12 +136,12 @@ namespace YggdrAshill.Unity.Specification
         public void RotationShouldBeGeneratedAndConsumed(Quaternion expected)
         {
             var consumed = default(Quaternion);
-            var consumption = Nuadha.ConsumeSpace3D.Rotation(signal =>
+            var consumption = ConsumeSpace3D.Rotation(signal =>
             {
                 consumed = signal;
             });
 
-            var generation = Nuadha.GenerateSpace3D.Rotation(expected);
+            var generation = GenerateSpace3D.Rotation(expected);
 
             var transmission = Propagate.WithoutCache<Space3D.Rotation>().Transmit(generation);
 
@@ -162,9 +162,9 @@ namespace YggdrAshill.Unity.Specification
             one.transform.rotation = Quaternion.AngleAxis(Random.Range(0.0f, 360.0f), new Vector3(Random.value, Random.value, Random.value));
             another.transform.rotation = Quaternion.identity;
 
-            var generation = Nuadha.GenerateSpace3D.AbsoluteRotation(one.transform);
+            var generation = GenerateSpace3D.AbsoluteRotation(one.transform);
 
-            var consumption = Nuadha.ConsumeSpace3D.AbsoluteRotation(another.transform);
+            var consumption = ConsumeSpace3D.AbsoluteRotation(another.transform);
 
             var transmission = Propagate.WithoutCache<Space3D.Rotation>().Transmit(generation);
 
@@ -190,9 +190,9 @@ namespace YggdrAshill.Unity.Specification
             one.transform.parent = origin.transform;
             another.transform.parent = origin.transform;
 
-            var generation = Nuadha.GenerateSpace3D.RelativeRotation(origin.transform, one.transform);
+            var generation = GenerateSpace3D.RelativeRotation(origin.transform, one.transform);
 
-            var consumption = Nuadha.ConsumeSpace3D.RelativeRotation(origin.transform, another.transform);
+            var consumption = ConsumeSpace3D.RelativeRotation(origin.transform, another.transform);
 
             var transmission = Propagate.WithoutCache<Space3D.Rotation>().Transmit(generation);
 

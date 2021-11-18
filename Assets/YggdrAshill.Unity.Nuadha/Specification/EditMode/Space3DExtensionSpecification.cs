@@ -1,9 +1,8 @@
 using NUnit.Framework;
-using YggdrAshill.Unity.Nuadha;
 using UnityEngine;
 using UnityEngine.TestTools.Utils;
 
-namespace YggdrAshill.Unity.Specification
+namespace YggdrAshill.Unity.Nuadha.Specification
 {
     [TestFixture(TestOf = typeof(Space3DExtension))]
     internal class Space3DExtensionSpecification
