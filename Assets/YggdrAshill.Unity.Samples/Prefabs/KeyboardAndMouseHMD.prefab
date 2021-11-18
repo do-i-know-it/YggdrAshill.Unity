@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fcd562cffa915f42b7c27e239b22a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originTransform: {fileID: 8339445146454437622}
   headTransform: {fileID: 4621417294640396445}
   leftHandTransform: {fileID: 8065680454312744326}
   rightTransform: {fileID: 3200544893152260934}
@@ -122,6 +123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26f91d7940f8a8d4d918d20d2618f016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originAdjustment:
+    position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
   headAdjustment:
     position: {x: 0, y: 0.1, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}

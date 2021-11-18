@@ -1,7 +1,9 @@
-﻿namespace YggdrAshill.Nuadha.Unity
+namespace YggdrAshill.Nuadha.Unity
 {
     public interface IHeadMountedDisplayConfiguration
     {
+        IPoseTrackerConfiguration Origin { get; }
+
         IHeadTrackerConfiguration Head { get; }
 
         IHandControllerConfiguration LeftHand { get; }

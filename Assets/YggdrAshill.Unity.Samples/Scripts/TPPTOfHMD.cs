@@ -2,97 +2,93 @@ using YggdrAshill.Nuadha;
 using YggdrAshill.Nuadha.Signals;
 using YggdrAshill.Nuadha.Unity;
 using UnityEngine;
+using System;
 
 namespace YggdrAshill.Unity.Samples
 {
     [DisallowMultipleComponent]
-    internal sealed class TPPTOfHMD : MonoBehaviour
+    internal sealed class TPPTOfHMD : MonoBehaviour,
+        IThreePointPoseTrackerConfiguration
     {
+        [SerializeField] private Pose originAdjustment;
         [SerializeField] private Pose headAdjustment;
         [SerializeField] private Pose leftHandAdjustment;
         [SerializeField] private Pose rightHandAdjustment;
 
-        private IPoseTrackerConfiguration headCalibration;
-        private IPoseTrackerConfiguration HeadCalibration
+        private IPoseTrackerConfiguration origin;
+        public IPoseTrackerConfiguration Origin
         {
             get
             {
-                if (headCalibration is null)
+                if (origin is null)
                 {
-                    headCalibration = new PoseTrackerConfiguration(headAdjustment);
+                    origin = new PoseTrackerConfiguration(originAdjustment);
                 }
 
-                return headCalibration;
+                return origin;
             }
         }
 
-        private IPoseTrackerConfiguration leftHandCalibration;
-        private IPoseTrackerConfiguration LeftHandCalibration
+        private IPoseTrackerConfiguration head;
+        public IPoseTrackerConfiguration Head
         {
             get
             {
-                if (leftHandCalibration is null)
+                if (head is null)
                 {
-                    leftHandCalibration = new PoseTrackerConfiguration(leftHandAdjustment);
+                    head = new PoseTrackerConfiguration(headAdjustment);
                 }
 
-                return leftHandCalibration;
+                return head;
             }
         }
 
-        private IPoseTrackerConfiguration rightHandCalibration;
-        private IPoseTrackerConfiguration RightHandCalibration
+        private IPoseTrackerConfiguration leftHand;
+        public IPoseTrackerConfiguration LeftHand
         {
             get
             {
-                if (rightHandCalibration is null)
+                if (leftHand is null)
                 {
-                    rightHandCalibration = new PoseTrackerConfiguration(rightHandAdjustment);
+                    leftHand = new PoseTrackerConfiguration(leftHandAdjustment);
                 }
 
-                return rightHandCalibration;
+                return leftHand;
             }
         }
 
-        private CompositeCancellation cancellation;
+        private IPoseTrackerConfiguration rightHand;
+        public IPoseTrackerConfiguration RightHand
+        {
+            get
+            {
+                if (rightHand is null)
+                {
+                    rightHand = new PoseTrackerConfiguration(rightHandAdjustment);
+                }
+
+                return rightHand;
+            }
+        }
+
+        private IDisposable disposable;
 
         private void OnEnable()
         {
-            cancellation = new CompositeCancellation();
-
-            var display = HeadMountedDisplay.Instance;
-            var tracker = ThreePointPoseTracker.Instance;
-
-            display
-                .Head
+            disposable 
+                = HeadMountedDisplay
+                .Instance
                 .Hardware
-                .Pose
-                .Calibrate(HeadCalibration)
-                .Connect(tracker.Head.Software)
-                .Synthesize(cancellation);
-
-            display
-                .LeftHand
-                .Hardware
-                .Pose
-                .Calibrate(LeftHandCalibration)
-                .Connect(tracker.LeftHand.Software)
-                .Synthesize(cancellation);
-
-            display
-                .RightHand
-                .Hardware
-                .Pose
-                .Calibrate(RightHandCalibration)
-                .Connect(tracker.RightHand.Software)
-                .Synthesize(cancellation);
+                .Calibrate(this)
+                .Connect(ThreePointPoseTracker.Instance.Software)
+                .ToDisposable();
         }
 
         private void OnDisable()
         {
-            cancellation.Cancel();
+            disposable.Dispose();
 
-            cancellation = null;
+            disposable = null;
         }
 
         private sealed class PoseTrackerConfiguration :

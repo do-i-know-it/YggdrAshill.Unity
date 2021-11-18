@@ -1,7 +1,9 @@
-﻿namespace YggdrAshill.Nuadha.Unity
+namespace YggdrAshill.Nuadha.Unity
 {
-    public interface IThreePointPoseTrackerCalibration
+    public interface IThreePointPoseTrackerConfiguration
     {
+        IPoseTrackerConfiguration Origin { get; }
+
         IPoseTrackerConfiguration Head { get; }
 
         IPoseTrackerConfiguration LeftHand { get; }

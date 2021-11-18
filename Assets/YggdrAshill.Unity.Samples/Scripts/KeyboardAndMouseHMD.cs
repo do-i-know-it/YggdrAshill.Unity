@@ -1,14 +1,29 @@
 using YggdrAshill.Nuadha;
 using YggdrAshill.Nuadha.Conduction;
-using YggdrAshill.Nuadha.Units;
 using YggdrAshill.Nuadha.Unity;
 using UnityEngine;
+using System;
 
 namespace YggdrAshill.Unity.Samples
 {
     [DisallowMultipleComponent]
-    internal sealed class KeyboardAndMouseHMD : MonoBehaviour
+    internal sealed class KeyboardAndMouseHMD : MonoBehaviour,
+        IHeadMountedDisplayConfiguration
     {
+        [SerializeField] private Transform originTransform;
+        private Transform OriginTransform
+        {
+            get
+            {
+                if (originTransform is null)
+                {
+                    originTransform = transform;
+                }
+
+                return originTransform;
+            }
+        }
+
         [SerializeField] private Transform headTransform;
         private Transform HeadTransform
         {
@@ -51,77 +66,92 @@ namespace YggdrAshill.Unity.Samples
             }
         }
 
-        private IIgnition<IHeadTrackerSoftware> head;
-        private IIgnition<IHeadTrackerSoftware> Head
+        private IPoseTrackerConfiguration origin;
+        public IPoseTrackerConfiguration Origin
+        {
+            get
+            {
+                if (origin is null)
+                {
+                    origin = SimulatedPoseTracker.Transform(OriginTransform);
+                }
+
+                return origin;
+            }
+        }
+
+        private IHeadTrackerConfiguration head;
+        public IHeadTrackerConfiguration Head
         {
             get
             {
                 if (head is null)
                 {
-                    head = HeadTracker.Ignite(SimulatedHeadTracker.Transform(HeadTransform));
+                    head = SimulatedHeadTracker.Transform(HeadTransform);
                 }
 
                 return head;
             }
         }
 
-        private IIgnition<IHandControllerSoftware> leftHand;
-        private IIgnition<IHandControllerSoftware> LeftHand
+        private IHandControllerConfiguration leftHand;
+        public IHandControllerConfiguration LeftHand
         {
             get
             {
                 if (leftHand is null)
                 {
-                    leftHand = HandController.Ignite(SimulatedHandController.Left(LeftHandTransform));
+                    leftHand = SimulatedHandController.Left(LeftHandTransform);
                 }
 
                 return leftHand;
             }
         }
 
-        private IIgnition<IHandControllerSoftware> rightHand;
-        private IIgnition<IHandControllerSoftware> RightHand
+        private IHandControllerConfiguration rightHand;
+        public IHandControllerConfiguration RightHand
         {
             get
             {
                 if (rightHand is null)
                 {
-                    rightHand = HandController.Ignite(SimulatedHandController.Right(RightHandTransform));
+                    rightHand = SimulatedHandController.Right(RightHandTransform);
                 }
 
                 return rightHand;
             }
         }
 
-        private CompositeCancellation cancellation;
+        private IIgnition<IHeadMountedDisplaySoftware> ignition;
+
+        private IDisposable disposable;
 
         private void OnEnable()
         {
-            cancellation = new CompositeCancellation();
+            ignition
+                = HeadMountedDisplay
+                .Ignite(this);
 
-            var display = HeadMountedDisplay.Instance;
-
-            Head.Connect(display.Head.Software).Synthesize(cancellation);
-
-            LeftHand.Connect(display.LeftHand.Software).Synthesize(cancellation);
-
-            RightHand.Connect(display.RightHand.Software).Synthesize(cancellation);
+            disposable 
+                = ignition
+                .Connect(HeadMountedDisplay.Instance.Software)
+                .ToDisposable();
         }
 
         private void OnDisable()
         {
-            cancellation.Cancel();
+            ignition.Dispose();
 
-            cancellation = null;
+            disposable.Dispose();
+
+            ignition = null;
+
+            disposable = null;
         }
 
         private void Update()
         {
-            Head.Emit();
-
-            LeftHand.Emit();
-
-            RightHand.Emit();
+            ignition.Emit();
         }
     }
 }
