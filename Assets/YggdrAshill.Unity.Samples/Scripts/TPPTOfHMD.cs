@@ -1,8 +1,10 @@
 using YggdrAshill.Nuadha;
+using YggdrAshill.Nuadha.Conduction;
 using YggdrAshill.Nuadha.Signals;
+using YggdrAshill.Nuadha.Units;
 using YggdrAshill.Nuadha.Unity;
-using UnityEngine;
 using System;
+using UnityEngine;
 
 namespace YggdrAshill.Unity.Samples
 {
@@ -75,12 +77,11 @@ namespace YggdrAshill.Unity.Samples
 
         private void OnEnable()
         {
-            disposable 
-                = HeadMountedDisplay
-                .Instance
-                .Hardware
+            disposable
+                = DeviceManagement.HeadMountedDisplay.Hardware
                 .Calibrate(this)
-                .Connect(ThreePointPoseTracker.Instance.Software)
+                .Connect()
+                .Connect(DeviceManagement.ThreePointPoseTracker.Software)
                 .ToDisposable();
         }
 

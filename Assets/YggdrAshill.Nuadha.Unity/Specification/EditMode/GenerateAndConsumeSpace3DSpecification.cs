@@ -30,14 +30,11 @@ namespace YggdrAshill.Nuadha.Unity.Specification
 
             var generation = GenerateSpace3D.Position(expected);
 
-            var transmission = Transmit.Signal(generation);
+            var emission = consumption.Conduct(generation);
 
-            using (transmission.Produce(consumption).ToDisposable())
-            {
-                transmission.Emit();
+            emission.Emit();
 
-                Assert.That(consumed, Is.EqualTo(expected).Using(QuaternionEqualityComparer.Instance));
-            }
+            Assert.That(consumed, Is.EqualTo(expected).Using(QuaternionEqualityComparer.Instance));
         }
 
         [Test]
@@ -53,14 +50,11 @@ namespace YggdrAshill.Nuadha.Unity.Specification
 
             var consumption = ConsumeSpace3D.AbsolutePosition(another.transform);
 
-            var transmission = Transmit.Signal(generation);
+            var emission = consumption.Conduct(generation);
 
-            using (transmission.Produce(consumption).ToDisposable())
-            {
-                transmission.Emit();
+            emission.Emit();
 
-                Assert.That(another.transform.position, Is.EqualTo(one.transform.position).Using(Vector3EqualityComparer.Instance));
-            }
+            Assert.That(another.transform.position, Is.EqualTo(one.transform.position).Using(Vector3EqualityComparer.Instance));
         }
 
         [Test]
@@ -81,14 +75,11 @@ namespace YggdrAshill.Nuadha.Unity.Specification
 
             var consumption = ConsumeSpace3D.RelativePosition(origin.transform, another.transform);
 
-            var transmission = Transmit.Signal(generation);
+            var emission = consumption.Conduct(generation);
 
-            using (transmission.Produce(consumption).ToDisposable())
-            {
-                transmission.Emit();
+            emission.Emit();
 
-                Assert.That(another.transform.localPosition, Is.EqualTo(one.transform.localPosition).Using(Vector3EqualityComparer.Instance));
-            }
+            Assert.That(another.transform.localPosition, Is.EqualTo(one.transform.localPosition).Using(Vector3EqualityComparer.Instance));
         }
 
         private static object[] TestSuiteForDirection => new[]
@@ -112,14 +103,11 @@ namespace YggdrAshill.Nuadha.Unity.Specification
 
             var generation = GenerateSpace3D.Direction(expected);
 
-            var transmission = Transmit.Signal(generation);
+            var emission = consumption.Conduct(generation);
 
-            using (transmission.Produce(consumption).ToDisposable())
-            {
-                transmission.Emit();
+            emission.Emit();
 
-                Assert.That(consumed, Is.EqualTo(expected.normalized).Using(Vector3EqualityComparer.Instance));
-            }
+            Assert.That(consumed, Is.EqualTo(expected.normalized).Using(Vector3EqualityComparer.Instance));
         }
 
         private static object[] TestSuiteForRotation => new[]
@@ -140,14 +128,11 @@ namespace YggdrAshill.Nuadha.Unity.Specification
 
             var generation = GenerateSpace3D.Rotation(expected);
 
-            var transmission = Transmit.Signal(generation);
+            var emission = consumption.Conduct(generation);
 
-            using (transmission.Produce(consumption).ToDisposable())
-            {
-                transmission.Emit();
+            emission.Emit();
 
-                Assert.That(consumed, Is.EqualTo(expected.normalized).Using(QuaternionEqualityComparer.Instance));
-            }
+            Assert.That(consumed, Is.EqualTo(expected.normalized).Using(QuaternionEqualityComparer.Instance));
         }
 
         [Test]
@@ -163,14 +148,11 @@ namespace YggdrAshill.Nuadha.Unity.Specification
 
             var consumption = ConsumeSpace3D.AbsoluteRotation(another.transform);
 
-            var transmission = Transmit.Signal(generation);
+            var emission = consumption.Conduct(generation);
 
-            using (transmission.Produce(consumption).ToDisposable())
-            {
-                transmission.Emit();
+            emission.Emit();
 
-                Assert.That(another.transform.rotation, Is.EqualTo(one.transform.rotation).Using(QuaternionEqualityComparer.Instance));
-            }
+            Assert.That(another.transform.rotation, Is.EqualTo(one.transform.rotation).Using(QuaternionEqualityComparer.Instance));
         }
 
         [Test]
@@ -191,14 +173,11 @@ namespace YggdrAshill.Nuadha.Unity.Specification
 
             var consumption = ConsumeSpace3D.RelativeRotation(origin.transform, another.transform);
 
-            var transmission = Transmit.Signal(generation);
+            var emission = consumption.Conduct(generation);
 
-            using (transmission.Produce(consumption).ToDisposable())
-            {
-                transmission.Emit();
+            emission.Emit();
 
-                Assert.That(another.transform.localRotation, Is.EqualTo(one.transform.localRotation).Using(QuaternionEqualityComparer.Instance));
-            }
+            Assert.That(another.transform.localRotation, Is.EqualTo(one.transform.localRotation).Using(QuaternionEqualityComparer.Instance));
         }
     }
 }

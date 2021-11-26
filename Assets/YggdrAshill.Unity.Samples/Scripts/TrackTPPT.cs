@@ -1,5 +1,7 @@
 ﻿using YggdrAshill.Nuadha;
+using YggdrAshill.Nuadha.Conduction;
 using YggdrAshill.Nuadha.Unity;
+using System;
 using UnityEngine;
 
 namespace YggdrAshill.Unity.Samples
@@ -49,57 +51,33 @@ namespace YggdrAshill.Unity.Samples
             }
         }
 
-        private CompositeCancellation cancellation;
+        private IDisposable disposable;
 
         private void OnEnable()
         {
-            cancellation = new CompositeCancellation();
+            var module
+                = DeviceManagement.ThreePointPoseTracker.Hardware;
 
-            ThreePointPoseTracker
-                .Instance
-                .Head
-                .Hardware
-                .Position
-                .Produce(ConsumeSpace3D.AbsolutePosition(HeadTransform));
-            ThreePointPoseTracker
-                .Instance
-                .Head
-                .Hardware
-                .Rotation
-                .Produce(ConsumeSpace3D.AbsoluteRotation(HeadTransform));
-
-            ThreePointPoseTracker
-                .Instance
-                .LeftHand
-                .Hardware
-                .Position
-                .Produce(ConsumeSpace3D.AbsolutePosition(LeftHandTransform));
-            ThreePointPoseTracker
-                .Instance
-                .LeftHand
-                .Hardware
-                .Rotation
-                .Produce(ConsumeSpace3D.AbsoluteRotation(LeftHandTransform));
-
-            ThreePointPoseTracker
-                .Instance
-                .RightHand
-                .Hardware
-                .Position
-                .Produce(ConsumeSpace3D.AbsolutePosition(RightHandTransform));
-            ThreePointPoseTracker
-                .Instance
-                .RightHand
-                .Hardware
-                .Rotation
-                .Produce(ConsumeSpace3D.AbsoluteRotation(RightHandTransform));
+            disposable
+                = CancellationSource.Default
+                .Synthesize(module.Head.Position.Produce(signal => Debug.Log($"head position: {signal}")))
+                .Synthesize(module.LeftHand.Position.Produce(signal => Debug.Log($"left hand position: {signal}")))
+                .Synthesize(module.RightHand.Position.Produce(signal => Debug.Log($"right hand position: {signal}")))
+                .Synthesize(module.Head.Position.Produce(ConsumeSpace3D.AbsolutePosition(HeadTransform)))
+                .Synthesize(module.Head.Rotation.Produce(ConsumeSpace3D.AbsoluteRotation(HeadTransform)))
+                .Synthesize(module.LeftHand.Position.Produce(ConsumeSpace3D.AbsolutePosition(LeftHandTransform)))
+                .Synthesize(module.LeftHand.Rotation.Produce(ConsumeSpace3D.AbsoluteRotation(LeftHandTransform)))
+                .Synthesize(module.RightHand.Position.Produce(ConsumeSpace3D.AbsolutePosition(RightHandTransform)))
+                .Synthesize(module.RightHand.Rotation.Produce(ConsumeSpace3D.AbsoluteRotation(RightHandTransform)))
+                .Build()
+                .ToDisposable();
         }
 
         private void OnDisable()
         {
-            cancellation.Cancel();
+            disposable.Dispose();
 
-            cancellation = null;
+            disposable = null;
         }
     }
 }

@@ -12,11 +12,15 @@ namespace YggdrAshill.Unity
         /// <summary>
         /// <see cref="IHeadMountedDisplayProtocol"/> accessed globally.
         /// </summary>
-        public static IHeadMountedDisplayProtocol HeadMountedDisplay => Unity.HeadMountedDisplay.Instance;
+        public static IHeadMountedDisplayProtocol HeadMountedDisplay => Instance.headMountedDisplay;
 
         /// <summary>
         /// <see cref="IThreePointPoseTrackerProtocol"/> accessed globally.
         /// </summary>
-        public static IThreePointPoseTrackerProtocol ThreePointPoseTracker => Unity.ThreePointPoseTracker.Instance;
+        public static IThreePointPoseTrackerProtocol ThreePointPoseTracker => Instance.threePointPoseTracker;
+
+        private readonly IHeadMountedDisplayProtocol headMountedDisplay = Nuadha.Unity.HeadMountedDisplay.WithLatestCache();
+
+        private readonly IThreePointPoseTrackerProtocol threePointPoseTracker = Nuadha.Unity.ThreePointPoseTracker.WithLatestCache();
     }
 }

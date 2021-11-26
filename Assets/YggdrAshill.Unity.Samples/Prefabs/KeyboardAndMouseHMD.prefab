@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 8339445146454437622}
   - component: {fileID: 5947183126400809570}
   - component: {fileID: 6367348922077326544}
-  - component: {fileID: -2295657673100736676}
+  - component: {fileID: 2191005151790512007}
   m_Layer: 0
   m_Name: KeyboardAndMouseHMD
   m_TagString: Untagged
@@ -136,7 +136,7 @@ MonoBehaviour:
   rightHandAdjustment:
     position: {x: 0.1, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &-2295657673100736676
+--- !u!114 &2191005151790512007
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

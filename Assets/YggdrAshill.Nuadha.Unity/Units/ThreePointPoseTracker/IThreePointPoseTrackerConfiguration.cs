@@ -1,3 +1,5 @@
+using YggdrAshill.Nuadha.Units;
+
 namespace YggdrAshill.Nuadha.Unity
 {
     public interface IThreePointPoseTrackerConfiguration

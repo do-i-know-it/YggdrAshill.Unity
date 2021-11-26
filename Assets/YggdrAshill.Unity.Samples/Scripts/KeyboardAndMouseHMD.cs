@@ -1,5 +1,6 @@
 using YggdrAshill.Nuadha;
 using YggdrAshill.Nuadha.Conduction;
+using YggdrAshill.Nuadha.Units;
 using YggdrAshill.Nuadha.Unity;
 using UnityEngine;
 using System;
@@ -122,36 +123,34 @@ namespace YggdrAshill.Unity.Samples
             }
         }
 
-        private IIgnition<IHeadMountedDisplaySoftware> ignition;
+        private ITransmission<IHeadMountedDisplaySoftware> transmission;
 
         private IDisposable disposable;
 
         private void OnEnable()
         {
-            ignition
+            transmission
                 = HeadMountedDisplay
-                .Ignite(this);
+                .Transmit(this);
 
             disposable 
-                = ignition
-                .Connect(HeadMountedDisplay.Instance.Software)
+                = transmission
+                .Connect(DeviceManagement.HeadMountedDisplay.Software)
                 .ToDisposable();
         }
 
         private void OnDisable()
         {
-            ignition.Dispose();
-
             disposable.Dispose();
 
-            ignition = null;
+            transmission = null;
 
             disposable = null;
         }
 
         private void Update()
         {
-            ignition.Emit();
+            transmission.Emit();
         }
     }
 }

@@ -6,7 +6,7 @@
     <members>
         <member name="T:YggdrAshill.Nuadha.Signalization.ICancellation">
             <summary>
-            Token to <see cref="M:YggdrAshill.Nuadha.Signalization.ICancellation.Cancel"/>.
+            Token to cancel.
             </summary>
         </member>
         <member name="M:YggdrAshill.Nuadha.Signalization.ICancellation.Cancel">
@@ -40,10 +40,10 @@
         </member>
         <member name="M:YggdrAshill.Nuadha.Signalization.IProduction`1.Produce(YggdrAshill.Nuadha.Signalization.IConsumption{`0})">
             <summary>
-            Sends produced <typeparamref name="TSignal"/> to <see cref="T:YggdrAshill.Nuadha.Signalization.IConsumption`1"/>.
+            Sends <typeparamref name="TSignal"/> produced to <see cref="T:YggdrAshill.Nuadha.Signalization.IConsumption`1"/>.
             </summary>
             <param name="consumption">
-            <see cref="T:YggdrAshill.Nuadha.Signalization.IConsumption`1"/> to receive <typeparamref name="TSignal"/>.
+            <see cref="T:YggdrAshill.Nuadha.Signalization.IConsumption`1"/> for <typeparamref name="TSignal"/>.
             </param>
             <returns>
             <see cref="T:YggdrAshill.Nuadha.Signalization.ICancellation"/> to cancel.
@@ -52,7 +52,14 @@
             Thrown if <paramref name="consumption"/> is null.
             </exception>
         </member>
-        <!-- Badly formed XML comment ignored for member "T:YggdrAshill.Nuadha.Signalization.IPropagation`1" -->
+        <member name="T:YggdrAshill.Nuadha.Signalization.IPropagation`1">
+            <summary>
+            Sends received <typeparamref name="TSignal"/> to each of <see cref="T:YggdrAshill.Nuadha.Signalization.IConsumption`1"/>.
+            </summary>
+            <typeparam name="TSignal">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to propagate.
+            </typeparam>
+        </member>
         <member name="T:YggdrAshill.Nuadha.Signalization.ISignal">
             <summary>
             Defines I/O data to send and receive.

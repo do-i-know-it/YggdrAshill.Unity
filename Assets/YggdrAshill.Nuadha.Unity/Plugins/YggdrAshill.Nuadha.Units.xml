@@ -4,6 +4,167 @@
         <name>YggdrAshill.Nuadha.Units</name>
     </assembly>
     <members>
+        <member name="T:YggdrAshill.Nuadha.Units.ConvertButtonInto">
+            <summary>
+            Defines conversion for <see cref="T:YggdrAshill.Nuadha.Units.IButtonProtocol"/>, <see cref="T:YggdrAshill.Nuadha.Units.IButtonHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IButtonSoftware"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertButtonInto.Transmission(YggdrAshill.Nuadha.Units.IButtonProtocol,YggdrAshill.Nuadha.Units.IButtonConfiguration)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IButtonProtocol"/> into <see cref="T:YggdrAshill.Nuadha.Conduction.ITransmission`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IButtonSoftware"/>.
+            </summary>
+            <param name="protocol">
+            <see cref="T:YggdrAshill.Nuadha.Units.IButtonProtocol"/> to convert.
+            </param>
+            <param name="configuration">
+            <see cref="T:YggdrAshill.Nuadha.Units.IButtonConfiguration"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.ITransmission`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IButtonSoftware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IButtonProtocol"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="protocol"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="configuration"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertButtonInto.Connection(YggdrAshill.Nuadha.Units.IButtonSoftware)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IButtonSoftware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IButtonHardware"/>.
+            </summary>
+            <param name="software">
+            <see cref="T:YggdrAshill.Nuadha.Units.IButtonSoftware"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IButtonHardware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IButtonSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="software"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertButtonInto.Connection(YggdrAshill.Nuadha.Units.IButtonHardware)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IButtonHardware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IButtonSoftware"/>.
+            </summary>
+            <param name="hardware">
+            <see cref="T:YggdrAshill.Nuadha.Units.IButtonSoftware"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IButtonSoftware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IButtonHardware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="hardware"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertButtonInto.PulsatedButton(YggdrAshill.Nuadha.Units.IButtonHardware,YggdrAshill.Nuadha.Units.IButtonPulsation)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IButtonHardware"/> into <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedButtonHardware"/>.
+            </summary>
+            <param name="hardware">
+            <see cref="T:YggdrAshill.Nuadha.Units.IButtonHardware"/> to convert.
+            </param>
+            <param name="pulsation">
+            <see cref="T:YggdrAshill.Nuadha.Units.IButtonPulsation"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedButtonHardware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IButtonHardware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="hardware"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="pulsation"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertButtonInto.Trigger(YggdrAshill.Nuadha.Units.IButtonSoftware,YggdrAshill.Nuadha.Transformation.ITranslation{YggdrAshill.Nuadha.Signals.Pull,YggdrAshill.Nuadha.Signals.Push})">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IButtonSoftware"/> into <see cref="T:YggdrAshill.Nuadha.Units.ITriggerSoftware"/>.
+            </summary>
+            <param name="software">
+            <see cref="T:YggdrAshill.Nuadha.Units.IButtonSoftware"/> to convert.
+            </param>
+            <param name="translation">
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> to convert <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> into <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Units.ITriggerSoftware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IButtonSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="software"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="translation"/> is null.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.ConvertPulsatedButtonInto">
+            <summary>
+            Defines conversion for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedButtonHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedButtonSoftware"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertPulsatedButtonInto.Connection(YggdrAshill.Nuadha.Units.IPulsatedButtonSoftware)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedButtonSoftware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedButtonHardware"/>.
+            </summary>
+            <param name="software">
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedButtonSoftware"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedButtonHardware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedButtonSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="software"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertPulsatedButtonInto.Connection(YggdrAshill.Nuadha.Units.IPulsatedButtonHardware)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedButtonHardware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedButtonSoftware"/>.
+            </summary>
+            <param name="hardware">
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedButtonHardware"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedButtonSoftware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedButtonHardware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="hardware"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertPulsatedButtonInto.Button(YggdrAshill.Nuadha.Units.IPulsatedButtonSoftware,YggdrAshill.Nuadha.Units.IButtonPulsation)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedButtonSoftware"/> into <see cref="T:YggdrAshill.Nuadha.Units.IButtonSoftware"/>.
+            </summary>
+            <param name="software">
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedButtonSoftware"/> to convert.
+            </param>
+            <param name="pulsation">
+            <see cref="T:YggdrAshill.Nuadha.Units.IButtonPulsation"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Units.IButtonSoftware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedButtonSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="software"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="pulsation"/> is null.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IButtonConfiguration">
+            <summary>
+            Defines configuration for button.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IButtonConfiguration.Touch">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IGeneration`1"/> to generate <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IButtonConfiguration.Push">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IGeneration`1"/> to generate <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </summary>
+        </member>
         <member name="T:YggdrAshill.Nuadha.Units.IButtonHardware">
             <summary>
             Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for button as hardware.
@@ -32,6 +193,21 @@
         <member name="P:YggdrAshill.Nuadha.Units.IButtonProtocol.Push">
             <summary>
             Propagates <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IButtonPulsation">
+            <summary>
+            Defines pulsation for button.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IButtonPulsation.Touch">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> into <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IButtonPulsation.Push">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> into <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/>.
             </summary>
         </member>
         <member name="T:YggdrAshill.Nuadha.Units.IButtonSoftware">
@@ -64,6 +240,21 @@
             Sends <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to software.
             </summary>
         </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IPulsatedButtonProtocol">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedButtonHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedButtonSoftware"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedButtonProtocol.Touch">
+            <summary>
+            Propagates <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedButtonProtocol.Push">
+            <summary>
+            Propagates <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </summary>
+        </member>
         <member name="T:YggdrAshill.Nuadha.Units.IPulsatedButtonSoftware">
             <summary>
             Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for pulsated button as software.
@@ -77,6 +268,137 @@
         <member name="P:YggdrAshill.Nuadha.Units.IPulsatedButtonSoftware.Push">
             <summary>
             Receives <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> sent from hardware.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.ConvertHandControllerInto">
+            <summary>
+            Defines conversion for <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerProtocol"/>, <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerSoftware"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertHandControllerInto.Transmission(YggdrAshill.Nuadha.Units.IHandControllerProtocol,YggdrAshill.Nuadha.Units.IHandControllerConfiguration)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerProtocol"/> into <see cref="T:YggdrAshill.Nuadha.Conduction.ITransmission`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerSoftware"/>.
+            </summary>
+            <param name="protocol">
+            <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerProtocol"/> to convert.
+            </param>
+            <param name="configuration">
+            <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerConfiguration"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.ITransmission`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerSoftware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerProtocol"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="protocol"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="configuration"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertHandControllerInto.Connection(YggdrAshill.Nuadha.Units.IHandControllerSoftware)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerSoftware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerHardware"/>.
+            </summary>
+            <param name="software">
+            <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerSoftware"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerHardware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="software"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertHandControllerInto.Connection(YggdrAshill.Nuadha.Units.IHandControllerHardware)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerHardware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerSoftware"/>.
+            </summary>
+            <param name="hardware">
+            <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerSoftware"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerSoftware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerHardware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="hardware"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertHandControllerInto.PulsatedHandController(YggdrAshill.Nuadha.Units.IHandControllerHardware,YggdrAshill.Nuadha.Units.IHandControllerPulsation)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerHardware"/> into <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerHardware"/>.
+            </summary>
+            <param name="hardware">
+            <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerHardware"/> to convert.
+            </param>
+            <param name="pulsation">
+            <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerPulsation"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerHardware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IHandControllerHardware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="hardware"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="pulsation"/> is null.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.ConvertPulsatedHandControllerInto">
+            <summary>
+            Defines conversion for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerSoftware"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertPulsatedHandControllerInto.Connection(YggdrAshill.Nuadha.Units.IPulsatedHandControllerSoftware)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerSoftware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerHardware"/>.
+            </summary>
+            <param name="software">
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerSoftware"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerHardware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="software"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertPulsatedHandControllerInto.Connection(YggdrAshill.Nuadha.Units.IPulsatedHandControllerHardware)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerHardware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerSoftware"/>.
+            </summary>
+            <param name="hardware">
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerHardware"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerSoftware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerHardware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="hardware"/> is null.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IHandControllerConfiguration">
+            <summary>
+            Defines configuration of hand controller.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IHandControllerConfiguration.Pose">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerConfiguration"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IHandControllerConfiguration.Thumb">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.IStickConfiguration"/> for thumb.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IHandControllerConfiguration.IndexFinger">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.ITriggerConfiguration"/> for index finger.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IHandControllerConfiguration.HandGrip">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.ITriggerConfiguration"/> for hand grip.
             </summary>
         </member>
         <member name="T:YggdrAshill.Nuadha.Units.IHandControllerHardware">
@@ -174,6 +496,26 @@
             <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerHardware"/> of hand controler.
             </summary>
         </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerProtocol">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerSoftware"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedHandControllerProtocol.Thumb">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickProtocol"/> of hand controller.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedHandControllerProtocol.IndexFinger">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerProtocol"/> of hand controller.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedHandControllerProtocol.HandGrip">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerProtocol"/> of hand controller.
+            </summary>
+        </member>
         <member name="T:YggdrAshill.Nuadha.Units.IPulsatedHandControllerSoftware">
             <summary>
             Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for pulsated hand controller as software.
@@ -192,6 +534,74 @@
         <member name="P:YggdrAshill.Nuadha.Units.IPulsatedHandControllerSoftware.HandGrip">
             <summary>
             <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerSoftware"/> of hand controler.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.ConvertHeadTrackerInto">
+            <summary>
+            Defines conversion for <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerProtocol"/>, <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerSoftware"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertHeadTrackerInto.Transmission(YggdrAshill.Nuadha.Units.IHeadTrackerProtocol,YggdrAshill.Nuadha.Units.IHeadTrackerConfiguration)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerProtocol"/> into <see cref="T:YggdrAshill.Nuadha.Conduction.ITransmission`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerSoftware"/>.
+            </summary>
+            <param name="protocol">
+            <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerProtocol"/> to convert.
+            </param>
+            <param name="configuration">
+            <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerConfiguration"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.ITransmission`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerSoftware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerProtocol"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="protocol"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="configuration"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertHeadTrackerInto.Connection(YggdrAshill.Nuadha.Units.IHeadTrackerSoftware)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerSoftware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerHardware"/>.
+            </summary>
+            <param name="software">
+            <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerSoftware"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerHardware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="software"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertHeadTrackerInto.Connection(YggdrAshill.Nuadha.Units.IHeadTrackerHardware)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerHardware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerSoftware"/>.
+            </summary>
+            <param name="hardware">
+            <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerSoftware"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerSoftware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IHeadTrackerHardware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="hardware"/> is null.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IHeadTrackerConfiguration">
+            <summary>
+            Defines configuration for head tracker.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IHeadTrackerConfiguration.Pose">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerConfiguration"/> for pose.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IHeadTrackerConfiguration.Direction">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IGeneration`1"/> to generate <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Direction"/>.
             </summary>
         </member>
         <member name="T:YggdrAshill.Nuadha.Units.IHeadTrackerHardware">
@@ -239,6 +649,129 @@
             Receives <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Direction"/> sent from hardware.
             </summary>
         </member>
+        <member name="T:YggdrAshill.Nuadha.Units.ConvertPoseTrackerInto">
+            <summary>
+            Defines conversion for <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerProtocol"/>, <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertPoseTrackerInto.Transmission(YggdrAshill.Nuadha.Units.IPoseTrackerProtocol,YggdrAshill.Nuadha.Units.IPoseTrackerConfiguration)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerProtocol"/> into <see cref="T:YggdrAshill.Nuadha.Conduction.ITransmission`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware"/>.
+            </summary>
+            <param name="protocol">
+            <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerProtocol"/> to convert.
+            </param>
+            <param name="configuration">
+            <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerConfiguration"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.ITransmission`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerProtocol"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="protocol"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="configuration"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertPoseTrackerInto.Connection(YggdrAshill.Nuadha.Units.IPoseTrackerSoftware)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerHardware"/>.
+            </summary>
+            <param name="software">
+            <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerHardware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="software"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertPoseTrackerInto.Connection(YggdrAshill.Nuadha.Units.IPoseTrackerHardware)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerHardware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware"/>.
+            </summary>
+            <param name="hardware">
+            <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerHardware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="hardware"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertPoseTrackerInto.CorrectedPoseTracker(YggdrAshill.Nuadha.Units.IPoseTrackerHardware,YggdrAshill.Nuadha.Units.IPoseTrackerCorrection)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerHardware"/> into <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerHardware"/>.
+            </summary>
+            <param name="hardware">
+            <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerHardware"/> to convert.
+            </param>
+            <param name="correction">
+            <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerCorrection"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerHardware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerHardware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="hardware"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="correction"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertPoseTrackerInto.CorrectedPoseTracker(YggdrAshill.Nuadha.Units.IPoseTrackerSoftware,YggdrAshill.Nuadha.Units.IPoseTrackerCorrection)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware"/> into <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware"/>.
+            </summary>
+            <param name="software">
+            <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware"/> to convert.
+            </param>
+            <param name="correction">
+            <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerCorrection"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IPoseTrackerSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="software"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="correction"/> is null.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IPoseTrackerConfiguration">
+            <summary>
+            Defines configuration for pose tracker.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPoseTrackerConfiguration.Position">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IGeneration`1"/> to generate <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPoseTrackerConfiguration.Rotation">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IGeneration`1"/> to generate <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/>.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IPoseTrackerCorrection">
+            <summary>
+            Defines correction for pose tracker.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPoseTrackerCorrection.Position">
+            <summary>
+            Corrects <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPoseTrackerCorrection.Rotation">
+            <summary>
+            Corrects <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/>.
+            </summary>
+        </member>
         <member name="T:YggdrAshill.Nuadha.Units.IPoseTrackerHardware">
             <summary>
             Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for pose tracker as hardware.
@@ -284,6 +817,79 @@
             Receives <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> sent from hardware.
             </summary>
         </member>
+        <member name="T:YggdrAshill.Nuadha.Units.ConvertPulsatedTiltInto">
+            <summary>
+            Defines conversion for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertPulsatedTiltInto.Connection(YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltHardware"/>.
+            </summary>
+            <param name="software">
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltHardware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="software"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertPulsatedTiltInto.Connection(YggdrAshill.Nuadha.Units.IPulsatedTiltHardware)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltHardware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware"/>.
+            </summary>
+            <param name="hardware">
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltHardware"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltHardware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="hardware"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertPulsatedTiltInto.Tilt(YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware,YggdrAshill.Nuadha.Units.ITiltPulsation)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltHardware"/> into <see cref="T:YggdrAshill.Nuadha.Signalization.IProduction`1"/> for <see cref="M:YggdrAshill.Nuadha.Units.ConvertPulsatedTiltInto.Tilt(YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware,YggdrAshill.Nuadha.Units.ITiltPulsation)"/>.
+            </summary>
+            <param name="software">
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware"/> to convert.
+            </param>
+            <param name="pulsation">
+            <see cref="T:YggdrAshill.Nuadha.Units.ITiltPulsation"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signalization.IConsumption`1"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltHardware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="software"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="pulsation"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertTiltInto.PulsatedTilt(YggdrAshill.Nuadha.Signalization.IProduction{YggdrAshill.Nuadha.Signals.Tilt},YggdrAshill.Nuadha.Units.ITiltPulsation)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signalization.IProduction`1"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/> into <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltHardware"/>.
+            </summary>
+            <param name="production">
+            <see cref="T:YggdrAshill.Nuadha.Signalization.IProduction`1"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/>.
+            </param>
+            <param name="pulsation">
+            <see cref="T:YggdrAshill.Nuadha.Units.ITiltPulsation"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltHardware"/> converted from <see cref="T:YggdrAshill.Nuadha.Signalization.IProduction`1"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="production"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="pulsation"/> is null.
+            </exception>
+        </member>
         <member name="T:YggdrAshill.Nuadha.Units.IPulsatedTiltHardware">
             <summary>
             Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for pulsated <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/> as hardware.
@@ -312,6 +918,36 @@
         <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTiltHardware.Backward">
             <summary>
             Sends <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Backward"/> to software.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IPulsatedTiltProtocol">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTiltProtocol.Distance">
+            <summary>
+            Propagates <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Distance"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTiltProtocol.Left">
+            <summary>
+            Propagates <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Left"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTiltProtocol.Right">
+            <summary>
+            Propagates <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Right"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTiltProtocol.Forward">
+            <summary>
+            Propagates <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Forward"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTiltProtocol.Backward">
+            <summary>
+            Propagates <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Backward"/>.
             </summary>
         </member>
         <member name="T:YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware">
@@ -344,6 +980,152 @@
             Receives <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Backward"/> sent from hardware.
             </summary>
         </member>
+        <member name="T:YggdrAshill.Nuadha.Units.ConvertPulsatedStickInto">
+            <summary>
+            Defines conversion for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickSoftware"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertPulsatedStickInto.Connection(YggdrAshill.Nuadha.Units.IPulsatedStickSoftware)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickSoftware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickHardware"/>.
+            </summary>
+            <param name="software">
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickSoftware"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickHardware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="software"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertPulsatedStickInto.Connection(YggdrAshill.Nuadha.Units.IPulsatedStickHardware)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickHardware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickSoftware"/>.
+            </summary>
+            <param name="hardware">
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickHardware"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickSoftware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickHardware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="hardware"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertPulsatedStickInto.Stick(YggdrAshill.Nuadha.Units.IPulsatedStickSoftware,YggdrAshill.Nuadha.Units.IStickPulsation)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IStickHardware"/> into <see cref="T:YggdrAshill.Nuadha.Units.IStickSoftware"/>.
+            </summary>
+            <param name="software">
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickSoftware"/> to convert.
+            </param>
+            <param name="pulsation">
+            <see cref="T:YggdrAshill.Nuadha.Units.IStickPulsation"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Units.IStickSoftware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="software"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="pulsation"/> is null.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.ConvertStickInto">
+            <summary>
+            Defines conversion for <see cref="T:YggdrAshill.Nuadha.Units.IStickProtocol"/>, <see cref="T:YggdrAshill.Nuadha.Units.IStickHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IStickSoftware"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertStickInto.Transmission(YggdrAshill.Nuadha.Units.IStickProtocol,YggdrAshill.Nuadha.Units.IStickConfiguration)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IStickProtocol"/> into <see cref="T:YggdrAshill.Nuadha.Conduction.ITransmission`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IStickSoftware"/>.
+            </summary>
+            <param name="protocol">
+            <see cref="T:YggdrAshill.Nuadha.Units.IStickProtocol"/> to convert.
+            </param>
+            <param name="configuration">
+            <see cref="T:YggdrAshill.Nuadha.Units.IStickConfiguration"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.ITransmission`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IStickSoftware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IStickProtocol"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="protocol"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="configuration"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertStickInto.Connection(YggdrAshill.Nuadha.Units.IStickSoftware)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IStickSoftware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IStickHardware"/>.
+            </summary>
+            <param name="software">
+            <see cref="T:YggdrAshill.Nuadha.Units.IStickSoftware"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IStickHardware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IStickSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="software"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertStickInto.Connection(YggdrAshill.Nuadha.Units.IStickHardware)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IStickHardware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IStickSoftware"/>.
+            </summary>
+            <param name="hardware">
+            <see cref="T:YggdrAshill.Nuadha.Units.IStickHardware"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IStickSoftware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IStickHardware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="hardware"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertStickInto.PulsatedStick(YggdrAshill.Nuadha.Units.IStickHardware,YggdrAshill.Nuadha.Units.IStickPulsation)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IStickHardware"/> into <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickHardware"/>.
+            </summary>
+            <param name="hardware">
+            <see cref="T:YggdrAshill.Nuadha.Units.IStickHardware"/> to convert.
+            </param>
+            <param name="pulsation">
+            <see cref="T:YggdrAshill.Nuadha.Units.IStickPulsation"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickHardware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IStickHardware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="hardware"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="pulsation"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertStickInto.Trigger(YggdrAshill.Nuadha.Units.IStickHardware,YggdrAshill.Nuadha.Transformation.ITranslation{YggdrAshill.Nuadha.Signals.Tilt,YggdrAshill.Nuadha.Signals.Pull})">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IStickHardware"/> into <see cref="T:YggdrAshill.Nuadha.Units.ITriggerHardware"/>.
+            </summary>
+            <param name="hardware">
+            <see cref="T:YggdrAshill.Nuadha.Units.IStickHardware"/> to convert.
+            </param>
+            <param name="translation">
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> to convert <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/> into <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Units.ITriggerHardware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IStickHardware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="hardware"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="translation"/> is null.
+            </exception>
+        </member>
         <member name="T:YggdrAshill.Nuadha.Units.IPulsatedStickHardware">
             <summary>
             Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for pulsated stick as hardware.
@@ -359,6 +1141,21 @@
             <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltHardware"/> of stick.
             </summary>
         </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IPulsatedStickProtocol">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedStickSoftware"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedStickProtocol.Touch">
+            <summary>
+            Propagates <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedStickProtocol.Tilt">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltProtocol"/> of stick.
+            </summary>
+        </member>
         <member name="T:YggdrAshill.Nuadha.Units.IPulsatedStickSoftware">
             <summary>
             Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for pulsated stick as software.
@@ -372,6 +1169,21 @@
         <member name="P:YggdrAshill.Nuadha.Units.IPulsatedStickSoftware.Tilt">
             <summary>
             <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTiltSoftware"/> of stick.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IStickConfiguration">
+            <summary>
+            Defines configuration for stick.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IStickConfiguration.Touch">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IGeneration`1"/> to generate <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IStickConfiguration.Tilt">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IGeneration`1"/> to generate <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/>.
             </summary>
         </member>
         <member name="T:YggdrAshill.Nuadha.Units.IStickHardware">
@@ -404,6 +1216,21 @@
             Propagates <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/>.
             </summary>
         </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IStickPulsation">
+            <summary>
+            Defines pulsation for stick.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IStickPulsation.Touch">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> into <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IStickPulsation.Tilt">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Units.ITiltPulsation"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/>.
+            </summary>
+        </member>
         <member name="T:YggdrAshill.Nuadha.Units.IStickSoftware">
             <summary>
             Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for stick as software.
@@ -418,6 +1245,172 @@
             <summary>
             Receives <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/> sent from hardware.
             </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.ConvertPulsatedTriggerInto">
+            <summary>
+            Defines conversion for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerSoftware"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertPulsatedTriggerInto.Connection(YggdrAshill.Nuadha.Units.IPulsatedTriggerSoftware)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerSoftware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerHardware"/>.
+            </summary>
+            <param name="software">
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerSoftware"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerHardware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="software"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertPulsatedTriggerInto.Connection(YggdrAshill.Nuadha.Units.IPulsatedTriggerHardware)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerHardware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerSoftware"/>.
+            </summary>
+            <param name="hardware">
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerHardware"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerSoftware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerHardware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="hardware"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertPulsatedTriggerInto.Trigger(YggdrAshill.Nuadha.Units.IPulsatedTriggerSoftware,YggdrAshill.Nuadha.Units.ITriggerPulsation)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerSoftware"/> into <see cref="T:YggdrAshill.Nuadha.Units.ITriggerSoftware"/>.
+            </summary>
+            <param name="software">
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerSoftware"/> to convert.
+            </param>
+            <param name="pulsation">
+            <see cref="T:YggdrAshill.Nuadha.Units.ITriggerPulsation"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Units.ITriggerSoftware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="software"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="pulsation"/> is null.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.ConvertTriggerInto">
+            <summary>
+            Defines conversion for <see cref="T:YggdrAshill.Nuadha.Units.ITriggerProtocol"/>, <see cref="T:YggdrAshill.Nuadha.Units.ITriggerHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.ITriggerSoftware"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertTriggerInto.Transmission(YggdrAshill.Nuadha.Units.ITriggerProtocol,YggdrAshill.Nuadha.Units.ITriggerConfiguration)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.ITriggerProtocol"/> into <see cref="T:YggdrAshill.Nuadha.Conduction.ITransmission`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.ITriggerSoftware"/>.
+            </summary>
+            <param name="protocol">
+            <see cref="T:YggdrAshill.Nuadha.Units.ITriggerProtocol"/> to convert.
+            </param>
+            <param name="configuration">
+            <see cref="T:YggdrAshill.Nuadha.Units.ITriggerConfiguration"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.ITransmission`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.ITriggerSoftware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.ITriggerProtocol"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="protocol"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="configuration"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertTriggerInto.Connection(YggdrAshill.Nuadha.Units.ITriggerSoftware)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.ITriggerSoftware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.ITriggerHardware"/>.
+            </summary>
+            <param name="software">
+            <see cref="T:YggdrAshill.Nuadha.Units.ITriggerSoftware"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.ITriggerHardware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.ITriggerSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="software"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertTriggerInto.Connection(YggdrAshill.Nuadha.Units.ITriggerHardware)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.ITriggerHardware"/> into <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.ITriggerSoftware"/>.
+            </summary>
+            <param name="hardware">
+            <see cref="T:YggdrAshill.Nuadha.Units.ITriggerHardware"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Unitization.IConnection`1"/> for <see cref="T:YggdrAshill.Nuadha.Units.ITriggerSoftware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.ITriggerHardware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="hardware"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertTriggerInto.PulsatedTrigger(YggdrAshill.Nuadha.Units.ITriggerHardware,YggdrAshill.Nuadha.Units.ITriggerPulsation)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.ITriggerHardware"/> into <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerHardware"/>.
+            </summary>
+            <param name="hardware">
+            <see cref="T:YggdrAshill.Nuadha.Units.ITriggerHardware"/> to convert.
+            </param>
+            <param name="pulsation">
+            <see cref="T:YggdrAshill.Nuadha.Units.ITriggerPulsation"/> to convert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerHardware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.ITriggerHardware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="hardware"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="pulsation"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertTriggerInto.Button(YggdrAshill.Nuadha.Units.ITriggerHardware,YggdrAshill.Nuadha.Transformation.ITranslation{YggdrAshill.Nuadha.Signals.Pull,YggdrAshill.Nuadha.Signals.Push})">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.ITriggerHardware"/> into <see cref="T:YggdrAshill.Nuadha.Units.IButtonHardware"/>.
+            </summary>
+            <param name="hardware">
+            <see cref="T:YggdrAshill.Nuadha.Units.ITriggerHardware"/> to convert.
+            </param>
+            <param name="translation">
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> to convert <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> into <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Units.IButtonHardware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.ITriggerHardware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="hardware"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="translation"/> is null.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Units.ConvertTriggerInto.Stick(YggdrAshill.Nuadha.Units.ITriggerSoftware,YggdrAshill.Nuadha.Transformation.ITranslation{YggdrAshill.Nuadha.Signals.Tilt,YggdrAshill.Nuadha.Signals.Pull})">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Units.ITriggerSoftware"/> into <see cref="T:YggdrAshill.Nuadha.Units.IStickSoftware"/>.
+            </summary>
+            <param name="software">
+            <see cref="T:YggdrAshill.Nuadha.Units.ITriggerSoftware"/> to convert.
+            </param>
+            <param name="translation">
+            <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> to convert <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/> into <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Units.IStickSoftware"/> converted from <see cref="T:YggdrAshill.Nuadha.Units.ITriggerSoftware"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="software"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="translation"/> is null.
+            </exception>
         </member>
         <member name="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerHardware">
             <summary>
@@ -434,6 +1427,21 @@
             Sends <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> to software.
             </summary>
         </member>
+        <member name="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerProtocol">
+            <summary>
+            Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IProtocol`2"/> for <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerHardware"/> and <see cref="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerSoftware"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTriggerProtocol.Touch">
+            <summary>
+            Propagates <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTriggerProtocol.Pull">
+            <summary>
+            Propagates <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
+            </summary>
+        </member>
         <member name="T:YggdrAshill.Nuadha.Units.IPulsatedTriggerSoftware">
             <summary>
             Defines <see cref="T:YggdrAshill.Nuadha.Unitization.IModule"/> for pulsated trigger as software.
@@ -447,6 +1455,21 @@
         <member name="P:YggdrAshill.Nuadha.Units.IPulsatedTriggerSoftware.Pull">
             <summary>
             Receives <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> sent from hardware.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.ITriggerConfiguration">
+            <summary>
+            Defines configuration for trigger.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.ITriggerConfiguration.Touch">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IGeneration`1"/> to generate <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.ITriggerConfiguration.Pull">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Conduction.IGeneration`1"/> to generate <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
             </summary>
         </member>
         <member name="T:YggdrAshill.Nuadha.Units.ITriggerHardware">
@@ -477,6 +1500,21 @@
         <member name="P:YggdrAshill.Nuadha.Units.ITriggerProtocol.Pull">
             <summary>
             Propagates <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Units.ITriggerPulsation">
+            <summary>
+            Defines pulsation for trigger.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.ITriggerPulsation.Touch">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> into <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Units.ITriggerPulsation.Pull">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> into <see cref="T:YggdrAshill.Nuadha.Transformation.Pulse"/>.
             </summary>
         </member>
         <member name="T:YggdrAshill.Nuadha.Units.ITriggerSoftware">

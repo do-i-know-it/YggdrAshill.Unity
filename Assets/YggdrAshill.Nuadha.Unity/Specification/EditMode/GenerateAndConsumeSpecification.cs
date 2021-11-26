@@ -20,14 +20,11 @@ namespace YggdrAshill.Nuadha.Unity.Specification
 
             var generation = Generate.Touch(expected);
 
-            var transmission = Transmit.Signal(generation);
+            var emission = consumption.Conduct(generation);
 
-            using (transmission.Produce(consumption).ToDisposable())
-            {
-                transmission.Emit();
+            emission.Emit();
 
-                Assert.AreEqual(expected, consumed);
-            }
+            Assert.AreEqual(expected, consumed);
         }
 
         [TestCase(true)]
@@ -42,14 +39,11 @@ namespace YggdrAshill.Nuadha.Unity.Specification
 
             var generation = Generate.Push(expected);
 
-            var transmission = Transmit.Signal(generation);
+            var emission = consumption.Conduct(generation);
 
-            using (transmission.Produce(consumption).ToDisposable())
-            {
-                transmission.Emit();
+            emission.Emit();
 
-                Assert.AreEqual(expected, consumed);
-            }
+            Assert.AreEqual(expected, consumed);
         }
 
         [TestCase(1.0f)]
@@ -65,14 +59,11 @@ namespace YggdrAshill.Nuadha.Unity.Specification
 
             var generation = Generate.Pull(expected);
 
-            var transmission = Transmit.Signal(generation);
+            var emission = consumption.Conduct(generation);
 
-            using (transmission.Produce(consumption).ToDisposable())
-            {
-                transmission.Emit();
+            emission.Emit();
 
-                Assert.AreEqual(expected, consumed);
-            }
+            Assert.AreEqual(expected, consumed);
         }
 
         private static object[] TestSuiteForTilt => new[]
@@ -95,14 +86,11 @@ namespace YggdrAshill.Nuadha.Unity.Specification
 
             var generation = Generate.Tilt(expected);
 
-            var transmission = Transmit.Signal(generation);
+            var emission = consumption.Conduct(generation);
 
-            using (transmission.Produce(consumption).ToDisposable())
-            {
-                transmission.Emit();
-         
-                Assert.AreEqual(expected.normalized, consumed);
-            }
+            emission.Emit(); ;
+
+            Assert.AreEqual(expected.normalized, consumed);
         }
 
         [Test]

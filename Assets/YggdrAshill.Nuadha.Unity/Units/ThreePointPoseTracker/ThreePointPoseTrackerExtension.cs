@@ -1,14 +1,30 @@
-﻿using YggdrAshill.Nuadha.Signalization;
 using YggdrAshill.Nuadha.Unitization;
 using YggdrAshill.Nuadha.Conduction;
-using YggdrAshill.Nuadha.Units;
 using System;
 
 namespace YggdrAshill.Nuadha.Unity
 {
     public static class ThreePointPoseTrackerExtension
     {
-        public static IIgnition<IThreePointPoseTrackerSoftware> Ignite(this IThreePointPoseTrackerProtocol protocol, IThreePointPoseTrackerConfiguration configuration)
+        /// <summary>
+        /// Converts <see cref="IThreePointPoseTrackerProtocol"/> into <see cref="ITransmission{TModule}"/> for <see cref="IThreePointPoseTrackerSoftware"/>.
+        /// </summary>
+        /// <param name="protocol">
+        /// <see cref="IThreePointPoseTrackerProtocol"/> to convert.
+        /// </param>
+        /// <param name="configuration">
+        /// <see cref="IThreePointPoseTrackerConfiguration"/> to convert.
+        /// </param>
+        /// <returns>
+        /// <see cref="ITransmission{TModule}"/> for <see cref="IThreePointPoseTrackerSoftware"/> converted from <see cref="IThreePointPoseTrackerProtocol"/>.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown if <paramref name="protocol"/> is null.
+        /// </exception>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown if <paramref name="configuration"/> is null.
+        /// </exception>
+        public static ITransmission<IThreePointPoseTrackerSoftware> Transmit(this IThreePointPoseTrackerProtocol protocol, IThreePointPoseTrackerConfiguration configuration)
         {
             if (protocol is null)
             {
@@ -19,115 +35,51 @@ namespace YggdrAshill.Nuadha.Unity
                 throw new ArgumentNullException(nameof(configuration));
             }
 
-            return new IgniteThreePointPoseTracker(protocol, configuration);
-        }
-        private sealed class IgniteThreePointPoseTracker :
-            IIgnition<IThreePointPoseTrackerSoftware>
-        {
-            private readonly IIgnition<IPoseTrackerSoftware> origin;
-
-            private readonly IIgnition<IPoseTrackerSoftware> head;
-
-            private readonly IIgnition<IPoseTrackerSoftware> leftHand;
-
-            private readonly IIgnition<IPoseTrackerSoftware> rightHand;
-
-            internal IgniteThreePointPoseTracker(IThreePointPoseTrackerProtocol protocol, IThreePointPoseTrackerConfiguration configuration)
-            {
-                origin = protocol.Origin.Ignite(configuration.Origin);
-
-                head = protocol.Head.Ignite(configuration.Head);
-
-                leftHand = protocol.LeftHand.Ignite(configuration.LeftHand);
-
-                rightHand = protocol.RightHand.Ignite(configuration.RightHand);
-            }
-
-            public ICancellation Connect(IThreePointPoseTrackerSoftware module)
-            {
-                if (module == null)
-                {
-                    throw new ArgumentNullException(nameof(module));
-                }
-
-                var composite = new CompositeCancellation();
-
-                origin.Connect(module.Origin).Synthesize(composite);
-                head.Connect(module.Head).Synthesize(composite);
-                leftHand.Connect(module.LeftHand).Synthesize(composite);
-                rightHand.Connect(module.RightHand).Synthesize(composite);
-
-                return composite;
-            }
-
-            public void Emit()
-            {
-                origin.Emit();
-                head.Emit();
-                leftHand.Emit();
-                rightHand.Emit();
-            }
-
-            public void Dispose()
-            {
-                origin.Dispose();
-                head.Dispose();
-                leftHand.Dispose();
-                rightHand.Dispose();
-            }
+            return ConvertThreePointPoseTrackerInto.Transmission(protocol, configuration);
         }
 
-        public static IConnection<IThreePointPoseTrackerSoftware> Calibrate(this IThreePointPoseTrackerHardware module, IThreePointPoseTrackerConfiguration configuration)
+        /// <summary>
+        /// Converts <see cref="IThreePointPoseTrackerSoftware"/> into <see cref="IConnection{TModule}"/> for <see cref="IThreePointPoseTrackerHardware"/>.
+        /// </summary>
+        /// <param name="software">
+        /// <see cref="IThreePointPoseTrackerSoftware"/> to convert.
+        /// </param>
+        /// <returns>
+        /// <see cref="IConnection{TModule}"/> for <see cref="IThreePointPoseTrackerHardware"/> converted from <see cref="IThreePointPoseTrackerSoftware"/>.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown if <paramref name="software"/> is null.
+        /// </exception>
+        public static IConnection<IThreePointPoseTrackerHardware> Connect(this IThreePointPoseTrackerSoftware software)
         {
-            if (module is null)
+            if (software == null)
             {
-                throw new ArgumentNullException(nameof(module));
-            }
-            if (configuration is null)
-            {
-                throw new ArgumentNullException(nameof(configuration));
+                throw new ArgumentNullException(nameof(software));
             }
 
-            return new ConnectThreePointPoseTracker(module, configuration);
+            return ConvertThreePointPoseTrackerInto.Connection(software);
         }
-        private sealed class ConnectThreePointPoseTracker :
-            IConnection<IThreePointPoseTrackerSoftware>
+
+        /// <summary>
+        /// Converts <see cref="IThreePointPoseTrackerHardware"/> into <see cref="IConnection{TModule}"/> for <see cref="IThreePointPoseTrackerSoftware"/>.
+        /// </summary>
+        /// <param name="hardware">
+        /// <see cref="IThreePointPoseTrackerSoftware"/> to convert.
+        /// </param>
+        /// <returns>
+        /// <see cref="IConnection{TModule}"/> for <see cref="IThreePointPoseTrackerSoftware"/> converted from <see cref="IThreePointPoseTrackerHardware"/>.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown if <paramref name="hardware"/> is null.
+        /// </exception>
+        public static IConnection<IThreePointPoseTrackerSoftware> Connect(this IThreePointPoseTrackerHardware hardware)
         {
-            private readonly IConnection<IPoseTrackerSoftware> origin;
-
-            private readonly IConnection<IPoseTrackerSoftware> head;
-
-            private readonly IConnection<IPoseTrackerSoftware> leftHand;
-
-            private readonly IConnection<IPoseTrackerSoftware> rightHand;
-
-            internal ConnectThreePointPoseTracker(IThreePointPoseTrackerHardware module, IThreePointPoseTrackerConfiguration configuration)
+            if (hardware == null)
             {
-                origin = module.Origin.Calibrate(configuration.Origin);
-
-                head = module.Head.Calibrate(configuration.Head);
-
-                leftHand = module.LeftHand.Calibrate(configuration.LeftHand);
-
-                rightHand = module.RightHand.Calibrate(configuration.RightHand);
+                throw new ArgumentNullException(nameof(hardware));
             }
 
-            public ICancellation Connect(IThreePointPoseTrackerSoftware module)
-            {
-                if (module is null)
-                {
-                    throw new ArgumentNullException(nameof(module));
-                }
-
-                var composite = new CompositeCancellation();
-
-                origin.Connect(module.Origin).Synthesize(composite);
-                head.Connect(module.Head).Synthesize(composite);
-                leftHand.Connect(module.LeftHand).Synthesize(composite);
-                rightHand.Connect(module.RightHand).Synthesize(composite);
-
-                return composite;
-            }
+            return ConvertThreePointPoseTrackerInto.Connection(hardware);
         }
     }
 }
