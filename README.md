@@ -29,15 +29,15 @@ Developers can install this framework with [UPM](https://docs.unity3d.com/Manual
 
 Developers can install a Unity extension for [YggdrAshill.Nuadha](https://github.com/do-i-know-it/YggdrAshill.Nuadha) like:
 
-- Add `https://github.com/do-i-know-it/YggdrAshill.Unity.git?path=Assets/YggdrAshill.Nuadha.Unity/package.json` to Package Manager.
-- Add `"com.yggdrashill.nuadha.unity": "https://github.com/do-i-know-it/YggdrAshill.Unity.git?path=Assets/YggdrAshill.Nuadha.Unity/package.json"` to `Packages/manifest.json`.
+- Add `https://github.com/do-i-know-it/YggdrAshill.Unity.git?path=Assets/YggdrAshill.Nuadha.Unity` to Package Manager.
+- Add `"com.yggdrashill.nuadha.unity": "https://github.com/do-i-know-it/YggdrAshill.Unity.git?path=Assets/YggdrAshill.Nuadha.Unity"` to `Packages/manifest.json`.
 
 ### YggdrAshill.Unity
 
 Developers can install a Unity extension for YggdrAshill like:
 
-- Add `https://github.com/do-i-know-it/YggdrAshill.Unity.git?path=Assets/YggdrAshill.Unity/package.json` to Package Manager.
-- Add `"com.yggdrashill.nuadha.unity": "https://github.com/do-i-know-it/YggdrAshill.Unity.git?path=Assets/YggdrAshill.Unity/package.json"` to `Packages/manifest.json`.
+- Add `https://github.com/do-i-know-it/YggdrAshill.Unity.git?path=Assets/YggdrAshill.Unity` to Package Manager.
+- Add `"com.yggdrashill.nuadha.unity": "https://github.com/do-i-know-it/YggdrAshill.Unity.git?path=Assets/YggdrAshill.Unity"` to `Packages/manifest.json`.
 
 ## Usage
 
