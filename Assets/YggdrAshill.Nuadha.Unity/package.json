@@ -1,0 +1,28 @@
+{
+    "name": "com.yggdrashill.nuadha.unity",
+    "version": "0.6.0",
+    "displayName": "YggdrAshill.Nuadha.Unity",
+    "description": "A Unity extension for YggdrAshill.Nuadha.",
+    "unity": "2020.3",
+    "dependencies":
+    {
+    },
+    "keywords":
+    [
+      "YggdrAshill",
+      "XR",
+      "framework",
+      "device management",
+      "extensions"
+    ],
+    "license": "MIT",
+    "documentationUrl": "https://github.com/do-i-know-it/YggdrAshill.Unity/blob/main/README.md",
+    "changelogUrl": "https://github.com/do-i-know-it/YggdrAshill.Unity/releases",
+    "licensesUrl": "https://github.com/do-i-know-it/YggdrAshill.Unity/blob/master/LICENSE.md",
+    "author":
+    {
+      "name": "know",
+      "email": "do.i.know.it@yggdrashill.com",
+      "url": "https://github.com/do-i-know-it"
+    }
+}

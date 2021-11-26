@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>YggdrAshill.Nuadha.Signalization</name>
+    </assembly>
+    <members>
+        <member name="T:YggdrAshill.Nuadha.Signalization.ICancellation">
+            <summary>
+            Token to cancel.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signalization.ICancellation.Cancel">
+            <summary>
+            Cancels.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Signalization.IConsumption`1">
+            <summary>
+            Consumes <typeparamref name="TSignal"/> received.
+            </summary>
+            <typeparam name="TSignal">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to consume.
+            </typeparam>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signalization.IConsumption`1.Consume(`0)">
+            <summary>
+            Receives <typeparamref name="TSignal"/> to consume.
+            </summary>
+            <param name="signal">
+            <typeparamref name="TSignal"/> received.
+            </param>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Signalization.IProduction`1">
+            <summary>
+            Produces <typeparamref name="TSignal"/> to send.
+            </summary>
+            <typeparam name="TSignal">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to produce.
+            </typeparam>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signalization.IProduction`1.Produce(YggdrAshill.Nuadha.Signalization.IConsumption{`0})">
+            <summary>
+            Sends <typeparamref name="TSignal"/> produced to <see cref="T:YggdrAshill.Nuadha.Signalization.IConsumption`1"/>.
+            </summary>
+            <param name="consumption">
+            <see cref="T:YggdrAshill.Nuadha.Signalization.IConsumption`1"/> for <typeparamref name="TSignal"/>.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signalization.ICancellation"/> to cancel.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="consumption"/> is null.
+            </exception>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Signalization.IPropagation`1">
+            <summary>
+            Sends received <typeparamref name="TSignal"/> to each of <see cref="T:YggdrAshill.Nuadha.Signalization.IConsumption`1"/>.
+            </summary>
+            <typeparam name="TSignal">
+            Type of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to propagate.
+            </typeparam>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Signalization.ISignal">
+            <summary>
+            Defines I/O data to send and receive.
+            </summary>
+        </member>
+    </members>
+</doc>

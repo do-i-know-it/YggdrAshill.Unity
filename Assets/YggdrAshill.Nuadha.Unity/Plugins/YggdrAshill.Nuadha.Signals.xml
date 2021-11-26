@@ -1,0 +1,1771 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>YggdrAshill.Nuadha.Signals</name>
+    </assembly>
+    <members>
+        <member name="T:YggdrAshill.Nuadha.Signals.Angle">
+            <summary>
+            Defines some types of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Angle"/>.
+            </summary>
+        </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Angle.DegreeToRadian">
+            <summary>
+            Coefficient to convert <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/>.
+            </summary>
+        </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Angle.RadianToDegree">
+            <summary>
+            Coefficient to convert <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/>.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Signals.Angle.Radian">
+            <summary>
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/>.
+            </summary>
+        </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Angle.Radian.Minimum">
+            <summary>
+            <see cref="F:YggdrAshill.Nuadha.Signals.Angle.Radian.Minimum"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/>.
+            </summary>
+        </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Angle.Radian.Maximum">
+            <summary>
+            <see cref="F:YggdrAshill.Nuadha.Signals.Angle.Radian.Maximum"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Angle.Radian.#ctor(System.Single)">
+            <summary>
+            Constructs instance.
+            </summary>
+            <param name="value">
+            <see cref="T:System.Single"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/>.
+            </param>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="value"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="value"/> is out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Angle.Radian.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Angle.Radian.Maximum"/>.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Angle.Radian.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Angle.Radian.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Angle.Radian.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Angle.Radian.Equals(YggdrAshill.Nuadha.Signals.Angle.Radian)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Angle.Radian.op_Explicit(System.Single)~YggdrAshill.Nuadha.Signals.Angle.Radian">
+            <summary>
+            Converts explicitly <see cref="T:System.Single"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:System.Single"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Angle.Radian.op_Explicit(YggdrAshill.Nuadha.Signals.Angle.Radian)~System.Single">
+            <summary>
+            Converts explicitly <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> to <see cref="T:System.Single"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:System.Single"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Angle.Radian.op_Explicit(YggdrAshill.Nuadha.Signals.Angle.Radian)~YggdrAshill.Nuadha.Signals.Angle.Degree">
+            <summary>
+            Converts explicitly <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Angle.Radian.op_UnaryNegation(YggdrAshill.Nuadha.Signals.Angle.Radian)">
+            <summary>
+            Inverses <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> to inverse.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> inversed.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Angle.Radian.op_Addition(YggdrAshill.Nuadha.Signals.Angle.Radian,YggdrAshill.Nuadha.Signals.Angle.Radian)">
+            <summary>
+            Adds <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/>.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> added.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Angle.Radian.op_Subtraction(YggdrAshill.Nuadha.Signals.Angle.Radian,YggdrAshill.Nuadha.Signals.Angle.Radian)">
+            <summary>
+            Subtracts <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/>.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> subtracted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Angle.Radian.op_Equality(YggdrAshill.Nuadha.Signals.Angle.Radian,YggdrAshill.Nuadha.Signals.Angle.Radian)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> are equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Angle.Radian.op_Inequality(YggdrAshill.Nuadha.Signals.Angle.Radian,YggdrAshill.Nuadha.Signals.Angle.Radian)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> are not equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Signals.Angle.Degree">
+            <summary>
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/>.
+            </summary>
+        </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Angle.Degree.Minimum">
+            <summary>
+            <see cref="F:YggdrAshill.Nuadha.Signals.Angle.Degree.Minimum"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/>.
+            </summary>
+        </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Angle.Degree.Maximum">
+            <summary>
+            <see cref="F:YggdrAshill.Nuadha.Signals.Angle.Degree.Maximum"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Angle.Degree.#ctor(System.Single)">
+            <summary>
+            Constructs instance.
+            </summary>
+            <param name="value"></param>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="value"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="value"/> is out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Angle.Degree.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Angle.Degree.Maximum"/>.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Angle.Degree.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Angle.Degree.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Angle.Degree.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Angle.Degree.Equals(YggdrAshill.Nuadha.Signals.Angle.Degree)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Angle.Degree.op_Explicit(System.Single)~YggdrAshill.Nuadha.Signals.Angle.Degree">
+            <summary>
+            Converts explicitly <see cref="T:System.Single"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:System.Single"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Angle.Degree.op_Explicit(YggdrAshill.Nuadha.Signals.Angle.Degree)~System.Single">
+            <summary>
+            Converts explicitly <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> to <see cref="T:System.Single"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:System.Single"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Angle.Degree.op_Explicit(YggdrAshill.Nuadha.Signals.Angle.Degree)~YggdrAshill.Nuadha.Signals.Angle.Radian">
+            <summary>
+            Converts explicitly <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Angle.Degree.op_UnaryNegation(YggdrAshill.Nuadha.Signals.Angle.Degree)">
+            <summary>
+            Inverses <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> to inverse.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> inversed.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Angle.Degree.op_Addition(YggdrAshill.Nuadha.Signals.Angle.Degree,YggdrAshill.Nuadha.Signals.Angle.Degree)">
+            <summary>
+            Adds <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/>.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> added.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Angle.Degree.op_Subtraction(YggdrAshill.Nuadha.Signals.Angle.Degree,YggdrAshill.Nuadha.Signals.Angle.Degree)">
+            <summary>
+            Subtracts <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/>.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> subtracted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Angle.Degree.op_Equality(YggdrAshill.Nuadha.Signals.Angle.Degree,YggdrAshill.Nuadha.Signals.Angle.Degree)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> are equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Angle.Degree.op_Inequality(YggdrAshill.Nuadha.Signals.Angle.Degree,YggdrAshill.Nuadha.Signals.Angle.Degree)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> are not equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Signals.Battery">
+            <summary>
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/>.
+            </summary>
+        </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Battery.Empty">
+            <summary>
+            <see cref="F:YggdrAshill.Nuadha.Signals.Battery.Empty"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/>.
+            </summary>
+        </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Battery.Full">
+            <summary>
+            <see cref="F:YggdrAshill.Nuadha.Signals.Battery.Full"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Battery.#ctor(System.Single)">
+            <summary>
+            Construcs instance.
+            </summary>
+            <param name="level">
+            <see cref="T:System.Single"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/>
+            </param>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="level"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="level"/> is out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Battery.Empty"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Battery.Full"/>.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Battery.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Battery.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Battery.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Battery.Equals(YggdrAshill.Nuadha.Signals.Battery)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Battery.op_Explicit(System.Single)~YggdrAshill.Nuadha.Signals.Battery">
+            <summary>
+            Converts explicitly <see cref="T:System.Single"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:System.Single"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Battery.op_Explicit(YggdrAshill.Nuadha.Signals.Battery)~System.Single">
+            <summary>
+            Converts explicitly <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/> to <see cref="T:System.Single"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:System.Single"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Battery.op_Equality(YggdrAshill.Nuadha.Signals.Battery,YggdrAshill.Nuadha.Signals.Battery)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/> are equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Battery.op_Inequality(YggdrAshill.Nuadha.Signals.Battery,YggdrAshill.Nuadha.Signals.Battery)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Battery"/> are not equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Signals.MemoryUsage">
+            <summary>
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> for <see cref="T:YggdrAshill.Nuadha.Signals.MemoryUsage"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.MemoryUsage.UsedSize">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.MemoryUsage.UsedSize"/> in byte.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.MemoryUsage.UnusedSize">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.MemoryUsage.UnusedSize"/> in byte.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.MemoryUsage.#ctor(System.Int64,System.Int64)">
+            <summary>
+            Construcs instance.
+            </summary>
+            <param name="usedSize">
+            <see cref="T:System.Int64"/> for <see cref="P:YggdrAshill.Nuadha.Signals.MemoryUsage.UsedSize"/> in byte.
+            </param>
+            <param name="unusedSize">
+            <see cref="T:System.Int64"/> for <see cref="P:YggdrAshill.Nuadha.Signals.MemoryUsage.UnusedSize"/> in byte.
+            </param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="usedSize"/> is negative.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="unusedSize"/> is negative.
+            </exception>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.MemoryUsage.TotalSize">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.MemoryUsage.TotalSize"/> of <see cref="T:YggdrAshill.Nuadha.Signals.MemoryUsage"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.MemoryUsage.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.MemoryUsage.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.MemoryUsage.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.MemoryUsage.Equals(YggdrAshill.Nuadha.Signals.MemoryUsage)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.MemoryUsage.op_Equality(YggdrAshill.Nuadha.Signals.MemoryUsage,YggdrAshill.Nuadha.Signals.MemoryUsage)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.MemoryUsage"/> and <see cref="T:YggdrAshill.Nuadha.Signals.MemoryUsage"/> are equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.MemoryUsage.op_Inequality(YggdrAshill.Nuadha.Signals.MemoryUsage,YggdrAshill.Nuadha.Signals.MemoryUsage)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.MemoryUsage"/> and <see cref="T:YggdrAshill.Nuadha.Signals.MemoryUsage"/> are not equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Signals.Pull">
+            <summary>
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
+            </summary>
+        </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Pull.Minimum">
+            <summary>
+            <see cref="F:YggdrAshill.Nuadha.Signals.Pull.Minimum"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
+            </summary>
+        </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Pull.Maximum">
+            <summary>
+            <see cref="F:YggdrAshill.Nuadha.Signals.Pull.Maximum"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Pull.#ctor(System.Single)">
+            <summary>
+            Constructs instance.
+            </summary>
+            <param name="value">
+            <see cref="T:System.Single"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
+            </param>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="value"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="value"/> is not between <see cref="F:YggdrAshill.Nuadha.Signals.Pull.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Pull.Maximum"/>.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Pull.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Pull.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Pull.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Pull.Equals(YggdrAshill.Nuadha.Signals.Pull)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Pull.op_Explicit(System.Single)~YggdrAshill.Nuadha.Signals.Pull">
+            <summary>
+            Converts explicitly <see cref="T:System.Single"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:System.Single"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Pull.op_Explicit(YggdrAshill.Nuadha.Signals.Pull)~System.Single">
+            <summary>
+            Converts explicitly <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> to <see cref="T:System.Single"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:System.Single"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Pull.op_Equality(YggdrAshill.Nuadha.Signals.Pull,YggdrAshill.Nuadha.Signals.Pull)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> are equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Pull.op_Inequality(YggdrAshill.Nuadha.Signals.Pull,YggdrAshill.Nuadha.Signals.Pull)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> are not equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Signals.Push">
+            <summary>
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Push.Disabled">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> that is disabled.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Push.Enabled">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> that is enabled.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Push.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Push.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Push.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Push.Equals(YggdrAshill.Nuadha.Signals.Push)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Push.op_Explicit(System.Boolean)~YggdrAshill.Nuadha.Signals.Push">
+            <summary>
+            Converts explicitly <see cref="T:System.Boolean"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:System.Boolean"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Push.op_Explicit(YggdrAshill.Nuadha.Signals.Push)~System.Boolean">
+            <summary>
+            Converts explicitly <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to <see cref="T:System.Boolean"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:System.Boolean"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Push.op_True(YggdrAshill.Nuadha.Signals.Push)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to <see cref="T:System.Boolean"/> in an expression.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:System.Boolean"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Push.op_False(YggdrAshill.Nuadha.Signals.Push)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to <see cref="T:System.Boolean"/> in an expression.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:System.Boolean"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Push.op_UnaryNegation(YggdrAshill.Nuadha.Signals.Push)">
+            <summary>
+            Inverses <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to inverse.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> inversed.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Push.op_Equality(YggdrAshill.Nuadha.Signals.Push,YggdrAshill.Nuadha.Signals.Push)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> are equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Push.op_Inequality(YggdrAshill.Nuadha.Signals.Push,YggdrAshill.Nuadha.Signals.Push)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> are not equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Signals.Space2D">
+            <summary>
+            Defines some types of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Space2D"/>.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Signals.Space2D.Position">
+            <summary>
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Position"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Space2D"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space2D.Position.Origin">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Position.Origin"/> of the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space2D.Position.Right">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Position.Right"/> in the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space2D.Position.Left">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Position.Left"/> in the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space2D.Position.Upward">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Position.Upward"/> in the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space2D.Position.Downward">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Position.Downward"/> in the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space2D.Position.Horizontal">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Position.Horizontal"/> of the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space2D.Position.Vertical">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Position.Vertical"/> of the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space2D.Position.Distance">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Position.Distance"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Position"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Position.#ctor(System.Single,System.Single)">
+            <summary>
+            Constructs instance.
+            </summary>
+            <param name="horizontal">
+            <see cref="T:System.Single"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Position.Horizontal"/>.
+            </param>
+            <param name="vertical">
+            <see cref="T:System.Single"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Position.Vertical"/>.
+            </param>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="horizontal"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="vertical"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Position.DirectionFrom(YggdrAshill.Nuadha.Signals.Space2D.Position)">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Direction"/> from <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Position"/>.
+            </summary>
+            <param name="signal"></param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Direction"/> calculated.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Position.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Position.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Position.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Position.Equals(YggdrAshill.Nuadha.Signals.Space2D.Position)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Position.op_UnaryNegation(YggdrAshill.Nuadha.Signals.Space2D.Position)">
+            <summary>
+            Inverses <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Position"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Position"/> to inverse.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Position"/> inversed.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Position.op_Addition(YggdrAshill.Nuadha.Signals.Space2D.Position,YggdrAshill.Nuadha.Signals.Space2D.Position)">
+            <summary>
+            Adds <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Position"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Position"/>.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Position"/> added.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Position.op_Subtraction(YggdrAshill.Nuadha.Signals.Space2D.Position,YggdrAshill.Nuadha.Signals.Space2D.Position)">
+            <summary>
+            Subtracts <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Position"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Position"/>.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Position"/> subtracted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Position.op_Equality(YggdrAshill.Nuadha.Signals.Space2D.Position,YggdrAshill.Nuadha.Signals.Space2D.Position)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Position"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Position"/> are equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Position.op_Inequality(YggdrAshill.Nuadha.Signals.Space2D.Position,YggdrAshill.Nuadha.Signals.Space2D.Position)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Position"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Position"/> are not equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Signals.Space2D.Direction">
+            <summary>
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Direction"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Space2D"/>.
+            </summary>
+        </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Space2D.Direction.Minimum">
+            <summary>
+            <see cref="F:YggdrAshill.Nuadha.Signals.Space2D.Direction.Minimum"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Horizontal"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Vertical"/>.
+            </summary>
+        </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Space2D.Direction.Maximum">
+            <summary>
+            <see cref="F:YggdrAshill.Nuadha.Signals.Space2D.Direction.Maximum"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Horizontal"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Vertical"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Tolerance">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Tolerance"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Direction"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Right">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Right"/> in the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Left">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Left"/> in the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Upward">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Upward"/> in the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Downward">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Downward"/> in the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Horizontal">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Horizontal"/> of the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Vertical">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Vertical"/> of the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Reversed">
+            <summary>
+            Reversed <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Direction"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Direction.#ctor(System.Single,System.Single)">
+            <summary>
+            Constructs instance.
+            </summary>
+            <param name="horizontal">
+            <see cref="T:System.Single"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Horizontal"/>.
+            </param>
+            <param name="vertical">
+            <see cref="T:System.Single"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Vertical"/>.
+            </param>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="horizontal"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="vertical"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="horizontal"/> is out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Space2D.Direction.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Space2D.Direction.Maximum"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="vertical"/> is  out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Space2D.Direction.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Space2D.Direction.Maximum"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="horizontal"/>^2 + <paramref name="vertical"/>^2 is larger than <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Direction.Tolerance"/>.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Direction.RotationFrom(YggdrAshill.Nuadha.Signals.Space2D.Direction)">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/> from <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Direction"/>.
+            </summary>
+            <param name="direction"></param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/> calculated.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Direction.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Direction.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Direction.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Direction.Equals(YggdrAshill.Nuadha.Signals.Space2D.Direction)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Direction.op_UnaryNegation(YggdrAshill.Nuadha.Signals.Space2D.Direction)">
+            <summary>
+            Inverses <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Direction"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Direction"/> to inverse.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Direction"/> inversed.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Direction.op_Equality(YggdrAshill.Nuadha.Signals.Space2D.Direction,YggdrAshill.Nuadha.Signals.Space2D.Direction)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Direction"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Direction"/> are equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Direction.op_Inequality(YggdrAshill.Nuadha.Signals.Space2D.Direction,YggdrAshill.Nuadha.Signals.Space2D.Direction)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Direction"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Direction"/> are not equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation">
+            <summary>
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Space2D"/>.
+            </summary>
+        </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Minimum">
+            <summary>
+            <see cref="F:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Minimum"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Horizontal"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Vertical"/>.
+            </summary>
+        </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Maximum">
+            <summary>
+            <see cref="F:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Maximum"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Horizontal"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Vertical"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Tolerance">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Tolerance"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space2D.Rotation.None">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/> not rotated.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Horizontal">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Horizontal"/> of the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Vertical">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Vertical"/> of the coordinate.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Rotation.#ctor(System.Single,System.Single)">
+            <summary>
+            Constructs instance.
+            </summary>
+            <param name="horizontal">
+            <see cref="T:System.Single"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/>.
+            </param>
+            <param name="vertical">
+            <see cref="T:System.Single"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/>.
+            </param>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="horizontal"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="vertical"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="horizontal"/> is out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Maximum"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="vertical"/> is  out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Maximum"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="horizontal"/>^2 + <paramref name="vertical"/>^2 is larger than <see cref="P:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Tolerance"/>.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Rotation.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Rotation.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Rotation.Equals(YggdrAshill.Nuadha.Signals.Space2D.Rotation)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Rotation.op_Explicit(YggdrAshill.Nuadha.Signals.Angle.Radian)~YggdrAshill.Nuadha.Signals.Space2D.Rotation">
+            <summary>
+            Converts explicitly <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/>.
+            </summary>
+            <param name="radian">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Rotation.op_Explicit(YggdrAshill.Nuadha.Signals.Space2D.Rotation)~YggdrAshill.Nuadha.Signals.Angle.Radian">
+            <summary>
+            Converts explicitly <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/>.
+            </summary>
+            <param name="rotation">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Rotation.op_Explicit(YggdrAshill.Nuadha.Signals.Angle.Degree)~YggdrAshill.Nuadha.Signals.Space2D.Rotation">
+            <summary>
+            Converts explicitly <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/>.
+            </summary>
+            <param name="degree">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Rotation.op_Explicit(YggdrAshill.Nuadha.Signals.Space2D.Rotation)~YggdrAshill.Nuadha.Signals.Angle.Degree">
+            <summary>
+            Converts explicitly <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/>.
+            </summary>
+            <param name="rotation">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Rotation.op_UnaryNegation(YggdrAshill.Nuadha.Signals.Space2D.Rotation)">
+            <summary>
+            Inverses <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/>.
+            </summary>
+            <param name="rotation">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/> to inverse.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/> inversed.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Rotation.op_Addition(YggdrAshill.Nuadha.Signals.Space2D.Rotation,YggdrAshill.Nuadha.Signals.Space2D.Rotation)">
+            <summary>
+            Adds <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/>.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/> added.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Rotation.op_Subtraction(YggdrAshill.Nuadha.Signals.Space2D.Rotation,YggdrAshill.Nuadha.Signals.Space2D.Rotation)">
+            <summary>
+            Subtracts <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/>.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/> subtracted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Rotation.op_Multiply(YggdrAshill.Nuadha.Signals.Space2D.Rotation,YggdrAshill.Nuadha.Signals.Space2D.Position)">
+            <summary>
+            Rotates <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Position"/>.
+            </summary>
+            <param name="rotation">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/> to rotate.
+            </param>
+            <param name="position">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Position"/> to rotate.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Position"/> rotated.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Rotation.op_Division(YggdrAshill.Nuadha.Signals.Space2D.Position,YggdrAshill.Nuadha.Signals.Space2D.Rotation)">
+            <summary>
+            Rotates <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Position"/> inversely.
+            </summary>
+            <param name="position">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Position"/> to rotate.
+            </param>
+            <param name="rotation">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/> to rotate.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Position"/> rotated.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Rotation.op_Equality(YggdrAshill.Nuadha.Signals.Space2D.Rotation,YggdrAshill.Nuadha.Signals.Space2D.Rotation)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/> are equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space2D.Rotation.op_Inequality(YggdrAshill.Nuadha.Signals.Space2D.Rotation,YggdrAshill.Nuadha.Signals.Space2D.Rotation)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Space2D.Rotation"/> are not equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Signals.Space3D">
+            <summary>
+            Defines some types of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Space3D"/>.
+            </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Signals.Space3D.Position">
+            <summary>
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Space3D"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Position.Origin">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Position.Origin"/> of the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Position.Right">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Position.Right"/> in the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Position.Left">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Position.Left"/> in the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Position.Upward">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Position.Upward"/> in the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Position.Downward">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Position.Downward"/> in the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Position.Forward">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Position.Forward"/> in the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Position.Backward">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Position.Backward"/> in the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Position.Horizontal">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Position.Horizontal"/> of the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Position.Vertical">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Position.Vertical"/> of the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Position.Frontal">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Position.Frontal"/> of the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Position.Distance">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Position.Distance"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Position.#ctor(System.Single,System.Single,System.Single)">
+            <summary>
+            Constructs instance.
+            </summary>
+            <param name="horizontal">
+            <see cref="T:System.Single"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Position.Horizontal"/>.
+            </param>
+            <param name="vertical">
+            <see cref="T:System.Single"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Position.Vertical"/>.
+            </param>
+            <param name="frontal">
+            <see cref="T:System.Single"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Position.Frontal"/>.
+            </param>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="horizontal"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="vertical"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="frontal"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Position.DirectionFrom(YggdrAshill.Nuadha.Signals.Space3D.Position)">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Direction"/> from <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/>.
+            </summary>
+            <param name="position"></param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Direction"/> calculated.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Position.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Position.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Position.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Position.Equals(YggdrAshill.Nuadha.Signals.Space3D.Position)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Position.op_UnaryNegation(YggdrAshill.Nuadha.Signals.Space3D.Position)">
+            <summary>
+            Inverses <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/> to inverse.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/> inversed.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Position.op_Addition(YggdrAshill.Nuadha.Signals.Space3D.Position,YggdrAshill.Nuadha.Signals.Space3D.Position)">
+            <summary>
+            Adds <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/>.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/> added.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Position.op_Subtraction(YggdrAshill.Nuadha.Signals.Space3D.Position,YggdrAshill.Nuadha.Signals.Space3D.Position)">
+            <summary>
+            Subtracts <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/>.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/> subtracted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Position.op_Equality(YggdrAshill.Nuadha.Signals.Space3D.Position,YggdrAshill.Nuadha.Signals.Space3D.Position)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/> are equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Position.op_Inequality(YggdrAshill.Nuadha.Signals.Space3D.Position,YggdrAshill.Nuadha.Signals.Space3D.Position)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/> are not equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Signals.Space3D.Direction">
+            <summary>
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Direction"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Space3D"/>.
+            </summary>
+        </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Space3D.Direction.Minimum">
+            <summary>
+            <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Direction.Minimum"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Horizontal"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Vertical"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Frontal"/>.
+            </summary>
+        </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Space3D.Direction.Maximum">
+            <summary>
+            <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Direction.Maximum"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Horizontal"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Vertical"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Frontal"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Tolerance">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Tolerance"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Direction"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Right">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Right"/> in the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Left">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Left"/> in the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Upward">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Upward"/> in the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Downward">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Downward"/> in the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Forward">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Forward"/> in the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Backward">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Backward"/> in the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Horizontal">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Horizontal"/> of the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Vertical">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Vertical"/> of the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Frontal">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Frontal"/> of the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Reversed">
+            <summary>
+            Reversed <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Direction"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Direction.#ctor(System.Single,System.Single,System.Single)">
+            <summary>
+            Constructs instance.
+            </summary>
+            <param name="horizontal">
+            <see cref="T:System.Single"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Horizontal"/>.
+            </param>
+            <param name="vertical">
+            <see cref="T:System.Single"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Vertical"/>.
+            </param>
+            <param name="frontal">
+            <see cref="T:System.Single"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Frontal"/>.
+            </param>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="horizontal"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="vertical"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="frontal"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="horizontal"/> is out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Direction.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Direction.Maximum"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="vertical"/> is  out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Direction.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Direction.Maximum"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="frontal"/> is out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Direction.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Direction.Maximum"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="horizontal"/>^2 + <paramref name="vertical"/>^2 + <paramref name="frontal"/>^2 is larger than <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Direction.Tolerance"/>.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Direction.RotationFrom(YggdrAshill.Nuadha.Signals.Space3D.Direction)">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> from <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Direction"/>.
+            </summary>
+            <param name="direction"></param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> calculated.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Direction.RotationOf(YggdrAshill.Nuadha.Signals.Angle.Degree)">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Degree"/>.
+            </summary>
+            <param name="degree"></param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> calculated.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Direction.RotationOf(YggdrAshill.Nuadha.Signals.Angle.Radian)">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Angle.Radian"/>.
+            </summary>
+            <param name="radian"></param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> calculated.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Direction.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Direction.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Direction.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Direction.Equals(YggdrAshill.Nuadha.Signals.Space3D.Direction)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Direction.op_UnaryNegation(YggdrAshill.Nuadha.Signals.Space3D.Direction)">
+            <summary>
+            Inverses <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Direction"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Direction"/> to inverse.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Direction"/> inversed.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Direction.op_Equality(YggdrAshill.Nuadha.Signals.Space3D.Direction,YggdrAshill.Nuadha.Signals.Space3D.Direction)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Direction"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Direction"/> are equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Direction.op_Inequality(YggdrAshill.Nuadha.Signals.Space3D.Direction,YggdrAshill.Nuadha.Signals.Space3D.Direction)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Direction"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Direction"/> are not equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation">
+            <summary>
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Space3D"/>.
+            </summary>
+        </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Minimum">
+            <summary>
+            <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Minimum"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Horizontal"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Vertical"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Frontal"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Real"/>.
+            </summary>
+        </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Maximum">
+            <summary>
+            <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Maximum"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Horizontal"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Vertical"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Frontal"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Real"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Tolerance">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Tolerance"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.None">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> not rotated.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Horizontal">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Horizontal"/> of the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Vertical">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Vertical"/> of the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Frontal">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Frontal"/> of the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Real">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Real"/> of the coordinate.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Rotation.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Constructs instance.
+            </summary>
+            <param name="horizontal">
+            <see cref="T:System.Single"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/>.
+            </param>
+            <param name="vertical">
+            <see cref="T:System.Single"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/>.
+            </param>
+            <param name="frontal">
+            <see cref="T:System.Single"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/>.
+            </param>
+            <param name="real">
+            <see cref="T:System.Single"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/>.
+            </param>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="horizontal"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="vertical"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="frontal"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="real"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="horizontal"/> is out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Maximum"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="vertical"/> is  out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Maximum"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="frontal"/> is out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Maximum"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="real"/> is out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Maximum"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="horizontal"/>^2 + <paramref name="vertical"/>^2 + <paramref name="frontal"/>^2 + <paramref name="real"/>^2 is larger than <see cref="P:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Tolerance"/>.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Rotation.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Rotation.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Rotation.Equals(YggdrAshill.Nuadha.Signals.Space3D.Rotation)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Rotation.op_UnaryNegation(YggdrAshill.Nuadha.Signals.Space3D.Rotation)">
+            <summary>
+            Inverses <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/>.
+            </summary>
+            <param name="rotation">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> to inverse.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> inversed.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Rotation.op_Addition(YggdrAshill.Nuadha.Signals.Space3D.Rotation,YggdrAshill.Nuadha.Signals.Space3D.Rotation)">
+            <summary>
+            Adds <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/>.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> added.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Rotation.op_Subtraction(YggdrAshill.Nuadha.Signals.Space3D.Rotation,YggdrAshill.Nuadha.Signals.Space3D.Rotation)">
+            <summary>
+            Subtracts <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/>.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> subtracted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Rotation.op_Multiply(YggdrAshill.Nuadha.Signals.Space3D.Rotation,YggdrAshill.Nuadha.Signals.Space3D.Position)">
+            <summary>
+            Rotates <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/>.
+            </summary>
+            <param name="rotation">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> to rotate.
+            </param>
+            <param name="position">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/> to rotate.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/> rotated.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Rotation.op_Division(YggdrAshill.Nuadha.Signals.Space3D.Position,YggdrAshill.Nuadha.Signals.Space3D.Rotation)">
+            <summary>
+            Rotates <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/> inversely.
+            </summary>
+            <param name="position">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/> to rotate.
+            </param>
+            <param name="rotation">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> to rotate.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Position"/> rotated.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Rotation.op_Equality(YggdrAshill.Nuadha.Signals.Space3D.Rotation,YggdrAshill.Nuadha.Signals.Space3D.Rotation)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> are equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Space3D.Rotation.op_Inequality(YggdrAshill.Nuadha.Signals.Space3D.Rotation,YggdrAshill.Nuadha.Signals.Space3D.Rotation)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Space3D.Rotation"/> are not equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Signals.Tilt">
+            <summary>
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/>.
+            </summary>
+        </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Tilt.Length">
+            <summary>
+            Maximum of <see cref="F:YggdrAshill.Nuadha.Signals.Tilt.Length"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/>.
+            </summary>
+        </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Tilt.Minimum">
+            <summary>
+            <see cref="F:YggdrAshill.Nuadha.Signals.Tilt.Minimum"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Horizontal"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Vertical"/>.
+            </summary>
+        </member>
+        <member name="F:YggdrAshill.Nuadha.Signals.Tilt.Maximum">
+            <summary>
+            <see cref="F:YggdrAshill.Nuadha.Signals.Tilt.Maximum"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Horizontal"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Vertical"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Tilt.Origin">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Origin"/> of the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Tilt.Right">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Right"/> in the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Tilt.Left">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Left"/> in the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Tilt.Forward">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Forward"/> in the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Tilt.Backward">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Backward"/> in the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Tilt.Horizontal">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Horizontal"/> of the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Tilt.Vertical">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Vertical"/> of the coordinate.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Tilt.Distance">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Distance"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Tilt.Reversed">
+            <summary>
+            <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Reversed"/> <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Tilt.#ctor(System.Single,System.Single)">
+            <summary>
+            Constructs instance.
+            </summary>
+            <param name="horizontal">
+            <see cref="T:System.Single"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Horizontal"/>.
+            </param>
+            <param name="vertical">
+            <see cref="T:System.Single"/> for <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Vertical"/>.
+            </param>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="horizontal"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="vertical"/> is <see cref="F:System.Single.NaN"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="horizontal"/> is out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Tilt.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Tilt.Maximum"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <paramref name="vertical"/> is out of range between <see cref="F:YggdrAshill.Nuadha.Signals.Tilt.Minimum"/> and <see cref="F:YggdrAshill.Nuadha.Signals.Tilt.Maximum"/>.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown if <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Distance"/> is out of <see cref="F:YggdrAshill.Nuadha.Signals.Tilt.Length"/>.
+            </exception>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Tilt.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Tilt.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Tilt.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Tilt.Equals(YggdrAshill.Nuadha.Signals.Tilt)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Tilt.op_UnaryNegation(YggdrAshill.Nuadha.Signals.Tilt)">
+            <summary>
+            Inverses <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/> to inverse.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/> inversed.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Tilt.op_Equality(YggdrAshill.Nuadha.Signals.Tilt,YggdrAshill.Nuadha.Signals.Tilt)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/> are equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Tilt.op_Inequality(YggdrAshill.Nuadha.Signals.Tilt,YggdrAshill.Nuadha.Signals.Tilt)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/> are not equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.Signals.Touch">
+            <summary>
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/>.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Touch.Disabled">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> that is disabled.
+            </summary>
+        </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Touch.Enabled">
+            <summary>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> that is enabled.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Touch.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Touch.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Touch.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Touch.Equals(YggdrAshill.Nuadha.Signals.Touch)">
+            <inheritdoc/>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Touch.op_Explicit(System.Boolean)~YggdrAshill.Nuadha.Signals.Touch">
+            <summary>
+            Converts explicitly <see cref="T:System.Boolean"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:System.Boolean"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Touch.op_Explicit(YggdrAshill.Nuadha.Signals.Touch)~System.Boolean">
+            <summary>
+            Converts explicitly <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to <see cref="T:System.Boolean"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:System.Boolean"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Touch.op_True(YggdrAshill.Nuadha.Signals.Touch)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to <see cref="T:System.Boolean"/> in an expression.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:System.Boolean"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Touch.op_False(YggdrAshill.Nuadha.Signals.Touch)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to <see cref="T:System.Boolean"/> in an expression.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:System.Boolean"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Touch.op_UnaryNegation(YggdrAshill.Nuadha.Signals.Touch)">
+            <summary>
+            Inverses <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to inverse.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> inversed.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Touch.op_Equality(YggdrAshill.Nuadha.Signals.Touch,YggdrAshill.Nuadha.Signals.Touch)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> are equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.Signals.Touch.op_Inequality(YggdrAshill.Nuadha.Signals.Touch,YggdrAshill.Nuadha.Signals.Touch)">
+            <summary>
+            Checks if <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> and <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> are not equal.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

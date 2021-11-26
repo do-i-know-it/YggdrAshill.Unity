@@ -1,7 +1,8 @@
-# Release notes for version 0.5.0
+# Release notes for version 0.6.0
 
-- Imported Ragnarok 1.1.1.
-- Imported VContainer 1.9.0.
-- Imported UniRx 7.1.0.
-- Imported UniTask 2.2.5.
-- Rearranged directories of Unity extensions for YggdrAshill.
+- Removed Ragnarok 1.1.1.
+- Removed VContainer 1.9.0.
+- Removed UniRx 7.1.0.
+- Removed UniTask 2.2.5.
+- Update Nuadha to 1.2.0.
+- Modified implementaions for Nuahda.
