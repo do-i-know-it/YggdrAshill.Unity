@@ -6,7 +6,7 @@
 
 YggdrAshill.Unity is a [Unity](https://unity.com/ja) extension for below.
 
-- [YggdrAshill.Ragnarok](https://github.com/do-i-know-it/YggdrAshill.Ragnarok)
+<!-- - [YggdrAshill.Ragnarok](https://github.com/do-i-know-it/YggdrAshill.Ragnarok) -->
 - [YggdrAshill.Nuadha](https://github.com/do-i-know-it/YggdrAshill.Nuadha)
 
 ## Dependencies
@@ -15,17 +15,29 @@ This framework also depends on below.
 
 - .NET Standard 2.0
 - [Unity](https://unity.com/ja) 2020.3.x
-- [UniRx](https://github.com/neuecc/UniRx) 7.1.0
+
+<!-- - [UniRx](https://github.com/neuecc/UniRx) 7.1.0
 - [UniTask](https://github.com/Cysharp/UniTask) 2.2.5
-- [VContainer](https://github.com/hadashiA/VContainer) 1.9.0
+- [VContainer](https://github.com/hadashiA/VContainer) 1.9.0 -->
 
 ## Installation
 
 This framework depends on Unity after Unity 2020.3, that supports path query parameter of git package.
-Therefore, developers can install this framework with [UPM](https://docs.unity3d.com/Manual/Packages.html) like:
+Developers can install this framework with [UPM](https://docs.unity3d.com/Manual/Packages.html).
 
-- Add `https://github.com/do-i-know-it/YggdrAshill.Unity.git?path=Assets` to Package Manager.
-- Add `"com.yggdrashill.unity": "https://github.com/do-i-know-it/YggdrAshill.Unity.git?path=Assets"` to `Packages/manifest.json`.
+### YggdrAshill.Nuadha.Unity
+
+Developers can install a Unity extension for [YggdrAshill.Nuadha](https://github.com/do-i-know-it/YggdrAshill.Nuadha) like:
+
+- Add `https://github.com/do-i-know-it/YggdrAshill.Unity.git?path=Assets/YggdrAshill.Nuadha.Unity/package.json` to Package Manager.
+- Add `"com.yggdrashill.nuadha.unity": "https://github.com/do-i-know-it/YggdrAshill.Unity.git?path=Assets/YggdrAshill.Nuadha.Unity/package.json"` to `Packages/manifest.json`.
+
+### YggdrAshill.Unity
+
+Developers can install a Unity extension for YggdrAshill like:
+
+- Add `https://github.com/do-i-know-it/YggdrAshill.Unity.git?path=Assets/YggdrAshill.Unity/package.json` to Package Manager.
+- Add `"com.yggdrashill.nuadha.unity": "https://github.com/do-i-know-it/YggdrAshill.Unity.git?path=Assets/YggdrAshill.Unity/package.json"` to `Packages/manifest.json`.
 
 ## Usage
 
