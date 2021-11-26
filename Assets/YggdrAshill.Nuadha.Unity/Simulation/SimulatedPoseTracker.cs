@@ -12,6 +12,28 @@ namespace YggdrAshill.Nuadha.Unity
     public sealed class SimulatedPoseTracker :
         IPoseTrackerConfiguration
     {
+        public static IPoseTrackerConfiguration FixedPose(Pose pose)
+        {
+            return new SimulatedPoseTracker(pose);
+        }
+        private SimulatedPoseTracker(Pose pose)
+        {
+            Position = GenerateSpace3D.Position(pose.position);
+
+            Rotation = GenerateSpace3D.Rotation(pose.rotation);
+        }
+
+        public static IPoseTrackerConfiguration FixedPose()
+        {
+            return new SimulatedPoseTracker();
+        }
+        private SimulatedPoseTracker()
+        {
+            Position = GenerateSpace3D.Position(Vector3.zero);
+
+            Rotation = GenerateSpace3D.Rotation(Quaternion.identity);
+        }
+
         /// <summary>
         /// Simulated <see cref="IPoseTrackerConfiguration"/> to generate absolute position and rotation.
         /// </summary>
@@ -31,11 +53,13 @@ namespace YggdrAshill.Nuadha.Unity
                 throw new ArgumentNullException(nameof(transform));
             }
 
-            var position = GenerateSpace3D.AbsolutePosition(transform);
+            return new SimulatedPoseTracker(transform);
+        }
+        private SimulatedPoseTracker(Transform transform)
+        {
+            Position = GenerateSpace3D.AbsolutePosition(transform);
 
-            var rotation = GenerateSpace3D.AbsoluteRotation(transform);
-
-            return new SimulatedPoseTracker(position, rotation);
+            Rotation = GenerateSpace3D.AbsoluteRotation(transform);
         }
 
         /// <summary>
@@ -67,18 +91,13 @@ namespace YggdrAshill.Nuadha.Unity
                 throw new ArgumentNullException(nameof(transform));
             }
 
-            var position = GenerateSpace3D.RelativePosition(origin, transform);
-
-            var rotation = GenerateSpace3D.RelativeRotation(origin, transform);
-
-            return new SimulatedPoseTracker(position, rotation);
+            return new SimulatedPoseTracker(origin, transform);
         }
-
-        private SimulatedPoseTracker(IGeneration<Space3D.Position> position, IGeneration<Space3D.Rotation> rotation)
+        private SimulatedPoseTracker(Transform origin, Transform transform)
         {
-            Position = position;
+            Position = GenerateSpace3D.RelativePosition(origin, transform);
 
-            Rotation = rotation;
+            Rotation = GenerateSpace3D.RelativeRotation(origin, transform);
         }
 
         /// <inheritdoc/>

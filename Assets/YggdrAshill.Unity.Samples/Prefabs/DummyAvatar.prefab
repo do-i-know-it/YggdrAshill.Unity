@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e36b9565cca211a4f9626c52bb9f2358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originTransform: {fileID: 4738981051874699693}
   headTransform: {fileID: 4738981053341896612}
   leftHandTransform: {fileID: 4738981053422090477}
   rightTransform: {fileID: 4738981052172627363}

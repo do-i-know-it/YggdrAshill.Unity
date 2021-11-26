@@ -1,6 +1,5 @@
 using YggdrAshill.Nuadha;
 using YggdrAshill.Nuadha.Conduction;
-using YggdrAshill.Nuadha.Units;
 using YggdrAshill.Nuadha.Unity;
 using UnityEngine;
 using System;
@@ -8,8 +7,7 @@ using System;
 namespace YggdrAshill.Unity.Samples
 {
     [DisallowMultipleComponent]
-    internal sealed class KeyboardAndMouseHMD : MonoBehaviour,
-        IHeadMountedDisplayConfiguration
+    internal sealed class KeyboardAndMouseHMD : MonoBehaviour
     {
         [SerializeField] private Transform originTransform;
         private Transform OriginTransform
@@ -67,62 +65,6 @@ namespace YggdrAshill.Unity.Samples
             }
         }
 
-        private IPoseTrackerConfiguration origin;
-        public IPoseTrackerConfiguration Origin
-        {
-            get
-            {
-                if (origin is null)
-                {
-                    origin = SimulatedPoseTracker.Transform(OriginTransform);
-                }
-
-                return origin;
-            }
-        }
-
-        private IHeadTrackerConfiguration head;
-        public IHeadTrackerConfiguration Head
-        {
-            get
-            {
-                if (head is null)
-                {
-                    head = SimulatedHeadTracker.Transform(HeadTransform);
-                }
-
-                return head;
-            }
-        }
-
-        private IHandControllerConfiguration leftHand;
-        public IHandControllerConfiguration LeftHand
-        {
-            get
-            {
-                if (leftHand is null)
-                {
-                    leftHand = SimulatedHandController.Left(LeftHandTransform);
-                }
-
-                return leftHand;
-            }
-        }
-
-        private IHandControllerConfiguration rightHand;
-        public IHandControllerConfiguration RightHand
-        {
-            get
-            {
-                if (rightHand is null)
-                {
-                    rightHand = SimulatedHandController.Right(RightHandTransform);
-                }
-
-                return rightHand;
-            }
-        }
-
         private ITransmission<IHeadMountedDisplaySoftware> transmission;
 
         private IDisposable disposable;
@@ -131,7 +73,7 @@ namespace YggdrAshill.Unity.Samples
         {
             transmission
                 = HeadMountedDisplay
-                .Transmit(this);
+                .Transmit(SimulatedHeadMountedDisplay.Transform(OriginTransform, HeadTransform, LeftHandTransform, RightHandTransform));
 
             disposable 
                 = transmission
