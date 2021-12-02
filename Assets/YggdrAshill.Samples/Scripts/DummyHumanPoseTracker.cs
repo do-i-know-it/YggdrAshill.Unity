@@ -1,5 +1,5 @@
-﻿using YggdrAshill.Unity;
-using YggdrAshill.Unity.OVR;
+﻿using YggdrAshill.Nuadha.Unity;
+using YggdrAshill.Unity;
 using YggdrAshill.VContainer;
 using UnityEngine;
 using VContainer;
@@ -8,7 +8,7 @@ using VContainer.Unity;
 namespace YggdrAshill.Samples
 {
     [DisallowMultipleComponent]
-    internal sealed class OculusController : LifetimeScope
+    internal sealed class DummyHumanPoseTracker : LifetimeScope
     {
         [SerializeField] private Transform originTransform;
         private Transform OriginTransform
@@ -69,13 +69,13 @@ namespace YggdrAshill.Samples
         protected override void Configure(IContainerBuilder builder)
         {
             builder
-                .RegisterInstance(Oculus.HeadMountedDisplay(OriginTransform, HeadTransform, LeftHandTransform, RightHandTransform))
+                .RegisterInstance(SimulatedHumanPoseTracker.Transform(OriginTransform, HeadTransform, LeftHandTransform, RightHandTransform))
                 .AsSelf();
             builder
-                .RegisterInstance(DeviceManagement.HeadMountedDisplay.Software)
+                .RegisterInstance(DeviceManagement.HumanPoseTracker.Software)
                 .AsSelf();
 
-            builder.RegisterEntryPoint<TransmitHeadMountedDisplayEntryPoint>();
+            builder.RegisterEntryPoint<TransmitHumanPoseTrackerEntryPoint>();
         }
     }
 }

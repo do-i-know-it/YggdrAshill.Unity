@@ -1,11 +1,13 @@
-using YggdrAshill.Nuadha.Unity;
 using YggdrAshill.VContainer;
 using System;
 using UnityEngine;
+using VContainer;
+using VContainer.Unity;
 
 namespace YggdrAshill.Unity
 {
-    internal sealed class PulsateHeadMountedDisplay : PulsateHeadMountedDisplayLifetimeScope
+    [DisallowMultipleComponent]
+    internal sealed class PulsateHeadMountedDisplay : LifetimeScope
     {
 #pragma warning disable IDE0044
 
@@ -25,10 +27,19 @@ namespace YggdrAshill.Unity
 
 #pragma warning restore IDE0044
 
-        protected override IHeadMountedDisplayHardware Hardware => DeviceManagement.HeadMountedDisplay.Hardware;
+        protected override void Configure(IContainerBuilder builder)
+        {
+            builder
+                .RegisterInstance(DeviceManagement.HeadMountedDisplay.Hardware)
+                .AsSelf();
+            builder
+                .RegisterInstance(Configuration.Threshold)
+                .AsSelf();
+            builder
+                .RegisterInstance(DeviceManagement.PulsatedHeadMountedDisplay.Software)
+                .AsSelf();
 
-        protected override HeadMountedDisplayThreshold Threshold => Configuration.Threshold;
-
-        protected override IPulsatedHeadMountedDisplaySoftware Software => DeviceManagement.PulsatedHeadMountedDisplay.Software;
+            builder.RegisterEntryPoint<PulsateHeadMountedDisplayEntryPoint>();
+        }
     }
 }
