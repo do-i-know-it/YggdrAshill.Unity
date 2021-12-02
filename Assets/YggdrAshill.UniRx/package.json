@@ -1,13 +1,13 @@
 {
     "name": "com.yggdrashill.unirx",
-    "version": "0.6.0",
+    "version": "0.7.0",
     "displayName": "YggdrAshill.UniRx",
     "description": "A UniRx extension for YggdrAshill framework.",
     "unity": "2020.3",
     "dependencies":
     {
-      "com.yggdrashill.unity": "0.6.0",
-      "com.yggdrashill.nuadha.unity": "0.6.0",
+      "com.yggdrashill.unity": "0.7.0",
+      "com.yggdrashill.nuadha.unity": "0.7.0",
       "com.neuecc.unirx": "7.1.0"
     },
     "keywords":

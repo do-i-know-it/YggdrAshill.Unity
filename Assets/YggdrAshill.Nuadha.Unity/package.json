@@ -1,6 +1,6 @@
 {
     "name": "com.yggdrashill.nuadha.unity",
-    "version": "0.6.0",
+    "version": "0.7.0",
     "displayName": "YggdrAshill.Nuadha.Unity",
     "description": "A Unity extension for YggdrAshill.Nuadha.",
     "unity": "2020.3",
