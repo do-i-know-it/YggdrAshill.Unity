@@ -1,0 +1,17 @@
+{
+    "name": "YggdrAshill.Unity.OVR",
+    "rootNamespace": "YggdrAshill.Unity.OVR",
+    "references": [
+        "GUID:bf2f724e33c84f545949a132fa7ddcc0",
+        "GUID:f64c9ebcd7899c3448a08dc9f9ddbe30"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
