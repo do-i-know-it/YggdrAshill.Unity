@@ -6,7 +6,7 @@ using UnityEngine;
 namespace YggdrAshill.Unity
 {
     [DisallowMultipleComponent]
-    internal sealed class HumanPoseOfHeadMountedDisplay : ConvertHeadMountedDisplayIntoHumanPoseTrackerLifetimeScope
+    internal sealed class HeadMountedDisplayIntoHumanPoseTracker : HeadMountedDisplayIntoHumanPoseTrackerLifetimeScope
     {
 #pragma warning disable IDE0044
 

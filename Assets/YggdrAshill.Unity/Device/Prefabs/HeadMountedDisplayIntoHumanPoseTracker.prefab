@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7916273440645835012}
   - component: {fileID: 3251519479237538751}
   m_Layer: 0
-  m_Name: HumanPoseOfHeadMountedDisplay
+  m_Name: HeadMountedDisplayIntoHumanPoseTracker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,4 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed75ff26edeb8e4c940e0d7486f1797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: 
+  autoRun: 1
+  autoInjectGameObjects: []
   adjustment: {fileID: 11400000, guid: ae4c0436eb4ff2d43a8a47bd30263da6, type: 2}

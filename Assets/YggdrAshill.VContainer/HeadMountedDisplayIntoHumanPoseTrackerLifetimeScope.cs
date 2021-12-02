@@ -8,7 +8,7 @@ using VContainer.Unity;
 namespace YggdrAshill.VContainer
 {
     [DisallowMultipleComponent]
-    public abstract class ConvertHeadMountedDisplayIntoHumanPoseTrackerLifetimeScope : LifetimeScope
+    public abstract class HeadMountedDisplayIntoHumanPoseTrackerLifetimeScope : LifetimeScope
     {
         protected abstract IHeadMountedDisplayHardware Hardware { get; }
 
