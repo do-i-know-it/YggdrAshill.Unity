@@ -1,13 +1,12 @@
-using YggdrAshill.Nuadha;
-using YggdrAshill.Nuadha.Unity;
 using System;
 using UnityEngine;
-using UniRx;
+using VContainer;
+using VContainer.Unity;
 
 namespace YggdrAshill.Unity
 {
     [DisallowMultipleComponent]
-    internal sealed class HumanPoseOfHeadMountedDisplay : MonoBehaviour
+    internal sealed class HumanPoseOfHeadMountedDisplay : LifetimeScope
     {
 #pragma warning disable IDE0044
 
@@ -27,14 +26,19 @@ namespace YggdrAshill.Unity
 
 #pragma warning restore IDE0044
 
-        private void OnEnable()
+        protected override void Configure(IContainerBuilder builder)
         {
-            DeviceManagement.HeadMountedDisplay.Hardware
-                .Calibrate(Adjustment.Configuration)
-                .Connect()
-                .Connect(DeviceManagement.HumanPoseTracker.Software)
-                .ToDisposable()
-                .AddTo(this);
+            builder
+                .RegisterInstance(DeviceManagement.HeadMountedDisplay.Hardware)
+                .AsSelf();
+            builder
+                .RegisterInstance(Adjustment.Configuration)
+                .AsSelf();
+            builder
+                .RegisterInstance(DeviceManagement.HumanPoseTracker.Software)
+                .AsSelf();
+
+            builder.RegisterEntryPoint<HumanPoseOfHeadMountedDisplayEntryPoint>();
         }
     }
 }

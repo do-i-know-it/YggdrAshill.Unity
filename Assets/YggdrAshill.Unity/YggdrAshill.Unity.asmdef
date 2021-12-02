@@ -3,7 +3,7 @@
     "rootNamespace": "YggdrAshill.Unity",
     "references": [
         "GUID:bf2f724e33c84f545949a132fa7ddcc0",
-        "GUID:560b04d1a97f54a4e82edc0cbbb69285"
+        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

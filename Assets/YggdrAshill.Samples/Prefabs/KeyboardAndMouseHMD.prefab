@@ -70,7 +70,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8339445146454437622}
   - component: {fileID: 5947183126400809570}
-  - component: {fileID: 2191005151790512007}
   m_Layer: 0
   m_Name: KeyboardAndMouseHMD
   m_TagString: Untagged
@@ -113,18 +112,6 @@ MonoBehaviour:
   headTransform: {fileID: 4621417294640396445}
   leftHandTransform: {fileID: 8065680454312744326}
   rightTransform: {fileID: 3200544893152260934}
---- !u!114 &2191005151790512007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5404237394121661854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddc4c039837a574439b23521b6db75b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5726368321559766133
 GameObject:
   m_ObjectHideFlags: 0
