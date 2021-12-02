@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/YggdrAshill.Samples/Scenes/EntryPoint.unity
+    guid: f42ff76055dd34f46ad9305a7e154c15
   m_configObjects: {}
