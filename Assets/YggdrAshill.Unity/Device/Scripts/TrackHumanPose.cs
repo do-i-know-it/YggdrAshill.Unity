@@ -1,13 +1,11 @@
 using YggdrAshill.Nuadha.Unity;
+using YggdrAshill.VContainer;
 using System;
 using UnityEngine;
-using VContainer;
-using VContainer.Unity;
 
 namespace YggdrAshill.Unity
 {
-    [DisallowMultipleComponent]
-    internal sealed class TrackHumanPose : LifetimeScope
+    internal sealed class TrackHumanPose : TrackHumanPoseLifetimeScope
     {
 #pragma warning disable IDE0044
 
@@ -69,16 +67,8 @@ namespace YggdrAshill.Unity
 
 #pragma warning restore IDE0044
 
-        protected override void Configure(IContainerBuilder builder)
-        {
-            builder
-                .RegisterInstance(DeviceManagement.HumanPoseTracker.Hardware)
-                .AsSelf();
-            builder
-                .RegisterInstance(ToTrack.HumanPose(OriginTransform, HeadTransform, LeftHandTransform, RightHandTransform))
-                .AsSelf();
+        protected override IHumanPoseTrackerHardware Hardware => DeviceManagement.HumanPoseTracker.Hardware;
 
-            builder.RegisterEntryPoint<TrackHumanPoseEntryPoint>();
-        }
+        protected override IHumanPoseTrackerSoftware Software => ToTrack.HumanPose(OriginTransform, HeadTransform, LeftHandTransform, RightHandTransform);
     }
 }

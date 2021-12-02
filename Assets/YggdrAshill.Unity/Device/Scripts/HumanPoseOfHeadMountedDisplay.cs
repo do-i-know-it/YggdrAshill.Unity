@@ -1,16 +1,19 @@
+using YggdrAshill.Nuadha.Unity;
+using YggdrAshill.VContainer;
 using System;
 using UnityEngine;
-using VContainer;
-using VContainer.Unity;
 
 namespace YggdrAshill.Unity
 {
     [DisallowMultipleComponent]
-    internal sealed class HumanPoseOfHeadMountedDisplay : LifetimeScope
+    internal sealed class HumanPoseOfHeadMountedDisplay : ConvertHeadMountedDisplayIntoHumanPoseTrackerLifetimeScope
     {
 #pragma warning disable IDE0044
 
         [SerializeField] private HumanPoseAdjustment adjustment;
+
+        
+
         private HumanPoseAdjustment Adjustment
         {
             get
@@ -26,19 +29,10 @@ namespace YggdrAshill.Unity
 
 #pragma warning restore IDE0044
 
-        protected override void Configure(IContainerBuilder builder)
-        {
-            builder
-                .RegisterInstance(DeviceManagement.HeadMountedDisplay.Hardware)
-                .AsSelf();
-            builder
-                .RegisterInstance(Adjustment.Configuration)
-                .AsSelf();
-            builder
-                .RegisterInstance(DeviceManagement.HumanPoseTracker.Software)
-                .AsSelf();
+        protected override IHeadMountedDisplayHardware Hardware => DeviceManagement.HeadMountedDisplay.Hardware;
 
-            builder.RegisterEntryPoint<HumanPoseOfHeadMountedDisplayEntryPoint>();
-        }
+        protected override IHumanPoseTrackerConfiguration Configuration => Adjustment.Configuration;
+
+        protected override IHumanPoseTrackerSoftware Software => DeviceManagement.HumanPoseTracker.Software;
     }
 }

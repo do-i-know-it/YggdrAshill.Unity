@@ -1,14 +1,12 @@
-using YggdrAshill.Nuadha;
-using YggdrAshill.Nuadha.Conduction;
-using YggdrAshill.Nuadha.Unity;
+﻿using YggdrAshill.Nuadha.Unity;
 using YggdrAshill.Unity;
-using System;
+using YggdrAshill.Unity.OVR;
+using YggdrAshill.VContainer;
 using UnityEngine;
 
 namespace YggdrAshill.Samples
 {
-    [DisallowMultipleComponent]
-    internal sealed class KeyboardAndMouseHMD : MonoBehaviour
+    internal sealed class OculusController : TransmitHeadMountedDisplayLifetimeScope
     {
         [SerializeField] private Transform originTransform;
         private Transform OriginTransform
@@ -66,34 +64,8 @@ namespace YggdrAshill.Samples
             }
         }
 
-        private ITransmission<IHeadMountedDisplaySoftware> transmission;
+        protected override IHeadMountedDisplayConfiguration Configuration => Oculus.HeadMountedDisplay(OriginTransform, HeadTransform, LeftHandTransform, RightHandTransform);
 
-        private IDisposable disposable;
-
-        private void OnEnable()
-        {
-            transmission
-                = HeadMountedDisplay
-                .Transmit(SimulatedHeadMountedDisplay.Transform(OriginTransform, HeadTransform, LeftHandTransform, RightHandTransform));
-
-            disposable 
-                = transmission
-                .Connect(DeviceManagement.HeadMountedDisplay.Software)
-                .ToDisposable();
-        }
-
-        private void OnDisable()
-        {
-            disposable.Dispose();
-
-            transmission = null;
-
-            disposable = null;
-        }
-
-        private void Update()
-        {
-            transmission.Emit();
-        }
+        protected override IHeadMountedDisplaySoftware Software => DeviceManagement.HeadMountedDisplay.Software;
     }
 }

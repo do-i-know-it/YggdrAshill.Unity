@@ -2,8 +2,11 @@
     "name": "YggdrAshill.Samples",
     "rootNamespace": "YggdrAshill.Samples",
     "references": [
+        "GUID:bf2f724e33c84f545949a132fa7ddcc0",
         "GUID:03352971a03cca2499559ae6a92b2630",
-        "GUID:bf2f724e33c84f545949a132fa7ddcc0"
+        "GUID:eca072e03f922e442b703ff224ed4397",
+        "GUID:d354cbf5ff4829d468f6a748d81e63f0",
+        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
