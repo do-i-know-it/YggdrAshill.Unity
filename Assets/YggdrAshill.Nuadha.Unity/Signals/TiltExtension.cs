@@ -4,9 +4,9 @@ using UnityEngine;
 namespace YggdrAshill.Nuadha.Unity
 {
     /// <summary>
-    /// Defines extensions for Signals in Unity.
+    /// Defines extensions for <see cref="Tilt"/> in Unity.
     /// </summary>
-    public static class SignalExtension
+    public static class TiltExtension
     {
         /// <summary>
         /// Converts <see cref="Vector2"/> to <see cref="Tilt"/>.
@@ -19,9 +19,12 @@ namespace YggdrAshill.Nuadha.Unity
         /// </returns>
         public static Tilt ToTilt(this Vector2 signal)
         {
-            var normalized = signal.normalized;
-
-            return new Tilt(normalized.x, normalized.y);
+            if (signal.sqrMagnitude - Tilt.Length > 0.0f)
+            {
+                signal = signal.normalized;
+            }
+            
+            return new Tilt(signal.x, signal.y);
         }
 
         /// <summary>
