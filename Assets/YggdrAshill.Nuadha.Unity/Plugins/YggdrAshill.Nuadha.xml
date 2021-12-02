@@ -285,6 +285,33 @@
             Thrown if <paramref name="threshold"/> is out of range between <see cref="P:YggdrAshill.Nuadha.HysteresisThreshold.Minimum"/> and <see cref="P:YggdrAshill.Nuadha.HysteresisThreshold.Maximum"/>.
             </exception>
         </member>
+        <member name="T:YggdrAshill.Nuadha.PullExtension">
+            <summary>
+            Defines extensions for <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PullExtension.ToPull(System.Single)">
+            <summary>
+            Converts <see cref="T:System.Single"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:System.Single"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PullExtension.ToSingle(YggdrAshill.Nuadha.Signals.Pull)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> to <see cref="T:System.Single"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:System.Single"/> converted.
+            </returns>
+        </member>
         <member name="T:YggdrAshill.Nuadha.PullInto">
             <summary>
             Defines implementations of <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
@@ -351,6 +378,55 @@
             Thrown if <paramref name="threshold"/> is null.
             </exception>
         </member>
+        <member name="T:YggdrAshill.Nuadha.PushExtension">
+            <summary>
+            Defines extensions for <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PushExtension.ToPush(System.Boolean)">
+            <summary>
+            Converts <see cref="T:System.Boolean"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:System.Boolean"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PushExtension.ToBoolean(YggdrAshill.Nuadha.Signals.Push)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to <see cref="T:System.Boolean"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:System.Boolean"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PushExtension.ToTouch(YggdrAshill.Nuadha.Signals.Push)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.PushExtension.ToPull(YggdrAshill.Nuadha.Signals.Push)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> converted.
+            </returns>
+        </member>
         <member name="T:YggdrAshill.Nuadha.PushInto">
             <summary>
             Defines implementations of <see cref="T:YggdrAshill.Nuadha.Transformation.ITranslation`2"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
@@ -385,116 +461,6 @@
             <summary>
             Defines extensions for Signals.
             </summary>
-        </member>
-        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToTouch(System.Boolean)">
-            <summary>
-            Converts <see cref="T:System.Boolean"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/>.
-            </summary>
-            <param name="signal">
-            <see cref="T:System.Boolean"/> to covert.
-            </param>
-            <returns>
-            <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> converted.
-            </returns>
-        </member>
-        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToBoolean(YggdrAshill.Nuadha.Signals.Touch)">
-            <summary>
-            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to <see cref="T:System.Boolean"/>.
-            </summary>
-            <param name="signal">
-            <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to covert.
-            </param>
-            <returns>
-            <see cref="T:System.Boolean"/> converted.
-            </returns>
-        </member>
-        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToPush(YggdrAshill.Nuadha.Signals.Touch)">
-            <summary>
-            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
-            </summary>
-            <param name="signal">
-            <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to covert.
-            </param>
-            <returns>
-            <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> converted.
-            </returns>
-        </member>
-        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToPull(YggdrAshill.Nuadha.Signals.Touch)">
-            <summary>
-            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
-            </summary>
-            <param name="signal">
-            <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to covert.
-            </param>
-            <returns>
-            <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> converted.
-            </returns>
-        </member>
-        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToPush(System.Boolean)">
-            <summary>
-            Converts <see cref="T:System.Boolean"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
-            </summary>
-            <param name="signal">
-            <see cref="T:System.Boolean"/> to covert.
-            </param>
-            <returns>
-            <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> converted.
-            </returns>
-        </member>
-        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToBoolean(YggdrAshill.Nuadha.Signals.Push)">
-            <summary>
-            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to <see cref="T:System.Boolean"/>.
-            </summary>
-            <param name="signal">
-            <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to covert.
-            </param>
-            <returns>
-            <see cref="T:System.Boolean"/> converted.
-            </returns>
-        </member>
-        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToTouch(YggdrAshill.Nuadha.Signals.Push)">
-            <summary>
-            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/>.
-            </summary>
-            <param name="signal">
-            <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to covert.
-            </param>
-            <returns>
-            <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> converted.
-            </returns>
-        </member>
-        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToPull(YggdrAshill.Nuadha.Signals.Push)">
-            <summary>
-            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
-            </summary>
-            <param name="signal">
-            <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> to covert.
-            </param>
-            <returns>
-            <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> converted.
-            </returns>
-        </member>
-        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToPull(System.Single)">
-            <summary>
-            Converts <see cref="T:System.Single"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
-            </summary>
-            <param name="signal">
-            <see cref="T:System.Single"/> to covert.
-            </param>
-            <returns>
-            <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> converted.
-            </returns>
-        </member>
-        <member name="M:YggdrAshill.Nuadha.SignalExtension.ToSingle(YggdrAshill.Nuadha.Signals.Pull)">
-            <summary>
-            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> to <see cref="T:System.Single"/>.
-            </summary>
-            <param name="signal">
-            <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> to covert.
-            </param>
-            <returns>
-            <see cref="T:System.Single"/> converted.
-            </returns>
         </member>
         <member name="M:YggdrAshill.Nuadha.SignalExtension.ToRadian(System.Single)">
             <summary>
@@ -645,6 +611,55 @@
             <summary>
             Converts <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Vertical"/> into <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
             </summary>
+        </member>
+        <member name="T:YggdrAshill.Nuadha.TouchExtension">
+            <summary>
+            Defines extensions for <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/>.
+            </summary>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.TouchExtension.ToTouch(System.Boolean)">
+            <summary>
+            Converts <see cref="T:System.Boolean"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:System.Boolean"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.TouchExtension.ToBoolean(YggdrAshill.Nuadha.Signals.Touch)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to <see cref="T:System.Boolean"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:System.Boolean"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.TouchExtension.ToPush(YggdrAshill.Nuadha.Signals.Touch)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Push"/> converted.
+            </returns>
+        </member>
+        <member name="M:YggdrAshill.Nuadha.TouchExtension.ToPull(YggdrAshill.Nuadha.Signals.Touch)">
+            <summary>
+            Converts <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/>.
+            </summary>
+            <param name="signal">
+            <see cref="T:YggdrAshill.Nuadha.Signals.Touch"/> to covert.
+            </param>
+            <returns>
+            <see cref="T:YggdrAshill.Nuadha.Signals.Pull"/> converted.
+            </returns>
         </member>
         <member name="T:YggdrAshill.Nuadha.TouchInto">
             <summary>
