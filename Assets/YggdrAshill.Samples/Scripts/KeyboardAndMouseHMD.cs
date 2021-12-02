@@ -1,10 +1,11 @@
 using YggdrAshill.Nuadha;
 using YggdrAshill.Nuadha.Conduction;
 using YggdrAshill.Nuadha.Unity;
-using UnityEngine;
+using YggdrAshill.Unity;
 using System;
+using UnityEngine;
 
-namespace YggdrAshill.Unity.Samples
+namespace YggdrAshill.Samples
 {
     [DisallowMultipleComponent]
     internal sealed class KeyboardAndMouseHMD : MonoBehaviour

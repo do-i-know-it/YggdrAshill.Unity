@@ -1,10 +1,9 @@
 {
-    "name": "YggdrAshill.DeusExMachina",
-    "rootNamespace": "YggdrAshill.DeusExMachina",
+    "name": "YggdrAshill.Samples",
+    "rootNamespace": "YggdrAshill.Samples",
     "references": [
         "GUID:03352971a03cca2499559ae6a92b2630",
-        "GUID:bf2f724e33c84f545949a132fa7ddcc0",
-        "GUID:560b04d1a97f54a4e82edc0cbbb69285"
+        "GUID:bf2f724e33c84f545949a132fa7ddcc0"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

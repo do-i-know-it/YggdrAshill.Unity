@@ -1,9 +1,10 @@
-﻿using YggdrAshill.Nuadha;
+﻿using YggdrAshill.Unity;
+using YggdrAshill.Nuadha;
 using YggdrAshill.Nuadha.Conduction;
 using System;
 using UnityEngine;
 
-namespace YggdrAshill.Unity.Samples
+namespace YggdrAshill.Samples
 {
     [DisallowMultipleComponent]
     internal sealed class DebugLogOfHMD : MonoBehaviour

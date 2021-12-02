@@ -1,7 +1,7 @@
-﻿using YggdrAshill.Nuadha.Unity;
+using YggdrAshill.Nuadha.Unity;
 using UnityEngine;
 
-namespace YggdrAshill.UniRx
+namespace YggdrAshill.Unity
 {
     [CreateAssetMenu(menuName = "YggdrAshill/HumanPoseAdjustment")]
     public sealed class HumanPoseAdjustment : ScriptableObject

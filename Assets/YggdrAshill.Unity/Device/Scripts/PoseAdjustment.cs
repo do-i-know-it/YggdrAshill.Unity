@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using UnityEngine;
 
-namespace YggdrAshill.UniRx
+namespace YggdrAshill.Unity
 {
     [Serializable]
     public struct PoseAdjustment

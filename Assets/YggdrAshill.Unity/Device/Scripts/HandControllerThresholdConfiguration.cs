@@ -1,8 +1,8 @@
 using YggdrAshill.Nuadha;
-using UnityEngine;
 using System;
+using UnityEngine;
 
-namespace YggdrAshill.UniRx
+namespace YggdrAshill.Unity
 {
     [CreateAssetMenu(menuName = "YggdrAshill/HandControllerThreshold")]
     public sealed class HandControllerThresholdConfiguration : ScriptableObject

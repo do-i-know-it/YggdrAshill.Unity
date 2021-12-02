@@ -1,11 +1,10 @@
-using YggdrAshill.Unity;
 using YggdrAshill.Nuadha;
 using YggdrAshill.Nuadha.Unity;
 using System;
-using UniRx;
 using UnityEngine;
+using UniRx;
 
-namespace YggdrAshill.UniRx
+namespace YggdrAshill.Unity
 {
     [DisallowMultipleComponent]
     internal sealed class PulsateHeadMountedDisplay : MonoBehaviour

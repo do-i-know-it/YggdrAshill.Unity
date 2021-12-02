@@ -1,9 +1,9 @@
 using YggdrAshill.Nuadha;
 using YggdrAshill.Nuadha.Unity;
-using UnityEngine;
 using System;
+using UnityEngine;
 
-namespace YggdrAshill.UniRx
+namespace YggdrAshill.Unity
 {
     [CreateAssetMenu(menuName = "YggdrAshill/HeadMountedDisplayThreshold")]
     public sealed class HeadMountedDisplayThresholdConfiguration : ScriptableObject

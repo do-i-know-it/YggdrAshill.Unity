@@ -2,7 +2,8 @@
     "name": "YggdrAshill.Unity",
     "rootNamespace": "YggdrAshill.Unity",
     "references": [
-        "GUID:bf2f724e33c84f545949a132fa7ddcc0"
+        "GUID:bf2f724e33c84f545949a132fa7ddcc0",
+        "GUID:560b04d1a97f54a4e82edc0cbbb69285"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
