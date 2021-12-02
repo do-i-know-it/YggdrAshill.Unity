@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: OculusHeadMountedDisplayThreshold
   m_EditorClassIdentifier: 
   thumb:
-    lower: 0.85
-    upper: 0.15
+    lower: 0.15
+    upper: 0.85
   indexFinger:
-    lower: 0.9
-    upper: 0.1
+    lower: 0.1
+    upper: 0.9
   handGrip:
-    lower: 0.9
-    upper: 0.1
+    lower: 0.1
+    upper: 0.9

@@ -23,7 +23,7 @@ namespace YggdrAshill.VContainer
             builder
                 .RegisterInstance(Software)
                 .AsSelf();
-            builder.RegisterEntryPoint<EntryPoint>();
+
             builder.RegisterEntryPoint<EntryPoint>();
         }
         public sealed class EntryPoint :
