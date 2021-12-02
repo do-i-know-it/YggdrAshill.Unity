@@ -6,7 +6,7 @@ using UnityEngine;
 namespace YggdrAshill.Unity.Samples
 {
     [DisallowMultipleComponent]
-    internal sealed class TrackThreePointPose : MonoBehaviour
+    internal sealed class TrackHumanPose : MonoBehaviour
     {
         [SerializeField] private Transform originTransform;
         private Transform OriginTransform
@@ -69,8 +69,8 @@ namespace YggdrAshill.Unity.Samples
         private void OnEnable()
         {
             disposable
-                = DeviceManagement.ThreePointPoseTracker.Hardware.Connect()
-                .Connect(ToTrack.ThreePointPose(OriginTransform, HeadTransform, LeftHandTransform, RightHandTransform))
+                = DeviceManagement.HumanPoseTracker.Hardware.Connect()
+                .Connect(ToTrack.HumanPose(OriginTransform, HeadTransform, LeftHandTransform, RightHandTransform))
                 .ToDisposable();
         }
 

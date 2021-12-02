@@ -1,17 +1,17 @@
-﻿using YggdrAshill.Nuadha.Units;
+using YggdrAshill.Nuadha.Units;
 using System;
 using UnityEngine;
 
 namespace YggdrAshill.Nuadha.Unity
 {
-    public sealed class SimulatedThreePointPoseTracker :
-        IThreePointPoseTrackerConfiguration
+    public sealed class SimulatedHumanPoseTracker :
+        IHumanPoseTrackerConfiguration
     {
-        public static IThreePointPoseTrackerConfiguration FixedPose(Pose origin, Pose head, Pose leftHand, Pose rightHand)
+        public static IHumanPoseTrackerConfiguration FixedPose(Pose origin, Pose head, Pose leftHand, Pose rightHand)
         {
-            return new SimulatedThreePointPoseTracker(origin, head, leftHand, rightHand);
+            return new SimulatedHumanPoseTracker(origin, head, leftHand, rightHand);
         }
-        private SimulatedThreePointPoseTracker(Pose origin, Pose head, Pose leftHand, Pose rightHand)
+        private SimulatedHumanPoseTracker(Pose origin, Pose head, Pose leftHand, Pose rightHand)
         {
             Origin = SimulatedPoseTracker.FixedPose(origin);
 
@@ -22,11 +22,11 @@ namespace YggdrAshill.Nuadha.Unity
             RightHand = SimulatedPoseTracker.FixedPose(rightHand);
         }
 
-        public static IThreePointPoseTrackerConfiguration FixedPose()
+        public static IHumanPoseTrackerConfiguration FixedPose()
         {
-            return new SimulatedThreePointPoseTracker();
+            return new SimulatedHumanPoseTracker();
         }
-        private SimulatedThreePointPoseTracker()
+        private SimulatedHumanPoseTracker()
         {
             Origin = SimulatedPoseTracker.FixedPose();
 
@@ -37,7 +37,7 @@ namespace YggdrAshill.Nuadha.Unity
             RightHand = SimulatedPoseTracker.FixedPose();
         }
 
-        public static IThreePointPoseTrackerConfiguration Transform(Transform origin, Transform head, Transform leftHand, Transform rightHand)
+        public static IHumanPoseTrackerConfiguration Transform(Transform origin, Transform head, Transform leftHand, Transform rightHand)
         {
             if (origin == null)
             {
@@ -56,9 +56,9 @@ namespace YggdrAshill.Nuadha.Unity
                 throw new ArgumentNullException(nameof(rightHand));
             }
 
-            return new SimulatedThreePointPoseTracker(origin, head, leftHand, rightHand);
+            return new SimulatedHumanPoseTracker(origin, head, leftHand, rightHand);
         }
-        private SimulatedThreePointPoseTracker(Transform origin, Transform head, Transform leftHand, Transform rightHand)
+        private SimulatedHumanPoseTracker(Transform origin, Transform head, Transform leftHand, Transform rightHand)
         {
             Origin = SimulatedPoseTracker.Transform(origin);
 

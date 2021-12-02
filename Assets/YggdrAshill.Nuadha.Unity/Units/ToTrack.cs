@@ -6,7 +6,7 @@ namespace YggdrAshill.Nuadha.Unity
 {
     public static class ToTrack
     {
-        public static IThreePointPoseTrackerSoftware ThreePointPose(Transform origin, Transform head, Transform leftHand, Transform rightHand)
+        public static IHumanPoseTrackerSoftware HumanPose(Transform origin, Transform head, Transform leftHand, Transform rightHand)
         {
             if (origin == null)
             {
@@ -25,12 +25,12 @@ namespace YggdrAshill.Nuadha.Unity
                 throw new ArgumentNullException(nameof(rightHand));
             }
 
-            return new ThreePointPoseTrackerSoftware(origin, head, leftHand, rightHand);
+            return new HumanPoseTrackerSoftware(origin, head, leftHand, rightHand);
         }
-        private sealed class ThreePointPoseTrackerSoftware :
-            IThreePointPoseTrackerSoftware
+        private sealed class HumanPoseTrackerSoftware :
+            IHumanPoseTrackerSoftware
         {
-            internal ThreePointPoseTrackerSoftware(Transform origin, Transform head, Transform leftHand, Transform rightHand)
+            internal HumanPoseTrackerSoftware(Transform origin, Transform head, Transform leftHand, Transform rightHand)
             {
                 Origin = ToTrackPose.Absolute(origin);
 

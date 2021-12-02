@@ -1,9 +1,9 @@
-﻿using YggdrAshill.Nuadha.Unitization;
+using YggdrAshill.Nuadha.Unitization;
 using YggdrAshill.Nuadha.Units;
 
 namespace YggdrAshill.Nuadha.Unity
 {
-    public interface IThreePointPoseTrackerSoftware :
+    public interface IHumanPoseTrackerSoftware :
         IModule
     {
         IPoseTrackerSoftware Origin { get; }

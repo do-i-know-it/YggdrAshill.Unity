@@ -249,16 +249,16 @@ namespace YggdrAshill.Nuadha.Unity
         }
 
         /// <summary>
-        /// Converts <see cref="IHeadMountedDisplayHardware"/> into <see cref="IThreePointPoseTrackerHardware"/>.
+        /// Converts <see cref="IHeadMountedDisplayHardware"/> into <see cref="IHumanPoseTrackerHardware"/>.
         /// </summary>
         /// <param name="hardware">
         /// <see cref="IHeadMountedDisplayHardware"/> to convert.
         /// </param>
         /// <param name="correction">
-        /// <see cref="IThreePointPoseTrackerCorrection"/> to convert.
+        /// <see cref="IHumanPoseTrackerCorrection"/> to convert.
         /// </param>
         /// <returns>
-        /// <see cref="IThreePointPoseTrackerHardware"/> converted from <see cref="IHeadMountedDisplayHardware"/>.
+        /// <see cref="IHumanPoseTrackerHardware"/> converted from <see cref="IHeadMountedDisplayHardware"/>.
         /// </returns>
         /// <exception cref="ArgumentNullException">
         /// Thrown if <paramref name="hardware"/> is null.
@@ -266,7 +266,7 @@ namespace YggdrAshill.Nuadha.Unity
         /// <exception cref="ArgumentNullException">
         /// Thrown if <paramref name="correction"/> is null.
         /// </exception>
-        public static IThreePointPoseTrackerHardware ThreePointPoseTracker(IHeadMountedDisplayHardware hardware, IThreePointPoseTrackerCorrection correction)
+        public static IHumanPoseTrackerHardware HumanPoseTracker(IHeadMountedDisplayHardware hardware, IHumanPoseTrackerCorrection correction)
         {
             if (hardware == null)
             {
@@ -277,12 +277,12 @@ namespace YggdrAshill.Nuadha.Unity
                 throw new ArgumentNullException(nameof(correction));
             }
 
-            return new ThreePointPoseTrackerHardware(hardware, correction);
+            return new HumanPoseTrackerHardware(hardware, correction);
         }
-        private sealed class ThreePointPoseTrackerHardware :
-            IThreePointPoseTrackerHardware
+        private sealed class HumanPoseTrackerHardware :
+            IHumanPoseTrackerHardware
         {
-            internal ThreePointPoseTrackerHardware(IHeadMountedDisplayHardware hardware, IThreePointPoseTrackerCorrection correction)
+            internal HumanPoseTrackerHardware(IHeadMountedDisplayHardware hardware, IHumanPoseTrackerCorrection correction)
             {
                 Origin = ConvertPoseTrackerInto.CorrectedPoseTracker(hardware.Origin, correction.Origin);
 

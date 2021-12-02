@@ -5,19 +5,19 @@ using System;
 
 namespace YggdrAshill.Nuadha.Unity
 {
-    public static class ConvertThreePointPoseTrackerInto
+    public static class ConvertHumanPoseTrackerInto
     {
         /// <summary>
-        /// Converts <see cref="IThreePointPoseTrackerProtocol"/> into <see cref="ITransmission{TModule}"/> for <see cref="IThreePointPoseTrackerSoftware"/>.
+        /// Converts <see cref="IHumanPoseTrackerProtocol"/> into <see cref="ITransmission{TModule}"/> for <see cref="IHumanPoseTrackerSoftware"/>.
         /// </summary>
         /// <param name="protocol">
-        /// <see cref="IThreePointPoseTrackerProtocol"/> to convert.
+        /// <see cref="IHumanPoseTrackerProtocol"/> to convert.
         /// </param>
         /// <param name="configuration">
-        /// <see cref="IThreePointPoseTrackerConfiguration"/> to convert.
+        /// <see cref="IHumanPoseTrackerConfiguration"/> to convert.
         /// </param>
         /// <returns>
-        /// <see cref="ITransmission{TModule}"/> for <see cref="IThreePointPoseTrackerSoftware"/> converted from <see cref="IThreePointPoseTrackerProtocol"/>.
+        /// <see cref="ITransmission{TModule}"/> for <see cref="IHumanPoseTrackerSoftware"/> converted from <see cref="IHumanPoseTrackerProtocol"/>.
         /// </returns>
         /// <exception cref="ArgumentNullException">
         /// Thrown if <paramref name="protocol"/> is null.
@@ -25,7 +25,7 @@ namespace YggdrAshill.Nuadha.Unity
         /// <exception cref="ArgumentNullException">
         /// Thrown if <paramref name="configuration"/> is null.
         /// </exception>
-        public static ITransmission<IThreePointPoseTrackerSoftware> Transmission(IThreePointPoseTrackerProtocol protocol, IThreePointPoseTrackerConfiguration configuration)
+        public static ITransmission<IHumanPoseTrackerSoftware> Transmission(IHumanPoseTrackerProtocol protocol, IHumanPoseTrackerConfiguration configuration)
         {
             if (protocol == null)
             {
@@ -36,23 +36,23 @@ namespace YggdrAshill.Nuadha.Unity
                 throw new ArgumentNullException(nameof(configuration));
             }
 
-            return new TransmitThreePointPoseTracker(configuration, protocol);
+            return new TransmitHumanPoseTracker(configuration, protocol);
         }
-        private sealed class TransmitThreePointPoseTracker :
-            ITransmission<IThreePointPoseTrackerSoftware>
+        private sealed class TransmitHumanPoseTracker :
+            ITransmission<IHumanPoseTrackerSoftware>
         {
             private readonly IEmission emission;
 
-            private readonly IConnection<IThreePointPoseTrackerSoftware> connection;
+            private readonly IConnection<IHumanPoseTrackerSoftware> connection;
 
-            internal TransmitThreePointPoseTracker(IThreePointPoseTrackerConfiguration configuration, IThreePointPoseTrackerProtocol protocol)
+            internal TransmitHumanPoseTracker(IHumanPoseTrackerConfiguration configuration, IHumanPoseTrackerProtocol protocol)
             {
                 emission = Conduct(configuration, protocol.Software);
 
                 connection = Connection(protocol.Hardware);
             }
 
-            public ICancellation Connect(IThreePointPoseTrackerSoftware module)
+            public ICancellation Connect(IHumanPoseTrackerSoftware module)
             {
                 if (module == null)
                 {
@@ -67,7 +67,7 @@ namespace YggdrAshill.Nuadha.Unity
                 emission.Emit();
             }
         }
-        private static IEmission Conduct(IThreePointPoseTrackerConfiguration configuration, IThreePointPoseTrackerSoftware software)
+        private static IEmission Conduct(IHumanPoseTrackerConfiguration configuration, IHumanPoseTrackerSoftware software)
             => EmissionSource.Default
             .Synthesize(ConductSignalTo.Consume(configuration.Origin.Position, software.Origin.Position))
             .Synthesize(ConductSignalTo.Consume(configuration.Origin.Rotation, software.Origin.Rotation))
@@ -80,90 +80,90 @@ namespace YggdrAshill.Nuadha.Unity
             .Build();
 
         /// <summary>
-        /// Converts <see cref="IThreePointPoseTrackerSoftware"/> into <see cref="IConnection{TModule}"/> for <see cref="IThreePointPoseTrackerHardware"/>.
+        /// Converts <see cref="IHumanPoseTrackerSoftware"/> into <see cref="IConnection{TModule}"/> for <see cref="IHumanPoseTrackerHardware"/>.
         /// </summary>
         /// <param name="software">
-        /// <see cref="IThreePointPoseTrackerSoftware"/> to convert.
+        /// <see cref="IHumanPoseTrackerSoftware"/> to convert.
         /// </param>
         /// <returns>
-        /// <see cref="IConnection{TModule}"/> for <see cref="IThreePointPoseTrackerHardware"/> converted from <see cref="IThreePointPoseTrackerSoftware"/>.
+        /// <see cref="IConnection{TModule}"/> for <see cref="IHumanPoseTrackerHardware"/> converted from <see cref="IHumanPoseTrackerSoftware"/>.
         /// </returns>
         /// <exception cref="ArgumentNullException">
         /// Thrown if <paramref name="software"/> is null.
         /// </exception>
-        public static IConnection<IThreePointPoseTrackerHardware> Connection(IThreePointPoseTrackerSoftware software)
+        public static IConnection<IHumanPoseTrackerHardware> Connection(IHumanPoseTrackerSoftware software)
         {
             if (software == null)
             {
                 throw new ArgumentNullException(nameof(software));
             }
 
-            return new ConnectThreePointPoseTrackerHardware(software);
+            return new ConnectHumanPoseTrackerHardware(software);
         }
-        private sealed class ConnectThreePointPoseTrackerHardware :
-            IConnection<IThreePointPoseTrackerHardware>
+        private sealed class ConnectHumanPoseTrackerHardware :
+            IConnection<IHumanPoseTrackerHardware>
         {
-            private readonly IThreePointPoseTrackerSoftware software;
+            private readonly IHumanPoseTrackerSoftware software;
 
-            internal ConnectThreePointPoseTrackerHardware(IThreePointPoseTrackerSoftware software)
+            internal ConnectHumanPoseTrackerHardware(IHumanPoseTrackerSoftware software)
             {
                 this.software = software;
             }
 
-            public ICancellation Connect(IThreePointPoseTrackerHardware module)
+            public ICancellation Connect(IHumanPoseTrackerHardware module)
             {
                 if (module == null)
                 {
                     throw new ArgumentNullException(nameof(module));
                 }
 
-                return ConvertThreePointPoseTrackerInto.Connect(module, software);
+                return ConvertHumanPoseTrackerInto.Connect(module, software);
             }
         }
 
         /// <summary>
-        /// Converts <see cref="IThreePointPoseTrackerHardware"/> into <see cref="IConnection{TModule}"/> for <see cref="IThreePointPoseTrackerSoftware"/>.
+        /// Converts <see cref="IHumanPoseTrackerHardware"/> into <see cref="IConnection{TModule}"/> for <see cref="IHumanPoseTrackerSoftware"/>.
         /// </summary>
         /// <param name="hardware">
-        /// <see cref="IThreePointPoseTrackerSoftware"/> to convert.
+        /// <see cref="IHumanPoseTrackerSoftware"/> to convert.
         /// </param>
         /// <returns>
-        /// <see cref="IConnection{TModule}"/> for <see cref="IThreePointPoseTrackerSoftware"/> converted from <see cref="IThreePointPoseTrackerHardware"/>.
+        /// <see cref="IConnection{TModule}"/> for <see cref="IHumanPoseTrackerSoftware"/> converted from <see cref="IHumanPoseTrackerHardware"/>.
         /// </returns>
         /// <exception cref="ArgumentNullException">
         /// Thrown if <paramref name="hardware"/> is null.
         /// </exception>
-        public static IConnection<IThreePointPoseTrackerSoftware> Connection(IThreePointPoseTrackerHardware hardware)
+        public static IConnection<IHumanPoseTrackerSoftware> Connection(IHumanPoseTrackerHardware hardware)
         {
             if (hardware == null)
             {
                 throw new ArgumentNullException(nameof(hardware));
             }
 
-            return new ConnectThreePointPoseTrackerSoftware(hardware);
+            return new ConnectHumanPoseTrackerSoftware(hardware);
         }
-        private sealed class ConnectThreePointPoseTrackerSoftware :
-            IConnection<IThreePointPoseTrackerSoftware>
+        private sealed class ConnectHumanPoseTrackerSoftware :
+            IConnection<IHumanPoseTrackerSoftware>
         {
-            private readonly IThreePointPoseTrackerHardware hardware;
+            private readonly IHumanPoseTrackerHardware hardware;
 
-            internal ConnectThreePointPoseTrackerSoftware(IThreePointPoseTrackerHardware hardware)
+            internal ConnectHumanPoseTrackerSoftware(IHumanPoseTrackerHardware hardware)
             {
                 this.hardware = hardware;
             }
 
-            public ICancellation Connect(IThreePointPoseTrackerSoftware module)
+            public ICancellation Connect(IHumanPoseTrackerSoftware module)
             {
                 if (module == null)
                 {
                     throw new ArgumentNullException(nameof(module));
                 }
 
-                return ConvertThreePointPoseTrackerInto.Connect(hardware, module);
+                return ConvertHumanPoseTrackerInto.Connect(hardware, module);
             }
         }
 
-        private static ICancellation Connect(IThreePointPoseTrackerHardware hardware, IThreePointPoseTrackerSoftware software)
+        private static ICancellation Connect(IHumanPoseTrackerHardware hardware, IHumanPoseTrackerSoftware software)
             => CancellationSource.Default
             .Synthesize(hardware.Origin.Position.Produce(software.Origin.Position))
             .Synthesize(hardware.Origin.Rotation.Produce(software.Origin.Rotation))

@@ -20,7 +20,7 @@ namespace YggdrAshill.Nuadha.Unity
             return ConvertHeadMountedDisplayInto.Transmission(protocol, configuration);
         }
 
-        public static IThreePointPoseTrackerHardware Correct(this IHeadMountedDisplayHardware hardware, IThreePointPoseTrackerCorrection correction)
+        public static IHumanPoseTrackerHardware Correct(this IHeadMountedDisplayHardware hardware, IHumanPoseTrackerCorrection correction)
         {
             if (hardware is null)
             {
@@ -31,10 +31,10 @@ namespace YggdrAshill.Nuadha.Unity
                 throw new ArgumentNullException(nameof(correction));
             }
 
-            return ConvertHeadMountedDisplayInto.ThreePointPoseTracker(hardware, correction);
+            return ConvertHeadMountedDisplayInto.HumanPoseTracker(hardware, correction);
         }
 
-        public static IThreePointPoseTrackerHardware Calibrate(this IHeadMountedDisplayHardware hardware, IThreePointPoseTrackerConfiguration configuration)
+        public static IHumanPoseTrackerHardware Calibrate(this IHeadMountedDisplayHardware hardware, IHumanPoseTrackerConfiguration configuration)
         {
             if (hardware is null)
             {
@@ -45,12 +45,12 @@ namespace YggdrAshill.Nuadha.Unity
                 throw new ArgumentNullException(nameof(configuration));
             }
 
-            return hardware.Correct(new ThreePointPoseTrackerCorrection(configuration));
+            return hardware.Correct(new HumanPoseTrackerCorrection(configuration));
         }
-        private sealed class ThreePointPoseTrackerCorrection :
-            IThreePointPoseTrackerCorrection
+        private sealed class HumanPoseTrackerCorrection :
+            IHumanPoseTrackerCorrection
         {
-            internal ThreePointPoseTrackerCorrection(IThreePointPoseTrackerConfiguration configuration)
+            internal HumanPoseTrackerCorrection(IHumanPoseTrackerConfiguration configuration)
             {
                 Origin = PoseTrackerTo.Calibrate(configuration.Origin);
 

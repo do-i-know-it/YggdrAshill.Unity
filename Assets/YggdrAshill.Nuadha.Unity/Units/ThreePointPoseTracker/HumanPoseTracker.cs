@@ -5,26 +5,26 @@ using System;
 namespace YggdrAshill.Nuadha.Unity
 {
     /// <summary>
-    /// Defines implementations of <see cref="IThreePointPoseTrackerProtocol"/>.
+    /// Defines implementations of <see cref="IHumanPoseTrackerProtocol"/>.
     /// </summary>
-    public sealed class ThreePointPoseTracker :
-        IThreePointPoseTrackerHardware,
-        IThreePointPoseTrackerSoftware,
-        IThreePointPoseTrackerProtocol
+    public sealed class HumanPoseTracker :
+        IHumanPoseTrackerHardware,
+        IHumanPoseTrackerSoftware,
+        IHumanPoseTrackerProtocol
     {
         /// <summary>
-        /// Converts <see cref="IThreePointPoseTrackerConfiguration"/> into <see cref="ITransmission{TModule}"/> for <see cref="IThreePointPoseTrackerSoftware"/>.
+        /// Converts <see cref="IHumanPoseTrackerConfiguration"/> into <see cref="ITransmission{TModule}"/> for <see cref="IHumanPoseTrackerSoftware"/>.
         /// </summary>
         /// <param name="configuration">
-        /// <see cref="IThreePointPoseTrackerConfiguration"/> to convert.
+        /// <see cref="IHumanPoseTrackerConfiguration"/> to convert.
         /// </param>
         /// <returns>
-        /// <see cref="ITransmission{TModule}"/> for <see cref="IThreePointPoseTrackerSoftware"/> converted from <see cref="IThreePointPoseTrackerConfiguration"/>.
+        /// <see cref="ITransmission{TModule}"/> for <see cref="IHumanPoseTrackerSoftware"/> converted from <see cref="IHumanPoseTrackerConfiguration"/>.
         /// </returns>
         /// <exception cref="ArgumentNullException">
         /// Thrown if <paramref name="configuration"/> is null.
         /// </exception>
-        public static ITransmission<IThreePointPoseTrackerSoftware> Transmit(IThreePointPoseTrackerConfiguration configuration)
+        public static ITransmission<IHumanPoseTrackerSoftware> Transmit(IHumanPoseTrackerConfiguration configuration)
         {
             if (configuration == null)
             {
@@ -35,15 +35,15 @@ namespace YggdrAshill.Nuadha.Unity
         }
 
         /// <summary>
-        /// <see cref="IThreePointPoseTrackerProtocol"/> without cache.
+        /// <see cref="IHumanPoseTrackerProtocol"/> without cache.
         /// </summary>
         /// <returns>
-        /// <see cref="IThreePointPoseTrackerProtocol"/> initialized.
+        /// <see cref="IHumanPoseTrackerProtocol"/> initialized.
         /// </returns>
-        public static IThreePointPoseTrackerProtocol WithoutCache()
+        public static IHumanPoseTrackerProtocol WithoutCache()
         {
             return
-                new ThreePointPoseTracker(
+                new HumanPoseTracker(
                     PoseTracker.WithoutCache(),
                     PoseTracker.WithoutCache(),
                     PoseTracker.WithoutCache(),
@@ -51,18 +51,18 @@ namespace YggdrAshill.Nuadha.Unity
         }
 
         /// <summary>
-        /// <see cref="IThreePointPoseTrackerProtocol"/> with latest cache.
+        /// <see cref="IHumanPoseTrackerProtocol"/> with latest cache.
         /// </summary>
         /// <param name="configuration">
-        /// <see cref="IThreePointPoseTrackerConfiguration"/> to initialize.
+        /// <see cref="IHumanPoseTrackerConfiguration"/> to initialize.
         /// </param>
         /// <returns>
-        /// <see cref="IThreePointPoseTrackerProtocol"/> initialized.
+        /// <see cref="IHumanPoseTrackerProtocol"/> initialized.
         /// </returns>
         /// <exception cref="ArgumentNullException">
         /// Thrown if <paramref name="configuration"/> is null.
         /// </exception>
-        public static IThreePointPoseTrackerProtocol WithLatestCache(IThreePointPoseTrackerConfiguration configuration)
+        public static IHumanPoseTrackerProtocol WithLatestCache(IHumanPoseTrackerConfiguration configuration)
         {
             if (configuration == null)
             {
@@ -70,7 +70,7 @@ namespace YggdrAshill.Nuadha.Unity
             }
 
             return
-                new ThreePointPoseTracker(
+                new HumanPoseTracker(
                     PoseTracker.WithLatestCache(configuration.Origin),
                     PoseTracker.WithLatestCache(configuration.Head),
                     PoseTracker.WithLatestCache(configuration.LeftHand),
@@ -78,22 +78,22 @@ namespace YggdrAshill.Nuadha.Unity
         }
 
         /// <summary>
-        /// <see cref="IThreePointPoseTrackerProtocol"/> with latest cache.
+        /// <see cref="IHumanPoseTrackerProtocol"/> with latest cache.
         /// </summary>
         /// <returns>
-        /// <see cref="IThreePointPoseTrackerProtocol"/> initialized.
+        /// <see cref="IHumanPoseTrackerProtocol"/> initialized.
         /// </returns>
-        public static IThreePointPoseTrackerProtocol WithLatestCache()
+        public static IHumanPoseTrackerProtocol WithLatestCache()
         {
             return
-                new ThreePointPoseTracker(
+                new HumanPoseTracker(
                     PoseTracker.WithLatestCache(),
                     PoseTracker.WithLatestCache(),
                     PoseTracker.WithLatestCache(),
                     PoseTracker.WithLatestCache());
         }
 
-        private ThreePointPoseTracker(IPoseTrackerProtocol origin, IPoseTrackerProtocol head, IPoseTrackerProtocol leftHand, IPoseTrackerProtocol rightHand)
+        private HumanPoseTracker(IPoseTrackerProtocol origin, IPoseTrackerProtocol head, IPoseTrackerProtocol leftHand, IPoseTrackerProtocol rightHand)
         {
             Origin = origin;
             Head = head;
@@ -114,33 +114,33 @@ namespace YggdrAshill.Nuadha.Unity
         public IPoseTrackerProtocol RightHand { get; }
 
         /// <inheritdoc/>
-        public IThreePointPoseTrackerHardware Hardware => this;
+        public IHumanPoseTrackerHardware Hardware => this;
 
         /// <inheritdoc/>
-        public IThreePointPoseTrackerSoftware Software => this;
+        public IHumanPoseTrackerSoftware Software => this;
 
         /// <inheritdoc/>
-        IPoseTrackerHardware IThreePointPoseTrackerHardware.Origin => Origin.Hardware;
+        IPoseTrackerHardware IHumanPoseTrackerHardware.Origin => Origin.Hardware;
 
         /// <inheritdoc/>
-        IPoseTrackerHardware IThreePointPoseTrackerHardware.Head => Head.Hardware;
+        IPoseTrackerHardware IHumanPoseTrackerHardware.Head => Head.Hardware;
 
         /// <inheritdoc/>
-        IPoseTrackerHardware IThreePointPoseTrackerHardware.LeftHand => LeftHand.Hardware;
+        IPoseTrackerHardware IHumanPoseTrackerHardware.LeftHand => LeftHand.Hardware;
 
         /// <inheritdoc/>
-        IPoseTrackerHardware IThreePointPoseTrackerHardware.RightHand => RightHand.Hardware;
+        IPoseTrackerHardware IHumanPoseTrackerHardware.RightHand => RightHand.Hardware;
 
         /// <inheritdoc/>
-        IPoseTrackerSoftware IThreePointPoseTrackerSoftware.Origin => Origin.Software;
+        IPoseTrackerSoftware IHumanPoseTrackerSoftware.Origin => Origin.Software;
 
         /// <inheritdoc/>
-        IPoseTrackerSoftware IThreePointPoseTrackerSoftware.Head => Head.Software;
+        IPoseTrackerSoftware IHumanPoseTrackerSoftware.Head => Head.Software;
 
         /// <inheritdoc/>
-        IPoseTrackerSoftware IThreePointPoseTrackerSoftware.LeftHand => LeftHand.Software;
+        IPoseTrackerSoftware IHumanPoseTrackerSoftware.LeftHand => LeftHand.Software;
 
         /// <inheritdoc/>
-        IPoseTrackerSoftware IThreePointPoseTrackerSoftware.RightHand => RightHand.Software;
+        IPoseTrackerSoftware IHumanPoseTrackerSoftware.RightHand => RightHand.Software;
     }
 }

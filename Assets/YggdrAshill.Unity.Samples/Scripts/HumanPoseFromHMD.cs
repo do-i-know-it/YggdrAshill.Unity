@@ -6,7 +6,7 @@ using UnityEngine;
 namespace YggdrAshill.Unity.Samples
 {
     [DisallowMultipleComponent]
-    internal sealed class ThreePointPoseOfHMD : MonoBehaviour
+    internal sealed class HumanPoseFromHMD : MonoBehaviour
     {
         [SerializeField] private Pose origin;
         [SerializeField] private Pose head;
@@ -19,9 +19,9 @@ namespace YggdrAshill.Unity.Samples
         {
             disposable
                 = DeviceManagement.HeadMountedDisplay.Hardware
-                .Calibrate(SimulatedThreePointPoseTracker.FixedPose(origin, head, leftHand, rightHand))
+                .Calibrate(SimulatedHumanPoseTracker.FixedPose(origin, head, leftHand, rightHand))
                 .Connect()
-                .Connect(DeviceManagement.ThreePointPoseTracker.Software)
+                .Connect(DeviceManagement.HumanPoseTracker.Software)
                 .ToDisposable();
         }
 
