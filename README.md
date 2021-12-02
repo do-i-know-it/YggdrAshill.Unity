@@ -25,19 +25,26 @@ This framework also depends on below.
 This framework depends on Unity after Unity 2020.3, that supports path query parameter of git package.
 Developers can install this framework with [UPM](https://docs.unity3d.com/Manual/Packages.html).
 
-### YggdrAshill.Nuadha.Unity
+### For YggdrAshill.Nuadha.Unity
 
 Developers can install a Unity extension for [YggdrAshill.Nuadha](https://github.com/do-i-know-it/YggdrAshill.Nuadha) like:
 
 - Add `https://github.com/do-i-know-it/YggdrAshill.Unity.git?path=Assets/YggdrAshill.Nuadha.Unity` to Package Manager.
 - Add `"com.yggdrashill.nuadha.unity": "https://github.com/do-i-know-it/YggdrAshill.Unity.git?path=Assets/YggdrAshill.Nuadha.Unity"` to `Packages/manifest.json`.
 
-### YggdrAshill.Unity
+### For YggdrAshill.Unity
 
 Developers can install a Unity extension for YggdrAshill like:
 
 - Add `https://github.com/do-i-know-it/YggdrAshill.Unity.git?path=Assets/YggdrAshill.Unity` to Package Manager.
-- Add `"com.yggdrashill.nuadha.unity": "https://github.com/do-i-know-it/YggdrAshill.Unity.git?path=Assets/YggdrAshill.Unity"` to `Packages/manifest.json`.
+- Add `"com.yggdrashill.unity": "https://github.com/do-i-know-it/YggdrAshill.Unity.git?path=Assets/YggdrAshill.Unity"` to `Packages/manifest.json`.
+
+### For YggdrAshill.UniRx
+
+Developers can install a UniRx extension for YggdrAshill like:
+
+- Add `https://github.com/do-i-know-it/YggdrAshill.Unity.git?path=Assets/YggdrAshill.UniRx` to Package Manager.
+- Add `"com.yggdrashill.unirx": "https://github.com/do-i-know-it/YggdrAshill.Unity.git?path=Assets/YggdrAshill.UniRx"` to `Packages/manifest.json`.
 
 ## Usage
 

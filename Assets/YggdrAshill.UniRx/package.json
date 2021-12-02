@@ -1,0 +1,31 @@
+{
+    "name": "com.yggdrashill.unirx",
+    "version": "0.7.0",
+    "displayName": "YggdrAshill.UniRx",
+    "description": "A UniRx extension for YggdrAshill framework.",
+    "unity": "2020.3",
+    "dependencies":
+    {
+      "com.yggdrashill.unity": "0.7.0",
+      "com.yggdrashill.nuadha.unity": "0.7.0",
+      "com.neuecc.unirx": "7.1.0"
+    },
+    "keywords":
+    [
+      "YggdrAshill",
+      "XR",
+      "framework",
+      "extensions",
+      "UniRx"
+    ],
+    "license": "MIT",
+    "documentationUrl": "https://github.com/do-i-know-it/YggdrAshill.Unity/blob/main/README.md",
+    "changelogUrl": "https://github.com/do-i-know-it/YggdrAshill.Unity/releases",
+    "licensesUrl": "https://github.com/do-i-know-it/YggdrAshill.Unity/blob/master/LICENSE.md",
+    "author":
+    {
+      "name": "know",
+      "email": "do.i.know.it@yggdrashill.com",
+      "url": "https://github.com/do-i-know-it"
+    }
+}

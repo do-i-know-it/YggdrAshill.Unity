@@ -1,3 +1,4 @@
+using YggdrAshill.Nuadha.Unitization;
 using YggdrAshill.Nuadha.Conduction;
 using YggdrAshill.Nuadha.Units;
 using System;
@@ -20,7 +21,96 @@ namespace YggdrAshill.Nuadha.Unity
             return ConvertHeadMountedDisplayInto.Transmission(protocol, configuration);
         }
 
-        public static IThreePointPoseTrackerHardware Correct(this IHeadMountedDisplayHardware hardware, IThreePointPoseTrackerCorrection correction)
+        /// <summary>
+        /// Converts <see cref="IHeadMountedDisplaySoftware"/> into <see cref="IConnection{TModule}"/> for <see cref="IHeadMountedDisplayHardware"/>.
+        /// </summary>
+        /// <param name="software">
+        /// <see cref="IHeadMountedDisplaySoftware"/> to convert.
+        /// </param>
+        /// <returns>
+        /// <see cref="IConnection{TModule}"/> for <see cref="IHeadMountedDisplayHardware"/> converted from <see cref="IHeadMountedDisplaySoftware"/>.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown if <paramref name="software"/> is null.
+        /// </exception>
+        public static IConnection<IHeadMountedDisplayHardware> Connect(this IHeadMountedDisplaySoftware software)
+        {
+            if (software == null)
+            {
+                throw new ArgumentNullException(nameof(software));
+            }
+
+            return ConvertHeadMountedDisplayInto.Connection(software);
+        }
+
+        /// <summary>
+        /// Converts <see cref="IHeadMountedDisplayHardware"/> into <see cref="IConnection{TModule}"/> for <see cref="IHeadMountedDisplaySoftware"/>.
+        /// </summary>
+        /// <param name="hardware">
+        /// <see cref="IHeadMountedDisplaySoftware"/> to convert.
+        /// </param>
+        /// <returns>
+        /// <see cref="IConnection{TModule}"/> for <see cref="IHeadMountedDisplaySoftware"/> converted from <see cref="IHeadMountedDisplayHardware"/>.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown if <paramref name="hardware"/> is null.
+        /// </exception>
+        public static IConnection<IHeadMountedDisplaySoftware> Connect(this IHeadMountedDisplayHardware hardware)
+        {
+            if (hardware == null)
+            {
+                throw new ArgumentNullException(nameof(hardware));
+            }
+
+            return ConvertHeadMountedDisplayInto.Connection(hardware);
+        }
+
+        public static IPulsatedHeadMountedDisplayHardware Pulsate(this IHeadMountedDisplayHardware hardware, IHeadMountedDisplayPulsation pulsation)
+        {
+            if (hardware == null)
+            {
+                throw new ArgumentNullException(nameof(hardware));
+            }
+            if (pulsation == null)
+            {
+                throw new ArgumentNullException(nameof(pulsation));
+            }
+
+            return ConvertHeadMountedDisplayInto.PulsatedHeadMountedDisplay(hardware, pulsation);
+        }
+
+        public static IPulsatedHeadMountedDisplayHardware Pulsate(this IHeadMountedDisplayHardware hardware, HeadMountedDisplayThreshold threshold)
+        {
+            if (hardware == null)
+            {
+                throw new ArgumentNullException(nameof(hardware));
+            }
+            if (threshold == null)
+
+
+
+            {
+                throw new ArgumentNullException(nameof(threshold));
+            }
+
+            return hardware.Pulsate(new HeadMountedDisplayPulsation(threshold));
+        }
+        private sealed class HeadMountedDisplayPulsation :
+            IHeadMountedDisplayPulsation
+        {
+            internal HeadMountedDisplayPulsation(HeadMountedDisplayThreshold threshold)
+            {
+                LeftHand = Nuadha.Pulsate.HandController(threshold.LeftHand);
+
+                RightHand = Nuadha.Pulsate.HandController(threshold.RightHand);
+            }
+
+            public IHandControllerPulsation LeftHand { get; }
+
+            public IHandControllerPulsation RightHand { get; }
+        }
+
+        public static IHumanPoseTrackerHardware Correct(this IHeadMountedDisplayHardware hardware, IHumanPoseTrackerCorrection correction)
         {
             if (hardware is null)
             {
@@ -31,10 +121,10 @@ namespace YggdrAshill.Nuadha.Unity
                 throw new ArgumentNullException(nameof(correction));
             }
 
-            return ConvertHeadMountedDisplayInto.ThreePointPoseTracker(hardware, correction);
+            return ConvertHeadMountedDisplayInto.HumanPoseTracker(hardware, correction);
         }
 
-        public static IThreePointPoseTrackerHardware Calibrate(this IHeadMountedDisplayHardware hardware, IThreePointPoseTrackerConfiguration configuration)
+        public static IHumanPoseTrackerHardware Calibrate(this IHeadMountedDisplayHardware hardware, IHumanPoseTrackerConfiguration configuration)
         {
             if (hardware is null)
             {
@@ -45,12 +135,12 @@ namespace YggdrAshill.Nuadha.Unity
                 throw new ArgumentNullException(nameof(configuration));
             }
 
-            return hardware.Correct(new ThreePointPoseTrackerCorrection(configuration));
+            return hardware.Correct(new HumanPoseTrackerCorrection(configuration));
         }
-        private sealed class ThreePointPoseTrackerCorrection :
-            IThreePointPoseTrackerCorrection
+        private sealed class HumanPoseTrackerCorrection :
+            IHumanPoseTrackerCorrection
         {
-            internal ThreePointPoseTrackerCorrection(IThreePointPoseTrackerConfiguration configuration)
+            internal HumanPoseTrackerCorrection(IHumanPoseTrackerConfiguration configuration)
             {
                 Origin = PoseTrackerTo.Calibrate(configuration.Origin);
 

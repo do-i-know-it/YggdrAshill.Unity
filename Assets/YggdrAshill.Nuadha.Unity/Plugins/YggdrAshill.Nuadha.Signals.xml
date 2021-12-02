@@ -484,7 +484,7 @@
         </member>
         <member name="T:YggdrAshill.Nuadha.Signals.Push">
             <summary>
-            Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
+            Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Push"/>.
             </summary>
         </member>
         <member name="P:YggdrAshill.Nuadha.Signals.Push.Disabled">
@@ -1544,6 +1544,11 @@
             Implementation of <see cref="T:YggdrAshill.Nuadha.Signalization.ISignal"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/>.
             </summary>
         </member>
+        <member name="P:YggdrAshill.Nuadha.Signals.Tilt.Tolerance">
+            <summary>
+            Tolerance of difference for <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/>.
+            </summary>
+        </member>
         <member name="F:YggdrAshill.Nuadha.Signals.Tilt.Length">
             <summary>
             Maximum of <see cref="F:YggdrAshill.Nuadha.Signals.Tilt.Length"/> for <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/>.
@@ -1551,12 +1556,12 @@
         </member>
         <member name="F:YggdrAshill.Nuadha.Signals.Tilt.Minimum">
             <summary>
-            <see cref="F:YggdrAshill.Nuadha.Signals.Tilt.Minimum"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Horizontal"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Vertical"/>.
+            Minimum value for <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Horizontal"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Vertical"/>.
             </summary>
         </member>
         <member name="F:YggdrAshill.Nuadha.Signals.Tilt.Maximum">
             <summary>
-            <see cref="F:YggdrAshill.Nuadha.Signals.Tilt.Maximum"/> of <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Horizontal"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Vertical"/>.
+            Maximum value for <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Horizontal"/> and <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Vertical"/>.
             </summary>
         </member>
         <member name="P:YggdrAshill.Nuadha.Signals.Tilt.Origin">
@@ -1597,11 +1602,6 @@
         <member name="P:YggdrAshill.Nuadha.Signals.Tilt.Distance">
             <summary>
             <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Distance"/> of <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/>.
-            </summary>
-        </member>
-        <member name="P:YggdrAshill.Nuadha.Signals.Tilt.Reversed">
-            <summary>
-            <see cref="P:YggdrAshill.Nuadha.Signals.Tilt.Reversed"/> <see cref="T:YggdrAshill.Nuadha.Signals.Tilt"/>.
             </summary>
         </member>
         <member name="M:YggdrAshill.Nuadha.Signals.Tilt.#ctor(System.Single,System.Single)">
