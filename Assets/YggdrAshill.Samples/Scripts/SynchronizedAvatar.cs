@@ -1,17 +1,45 @@
-﻿using YggdrAshill.Nuadha.Unity;
-using YggdrAshill.Unity;
-using YggdrAshill.VContainer;
+﻿using YggdrAshill.Unity;
 using System;
 using UnityEngine;
 using Photon.Pun;
-using VContainer;
-using VContainer.Unity;
 
 namespace YggdrAshill.Samples
 {
-    internal sealed class SynchronizedAvatarLifetimeScope : LifetimeScope
+    [DisallowMultipleComponent]
+    internal sealed class SynchronizedAvatar : MonoBehaviour
     {
         [SerializeField] private PhotonView view;
+        private PhotonView View
+        {
+            get
+            {
+                if (view != null)
+                {
+                    return view;
+                }
+
+                if (TryGetComponent(out view))
+                {
+                    return view;
+                }
+
+                throw new InvalidOperationException($"{nameof(view)} is null.");
+            }
+        }
+
+        [SerializeField] private TrackedHumanPose trackedHumanPosePrefab;
+        private TrackedHumanPose TrackedHumanPosePrefab
+        {
+            get
+            {
+                if (trackedHumanPosePrefab == null)
+                {
+                    throw new InvalidOperationException($"{nameof(trackedHumanPosePrefab)} is null.");
+                }
+
+                return trackedHumanPosePrefab;
+            }
+        }
 
         [SerializeField] private Transform originTransform;
         private Transform OriginTransform
@@ -69,22 +97,32 @@ namespace YggdrAshill.Samples
             }
         }
 
-        protected override void Configure(IContainerBuilder builder)
+        private TrackedHumanPose trackedHumanPose;
+
+        private void Awake()
         {
-            if (!view.IsMine)
+            if (!View.IsMine)
             {
-                Destroy(this);
                 return;
             }
 
-            builder
-                .RegisterInstance(DeviceManagement.HumanPoseTracker.Hardware)
-                .AsSelf();
-            builder
-                .RegisterInstance(ToTrack.HumanPose(OriginTransform, HeadTransform, LeftHandTransform, RightHandTransform))
-                .AsSelf();
+            trackedHumanPose = Instantiate(TrackedHumanPosePrefab, OriginTransform);
 
-            builder.RegisterEntryPoint<TrackHumanPoseEntryPoint>();
+            HeadTransform.parent = trackedHumanPose.HeadTransform;
+
+            LeftHandTransform.parent = trackedHumanPose.LeftHandTransform;
+
+            RightHandTransform.parent = trackedHumanPose.RightHandTransform;
+        }
+
+        private void OnDestroy()
+        {
+            if (trackedHumanPose == null)
+            {
+                Destroy(trackedHumanPose);
+
+                trackedHumanPose = null;
+            }
         }
     }
 }

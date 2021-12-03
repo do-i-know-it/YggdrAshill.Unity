@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 6102582091833374824}
   - component: {fileID: 1940515172681484677}
   m_Layer: 0
-  m_Name: TrackHumanPose
+  m_Name: TrackedHumanPose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

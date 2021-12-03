@@ -87,11 +87,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf04752604b8c2a48bab456c6bc54802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentReference:
-    TypeName: 
-  autoRun: 1
-  autoInjectGameObjects: []
   view: {fileID: 6135859457688750976}
+  trackedHumanPosePrefab: {fileID: 1940515172681484677, guid: 30ef94727bf3011499671ba694dc2423, type: 3}
   originTransform: {fileID: 2446646297529165124}
   headTransform: {fileID: 7673790489135578175}
   leftHandTransform: {fileID: 7641100771164249097}

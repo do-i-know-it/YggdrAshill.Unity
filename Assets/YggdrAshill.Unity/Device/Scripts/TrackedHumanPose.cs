@@ -8,12 +8,12 @@ using VContainer.Unity;
 namespace YggdrAshill.Unity
 {
     [DisallowMultipleComponent]
-    internal sealed class TrackHumanPose : LifetimeScope
+    public sealed class TrackedHumanPose : LifetimeScope
     {
 #pragma warning disable IDE0044
 
         [SerializeField] private Transform originTransform;
-        private Transform OriginTransform
+        public Transform OriginTransform
         {
             get
             {
@@ -27,7 +27,7 @@ namespace YggdrAshill.Unity
         }
 
         [SerializeField] private Transform headTransform;
-        private Transform HeadTransform
+        public Transform HeadTransform
         {
             get
             {
@@ -41,7 +41,7 @@ namespace YggdrAshill.Unity
         }
 
         [SerializeField] private Transform leftHandTransform;
-        private Transform LeftHandTransform
+        public Transform LeftHandTransform
         {
             get
             {
@@ -55,7 +55,7 @@ namespace YggdrAshill.Unity
         }
 
         [SerializeField] private Transform rightTransform;
-        private Transform RightHandTransform
+        public Transform RightHandTransform
         {
             get
             {
