@@ -97,8 +97,6 @@ namespace YggdrAshill.Samples
             }
         }
 
-        private TrackedHumanPose trackedHumanPose;
-
         private void Awake()
         {
             if (!View.IsMine)
@@ -106,23 +104,13 @@ namespace YggdrAshill.Samples
                 return;
             }
 
-            trackedHumanPose = Instantiate(TrackedHumanPosePrefab, OriginTransform);
+            var trackedHumanPose = Instantiate(TrackedHumanPosePrefab, OriginTransform);
 
             HeadTransform.parent = trackedHumanPose.HeadTransform;
 
             LeftHandTransform.parent = trackedHumanPose.LeftHandTransform;
 
             RightHandTransform.parent = trackedHumanPose.RightHandTransform;
-        }
-
-        private void OnDestroy()
-        {
-            if (trackedHumanPose == null)
-            {
-                Destroy(trackedHumanPose);
-
-                trackedHumanPose = null;
-            }
         }
     }
 }
