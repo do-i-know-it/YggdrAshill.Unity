@@ -86,13 +86,26 @@ namespace YggdrAshill.Samples
 
         private float theta;
 
+        private Vector3 origin;
+
+        private void Start()
+        {
+            var x = Random.Range(-2.0f, 2.0f);
+
+            var y = OriginTransform.position.y;
+
+            var z = Random.Range(0.0f, 2.0f);
+
+            origin = new Vector3(x, y, z);
+        }
+
         private void Update()
         {
             angle += anglePerSecond * Time.deltaTime;
 
             theta = angle * Mathf.Deg2Rad;
 
-            OriginTransform.position = new Vector3(Mathf.Cos(theta) * radius, OriginTransform.position.y, Mathf.Sin(theta) * radius);
+            OriginTransform.position = origin + new Vector3(Mathf.Cos(theta), 0.0f, Mathf.Sin(theta)) * radius;
 
             OriginTransform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
         }
