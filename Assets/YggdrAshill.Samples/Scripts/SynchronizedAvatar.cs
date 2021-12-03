@@ -97,7 +97,7 @@ namespace YggdrAshill.Samples
             }
         }
 
-        private void Awake()
+        private void OnEnable()
         {
             if (!View.IsMine)
             {

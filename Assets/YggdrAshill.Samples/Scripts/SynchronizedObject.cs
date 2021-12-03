@@ -1,0 +1,94 @@
+﻿using System;
+using UnityEngine;
+using Photon.Pun;
+
+namespace YggdrAshill.Samples
+{
+    internal sealed class SynchronizedObject : MonoBehaviour
+    {
+        [SerializeField] private PhotonView view;
+        private PhotonView View
+        {
+            get
+            {
+                if (view != null)
+                {
+                    return view;
+                }
+
+                if (TryGetComponent(out view))
+                {
+                    return view;
+                }
+
+                throw new InvalidOperationException($"{nameof(view)} is null.");
+            }
+        }
+
+        [SerializeField] private Transform targetTransform;
+        private Transform TargetTransform
+        {
+            get
+            {
+                if (targetTransform == null)
+                {
+                    targetTransform = transform;
+                }
+
+                return targetTransform;
+            }
+        }
+
+        [SerializeField] private Transform performerPrefab;
+        private Transform PerformerPrefab
+        {
+            get
+            {
+                if (performerPrefab == null)
+                {
+                    throw new InvalidOperationException($"{nameof(performerPrefab)} is null.");
+                }
+
+                return performerPrefab;
+            }
+        }
+
+        [SerializeField] private Transform viewerPrefab;
+        private Transform ViewerPrefab
+        {
+            get
+            {
+                if (viewerPrefab == null)
+                {
+                    throw new InvalidOperationException($"{nameof(viewerPrefab)} is null.");
+                }
+
+                return viewerPrefab;
+            }
+        }
+
+        private Transform cache;
+
+        private void OnEnable()
+        {
+            if (View.IsMine)
+            {
+                cache = Instantiate(PerformerPrefab, TargetTransform);
+            }
+            else
+            {
+                cache = Instantiate(ViewerPrefab, TargetTransform);
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (cache != null)
+            {
+                Destroy(cache);
+
+                cache = null;
+            }
+        }
+    }
+}
