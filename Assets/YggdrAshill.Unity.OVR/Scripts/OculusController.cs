@@ -1,21 +1,22 @@
-﻿using YggdrAshill.Unity;
-using YggdrAshill.Unity.OVR;
 using YggdrAshill.VContainer;
+using System;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace YggdrAshill.Samples
+namespace YggdrAshill.Unity.OVR
 {
     [DisallowMultipleComponent]
     internal sealed class OculusController : LifetimeScope
     {
+#pragma warning disable IDE0044
+
         [SerializeField] private Transform originTransform;
         private Transform OriginTransform
         {
             get
             {
-                if (originTransform is null)
+                if (originTransform == null)
                 {
                     originTransform = transform;
                 }
@@ -29,9 +30,9 @@ namespace YggdrAshill.Samples
         {
             get
             {
-                if (headTransform is null)
+                if (headTransform == null)
                 {
-                    headTransform = transform;
+                    throw new InvalidOperationException($"{nameof(headTransform)} is null.");
                 }
 
                 return headTransform;
@@ -43,9 +44,9 @@ namespace YggdrAshill.Samples
         {
             get
             {
-                if (leftHandTransform is null)
+                if (leftHandTransform == null)
                 {
-                    leftHandTransform = transform;
+                    throw new InvalidOperationException($"{nameof(leftHandTransform)} is null.");
                 }
 
                 return leftHandTransform;
@@ -57,14 +58,16 @@ namespace YggdrAshill.Samples
         {
             get
             {
-                if (rightTransform is null)
+                if (rightTransform == null)
                 {
-                    rightTransform = transform;
+                    throw new InvalidOperationException($"{nameof(rightTransform)} is null.");
                 }
 
                 return rightTransform;
             }
         }
+
+#pragma warning restore IDE0044
 
         protected override void Configure(IContainerBuilder builder)
         {
