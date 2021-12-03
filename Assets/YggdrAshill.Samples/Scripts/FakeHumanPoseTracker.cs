@@ -8,7 +8,7 @@ using VContainer.Unity;
 namespace YggdrAshill.Samples
 {
     [DisallowMultipleComponent]
-    internal sealed class DummyHumanPoseTracker : LifetimeScope
+    internal sealed class FakeHumanPoseTracker : LifetimeScope
     {
         [SerializeField] private Transform originTransform;
         private Transform OriginTransform
@@ -76,6 +76,25 @@ namespace YggdrAshill.Samples
                 .AsSelf();
 
             builder.RegisterEntryPoint<TransmitHumanPoseTrackerEntryPoint>();
+        }
+
+        [SerializeField] private float anglePerSecond = 45;
+
+        [SerializeField] private float radius = 1.0f;
+
+        private float angle;
+
+        private float theta;
+
+        private void Update()
+        {
+            angle += anglePerSecond * Time.deltaTime;
+
+            theta = angle * Mathf.Deg2Rad;
+
+            OriginTransform.position = new Vector3(Mathf.Cos(theta) * radius, OriginTransform.position.y, Mathf.Sin(theta) * radius);
+
+            OriginTransform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
         }
     }
 }
