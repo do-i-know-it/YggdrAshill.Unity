@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using YggdrAshill.Unity;
+using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
 
@@ -7,6 +10,8 @@ namespace YggdrAshill.Samples
     internal sealed class PhotonController : MonoBehaviourPunCallbacks
     {
         [SerializeField] private PhotonView viewPrefab;
+
+        [SerializeField] private SceneInformation scene;
 
         private void Start()
         {
@@ -28,9 +33,25 @@ namespace YggdrAshill.Samples
             PhotonNetwork.CreateRoom(null, new RoomOptions());
         }
 
+        private Coroutine coroutine;
+
         public override void OnJoinedRoom()
         {
+            coroutine = StartCoroutine(LoadScene());
+
             PhotonNetwork.Instantiate(viewPrefab.name, Vector3.zero, Quaternion.identity);
+        }
+        private IEnumerator LoadScene()
+        {
+            PhotonNetwork.IsMessageQueueRunning = false;
+
+            yield return SceneManager.LoadSceneAsync(scene.Path, LoadSceneMode.Additive);
+
+            SceneManager.SetActiveScene(SceneManager.GetSceneByPath(scene.Path));
+
+            PhotonNetwork.IsMessageQueueRunning = true;
+
+            coroutine = null;
         }
     }
 }

@@ -44,3 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewPrefab: {fileID: 6135859457688750976, guid: 19f6a2b6ccba08745ad6e06a998a86ad, type: 3}
+  scene:
+    scene: {fileID: 102900000, guid: 62d04d6c1c227804c990ea40a0abbeda, type: 3}
+    path: Assets/YggdrAshill.Samples/Scenes/SynchronizedField.unity
