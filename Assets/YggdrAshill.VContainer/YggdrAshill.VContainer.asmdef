@@ -1,0 +1,17 @@
+{
+    "name": "YggdrAshill.VContainer",
+    "rootNamespace": "YggdrAshill.VContainer",
+    "references": [
+        "GUID:bf2f724e33c84f545949a132fa7ddcc0",
+        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

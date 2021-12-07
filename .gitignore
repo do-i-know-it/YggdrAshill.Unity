@@ -59,3 +59,13 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+[Aa]ssets/Oculus/*
+[Aa]ssets/Oculus.meta
+[Aa]ssets/XR/*
+[Aa]ssets/XR.meta
+
+[Aa]ssets/Resources/OVR*
+[Aa]ssets/Resources/Oculus*
+
+[Aa]ssets/Photon/*
+[Aa]ssets/Photon.meta

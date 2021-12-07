@@ -71,11 +71,11 @@ namespace YggdrAshill.Nuadha.Unity
             => EmissionSource.Default
             .Synthesize(ConductSignalTo.Consume(configuration.Origin.Position, software.Origin.Position))
             .Synthesize(ConductSignalTo.Consume(configuration.Origin.Rotation, software.Origin.Rotation))
+            .Synthesize(ConductSignalTo.Consume(configuration.Head.Position, software.Head.Position))
             .Synthesize(ConductSignalTo.Consume(configuration.Head.Rotation, software.Head.Rotation))
-            .Synthesize(ConductSignalTo.Consume(configuration.Head.Rotation, software.Head.Rotation))
+            .Synthesize(ConductSignalTo.Consume(configuration.LeftHand.Position, software.LeftHand.Position))
             .Synthesize(ConductSignalTo.Consume(configuration.LeftHand.Rotation, software.LeftHand.Rotation))
-            .Synthesize(ConductSignalTo.Consume(configuration.LeftHand.Rotation, software.LeftHand.Rotation))
-            .Synthesize(ConductSignalTo.Consume(configuration.RightHand.Rotation, software.RightHand.Rotation))
+            .Synthesize(ConductSignalTo.Consume(configuration.RightHand.Position, software.RightHand.Position))
             .Synthesize(ConductSignalTo.Consume(configuration.RightHand.Rotation, software.RightHand.Rotation))
             .Build();
 
