@@ -39,6 +39,20 @@ namespace YggdrAshill.Samples
             }
         }
 
+        [SerializeField] private Grabbable grabbable;
+        private Grabbable Grabbable
+        {
+            get
+            {
+                if (grabbable == null)
+                {
+                    throw new InvalidOperationException($"{nameof(grabbable)} is null.");
+                }
+
+                return grabbable;
+            }
+        }
+
         [SerializeField] private Transform performerPrefab;
         private Transform PerformerPrefab
         {
@@ -73,11 +87,13 @@ namespace YggdrAshill.Samples
         {
             if (View.IsMine)
             {
-                cache = Instantiate(PerformerPrefab, TargetTransform);
+                cache = Instantiate(PerformerPrefab, Grabbable.transform);
             }
             else
             {
                 cache = Instantiate(ViewerPrefab, TargetTransform);
+
+                Destroy(Grabbable);
             }
 
             cache.transform.position += Vector3.up * cache.transform.lossyScale.y * 0.5f;

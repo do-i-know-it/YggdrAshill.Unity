@@ -98,8 +98,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This object is generated in only the first entered player view. The other
-    players see a sphere instead.
+  m_text: This object is for only the first entered player. The other players see
+    a sphere instead. You can grab this in HMD.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
