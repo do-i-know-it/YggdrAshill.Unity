@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: YggdrAshill.Unity
+  companyName: YggdrAshill
+  productName: DeusExMachina
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -127,10 +127,11 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.0
+  bundleVersion: 0.8.0
   preloadedAssets:
+  - {fileID: 0}
   - {fileID: 11400000, guid: 06613319c58a4c8499ab9cd05d429cd6, type: 2}
-  - {fileID: 8724445533601145493, guid: 5541936c10113d842ba1a84e4efd73fb, type: 2}
+  - {fileID: 2723531155641575616, guid: d876251143f1d554cbe60c66bda7b4d8, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -148,7 +149,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.DefaultCompany.YggdrAshill.Unity
+    Android: com.YggdrAshill.DeusExMachina
   buildNumber:
     Standalone: 0
     iPhone: 0
