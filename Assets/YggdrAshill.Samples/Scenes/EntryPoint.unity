@@ -131,6 +131,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2071051937233558427, guid: e9391ba6f4c7377449a6f0093238b0d4, type: 3}
+      propertyPath: dontDestroyOnLoad
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2071051937233558427, guid: e9391ba6f4c7377449a6f0093238b0d4, type: 3}
       propertyPath: prefabList.Array.size
       value: 3
       objectReference: {fileID: 0}

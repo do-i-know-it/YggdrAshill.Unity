@@ -79,6 +79,8 @@ namespace YggdrAshill.Samples
             {
                 cache = Instantiate(ViewerPrefab, TargetTransform);
             }
+
+            cache.transform.position += Vector3.up * cache.transform.lossyScale.y * 0.5f;
         }
 
         private void OnDisable()

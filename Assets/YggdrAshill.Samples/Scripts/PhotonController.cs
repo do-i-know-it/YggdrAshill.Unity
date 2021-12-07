@@ -38,8 +38,6 @@ namespace YggdrAshill.Samples
         public override void OnJoinedRoom()
         {
             coroutine = StartCoroutine(LoadScene());
-
-            PhotonNetwork.Instantiate(viewPrefab.name, Vector3.zero, Quaternion.identity);
         }
         private IEnumerator LoadScene()
         {
@@ -50,6 +48,8 @@ namespace YggdrAshill.Samples
             SceneManager.SetActiveScene(SceneManager.GetSceneByPath(scene.Path));
 
             PhotonNetwork.IsMessageQueueRunning = true;
+
+            PhotonNetwork.Instantiate(viewPrefab.name, Vector3.zero, Quaternion.identity);
 
             coroutine = null;
         }
