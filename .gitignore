@@ -64,10 +64,8 @@ crashlytics-build.properties
 [Aa]ssets/XR/*
 [Aa]ssets/XR.meta
 
-[Aa]ssets/Resources/OVRPlatformToolSettings.asset
-[Aa]ssets/Resources/OVRPlatformToolSettings.asset.meta
-[Aa]ssets/Resources/OculusRuntimeSettings.asset
-[Aa]ssets/Resources/OculusRuntimeSettings.asset.meta
+[Aa]ssets/Resources/OVR*
+[Aa]ssets/Resources/Oculus*
 
 [Aa]ssets/Photon/*
 [Aa]ssets/Photon.meta

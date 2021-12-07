@@ -6,11 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/YggdrAshill.Samples/Scenes/EntryPoint.unity
-    guid: f42ff76055dd34f46ad9305a7e154c15
+    path: Assets/YggdrAshill.Samples/Scenes/OculusEntryPoint.unity
+    guid: 97ba3a55c2a2f7c40a5cac321d65d8c8
   - enabled: 1
     path: Assets/YggdrAshill.Samples/Scenes/SynchronizedField.unity
     guid: 62d04d6c1c227804c990ea40a0abbeda
+  - enabled: 1
+    path: Assets/YggdrAshill.Samples/Scenes/EntryPoint.unity
+    guid: f42ff76055dd34f46ad9305a7e154c15
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 06613319c58a4c8499ab9cd05d429cd6, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 5541936c10113d842ba1a84e4efd73fb, type: 2}
