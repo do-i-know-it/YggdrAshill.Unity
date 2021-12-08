@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/YggdrAshill.Samples/Scenes/OculusEntryPoint.unity
     guid: 97ba3a55c2a2f7c40a5cac321d65d8c8
   - enabled: 1
-    path: Assets/YggdrAshill.Samples/Scenes/SynchronizedField.unity
+    path: Assets/YggdrAshill.Samples/Fields/Scenes/SynchronizedField.unity
     guid: 62d04d6c1c227804c990ea40a0abbeda
   - enabled: 1
     path: Assets/YggdrAshill.Samples/Scenes/EntryPoint.unity
