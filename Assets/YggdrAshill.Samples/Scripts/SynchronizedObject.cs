@@ -103,7 +103,7 @@ namespace YggdrAshill.Samples
         {
             if (cache != null)
             {
-                Destroy(cache);
+                Destroy(cache.gameObject);
 
                 cache = null;
             }
