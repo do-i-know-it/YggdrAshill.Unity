@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac16e7a462b335b4998f1966aaf77ee5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  view: {fileID: 4485659719919980532}
+  photonView: {fileID: 4485659719919980532}
   targetTransform: {fileID: 4411237937433807482}
   grabbable: {fileID: 4808636951219076621}
   performerPrefab: {fileID: 1268461116913061918, guid: 5e660d1252e2bd346b19f53d7d13f909, type: 3}
