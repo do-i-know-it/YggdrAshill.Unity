@@ -1,116 +1,36 @@
-﻿using YggdrAshill.Unity;
-using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Photon.Pun;
 
 namespace YggdrAshill.Samples
 {
-    [DisallowMultipleComponent]
     internal sealed class SynchronizedAvatar : MonoBehaviour
     {
-        [SerializeField] private PhotonView view;
-        private PhotonView View
-        {
-            get
-            {
-                if (view != null)
-                {
-                    return view;
-                }
+        [SerializeField] private PhotonView photonView;
 
-                if (TryGetComponent(out view))
-                {
-                    return view;
-                }
+        [SerializeField] private Material performerMaterial;
+        
+        [SerializeField] private Material viewerMaterial;
 
-                throw new InvalidOperationException($"{nameof(view)} is null.");
-            }
-        }
+        [SerializeField] private MeshRenderer headMeshRenderer;
 
-        [SerializeField] private TrackedHumanPose trackedHumanPosePrefab;
-        private TrackedHumanPose TrackedHumanPosePrefab
-        {
-            get
-            {
-                if (trackedHumanPosePrefab == null)
-                {
-                    throw new InvalidOperationException($"{nameof(trackedHumanPosePrefab)} is null.");
-                }
+        [SerializeField] private MeshRenderer leftHandMeshRenderer;
 
-                return trackedHumanPosePrefab;
-            }
-        }
-
-        [SerializeField] private Transform originTransform;
-        private Transform OriginTransform
-        {
-            get
-            {
-                if (originTransform == null)
-                {
-                    originTransform = transform;
-                }
-
-                return originTransform;
-            }
-        }
-
-        [SerializeField] private Transform headTransform;
-        private Transform HeadTransform
-        {
-            get
-            {
-                if (headTransform == null)
-                {
-                    throw new InvalidOperationException($"{nameof(headTransform)} is null.");
-                }
-
-                return headTransform;
-            }
-        }
-
-        [SerializeField] private Transform leftHandTransform;
-        private Transform LeftHandTransform
-        {
-            get
-            {
-                if (leftHandTransform == null)
-                {
-                    throw new InvalidOperationException($"{nameof(leftHandTransform)} is null.");
-                }
-
-                return leftHandTransform;
-            }
-        }
-
-        [SerializeField] private Transform rightTransform;
-        private Transform RightHandTransform
-        {
-            get
-            {
-                if (rightTransform == null)
-                {
-                    throw new InvalidOperationException($"{nameof(rightTransform)} is null.");
-                }
-
-                return rightTransform;
-            }
-        }
+        [SerializeField] private MeshRenderer rightHandMeshRenderer;
 
         private void OnEnable()
         {
-            if (!View.IsMine)
+            if (photonView.IsMine)
             {
-                return;
+                headMeshRenderer.material = performerMaterial;
+                leftHandMeshRenderer.material = performerMaterial;
+                rightHandMeshRenderer.material = performerMaterial;
             }
-
-            var trackedHumanPose = Instantiate(TrackedHumanPosePrefab, OriginTransform);
-
-            HeadTransform.parent = trackedHumanPose.HeadTransform;
-
-            LeftHandTransform.parent = trackedHumanPose.LeftHandTransform;
-
-            RightHandTransform.parent = trackedHumanPose.RightHandTransform;
+            else
+            {
+                headMeshRenderer.material = viewerMaterial;
+                leftHandMeshRenderer.material = viewerMaterial;
+                rightHandMeshRenderer.material = viewerMaterial;
+            }
         }
     }
 }

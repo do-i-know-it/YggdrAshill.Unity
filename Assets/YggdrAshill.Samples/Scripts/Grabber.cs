@@ -10,6 +10,8 @@ namespace YggdrAshill.Samples
     {
         [SerializeField] private LayerMask layerMask = ~0;
 
+        [SerializeField] private LineRenderer lineRenderer;
+
         private bool isGrabbing;
 
         private IDisposable disposable;
@@ -34,6 +36,17 @@ namespace YggdrAshill.Samples
 
         private void LateUpdate()
         {
+            if (!Physics.Raycast(transform.position, transform.forward, out var info, float.MaxValue, layerMask))
+            {
+                lineRenderer.SetPosition(0, transform.position);
+                lineRenderer.SetPosition(1, transform.position + transform.forward);
+
+                return;
+            }
+
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, info.point);
+
             if (!isGrabbing)
             {
                 if (grabbable != null)
@@ -51,16 +64,12 @@ namespace YggdrAshill.Samples
                 return;
             }
 
-            if (!Physics.Raycast(transform.position, transform.forward, out var info, float.MaxValue, layerMask))
-            {
-                return;
-            }
-
             for (var candidate = info.transform; candidate.parent != null; candidate = candidate.parent)
             {
                 if (candidate.TryGetComponent(out grabbable))
                 {
                     grabbable.Grab(transform);
+
                     return;
                 }
             }

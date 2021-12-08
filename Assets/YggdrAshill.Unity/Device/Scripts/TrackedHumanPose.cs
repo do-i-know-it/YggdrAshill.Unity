@@ -8,12 +8,12 @@ using VContainer.Unity;
 namespace YggdrAshill.Unity
 {
     [DisallowMultipleComponent]
-    public sealed class TrackedHumanPose : LifetimeScope
+    internal sealed class TrackedHumanPose : LifetimeScope
     {
 #pragma warning disable IDE0044
 
         [SerializeField] private Transform originTransform;
-        public Transform OriginTransform
+        private Transform OriginTransform
         {
             get
             {
@@ -27,13 +27,18 @@ namespace YggdrAshill.Unity
         }
 
         [SerializeField] private Transform headTransform;
-        public Transform HeadTransform
+        private Transform HeadTransform
         {
             get
             {
                 if (headTransform == null)
                 {
-                    throw new InvalidOperationException($"{nameof(headTransform)} is null.");
+                    throw new InvalidOperationException($"{nameof(HeadTransform)} is null.");
+                }
+
+                if (headTransform == OriginTransform)
+                {
+                    throw new InvalidOperationException($"{nameof(HeadTransform)} is same as {nameof(OriginTransform)}.");
                 }
 
                 return headTransform;
@@ -41,13 +46,18 @@ namespace YggdrAshill.Unity
         }
 
         [SerializeField] private Transform leftHandTransform;
-        public Transform LeftHandTransform
+        private Transform LeftHandTransform
         {
             get
             {
                 if (leftHandTransform == null)
                 {
-                    throw new InvalidOperationException($"{nameof(leftHandTransform)} is null.");
+                    throw new InvalidOperationException($"{nameof(LeftHandTransform)} is null.");
+                }
+
+                if (leftHandTransform == OriginTransform)
+                {
+                    throw new InvalidOperationException($"{nameof(LeftHandTransform)} is same as {nameof(OriginTransform)}.");
                 }
 
                 return leftHandTransform;
@@ -55,13 +65,18 @@ namespace YggdrAshill.Unity
         }
 
         [SerializeField] private Transform rightTransform;
-        public Transform RightHandTransform
+        private Transform RightHandTransform
         {
             get
             {
                 if (rightTransform == null)
                 {
-                    throw new InvalidOperationException($"{nameof(rightTransform)} is null.");
+                    throw new InvalidOperationException($"{nameof(RightHandTransform)} is null.");
+                }
+
+                if (rightTransform == OriginTransform)
+                {
+                    throw new InvalidOperationException($"{nameof(RightHandTransform)} is same as {nameof(OriginTransform)}.");
                 }
 
                 return rightTransform;
