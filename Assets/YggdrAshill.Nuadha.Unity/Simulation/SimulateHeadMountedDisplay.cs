@@ -1,4 +1,4 @@
-﻿using YggdrAshill.Nuadha.Units;
+using YggdrAshill.Nuadha.Units;
 using System;
 using UnityEngine;
 
@@ -7,7 +7,7 @@ namespace YggdrAshill.Nuadha.Unity
     public sealed class SimulateHeadMountedDisplay :
         IHeadMountedDisplayConfiguration
     {
-        public static IHeadMountedDisplayConfiguration WASDIJKL(
+        public static IHeadMountedDisplayConfiguration WASDQE(
             Transform origin, Transform head, Transform leftHand, Transform rightHand,
             KeyCode leftIndexFinger, KeyCode leftHandGrip, KeyCode rightIndexFinger, KeyCode rightHandGrip)
         {
@@ -36,11 +36,11 @@ namespace YggdrAshill.Nuadha.Unity
 
                 LeftHand = SimulateHandController.WASD(origin, leftHand, leftIndexFinger, leftHandGrip),
 
-                RightHand = SimulateHandController.IJKL(origin, rightHand, rightIndexFinger, rightHandGrip),
+                RightHand = SimulateHandController.QE(origin, rightHand, rightIndexFinger, rightHandGrip),
             };
         }
 
-        public static IHeadMountedDisplayConfiguration WASDFCIJKLHM(Transform origin, Transform head, Transform leftHand, Transform rightHand)
+        public static IHeadMountedDisplayConfiguration WASDFGQEFG(Transform origin, Transform head, Transform leftHand, Transform rightHand)
         {
             if (origin == null)
             {
@@ -65,9 +65,9 @@ namespace YggdrAshill.Nuadha.Unity
 
                 Head = SimulateHeadTracker.ToConfigure(origin, head),
 
-                LeftHand = SimulateHandController.WASDFC(origin, leftHand),
+                LeftHand = SimulateHandController.WASDFG(origin, leftHand),
 
-                RightHand = SimulateHandController.IJKLHM(origin, rightHand),
+                RightHand = SimulateHandController.QEFG(origin, rightHand),
             };
         }
 

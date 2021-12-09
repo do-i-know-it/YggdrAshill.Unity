@@ -1,4 +1,4 @@
-﻿using YggdrAshill.Nuadha.Signalization;
+using YggdrAshill.Nuadha.Signalization;
 using YggdrAshill.Nuadha.Conduction;
 using YggdrAshill.Nuadha.Signals;
 using System;
@@ -90,6 +90,54 @@ namespace YggdrAshill.Nuadha.Unity
                 vertical += Input.GetKey(backward) ? -1f : 0f;
 
                 return new Vector2(horizontal, vertical);
+            });
+        }
+
+        /// <summary>
+        /// Generates <see cref="Tilt"/> using <see cref="Input.GetKey(KeyCode)"/>.
+        /// </summary>
+        /// <param name="left">
+        /// <see cref="KeyCode"/> to generate <see cref="Tilt"/>.
+        /// </param>
+        /// <param name="right">
+        /// <see cref="KeyCode"/> to generate <see cref="Tilt"/>.
+        /// </param>
+        /// <returns>
+        /// <see cref="IGeneration{TSignal}"/> to generate <see cref="Tilt"/>.
+        /// </returns>
+        public static IGeneration<Tilt> Horizontal(KeyCode left, KeyCode right)
+        {
+            return ToGenerate(() =>
+            {
+                var horizontal = 0.0f;
+                horizontal += Input.GetKey(right) ? 1f : 0f;
+                horizontal += Input.GetKey(left) ? -1f : 0f;
+
+                return new Vector2(horizontal, 0.0f);
+            });
+        }
+
+        /// <summary>
+        /// Generates <see cref="Tilt"/> using <see cref="Input.GetKey(KeyCode)"/>.
+        /// </summary>
+        /// <param name="forward">
+        /// <see cref="KeyCode"/> to generate <see cref="Tilt"/>.
+        /// </param>
+        /// <param name="backward">
+        /// <see cref="KeyCode"/> to generate <see cref="Tilt"/>.
+        /// </param>
+        /// <returns>
+        /// <see cref="IGeneration{TSignal}"/> to generate <see cref="Tilt"/>.
+        /// </returns>
+        public static IGeneration<Tilt> Vertical(KeyCode forward, KeyCode backward)
+        {
+            return ToGenerate(() =>
+            {
+                var vertical = 0.0f;
+                vertical += Input.GetKey(forward) ? 1f : 0f;
+                vertical += Input.GetKey(backward) ? -1f : 0f;
+
+                return new Vector2(0.0f, vertical);
             });
         }
 

@@ -39,7 +39,7 @@ namespace YggdrAshill.Nuadha.Unity
             };
         }
 
-        public static IHandControllerConfiguration WASDFC(Transform transform)
+        public static IHandControllerConfiguration WASDFG(Transform transform)
         {
             if (transform == null)
             {
@@ -51,11 +51,11 @@ namespace YggdrAshill.Nuadha.Unity
                 Pose = SimulatePoseTracker.ToConfigure(transform),
                 Thumb = SimulateStick.WASD,
                 IndexFinger = SimulateTrigger.ToConfigure(KeyCode.F),
-                HandGrip = SimulateTrigger.ToConfigure(KeyCode.C),
+                HandGrip = SimulateTrigger.ToConfigure(KeyCode.G),
             };
         }
 
-        public static IHandControllerConfiguration IJKL(Transform transform, KeyCode indexFinger, KeyCode handGrip)
+        public static IHandControllerConfiguration QE(Transform transform, KeyCode indexFinger, KeyCode handGrip)
         {
             if (transform == null)
             {
@@ -65,13 +65,13 @@ namespace YggdrAshill.Nuadha.Unity
             return new SimulateHandController()
             {
                 Pose = SimulatePoseTracker.ToConfigure(transform),
-                Thumb = SimulateStick.IJKL,
+                Thumb = SimulateStick.QE,
                 IndexFinger = SimulateTrigger.ToConfigure(indexFinger),
                 HandGrip = SimulateTrigger.ToConfigure(handGrip),
             };
         }
 
-        public static IHandControllerConfiguration IJKLHM(Transform transform)
+        public static IHandControllerConfiguration QEFG(Transform transform)
         {
             if (transform == null)
             {
@@ -81,9 +81,9 @@ namespace YggdrAshill.Nuadha.Unity
             return new SimulateHandController()
             {
                 Pose = SimulatePoseTracker.ToConfigure(transform),
-                Thumb = SimulateStick.IJKL,
-                IndexFinger = SimulateTrigger.ToConfigure(KeyCode.H),
-                HandGrip = SimulateTrigger.ToConfigure(KeyCode.M),
+                Thumb = SimulateStick.QE,
+                IndexFinger = SimulateTrigger.ToConfigure(KeyCode.F),
+                HandGrip = SimulateTrigger.ToConfigure(KeyCode.G),
             };
         }
 
@@ -143,7 +143,7 @@ namespace YggdrAshill.Nuadha.Unity
             };
         }
 
-        public static IHandControllerConfiguration WASDFC(Transform origin, Transform transform)
+        public static IHandControllerConfiguration WASDFG(Transform origin, Transform transform)
         {
             if (origin == null)
             {
@@ -159,11 +159,11 @@ namespace YggdrAshill.Nuadha.Unity
                 Pose = SimulatePoseTracker.ToConfigure(origin, transform),
                 Thumb = SimulateStick.WASD,
                 IndexFinger = SimulateTrigger.ToConfigure(KeyCode.F),
-                HandGrip = SimulateTrigger.ToConfigure(KeyCode.C),
+                HandGrip = SimulateTrigger.ToConfigure(KeyCode.G),
             };
         }
 
-        public static IHandControllerConfiguration IJKL(Transform origin, Transform transform, KeyCode indexFinger, KeyCode handGrip)
+        public static IHandControllerConfiguration QE(Transform origin, Transform transform, KeyCode indexFinger, KeyCode handGrip)
         {
             if (origin == null)
             {
@@ -177,13 +177,13 @@ namespace YggdrAshill.Nuadha.Unity
             return new SimulateHandController()
             {
                 Pose = SimulatePoseTracker.ToConfigure(origin, transform),
-                Thumb = SimulateStick.IJKL,
+                Thumb = SimulateStick.QE,
                 IndexFinger = SimulateTrigger.ToConfigure(indexFinger),
                 HandGrip = SimulateTrigger.ToConfigure(handGrip),
             };
         }
 
-        public static IHandControllerConfiguration IJKLHM(Transform origin, Transform transform)
+        public static IHandControllerConfiguration QEFG(Transform origin, Transform transform)
         {
             if (origin == null)
             {
@@ -197,9 +197,9 @@ namespace YggdrAshill.Nuadha.Unity
             return new SimulateHandController()
             {
                 Pose = SimulatePoseTracker.ToConfigure(origin, transform),
-                Thumb = SimulateStick.IJKL,
-                IndexFinger = SimulateTrigger.ToConfigure(KeyCode.H),
-                HandGrip = SimulateTrigger.ToConfigure(KeyCode.M),
+                Thumb = SimulateStick.QE,
+                IndexFinger = SimulateTrigger.ToConfigure(KeyCode.F),
+                HandGrip = SimulateTrigger.ToConfigure(KeyCode.G),
             };
         }
 

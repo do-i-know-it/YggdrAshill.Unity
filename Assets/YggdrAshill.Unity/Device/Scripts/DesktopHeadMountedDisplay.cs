@@ -1,12 +1,13 @@
+using YggdrAshill.Nuadha;
 using YggdrAshill.Nuadha.Conduction;
 using YggdrAshill.Nuadha.Signals;
 using YggdrAshill.Nuadha.Units;
 using YggdrAshill.Nuadha.Unity;
 using YggdrAshill.VContainer;
-using System;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
+using Touch = YggdrAshill.Nuadha.Signals.Touch;
 
 namespace YggdrAshill.Unity
 {
@@ -34,78 +35,28 @@ namespace YggdrAshill.Unity
         [SerializeField] private Handedness handedness;
         internal Handedness Handedness
         {
-            get => handedness;
-            set => handedness = value;
-        }
-
-        [SerializeField] private Transform originTransform;
-        private Transform OriginTransform
-        {
             get
             {
-                if (originTransform == null)
-                {
-                    originTransform = transform;
-                }
-
-                return originTransform;
+                return handedness;
             }
-        }
-
-        [SerializeField] private Transform headTransform;
-        private Transform HeadTransform
-        {
-            get
+            set
             {
-                if (headTransform == null)
+                handedness = value;
+                switch (handedness)
                 {
-                    throw new InvalidOperationException($"{nameof(HeadTransform)} is null.");
+                    case Handedness.Left:
+                        leftThumb = SimulateStick.WASD;
+                        rightThumb = SimulateStick.QE;
+                        break;
+                    case Handedness.Right:
+                        leftThumb = SimulateStick.QE;
+                        rightThumb = SimulateStick.WASD;
+                        break;
+                    case Handedness.None:
+                        leftThumb = Imitate.Stick;
+                        rightThumb = Imitate.Stick;
+                        break;
                 }
-
-                if (headTransform == OriginTransform)
-                {
-                    throw new InvalidOperationException($"{nameof(HeadTransform)} is same as {nameof(OriginTransform)}.");
-                }
-
-                return headTransform;
-            }
-        }
-
-        [SerializeField] private Transform leftHandTransform;
-        private Transform LeftHandTransform
-        {
-            get
-            {
-                if (leftHandTransform == null)
-                {
-                    throw new InvalidOperationException($"{nameof(LeftHandTransform)} is null.");
-                }
-
-                if (leftHandTransform == OriginTransform)
-                {
-                    throw new InvalidOperationException($"{nameof(LeftHandTransform)} is same as {nameof(OriginTransform)}.");
-                }
-
-                return leftHandTransform;
-            }
-        }
-
-        [SerializeField] private Transform rightTransform;
-        private Transform RightHandTransform
-        {
-            get
-            {
-                if (rightTransform == null)
-                {
-                    throw new InvalidOperationException($"{nameof(RightHandTransform)} is null.");
-                }
-
-                if (rightTransform == OriginTransform)
-                {
-                    throw new InvalidOperationException($"{nameof(RightHandTransform)} is same as {nameof(OriginTransform)}.");
-                }
-
-                return rightTransform;
             }
         }
 
@@ -120,15 +71,15 @@ namespace YggdrAshill.Unity
                 {
                     configuration = new HeadMountedDisplayConfiguration()
                     {
-                        Origin = SimulatePoseTracker.ToConfigure(OriginTransform),
-                        Head = SimulateHeadTracker.ToConfigure(OriginTransform, HeadTransform),
+                        Origin = SimulatePoseTracker.ToConfigure(CameraRig.OriginTransform),
+                        Head = SimulateHeadTracker.ToConfigure(CameraRig.OriginTransform, CameraRig.HeadTransform),
                         LeftHand = new HandControllerConfiguration()
                         {
-                            Pose = SimulatePoseTracker.ToConfigure(OriginTransform, LeftHandTransform),
+                            Pose = SimulatePoseTracker.ToConfigure(CameraRig.OriginTransform, CameraRig.LeftHandTransform),
                             Thumb = new StickConfiguration()
                             {
-                                Touch = SimulateTouch.ToGenerate(LeftHandThumbTouch),
-                                Tilt = SimulateTilt.ToGenerate(LeftHandThumbTilt),
+                                Touch = Generate.Signal(LeftHandThumbTouch),
+                                Tilt = Generate.Signal(LeftHandThumbTilt),
                             },
                             IndexFinger = new TriggerConfiguration()
                             {
@@ -143,11 +94,11 @@ namespace YggdrAshill.Unity
                         },
                         RightHand = new HandControllerConfiguration()
                         {
-                            Pose = SimulatePoseTracker.ToConfigure(OriginTransform, RightHandTransform),
+                            Pose = SimulatePoseTracker.ToConfigure(CameraRig.OriginTransform, CameraRig.RightHandTransform),
                             Thumb = new StickConfiguration()
                             {
-                                Touch = SimulateTouch.ToGenerate(RightHandThumbTouch),
-                                Tilt = SimulateTilt.ToGenerate(RightHandThumbTilt),
+                                Touch = Generate.Signal(RightHandThumbTouch),
+                                Tilt = Generate.Signal(RightHandThumbTilt),
                             },
                             IndexFinger = new TriggerConfiguration()
                             {
@@ -177,6 +128,8 @@ namespace YggdrAshill.Unity
                 .AsSelf();
 
             builder.RegisterEntryPoint<TransmitHeadMountedDisplayEntryPoint>();
+
+            Handedness = Handedness;
         }
 
         private bool isUpdated = false;
@@ -194,7 +147,7 @@ namespace YggdrAshill.Unity
             }
 
             var ray = TargetCamera.ScreenPointToRay(Input.mousePosition);
-            var targetPosition = Physics.Raycast(ray, out var info, float.MaxValue, layerMask) ? info.point : OriginTransform.position;
+            var targetPosition = Physics.Raycast(ray, out var info, float.MaxValue, layerMask) ? info.point : CameraRig.OriginTransform.position;
 
             var mouseLeftButton = Input.GetMouseButton(0);
             var mouseRightButton = Input.GetMouseButton(1);
@@ -202,31 +155,31 @@ namespace YggdrAshill.Unity
             switch (Handedness)
             {
                 case Handedness.Left:
-                    LeftHandTransform.LookAt(targetPosition);
+                    CameraRig.LeftHandTransform.LookAt(targetPosition);
                     leftHandIndexFinger = mouseRightButton;
                     leftHandHandGrip = mouseLeftButton;
 
-                    RightHandTransform.rotation = Quaternion.identity;
+                    CameraRig.RightHandTransform.rotation = Quaternion.identity;
                     rightHandIndexFinger = false;
                     rightHandHandGrip = false;
 
                     break;
                 case Handedness.Right:
-                    LeftHandTransform.rotation = Quaternion.identity;
+                    CameraRig.LeftHandTransform.rotation = Quaternion.identity;
                     leftHandIndexFinger = false;
                     leftHandHandGrip = false;
 
-                    RightHandTransform.LookAt(targetPosition);
+                    CameraRig.RightHandTransform.LookAt(targetPosition);
                     rightHandIndexFinger = mouseRightButton;
                     rightHandHandGrip = mouseLeftButton;
 
                     break;
                 case Handedness.None:
-                    LeftHandTransform.rotation = Quaternion.identity;
+                    CameraRig.LeftHandTransform.rotation = Quaternion.identity;
                     leftHandIndexFinger = false;
                     leftHandHandGrip = false;
 
-                    RightHandTransform.rotation = Quaternion.identity;
+                    CameraRig.RightHandTransform.rotation = Quaternion.identity;
                     rightHandIndexFinger = false;
                     rightHandHandGrip = false;
 
@@ -241,20 +194,15 @@ namespace YggdrAshill.Unity
             isUpdated = true;
         }
 
-        private bool leftHandThumbTouch;
-        private bool LeftHandThumbTouch()
+        private IStickConfiguration leftThumb;
+        private Touch LeftHandThumbTouch()
         {
-            UpdateIfNeeded();
-
-            return leftHandThumbTouch;
+            return leftThumb.Touch.Generate();
         }
 
-        private Vector2 leftHandThumbTilt;
-        private Vector2 LeftHandThumbTilt()
+        private Tilt LeftHandThumbTilt()
         {
-            UpdateIfNeeded();
-
-            return leftHandThumbTilt;
+            return leftThumb.Tilt.Generate();
         }
 
         private bool leftHandIndexFinger;
@@ -287,20 +235,15 @@ namespace YggdrAshill.Unity
             return leftHandHandGrip;
         }
 
-        private bool rightHandThumbTouch;
-        private bool RightHandThumbTouch()
+        private IStickConfiguration rightThumb;
+        private Touch RightHandThumbTouch()
         {
-            UpdateIfNeeded();
-
-            return rightHandThumbTouch;
+            return rightThumb.Touch.Generate();
         }
 
-        private Vector2 rightHandThumbTilt;
-        private Vector2 RightHandThumbTilt()
+        private Tilt RightHandThumbTilt()
         {
-            UpdateIfNeeded();
-
-            return rightHandThumbTilt;
+            return rightThumb.Tilt.Generate();
         }
 
         private bool rightHandIndexFinger;
@@ -336,7 +279,7 @@ namespace YggdrAshill.Unity
         private sealed class StickConfiguration :
             IStickConfiguration
         {
-            public IGeneration<Nuadha.Signals.Touch> Touch { get; set; }
+            public IGeneration<Touch> Touch { get; set; }
 
             public IGeneration<Tilt> Tilt { get; set; }
         }
@@ -344,7 +287,7 @@ namespace YggdrAshill.Unity
         private sealed class TriggerConfiguration :
             ITriggerConfiguration
         {
-            public IGeneration<Nuadha.Signals.Touch> Touch { get; set; }
+            public IGeneration<Touch> Touch { get; set; }
 
             public IGeneration<Pull> Pull { get; set; }
         }
