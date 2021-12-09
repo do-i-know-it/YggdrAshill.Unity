@@ -91,7 +91,7 @@ namespace YggdrAshill.Unity
                 .RegisterInstance(DeviceManagement.HumanPoseTracker.Hardware)
                 .AsSelf();
             builder
-                .RegisterInstance(ToTrack.HumanPose(OriginTransform, HeadTransform, LeftHandTransform, RightHandTransform))
+                .RegisterInstance(SimulateHumanPoseTracker.ToTrack(OriginTransform, HeadTransform, LeftHandTransform, RightHandTransform))
                 .AsSelf();
 
             builder.RegisterEntryPoint<TrackHumanPoseEntryPoint>();

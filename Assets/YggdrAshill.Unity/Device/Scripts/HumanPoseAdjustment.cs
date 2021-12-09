@@ -18,12 +18,11 @@ namespace YggdrAshill.Unity
             {
                 if (configuration == null)
                 {
-                    configuration = SimulatedHumanPoseTracker.FixedPose(origin.Pose, head.Pose, leftHand.Pose, rightHand.Pose);
+                    configuration = SimulateHumanPoseTracker.ToConfigure(origin.Pose, head.Pose, leftHand.Pose, rightHand.Pose);
                 }
 
                 return configuration;
             }
         }
-
     }
 }

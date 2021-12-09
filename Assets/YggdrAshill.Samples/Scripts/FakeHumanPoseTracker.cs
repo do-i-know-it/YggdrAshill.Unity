@@ -69,7 +69,7 @@ namespace YggdrAshill.Samples
         protected override void Configure(IContainerBuilder builder)
         {
             builder
-                .RegisterInstance(SimulatedHumanPoseTracker.Transform(OriginTransform, HeadTransform, LeftHandTransform, RightHandTransform))
+                .RegisterInstance(SimulateHumanPoseTracker.ToConfigure(OriginTransform, HeadTransform, LeftHandTransform, RightHandTransform))
                 .AsSelf();
             builder
                 .RegisterInstance(DeviceManagement.HumanPoseTracker.Software)

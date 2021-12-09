@@ -32,7 +32,7 @@ namespace YggdrAshill.Samples
                 .RegisterInstance(DeviceManagement.HumanPoseTracker.Hardware)
                 .AsSelf();
             builder
-                .RegisterInstance(ToTrack.HumanPose(originPhotonView.transform, headPhotonView.transform, leftHandPhotonView.transform, rightHandPhotonView.transform))
+                .RegisterInstance(SimulateHumanPoseTracker.ToTrack(originPhotonView.transform, headPhotonView.transform, leftHandPhotonView.transform, rightHandPhotonView.transform))
                 .AsSelf();
 
             builder.RegisterEntryPoint<TrackHumanPoseEntryPoint>();
