@@ -1,41 +1,24 @@
 ﻿using YggdrAshill.Unity;
-using YggdrAshill.Nuadha.Unity;
-using YggdrAshill.VContainer;
 using UnityEngine;
-using VContainer;
-using VContainer.Unity;
 using Photon.Pun;
 
 namespace YggdrAshill.Samples
 {
     [DisallowMultipleComponent]
-    internal sealed class SynchronizedTrackedHumanPose : LifetimeScope
+    internal sealed class SynchronizedTrackedHumanPose : MonoBehaviour
     {
         [SerializeField] private PhotonView originPhotonView;
 
-        [SerializeField] private PhotonView headPhotonView;
-        
-        [SerializeField] private PhotonView leftHandPhotonView;
+        [SerializeField] private TrackHeadMountedDisplay headMountedDisplay;
 
-        [SerializeField] private PhotonView rightHandPhotonView;
-
-        protected override void Configure(IContainerBuilder builder)
+        private void Awake()
         {
-            if (!originPhotonView.IsMine)
+            if (originPhotonView.IsMine)
             {
-                Destroy(this);
-
                 return;
             }
 
-            //builder
-            //    .RegisterInstance(DeviceManagement.HumanPoseTracker.Hardware)
-            //    .AsSelf();
-            //builder
-            //    .RegisterInstance(SimulateHumanPoseTracker.ToTrack(originPhotonView.transform, headPhotonView.transform, leftHandPhotonView.transform, rightHandPhotonView.transform))
-            //    .AsSelf();
-
-            //builder.RegisterEntryPoint<TrackHumanPoseEntryPoint>();
+            Destroy(headMountedDisplay);
         }
     }
 }

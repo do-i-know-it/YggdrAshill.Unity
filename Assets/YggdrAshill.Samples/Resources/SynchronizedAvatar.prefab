@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3068236493266102441}
   - component: {fileID: 4724379368087037031}
   - component: {fileID: 5040137266691839428}
+  - component: {fileID: 1476120676803326409}
   m_Layer: 0
   m_Name: SynchronizedAvatar
   m_TagString: Untagged
@@ -88,14 +89,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf04752604b8c2a48bab456c6bc54802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentReference:
-    TypeName: 
-  autoRun: 1
-  autoInjectGameObjects: []
   originPhotonView: {fileID: 6135859457688750976}
-  headPhotonView: {fileID: 5107599477846119587}
-  leftHandPhotonView: {fileID: 6461953196965003877}
-  rightHandPhotonView: {fileID: 6591893899120212720}
+  headMountedDisplay: {fileID: 1476120676803326409}
 --- !u!114 &5040137266691839428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +109,26 @@ MonoBehaviour:
   headMeshRenderer: {fileID: 8956574840572922839}
   leftHandMeshRenderer: {fileID: 8621200881371712434}
   rightHandMeshRenderer: {fileID: 8704539668682599515}
+--- !u!114 &1476120676803326409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3239096448384433310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44e98d16f20adc64c94cf6873bc19d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: 
+  autoRun: 1
+  autoInjectGameObjects: []
+  originTransform: {fileID: 2446646297529165124}
+  headTransform: {fileID: 7673790489135578175}
+  leftHandTransform: {fileID: 7641100771164249097}
+  rightTransform: {fileID: 5113365145314356030}
 --- !u!1 &4203179046032610319
 GameObject:
   m_ObjectHideFlags: 0
