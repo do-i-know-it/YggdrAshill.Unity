@@ -244,7 +244,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  handedness: 2
+  handedness: 1
 --- !u!1 &8895311607045825172
 GameObject:
   m_ObjectHideFlags: 0
