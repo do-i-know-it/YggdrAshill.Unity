@@ -247,59 +247,5 @@ namespace YggdrAshill.Nuadha.Unity
 
             public IPulsatedHandControllerHardware RightHand { get; }
         }
-
-        /// <summary>
-        /// Converts <see cref="IHeadMountedDisplayHardware"/> into <see cref="IHumanPoseTrackerHardware"/>.
-        /// </summary>
-        /// <param name="hardware">
-        /// <see cref="IHeadMountedDisplayHardware"/> to convert.
-        /// </param>
-        /// <param name="correction">
-        /// <see cref="IHumanPoseTrackerCorrection"/> to convert.
-        /// </param>
-        /// <returns>
-        /// <see cref="IHumanPoseTrackerHardware"/> converted from <see cref="IHeadMountedDisplayHardware"/>.
-        /// </returns>
-        /// <exception cref="ArgumentNullException">
-        /// Thrown if <paramref name="hardware"/> is null.
-        /// </exception>
-        /// <exception cref="ArgumentNullException">
-        /// Thrown if <paramref name="correction"/> is null.
-        /// </exception>
-        public static IHumanPoseTrackerHardware HumanPoseTracker(IHeadMountedDisplayHardware hardware, IHumanPoseTrackerCorrection correction)
-        {
-            if (hardware == null)
-            {
-                throw new ArgumentNullException(nameof(hardware));
-            }
-            if (correction == null)
-            {
-                throw new ArgumentNullException(nameof(correction));
-            }
-
-            return new HumanPoseTrackerHardware(hardware, correction);
-        }
-        private sealed class HumanPoseTrackerHardware :
-            IHumanPoseTrackerHardware
-        {
-            internal HumanPoseTrackerHardware(IHeadMountedDisplayHardware hardware, IHumanPoseTrackerCorrection correction)
-            {
-                Origin = ConvertPoseTrackerInto.CorrectedPoseTracker(hardware.Origin, correction.Origin);
-
-                Head = ConvertPoseTrackerInto.CorrectedPoseTracker(hardware.Head.Pose, correction.Head);
-
-                LeftHand = ConvertPoseTrackerInto.CorrectedPoseTracker(hardware.LeftHand.Pose, correction.LeftHand);
-
-                RightHand = ConvertPoseTrackerInto.CorrectedPoseTracker(hardware.RightHand.Pose, correction.RightHand);
-            }
-
-            public IPoseTrackerHardware Origin { get; }
-
-            public IPoseTrackerHardware Head { get; }
-
-            public IPoseTrackerHardware LeftHand { get; }
-
-            public IPoseTrackerHardware RightHand { get; }
-        }
     }
 }

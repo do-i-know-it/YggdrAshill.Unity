@@ -28,14 +28,14 @@ namespace YggdrAshill.Samples
                 return;
             }
 
-            builder
-                .RegisterInstance(DeviceManagement.HumanPoseTracker.Hardware)
-                .AsSelf();
-            builder
-                .RegisterInstance(SimulateHumanPoseTracker.ToTrack(originPhotonView.transform, headPhotonView.transform, leftHandPhotonView.transform, rightHandPhotonView.transform))
-                .AsSelf();
+            //builder
+            //    .RegisterInstance(DeviceManagement.HumanPoseTracker.Hardware)
+            //    .AsSelf();
+            //builder
+            //    .RegisterInstance(SimulateHumanPoseTracker.ToTrack(originPhotonView.transform, headPhotonView.transform, leftHandPhotonView.transform, rightHandPhotonView.transform))
+            //    .AsSelf();
 
-            builder.RegisterEntryPoint<TrackHumanPoseEntryPoint>();
+            //builder.RegisterEntryPoint<TrackHumanPoseEntryPoint>();
         }
     }
 }

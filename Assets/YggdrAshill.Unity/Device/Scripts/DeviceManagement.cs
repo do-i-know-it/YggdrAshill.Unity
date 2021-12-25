@@ -19,15 +19,8 @@ namespace YggdrAshill.Unity
         /// </summary>
         public static IPulsatedHeadMountedDisplayProtocol PulsatedHeadMountedDisplay => Instance.pulsatedHeadMountedDisplay;
 
-        /// <summary>
-        /// <see cref="IHumanPoseTrackerProtocol"/> accessed globally.
-        /// </summary>
-        public static IHumanPoseTrackerProtocol HumanPoseTracker => Instance.humanPoseTracker;
-
         private readonly IHeadMountedDisplayProtocol headMountedDisplay = Nuadha.Unity.HeadMountedDisplay.WithLatestCache();
 
         private readonly IPulsatedHeadMountedDisplayProtocol pulsatedHeadMountedDisplay = Nuadha.Unity.PulsatedHeadMountedDisplay.WithLatestCache();
-
-        private readonly IHumanPoseTrackerProtocol humanPoseTracker = Nuadha.Unity.HumanPoseTracker.WithLatestCache();
     }
 }
