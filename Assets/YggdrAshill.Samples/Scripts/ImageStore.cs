@@ -8,14 +8,9 @@ namespace YggdrAshill.Samples
 {
     internal sealed class ImageStore : MonoBehaviour
     {
+        [SerializeField] private TextMeshProUGUI fallback;
         [SerializeField] private ImageButton[] imageButtons;
 
-        private const string UnityPlayer = "com.unity3d.player.UnityPlayer";
-        private const string CurrentActivity = "currentActivity";
-        private const string AndroidEnvironment = "android.os.Environment";
-        private const string DirectoryPictures = "DIRECTORY_PICTURES";
-        private const string GetExternalFilesDir = "getExternalFilesDir";
-        private const string GetAbsolutePath = "getAbsolutePath";
         private static string directoryPath;
         private static string DirectoryPath
         {
@@ -23,6 +18,16 @@ namespace YggdrAshill.Samples
             {
                 if (directoryPath == null)
                 {
+#if UNITY_EDITOR
+                    directoryPath = Application.persistentDataPath;
+#elif UNITY_ANDROID
+                    const string UnityPlayer = "com.unity3d.player.UnityPlayer";
+                    const string CurrentActivity = "currentActivity";
+                    const string AndroidEnvironment = "android.os.Environment";
+                    const string DirectoryPictures = "DIRECTORY_PICTURES";
+                    const string GetExternalFilesDir = "getExternalFilesDir";
+                    const string GetAbsolutePath = "getAbsolutePath";
+
                     using (var unityPlayer = new AndroidJavaClass(UnityPlayer))
                     using (var currentActivity = unityPlayer.GetStatic<AndroidJavaObject>(CurrentActivity))
                     using (var directoryName = new AndroidJavaClass(AndroidEnvironment).GetStatic<AndroidJavaObject>(DirectoryPictures))
@@ -30,6 +35,7 @@ namespace YggdrAshill.Samples
                     {
                         directoryPath = directoryFile.Call<string>(GetAbsolutePath);
                     }
+#endif
                 }
 
                 return directoryPath;
@@ -44,12 +50,32 @@ namespace YggdrAshill.Samples
                 .Select(fileName => $"file://{fileName}")
                 .ToArray();
 
+            if (filePaths.Length == 0)
+            {
+                foreach (var button in imageButtons)
+                {
+                    button.gameObject.SetActive(false);
+                }
+
+                fallback.gameObject.SetActive(true);
+
+                fallback.text = "Image files not found.\n";
+
+                return;
+            }
+
+            fallback.gameObject.SetActive(false);
+
             for (var index = 0; index < imageButtons.Length; index++)
             {
                 if (filePaths.Length <= index)
                 {
-                    break;
+                    imageButtons[index].gameObject.SetActive(false);
+
+                    continue;
                 }
+
+                imageButtons[index].gameObject.SetActive(true);
 
                 imageButtons[index].Register(filePaths[index]);
             }
