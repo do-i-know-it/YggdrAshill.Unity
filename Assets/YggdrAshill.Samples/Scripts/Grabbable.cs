@@ -12,7 +12,7 @@ namespace YggdrAshill.Samples
         {
             var relativePosition = Quaternion.Inverse(on.rotation) * (targetTransform.position - on.position);
 
-            var relativeRotation = targetTransform.rotation * Quaternion.Inverse(on.rotation);
+            var relativeRotation = Quaternion.Inverse(on.rotation) * targetTransform.rotation;
 
             relativePose = new Pose(relativePosition, relativeRotation);
         }
@@ -21,7 +21,7 @@ namespace YggdrAshill.Samples
         {
             targetTransform.position = current.position + current.rotation * relativePose.position;
 
-            targetTransform.rotation = relativePose.rotation * current.rotation;
+            targetTransform.rotation = current.rotation * relativePose.rotation;
         }
 
         public void GrabEnd(Pose from)

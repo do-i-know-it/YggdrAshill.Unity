@@ -91,7 +91,7 @@ namespace YggdrAshill.Samples
 
                     var rotationDiff = currentPose.rotation * Quaternion.Inverse(previousPose.rotation);
 
-                    var nextPose = new Pose(currentPose.position + positionDiff, currentPose.rotation * rotationDiff);
+                    var nextPose = new Pose(positionDiff + currentPose.position, rotationDiff * currentPose.rotation);
 
                     grabbable.Grab(previousPose, currentPose, nextPose);
 
