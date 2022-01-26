@@ -20,9 +20,9 @@ namespace YggdrAshill.Unity.OVR
         {
             internal StickConfiguration(OVRInput.RawTouch touch, OVRInput.RawAxis2D tilt)
             {
-                Touch = Generate.Touch(() => OVRInput.Get(touch));
+                Touch = SimulateTouch.ToGenerate(() => OVRInput.Get(touch));
 
-                Tilt = Generate.Tilt(() => OVRInput.Get(tilt));
+                Tilt = SimulateTilt.ToGenerate(() => OVRInput.Get(tilt));
             }
 
             public IGeneration<Touch> Touch { get; }
@@ -47,16 +47,16 @@ namespace YggdrAshill.Unity.OVR
         {
             internal TriggerConfiguration(OVRInput.RawTouch touch, OVRInput.RawAxis1D pull)
             {
-                Touch = Generate.Touch(() => OVRInput.Get(touch));
+                Touch = SimulateTouch.ToGenerate(() => OVRInput.Get(touch));
 
-                Pull = Generate.Pull(() => OVRInput.Get(pull));
+                Pull = SimulatePull.ToGenerate(() => OVRInput.Get(pull));
             }
 
             internal TriggerConfiguration(OVRInput.RawAxis1D pull)
             {
-                Touch = Generate.Touch(() => OVRInput.Get(pull) > 0.1f);
+                Touch = SimulateTouch.ToGenerate(() => OVRInput.Get(pull) > 0.1f);
 
-                Pull = Generate.Pull(() => OVRInput.Get(pull));
+                Pull = SimulatePull.ToGenerate(() => OVRInput.Get(pull));
             }
 
             public IGeneration<Touch> Touch { get; }
@@ -101,7 +101,7 @@ namespace YggdrAshill.Unity.OVR
         {
             internal HandControllerConfiguration(Transform origin, Transform transform, bool leftHand) : this(leftHand)
             {
-                Pose = SimulatedPoseTracker.Transform(origin, transform);
+                Pose = SimulatePoseTracker.ToConfigure(origin, transform);
             }
 
             private HandControllerConfiguration(bool leftHand)
@@ -163,9 +163,9 @@ namespace YggdrAshill.Unity.OVR
         {
             internal HeadMountedDisplayConfiguration(Transform origin, Transform head, Transform leftHand, Transform rightHand)
             {
-                Origin = SimulatedPoseTracker.Transform(origin);
+                Origin = SimulatePoseTracker.ToConfigure(origin);
 
-                Head = SimulatedHeadTracker.Transform(origin, head);
+                Head = SimulateHeadTracker.ToConfigure(origin, head);
 
                 LeftHand = LeftHandController(origin, leftHand);
 

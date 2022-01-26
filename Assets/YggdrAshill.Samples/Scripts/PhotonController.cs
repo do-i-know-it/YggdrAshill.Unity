@@ -53,5 +53,22 @@ namespace YggdrAshill.Samples
 
             coroutine = null;
         }
+
+        public override void OnMasterClientSwitched(Player newMasterClient)
+        {
+            coroutine = StartCoroutine(ReloadLoadScene());
+        }
+        private IEnumerator ReloadLoadScene()
+        {
+            PhotonNetwork.IsMessageQueueRunning = false;
+
+            yield return SceneManager.UnloadSceneAsync(scene.Path);
+
+            PhotonNetwork.IsMessageQueueRunning = true;
+
+            PhotonNetwork.LeaveRoom();
+
+            coroutine = null;
+        }
     }
 }

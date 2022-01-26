@@ -25,8 +25,8 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubtractiveShadowColor: {r: 0.03137255, g: 0.03137255, b: 0.03137255, a: 1}
+  m_SkyboxMaterial: {fileID: 2100000, guid: db4b2e887e1094d40bf0f070de0f5e43, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.0023994385, g: 0.0023994385, b: 0.0023994385, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2071051937233558427, guid: e9391ba6f4c7377449a6f0093238b0d4, type: 3}
       propertyPath: prefabList.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2071051937233558427, guid: e9391ba6f4c7377449a6f0093238b0d4, type: 3}
       propertyPath: prefabList.Array.data[0]
@@ -149,11 +149,15 @@ PrefabInstance:
     - target: {fileID: 2071051937233558427, guid: e9391ba6f4c7377449a6f0093238b0d4, type: 3}
       propertyPath: prefabList.Array.data[2]
       value: 
-      objectReference: {fileID: 5681787027374171802, guid: fef4fae991320d948b10b53fd2b565cc, type: 3}
+      objectReference: {fileID: 7209406007199364487, guid: 74b49fa095205b84d8099586070d0350, type: 3}
     - target: {fileID: 2071051937233558427, guid: e9391ba6f4c7377449a6f0093238b0d4, type: 3}
       propertyPath: prefabList.Array.data[3]
       value: 
-      objectReference: {fileID: 8279581878935534666, guid: 61c1a4eeee7ec484abbe28d4c0810b4d, type: 3}
+      objectReference: {fileID: 3239096448384433310, guid: 19f6a2b6ccba08745ad6e06a998a86ad, type: 3}
+    - target: {fileID: 2071051937233558427, guid: e9391ba6f4c7377449a6f0093238b0d4, type: 3}
+      propertyPath: prefabList.Array.data[4]
+      value: 
+      objectReference: {fileID: 3356305776076058324, guid: d4e344e9ee02cd644839072e0a1ddca3, type: 3}
     - target: {fileID: 2200241715589625631, guid: e9391ba6f4c7377449a6f0093238b0d4, type: 3}
       propertyPath: m_RootOrder
       value: 0

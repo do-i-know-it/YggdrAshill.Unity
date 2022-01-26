@@ -1,5 +1,6 @@
-# Release notes for version 0.8.0
+# Release notes for version 0.9.0
 
-- Added implementations of Nuadha for Oculus.
-- Imported PUN2.
-- Added sample implementations for grabbing.
+- Arranged definitions and implementations for Nuadha.
+- Deleted PUN2.
+- Modified sample implementations for grabbing.
+- Added features to load png images on local.

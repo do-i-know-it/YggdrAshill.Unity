@@ -39,13 +39,6 @@ Developers can install a Unity extension for YggdrAshill like:
 - Add `https://github.com/do-i-know-it/YggdrAshill.Unity.git?path=Assets/YggdrAshill.Unity` to Package Manager.
 - Add `"com.yggdrashill.unity": "https://github.com/do-i-know-it/YggdrAshill.Unity.git?path=Assets/YggdrAshill.Unity"` to `Packages/manifest.json`.
 
-### For YggdrAshill.UniRx
-
-Developers can install a UniRx extension for YggdrAshill like:
-
-- Add `https://github.com/do-i-know-it/YggdrAshill.Unity.git?path=Assets/YggdrAshill.UniRx` to Package Manager.
-- Add `"com.yggdrashill.unirx": "https://github.com/do-i-know-it/YggdrAshill.Unity.git?path=Assets/YggdrAshill.UniRx"` to `Packages/manifest.json`.
-
 ## Usage
 
 Now writing...

@@ -6,18 +6,27 @@ namespace YggdrAshill.Samples
     {
         [SerializeField] private Transform targetTransform;
 
-        private Transform previousParent;
+        private Pose relativePose;
 
-        public void Grab(Transform transform)
+        public void GrabBegin(Pose on)
         {
-            previousParent = targetTransform.parent;
+            var relativePosition = Quaternion.Inverse(on.rotation) * (targetTransform.position - on.position);
 
-            targetTransform.parent = transform;
+            var relativeRotation = Quaternion.Inverse(on.rotation) * targetTransform.rotation;
+
+            relativePose = new Pose(relativePosition, relativeRotation);
         }
 
-        public void Release(Transform transform)
+        public void Grab(Pose previous, Pose current, Pose next)
         {
-            targetTransform.parent = previousParent;
+            targetTransform.position = current.position + current.rotation * relativePose.position;
+
+            targetTransform.rotation = current.rotation * relativePose.rotation;
+        }
+
+        public void GrabEnd(Pose from)
+        {
+            relativePose = Pose.identity;
         }
     }
 }
