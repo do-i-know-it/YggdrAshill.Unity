@@ -1,12 +1,12 @@
 {
     "name": "com.yggdrashill.unity",
-    "version": "0.7.0",
+    "version": "0.9.0",
     "displayName": "YggdrAshill.Unity",
     "description": "A Unity extension for YggdrAshill framework.",
     "unity": "2020.3",
     "dependencies":
     {
-      "com.yggdrashill.nuadha.unity": "0.7.0"
+      "com.yggdrashill.nuadha.unity": "0.9.0"
     },
     "keywords":
     [
