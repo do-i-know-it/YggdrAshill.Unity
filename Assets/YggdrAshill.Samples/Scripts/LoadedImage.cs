@@ -19,7 +19,7 @@ namespace YggdrAshill.Samples
             var standard = Mathf.Max(texture.width, texture.height);
             var area = new Rect(0, 0, texture.width, texture.height);
             var pivot = Vector2.one * 0.5f;
-            var sprite = Sprite.Create(texture, area, pivot, standard, 0, SpriteMeshType.FullRect);
+            var sprite = Sprite.Create(texture, area, pivot, standard, 0, SpriteMeshType.Tight);
             sprite.name = texture.name;
 
             targetRenderer.sprite = sprite;
