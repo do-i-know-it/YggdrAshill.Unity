@@ -9,6 +9,14 @@ namespace YggdrAshill.Samples
         [SerializeField] private string[] filePathList;
         [SerializeField] private ModelButton[] modelButtons;
 
+        internal void SetTargetTransform(Transform transform)
+        {
+            foreach (var button in modelButtons)
+            {
+                button.SetTargetTransform(transform);
+            }
+        }
+
         private void Load()
         {
             if (filePathList.Length == 0)

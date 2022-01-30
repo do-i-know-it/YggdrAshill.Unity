@@ -43,6 +43,14 @@ namespace YggdrAshill.Samples
         }
         private const string PNG = "*.png";
 
+        internal void SetTargetTransform(Transform transform)
+        {
+            foreach (var button in imageButtons)
+            {
+                button.SetTargetTransform(transform);
+            }
+        }
+
         private void Load()
         {
             var filePaths

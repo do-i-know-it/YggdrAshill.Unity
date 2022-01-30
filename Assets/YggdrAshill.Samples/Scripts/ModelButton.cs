@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,6 +28,13 @@ namespace YggdrAshill.Samples
             }
         }
 
+        private Transform targetTransform;
+
+        internal void SetTargetTransform(Transform transform)
+        {
+            targetTransform = transform;
+        }
+
         private void Load()
         {
             if (prefab == null)
@@ -34,7 +42,15 @@ namespace YggdrAshill.Samples
                 prefab = Resources.Load<GameObject>(filePath);
             }
 
-            Instantiate(prefab);
+            if (targetTransform == null)
+            {
+                Instantiate(prefab);
+                return;
+            }
+
+            var model = Instantiate(prefab, targetTransform);
+            model.transform.position = targetTransform.position + targetTransform.forward;
+            model.transform.rotation = targetTransform.rotation;
         }
 
         private void OnEnable()

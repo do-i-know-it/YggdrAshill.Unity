@@ -23,6 +23,13 @@ namespace YggdrAshill.Samples
             text.text = Path.GetFileName(filePath);
         }
 
+        private Transform targetTransform;
+
+        internal void SetTargetTransform(Transform transform)
+        {
+            targetTransform = transform;
+        }
+
         private void Load()
         {
             StartCoroutine(LoadAsync());
@@ -41,7 +48,15 @@ namespace YggdrAshill.Samples
                     break;
                 case UnityWebRequest.Result.Success:
                     var texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
-                    var image = Instantiate(imagePrefab);
+                    if (targetTransform == null)
+                    {
+                        Instantiate(imagePrefab).Render(texture);
+                        break;
+                    }
+
+                    var image = Instantiate(imagePrefab, targetTransform);
+                    image.transform.position = targetTransform.position + targetTransform.forward;
+                    image.transform.rotation = targetTransform.rotation;
                     image.Render(texture);
                     break;
                 default:

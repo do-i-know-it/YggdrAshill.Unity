@@ -571,8 +571,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallback: {fileID: 3556319134649250396}
   filePathList:
-  - Cube.prefab
-  - Sphere.prefab
+  - Cube
+  - Sphere
   modelButtons:
   - {fileID: 5603190517474566003}
   - {fileID: 5475471818532886405}
