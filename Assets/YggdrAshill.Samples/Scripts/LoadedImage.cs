@@ -45,12 +45,12 @@ namespace YggdrAshill.Samples
             isLoaded = false;
         }
 
-        private void OnEnable()
+        private void Awake()
         {
             Clear();
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             Clear();
         }
