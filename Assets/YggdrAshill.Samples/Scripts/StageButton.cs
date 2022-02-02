@@ -12,6 +12,7 @@ namespace YggdrAshill.Samples
 
         private ModelStore modelStore;
         private ImageStore imageStore;
+        private BackgroundStore backgroundStore;
 
         private Transform targetTransform;
         private Transform TargetTransform
@@ -29,11 +30,20 @@ namespace YggdrAshill.Samples
             }
         }
 
-        internal void SetConfiguration(ModelStore modelStore, ImageStore imageStore)
+        internal void SetConfiguration(ModelStore modelStore, ImageStore imageStore, BackgroundStore backgroundStore)
         {
             this.modelStore = modelStore;
 
             this.imageStore = imageStore;
+
+            this.backgroundStore = backgroundStore;
+        }
+
+        private BackgroundChanger backgroundChanger;
+
+        private void Awake()
+        {
+            backgroundChanger = TargetTransform.gameObject.AddComponent<BackgroundChanger>();
         }
 
         private void OnEnable()
@@ -45,27 +55,29 @@ namespace YggdrAshill.Samples
         {
             button.onClick.RemoveListener(ActivateStage);
         }
+
+        private void OnDestroy()
+        {
+            backgroundChanger = null;
+        }
+
         private void ActivateStage()
         {
             BeforeActivation.Invoke();
 
-            for (var index = 0; index < TargetTransform.childCount; index++)
-            {
-                TargetTransform.GetChild(index).gameObject.SetActive(true);
-            }
+            TargetTransform.gameObject.SetActive(true);
 
             modelStore.gameObject.SetActive(true);
             imageStore.gameObject.SetActive(true);
+            backgroundStore.gameObject.SetActive(true);
             modelStore.SetTargetTransform(TargetTransform);
             imageStore.SetTargetTransform(TargetTransform);
+            backgroundStore.SetBackgroundChanger(backgroundChanger);
         }
 
         internal void DeactivateStage()
         {
-            for (var index = 0; index < TargetTransform.childCount; index++)
-            {
-                TargetTransform.GetChild(index).gameObject.SetActive(false);
-            }
+            TargetTransform.gameObject.SetActive(false);
         }
     }
 }
