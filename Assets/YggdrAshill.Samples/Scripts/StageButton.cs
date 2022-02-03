@@ -14,6 +14,8 @@ namespace YggdrAshill.Samples
         private ImageStore imageStore;
         private BackgroundStore backgroundStore;
 
+        private Transform anchor;
+
         private Transform targetTransform;
         private Transform TargetTransform
         {
@@ -22,21 +24,24 @@ namespace YggdrAshill.Samples
                 if (targetTransform == null)
                 {
                     targetTransform = new GameObject().transform;
-                    targetTransform.position = Vector3.zero;
-                    targetTransform.rotation = Quaternion.identity;
+
+                    targetTransform.position = anchor.position;
+                    targetTransform.rotation = anchor.rotation;
                 }
 
                 return targetTransform;
             }
         }
 
-        internal void SetConfiguration(ModelStore modelStore, ImageStore imageStore, BackgroundStore backgroundStore)
+        internal void SetConfiguration(ModelStore modelStore, ImageStore imageStore, BackgroundStore backgroundStore, Transform anchor)
         {
             this.modelStore = modelStore;
 
             this.imageStore = imageStore;
 
             this.backgroundStore = backgroundStore;
+
+            this.anchor = anchor;
         }
 
         private BackgroundChanger backgroundChanger;

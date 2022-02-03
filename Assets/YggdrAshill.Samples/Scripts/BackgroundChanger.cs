@@ -16,9 +16,9 @@ namespace YggdrAshill.Samples
 
             material.SetTexture("_MainTex", texture);
 
-            ApplyIfLoaded();
-
             loaded = true;
+
+            ApplyIfLoaded();
         }
 
         private void Awake()

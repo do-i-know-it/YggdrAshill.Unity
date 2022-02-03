@@ -7,6 +7,7 @@ namespace YggdrAshill.Samples
         [SerializeField] private ModelStore modelStore;
         [SerializeField] private ImageStore imageStore;
         [SerializeField] private BackgroundStore backgroundStore;
+        [SerializeField] private Transform anchor;
         [SerializeField] private StageButton[] stageButtons;
 
         private void DeactivateStages()
@@ -25,7 +26,7 @@ namespace YggdrAshill.Samples
 
             foreach (var button in stageButtons)
             {
-                button.SetConfiguration(modelStore, imageStore, backgroundStore);
+                button.SetConfiguration(modelStore, imageStore, backgroundStore, anchor);
                 button.BeforeActivation.AddListener(DeactivateStages);
             }
         }
