@@ -3,17 +3,17 @@ using UnityEngine;
 
 namespace YggdrAshill.Samples
 {
-    internal sealed class ModelStore : MonoBehaviour
+    internal sealed class BackgroundStore : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI fallback;
         [SerializeField] private string[] filePathList;
-        [SerializeField] private ModelButton[] modelButtons;
+        [SerializeField] private BackgroundButton[] backgroundButtons;
 
-        internal void SetTargetTransform(Transform transform)
+        internal void SetBackgroundChanger(BackgroundChanger backgroundChanger)
         {
-            foreach (var button in modelButtons)
+            foreach (var button in backgroundButtons)
             {
-                button.SetTargetTransform(transform);
+                button.SetBackgroundChanger(backgroundChanger);
             }
         }
 
@@ -21,32 +21,32 @@ namespace YggdrAshill.Samples
         {
             if (filePathList.Length == 0)
             {
-                foreach (var button in modelButtons)
+                foreach (var button in backgroundButtons)
                 {
                     button.gameObject.SetActive(false);
                 }
 
                 fallback.gameObject.SetActive(true);
 
-                fallback.text = "Model files not found.\n";
+                fallback.text = "Background image files not found.\n";
 
                 return;
             }
 
             fallback.gameObject.SetActive(false);
 
-            for (var index = 0; index < modelButtons.Length; index++)
+            for (var index = 0; index < backgroundButtons.Length; index++)
             {
                 if (filePathList.Length <= index)
                 {
-                    modelButtons[index].gameObject.SetActive(false);
+                    backgroundButtons[index].gameObject.SetActive(false);
 
                     continue;
                 }
 
-                modelButtons[index].gameObject.SetActive(true);
+                backgroundButtons[index].gameObject.SetActive(true);
 
-                modelButtons[index].Register(filePathList[index]);
+                backgroundButtons[index].Register(filePathList[index]);
             }
         }
 

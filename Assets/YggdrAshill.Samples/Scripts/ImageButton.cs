@@ -55,7 +55,7 @@ namespace YggdrAshill.Samples
                     }
 
                     var image = Instantiate(imagePrefab, targetTransform);
-                    image.transform.position = targetTransform.position + targetTransform.forward;
+                    image.transform.position = targetTransform.position;
                     image.transform.rotation = targetTransform.rotation;
                     image.Render(texture);
                     break;

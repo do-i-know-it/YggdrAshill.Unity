@@ -1,19 +1,16 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace YggdrAshill.Samples
 {
-    internal sealed class ModelButton : MonoBehaviour
+    internal sealed class BackgroundButton : MonoBehaviour
     {
         [SerializeField] private Button button;
         [SerializeField] private TextMeshProUGUI text;
 
         private string filePath;
-
-        private GameObject prefab;
 
         internal void Register(string filePath)
         {
@@ -28,29 +25,23 @@ namespace YggdrAshill.Samples
             }
         }
 
-        private Transform targetTransform;
+        private BackgroundChanger backgroundChanger;
 
-        internal void SetTargetTransform(Transform transform)
+        internal void SetBackgroundChanger(BackgroundChanger backgroundChanger)
         {
-            targetTransform = transform;
+            this.backgroundChanger = backgroundChanger;
         }
+
+        private Texture2D prefab;
 
         private void Load()
         {
             if (prefab == null)
             {
-                prefab = Resources.Load<GameObject>(filePath);
+                prefab = Resources.Load<Texture2D>(filePath);
             }
 
-            if (targetTransform == null)
-            {
-                Instantiate(prefab);
-                return;
-            }
-
-            var model = Instantiate(prefab, targetTransform);
-            model.transform.position = targetTransform.position;
-            model.transform.rotation = targetTransform.rotation;
+            backgroundChanger.SetTexture(prefab);
         }
 
         private void OnEnable()
