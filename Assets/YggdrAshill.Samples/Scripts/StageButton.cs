@@ -48,6 +48,7 @@ namespace YggdrAshill.Samples
 
         private void Awake()
         {
+            // 最初から可視化された状態で存在する前提の記述になっている
             backgroundChanger = TargetTransform.gameObject.AddComponent<BackgroundChanger>();
         }
 
