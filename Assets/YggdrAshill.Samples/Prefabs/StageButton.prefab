@@ -135,6 +135,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 5884785967939463637}
+  image: {fileID: 4230493771336084501}
+  onDeselected: {r: 1, g: 1, b: 1, a: 1}
+  onSelected: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &8732009344934148854
 GameObject:
   m_ObjectHideFlags: 0

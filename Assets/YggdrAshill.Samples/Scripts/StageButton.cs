@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
@@ -7,8 +8,11 @@ namespace YggdrAshill.Samples
     internal sealed class StageButton : MonoBehaviour
     {
         [SerializeField] private Button button;
+        [SerializeField] private Image image;
+        [SerializeField] private Color onDeselected = Color.white;
+        [SerializeField] private Color onSelected = Color.cyan;
 
-        internal UnityEvent BeforeActivation = new UnityEvent();
+        internal UnityEvent BeforeActivation { get; } = new UnityEvent();
 
         private ModelStore modelStore;
         private ImageStore imageStore;
@@ -17,24 +21,14 @@ namespace YggdrAshill.Samples
         private Transform anchor;
 
         private Transform targetTransform;
-        private Transform TargetTransform
-        {
-            get
-            {
-                if (targetTransform == null)
-                {
-                    targetTransform = new GameObject().transform;
-
-                    targetTransform.position = anchor.position;
-                    targetTransform.rotation = anchor.rotation;
-                }
-
-                return targetTransform;
-            }
-        }
 
         internal void SetConfiguration(ModelStore modelStore, ImageStore imageStore, BackgroundStore backgroundStore, Transform anchor)
         {
+            Assert.IsNotNull(modelStore);
+            Assert.IsNotNull(imageStore);
+            Assert.IsNotNull(backgroundStore);
+            Assert.IsNotNull(anchor);
+
             this.modelStore = modelStore;
 
             this.imageStore = imageStore;
@@ -46,44 +40,50 @@ namespace YggdrAshill.Samples
 
         private BackgroundChanger backgroundChanger;
 
-        private void Awake()
-        {
-            // 最初から可視化された状態で存在する前提の記述になっている
-            backgroundChanger = TargetTransform.gameObject.AddComponent<BackgroundChanger>();
-        }
-
         private void OnEnable()
         {
+            targetTransform = new GameObject().transform;
+
+            targetTransform.position = anchor.position;
+            targetTransform.rotation = anchor.rotation;
+
+            backgroundChanger = targetTransform.gameObject.AddComponent<BackgroundChanger>();
+
             button.onClick.AddListener(ActivateStage);
         }
 
         private void OnDisable()
         {
-            button.onClick.RemoveListener(ActivateStage);
-        }
+            if (targetTransform != null)
+            {
+                Destroy(targetTransform.gameObject);
+                targetTransform = null;
+                backgroundChanger = null;
+            }
 
-        private void OnDestroy()
-        {
-            backgroundChanger = null;
+            button.onClick.RemoveListener(ActivateStage);
         }
 
         private void ActivateStage()
         {
             BeforeActivation.Invoke();
 
-            TargetTransform.gameObject.SetActive(true);
+            targetTransform.gameObject.SetActive(true);
+            image.color = onSelected;
 
-            modelStore.gameObject.SetActive(true);
-            imageStore.gameObject.SetActive(true);
-            backgroundStore.gameObject.SetActive(true);
-            modelStore.SetTargetTransform(TargetTransform);
-            imageStore.SetTargetTransform(TargetTransform);
+            backgroundStore.gameObject.SetActive(false);
+            imageStore.gameObject.SetActive(false);
+            modelStore.gameObject.SetActive(false);
+
             backgroundStore.SetBackgroundChanger(backgroundChanger);
+            imageStore.SetTargetTransform(targetTransform);
+            modelStore.SetTargetTransform(targetTransform);
         }
 
         internal void DeactivateStage()
         {
-            TargetTransform.gameObject.SetActive(false);
+            targetTransform.gameObject.SetActive(false);
+            image.color = onDeselected;
         }
     }
 }

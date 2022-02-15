@@ -48,12 +48,6 @@ namespace YggdrAshill.Samples
                     break;
                 case UnityWebRequest.Result.Success:
                     var texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
-                    if (targetTransform == null)
-                    {
-                        Instantiate(imagePrefab).Render(texture);
-                        break;
-                    }
-
                     var image = Instantiate(imagePrefab, targetTransform);
                     image.transform.position = targetTransform.position;
                     image.transform.rotation = targetTransform.rotation;
