@@ -12,6 +12,7 @@ namespace YggdrAshill.Samples
         [SerializeField] private ModelStore modelStore;
 
         [SerializeField] private Button previewButton;
+        [SerializeField] private Image previewImage;
         [SerializeField] private Transform itemSelector;
 
         [SerializeField] private Button backgroundStoreButton;
@@ -62,27 +63,42 @@ namespace YggdrAshill.Samples
             }
         }
 
-        private void ToggleItemSelector()
-        {
-            ToggleItemSelector(!itemSelector.gameObject.activeInHierarchy);
-        }
+        private bool isPreview;
 
-        private void ToggleItemSelector(bool active)
+        private void TogglePreview()
         {
-            itemSelector.gameObject.SetActive(active);
-            DeactivateAllStores();
+            if (isPreview)
+            {
+                previewImage.color = onDeselected;
+                EnableItemSelector();
+                DeactivateAllStores();
+                isPreview = false;
+            }
+            else
+            {
+                previewImage.color = onSelected;
+                DisableItemSelector();
+                DeactivateAllStores();
+                isPreview = true;
+            }
         }
 
         private void EnableItemSelector()
         {
-            ToggleItemSelector(true);
+            itemSelector.gameObject.SetActive(true);
+        }
+
+        private void DisableItemSelector()
+        {
+            itemSelector.gameObject.SetActive(false);
         }
 
         private void OnEnable()
         {
-            ToggleItemSelector(false);
+            DisableItemSelector();
+            DeactivateAllStores();
 
-            previewButton.onClick.AddListener(ToggleItemSelector);
+            previewButton.onClick.AddListener(TogglePreview);
 
             backgroundStoreButton.onClick.AddListener(ActivateBackgroundStore);
             imageStoreButton.onClick.AddListener(ActivateImageStore);
@@ -92,13 +108,14 @@ namespace YggdrAshill.Samples
             {
                 button.SetConfiguration(modelStore, imageStore, backgroundStore, anchor);
                 button.BeforeActivation.AddListener(DeactivateStages);
+                button.BeforeActivation.AddListener(DeactivateAllStores);
                 button.BeforeActivation.AddListener(EnableItemSelector);
             }
         }
 
         private void OnDisable()
         {
-            previewButton.onClick.RemoveListener(ToggleItemSelector);
+            previewButton.onClick.RemoveListener(TogglePreview);
 
             backgroundStoreButton.onClick.RemoveListener(ActivateBackgroundStore);
             imageStoreButton.onClick.RemoveListener(ActivateImageStore);
@@ -107,8 +124,20 @@ namespace YggdrAshill.Samples
             foreach (var button in stageButtons)
             {
                 button.BeforeActivation.RemoveListener(DeactivateStages);
+                button.BeforeActivation.RemoveListener(DeactivateAllStores);
                 button.BeforeActivation.RemoveListener(EnableItemSelector);
             }
+        }
+
+        private void LateUpdate()
+        {
+            if (!isPreview)
+            {
+                return;
+            }
+
+            DisableItemSelector();
+            DeactivateAllStores();
         }
     }
 }
