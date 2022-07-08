@@ -28,6 +28,9 @@ namespace YggdrAshill.Samples
             targetCollider.size = new Vector3(boundSize.x, boundSize.y, depth);
             targetCollider.center = new Vector3(0, 0, depth * 0.5f);
 
+            targetRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+            targetRenderer.receiveShadows = true;
+
             isLoaded = true;
         }
 
