@@ -1,3 +1,4 @@
-# Release notes for version 0.12.1
+# Release notes for version 0.12.2
 
-- Add texts for license description of third party libraries.
+- Imported URP.
+- Modify lighting and shaders.
