@@ -5,6 +5,26 @@ namespace YggdrAshill.Samples
 {
     internal sealed class StageStore : MonoBehaviour
     {
+        [SerializeField] private ScenarioStore scenarioStore;
+
+        [SerializeField] private Button backButton;
+
+        [SerializeField] private Texture2D background;
+        private Material backgroundMateral;
+        private Material BackgroundMateral
+        {
+            get
+            {
+                if (backgroundMateral == null)
+                {
+                    backgroundMateral = new Material(RenderSettings.skybox);
+                    backgroundMateral.SetTexture("_MainTex", background);
+                }
+
+                return backgroundMateral;
+            }
+        }
+
         [SerializeField] private StageButton[] stageButtons;
         [SerializeField] private Transform anchor;
         [SerializeField] private BackgroundStore backgroundStore;
@@ -24,6 +44,15 @@ namespace YggdrAshill.Samples
 
         [SerializeField] private Color onDeselected = Color.white;
         [SerializeField] private Color onSelected = Color.cyan;
+
+        private void BackToScenarioSelection()
+        {
+            DeactivateStages();
+
+            gameObject.SetActive(false);
+
+            scenarioStore.gameObject.SetActive(true);
+        }
 
         private void ActivateBackgroundStore()
         {
@@ -93,10 +122,18 @@ namespace YggdrAshill.Samples
             itemSelector.gameObject.SetActive(false);
         }
 
+        private Material previous;
+
         private void OnEnable()
         {
+            previous = RenderSettings.skybox;
+
+            RenderSettings.skybox = BackgroundMateral;
+
             DisableItemSelector();
             DeactivateAllStores();
+
+            backButton.onClick.AddListener(BackToScenarioSelection);
 
             previewButton.onClick.AddListener(TogglePreview);
 
@@ -115,6 +152,10 @@ namespace YggdrAshill.Samples
 
         private void OnDisable()
         {
+            RenderSettings.skybox = previous;
+
+            backButton.onClick.RemoveListener(BackToScenarioSelection);
+
             previewButton.onClick.RemoveListener(TogglePreview);
 
             backgroundStoreButton.onClick.RemoveListener(ActivateBackgroundStore);
