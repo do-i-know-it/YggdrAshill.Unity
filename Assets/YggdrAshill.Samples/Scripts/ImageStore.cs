@@ -1,15 +1,112 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
-using TMPro;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 namespace YggdrAshill.Samples
 {
     internal sealed class ImageStore : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI fallback;
+        [SerializeField] private TextMeshProUGUI countView;
         [SerializeField] private ImageButton[] imageButtons;
+        [SerializeField] private Button[] addButtons;
+
+        [SerializeField] private Button previousButton;
+        [SerializeField] private Button nextButton;
+        private int maxPageIndex;
+        private int pageIndex;
+        private bool IsFirstPage => pageIndex == 0;
+        private void GoToPreviousPage()
+        {
+            if (IsFirstPage)
+            {
+                return;
+            }
+
+            pageIndex--;
+
+            UpdateView();
+        }
+        private bool IsLastPage => pageIndex == maxPageIndex;
+        private void GoToNextPage()
+        {
+            if (IsLastPage)
+            {
+                return;
+            }
+
+            pageIndex++;
+
+            UpdateView();
+        }
+        private bool addButtonActivated;
+        private void UpdateView()
+        {
+            previousButton.interactable = !IsFirstPage;
+            nextButton.interactable = !IsLastPage;
+
+            countView.text = $"{(pageIndex + 1).ToString("000")}/{(maxPageIndex + 1).ToString("000")}";
+
+            addButtonActivated = false;
+
+            if (filePaths.Length == 0)
+            {
+                foreach (var button in imageButtons)
+                {
+                    button.gameObject.SetActive(false);
+                }
+
+                foreach (var button in addButtons)
+                {
+                    if (addButtonActivated)
+                    {
+                        button.gameObject.SetActive(false);
+
+                        continue;
+                    }
+                    
+                    button.gameObject.SetActive(true);
+                    
+                    addButtonActivated = true;
+                }
+
+                fallback.gameObject.SetActive(true);
+
+                fallback.text = "Image files not found.\n";
+
+                return;
+            }
+
+            for (var index = 0; index < imageButtons.Length; index++)
+            {
+                var offsettedIndex = index + imageButtons.Length * pageIndex;
+
+                if (offsettedIndex < filePaths.Length)
+                {
+                    imageButtons[index].gameObject.SetActive(true);
+                    imageButtons[index].Register(filePaths[offsettedIndex]);
+
+                    addButtons[index].gameObject.SetActive(false);
+
+                    continue;
+                }
+
+                imageButtons[index].gameObject.SetActive(false);
+
+                if (addButtonActivated)
+                {
+                    continue;
+                }
+
+                addButtons[index].gameObject.SetActive(true);
+
+                addButtonActivated = true;
+            }
+
+            fallback.gameObject.SetActive(false);
+        }
 
         private static string directoryPath;
         private static string DirectoryPath
@@ -51,47 +148,31 @@ namespace YggdrAshill.Samples
             }
         }
 
-        private void Load()
+        private string[] filePaths;
+
+        private void OnEnable()
         {
-            var filePaths
-                = Directory.GetFiles(DirectoryPath, PNG)
-                .Select(fileName => $"file://{fileName}")
-                .ToArray();
+            previousButton.onClick.AddListener(GoToPreviousPage);
+            nextButton.onClick.AddListener(GoToNextPage);
+        }
 
-            if (filePaths.Length == 0)
-            {
-                foreach (var button in imageButtons)
-                {
-                    button.gameObject.SetActive(false);
-                }
-
-                fallback.gameObject.SetActive(true);
-
-                fallback.text = "Image files not found.\n";
-
-                return;
-            }
-
-            fallback.gameObject.SetActive(false);
-
-            for (var index = 0; index < imageButtons.Length; index++)
-            {
-                if (filePaths.Length <= index)
-                {
-                    imageButtons[index].gameObject.SetActive(false);
-
-                    continue;
-                }
-
-                imageButtons[index].gameObject.SetActive(true);
-
-                imageButtons[index].Register(filePaths[index]);
-            }
+        private void OnDisable()
+        {
+            previousButton.onClick.RemoveListener(GoToPreviousPage);
+            nextButton.onClick.RemoveListener(GoToNextPage);
         }
 
         private void Start()
         {
-            Load();
+            filePaths = Directory.GetFiles(DirectoryPath, PNG).ToArray();
+
+            maxPageIndex = filePaths.Length / imageButtons.Length;
+            if ((filePaths.Length % imageButtons.Length) == 0)
+            {
+                maxPageIndex--;
+            }
+
+            UpdateView();
         }
     }
 }
