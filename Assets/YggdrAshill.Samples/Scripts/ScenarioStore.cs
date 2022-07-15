@@ -5,6 +5,16 @@ namespace YggdrAshill.Samples
 {
     internal sealed class ScenarioStore : MonoBehaviour
     {
+        [SerializeField] private SignInPanel panel;
+        [SerializeField] private Button signOutButton;
+
+        private void GoToSigIn()
+        {
+            gameObject.SetActive(false);
+
+            panel.gameObject.SetActive(true);
+        }
+
         [SerializeField] private StageStore stageStore;
         private void GoToStageSelection()
         {
@@ -32,7 +42,6 @@ namespace YggdrAshill.Samples
             }
         }
 
-
         [SerializeField] private Button[] stageButtons;
 
         private Material previous;
@@ -49,6 +58,8 @@ namespace YggdrAshill.Samples
             {
                 button.onClick.AddListener(GoToStageSelection);
             }
+
+            signOutButton.onClick.AddListener(GoToSigIn);
         }
 
         private void OnDisable()
@@ -59,6 +70,8 @@ namespace YggdrAshill.Samples
             {
                 button.onClick.RemoveListener(GoToStageSelection);
             }
+
+            signOutButton.onClick.RemoveListener(GoToSigIn);
         }
     }
 }
