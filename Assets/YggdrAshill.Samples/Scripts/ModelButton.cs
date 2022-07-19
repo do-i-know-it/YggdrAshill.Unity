@@ -1,8 +1,6 @@
-﻿using System;
-using System.IO;
-using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace YggdrAshill.Samples
 {
@@ -11,21 +9,13 @@ namespace YggdrAshill.Samples
         [SerializeField] private Button button;
         [SerializeField] private TextMeshProUGUI text;
 
-        private string filePath;
-
         private GameObject prefab;
 
-        internal void Register(string filePath)
+        internal void Register(GameObject prefab)
         {
-            this.filePath = filePath;
+            this.prefab = prefab;
 
-            text.text = Path.GetFileName(filePath);
-
-            if (prefab != null)
-            {
-                Resources.UnloadAsset(prefab);
-                prefab = null;
-            }
+            text.text = prefab.name;
         }
 
         private Transform targetTransform;
@@ -39,20 +29,22 @@ namespace YggdrAshill.Samples
         {
             if (prefab == null)
             {
-                prefab = Resources.Load<GameObject>(filePath);
+                return;
             }
 
             if (targetTransform == null)
             {
                 Instantiate(prefab);
+                
                 return;
             }
 
             var model = Instantiate(prefab, targetTransform);
+
             model.transform.position = targetTransform.position;
             model.transform.rotation = targetTransform.rotation;
         }
-
+       
         private void OnEnable()
         {
             button.onClick.AddListener(Load);

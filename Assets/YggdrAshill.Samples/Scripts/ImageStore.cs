@@ -1,8 +1,8 @@
 ﻿using System.IO;
 using System.Linq;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
+using TMPro;
 
 namespace YggdrAshill.Samples
 {
@@ -152,18 +152,6 @@ namespace YggdrAshill.Samples
 
         private void OnEnable()
         {
-            previousButton.onClick.AddListener(GoToPreviousPage);
-            nextButton.onClick.AddListener(GoToNextPage);
-        }
-
-        private void OnDisable()
-        {
-            previousButton.onClick.RemoveListener(GoToPreviousPage);
-            nextButton.onClick.RemoveListener(GoToNextPage);
-        }
-
-        private void Start()
-        {
             filePaths = Directory.GetFiles(DirectoryPath, PNG).ToArray();
 
             maxPageIndex = filePaths.Length / imageButtons.Length;
@@ -173,6 +161,15 @@ namespace YggdrAshill.Samples
             }
 
             UpdateView();
+
+            previousButton.onClick.AddListener(GoToPreviousPage);
+            nextButton.onClick.AddListener(GoToNextPage);
+        }
+
+        private void OnDisable()
+        {
+            previousButton.onClick.RemoveListener(GoToPreviousPage);
+            nextButton.onClick.RemoveListener(GoToNextPage);
         }
     }
 }

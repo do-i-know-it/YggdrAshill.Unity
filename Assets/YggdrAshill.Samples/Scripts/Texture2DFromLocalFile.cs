@@ -36,7 +36,13 @@ namespace YggdrAshill.Samples
 
             token.ThrowIfCancellationRequested();
 
-            return texture;
+            var copied = new Texture2D(texture.width, texture.height);
+
+            copied.SetPixels(texture.GetPixels());
+
+            copied.Apply();
+
+            return copied;
         }
         private async UniTask<Texture2D> LoadInternallyAysnc(CancellationToken token)
         {

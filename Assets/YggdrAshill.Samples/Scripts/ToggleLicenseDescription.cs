@@ -15,6 +15,8 @@ namespace YggdrAshill.Samples
 
         private void OnEnable()
         {
+            target.SetActive(false);
+
             button.onClick.AddListener(Toggle);
         }
 

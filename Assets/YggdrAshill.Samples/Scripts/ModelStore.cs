@@ -1,12 +1,12 @@
-﻿using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
+using TMPro;
 
 namespace YggdrAshill.Samples
 {
     internal sealed class ModelStore : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI fallback;
-        [SerializeField] private string[] filePathList;
+        [SerializeField] private GameObject[] prefabList;
         [SerializeField] private ModelButton[] modelButtons;
 
         internal void SetTargetTransform(Transform transform)
@@ -19,7 +19,7 @@ namespace YggdrAshill.Samples
 
         private void Load()
         {
-            if (filePathList.Length == 0)
+            if (prefabList.Length == 0)
             {
                 foreach (var button in modelButtons)
                 {
@@ -37,7 +37,7 @@ namespace YggdrAshill.Samples
 
             for (var index = 0; index < modelButtons.Length; index++)
             {
-                if (filePathList.Length <= index)
+                if (prefabList.Length <= index)
                 {
                     modelButtons[index].gameObject.SetActive(false);
 
@@ -46,11 +46,11 @@ namespace YggdrAshill.Samples
 
                 modelButtons[index].gameObject.SetActive(true);
 
-                modelButtons[index].Register(filePathList[index]);
+                modelButtons[index].Register(prefabList[index]);
             }
         }
 
-        private void Start()
+        private void OnEnable()
         {
             Load();
         }

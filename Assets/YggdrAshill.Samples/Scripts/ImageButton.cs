@@ -1,10 +1,9 @@
 ﻿using System.IO;
-using TMPro;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Threading;
 using Cysharp.Threading.Tasks;
-using System;
+using TMPro;
 
 namespace YggdrAshill.Samples
 {
@@ -29,11 +28,6 @@ namespace YggdrAshill.Samples
 
         internal void Register(string filePath)
         {
-            if (filePath == null)
-            {
-                throw new ArgumentNullException(nameof(filePath));
-            }
-
             RecreateCancellationTokenSource();
 
             DisposeCapsuleIfNeeded();

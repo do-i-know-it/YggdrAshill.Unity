@@ -1,7 +1,6 @@
-﻿using System.IO;
-using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace YggdrAshill.Samples
 {
@@ -10,19 +9,11 @@ namespace YggdrAshill.Samples
         [SerializeField] private Button button;
         [SerializeField] private TextMeshProUGUI text;
 
-        private string filePath;
-
-        internal void Register(string filePath)
+        internal void Register(Texture2D texture)
         {
-            this.filePath = filePath;
+            this.texture = texture;
 
-            text.text = Path.GetFileName(filePath);
-
-            if (prefab != null)
-            {
-                Resources.UnloadAsset(prefab);
-                prefab = null;
-            }
+            text.text = texture.name;
         }
 
         private BackgroundChanger backgroundChanger;
@@ -32,16 +23,16 @@ namespace YggdrAshill.Samples
             this.backgroundChanger = backgroundChanger;
         }
 
-        private Texture2D prefab;
+        private Texture2D texture;
 
         private void Load()
         {
-            if (prefab == null)
+            if (texture == null)
             {
-                prefab = Resources.Load<Texture2D>(filePath);
+                return;
             }
 
-            backgroundChanger.SetTexture(prefab);
+            backgroundChanger.SetTexture(texture);
         }
 
         private void OnEnable()
