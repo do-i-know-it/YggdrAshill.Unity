@@ -396,10 +396,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 6081400000003476514}
     m_Modifications:
     - target: {fileID: 5350038283583920210, guid: c1c24851e0ebaba4c9767bcfd08a8ca3, type: 3}
-      propertyPath: background
-      value: 
-      objectReference: {fileID: 2800000, guid: 57e76c25adf8d2944aa51df7cfa6aa82, type: 3}
-    - target: {fileID: 5350038283583920210, guid: c1c24851e0ebaba4c9767bcfd08a8ca3, type: 3}
       propertyPath: scenarioStore
       value: 
       objectReference: {fileID: 1826629197044606137}
@@ -509,10 +505,6 @@ PrefabInstance:
       propertyPath: panel
       value: 
       objectReference: {fileID: 3214379505111016532}
-    - target: {fileID: 482494740863973668, guid: 14b8329eeeb1762448ec49258eb1a227, type: 3}
-      propertyPath: background
-      value: 
-      objectReference: {fileID: 2800000, guid: a9c34210820da2f42b7d8735d6a9bd0e, type: 3}
     - target: {fileID: 482494740863973668, guid: 14b8329eeeb1762448ec49258eb1a227, type: 3}
       propertyPath: stageStore
       value: 
@@ -677,10 +669,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6081400000003476514}
     m_Modifications:
-    - target: {fileID: 5468210976121149132, guid: 1d48fd0b10d1c0445a1fcc9cc2795a93, type: 3}
-      propertyPath: background
-      value: 
-      objectReference: {fileID: 2800000, guid: a9c34210820da2f42b7d8735d6a9bd0e, type: 3}
     - target: {fileID: 5468210976121149132, guid: 1d48fd0b10d1c0445a1fcc9cc2795a93, type: 3}
       propertyPath: scenarioStore
       value: 

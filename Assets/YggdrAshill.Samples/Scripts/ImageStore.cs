@@ -8,7 +8,6 @@ namespace YggdrAshill.Samples
 {
     internal sealed class ImageStore : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI fallback;
         [SerializeField] private TextMeshProUGUI countView;
         [SerializeField] private ImageButton[] imageButtons;
         [SerializeField] private Button[] addButtons;
@@ -72,10 +71,6 @@ namespace YggdrAshill.Samples
                     addButtonActivated = true;
                 }
 
-                fallback.gameObject.SetActive(true);
-
-                fallback.text = "Image files not found.\n";
-
                 return;
             }
 
@@ -104,8 +99,14 @@ namespace YggdrAshill.Samples
 
                 addButtonActivated = true;
             }
+        }
 
-            fallback.gameObject.SetActive(false);
+        internal void SetTargetTransform(Transform transform)
+        {
+            foreach (var button in imageButtons)
+            {
+                button.SetTargetTransform(transform);
+            }
         }
 
         private static string directoryPath;
@@ -115,20 +116,18 @@ namespace YggdrAshill.Samples
             {
                 if (directoryPath == null)
                 {
+                    const string FilePath = "Pictures/Images";
 #if UNITY_EDITOR
-                    directoryPath = Application.persistentDataPath;
+                    directoryPath = $"{Application.persistentDataPath}/{FilePath}";
 #elif UNITY_ANDROID
                     const string UnityPlayer = "com.unity3d.player.UnityPlayer";
                     const string CurrentActivity = "currentActivity";
-                    const string AndroidEnvironment = "android.os.Environment";
-                    const string DirectoryPictures = "DIRECTORY_PICTURES";
                     const string GetExternalFilesDir = "getExternalFilesDir";
                     const string GetAbsolutePath = "getAbsolutePath";
 
                     using (var unityPlayer = new AndroidJavaClass(UnityPlayer))
                     using (var currentActivity = unityPlayer.GetStatic<AndroidJavaObject>(CurrentActivity))
-                    using (var directoryName = new AndroidJavaClass(AndroidEnvironment).GetStatic<AndroidJavaObject>(DirectoryPictures))
-                    using (var directoryFile = currentActivity.Call<AndroidJavaObject>(GetExternalFilesDir, directoryName))
+                    using (var directoryFile = currentActivity.Call<AndroidJavaObject>(GetExternalFilesDir, FilePath))
                     {
                         directoryPath = directoryFile.Call<string>(GetAbsolutePath);
                     }
@@ -140,22 +139,21 @@ namespace YggdrAshill.Samples
         }
         private const string PNG = "*.png";
 
-        internal void SetTargetTransform(Transform transform)
-        {
-            foreach (var button in imageButtons)
-            {
-                button.SetTargetTransform(transform);
-            }
-        }
-
         private string[] filePaths;
 
         private void OnEnable()
         {
-            filePaths = Directory.GetFiles(DirectoryPath, PNG).ToArray();
+            if (!Directory.Exists(DirectoryPath))
+            {
+                filePaths = new string[0];
+            }
+            else
+            {
+                filePaths = Directory.GetFiles(DirectoryPath, PNG).ToArray();
+            }
 
             maxPageIndex = filePaths.Length / imageButtons.Length;
-            if ((filePaths.Length % imageButtons.Length) == 0)
+            if ((filePaths.Length % imageButtons.Length) == 0 && maxPageIndex != 0)
             {
                 maxPageIndex--;
             }

@@ -14,7 +14,6 @@ namespace YggdrAshill.Samples
 
         internal UnityEvent BeforeActivation { get; } = new UnityEvent();
 
-        private ModelStore modelStore;
         private ImageStore imageStore;
         private BackgroundStore backgroundStore;
 
@@ -22,14 +21,11 @@ namespace YggdrAshill.Samples
 
         private Transform targetTransform;
 
-        internal void SetConfiguration(ModelStore modelStore, ImageStore imageStore, BackgroundStore backgroundStore, Transform anchor)
+        internal void SetConfiguration(ImageStore imageStore, BackgroundStore backgroundStore, Transform anchor)
         {
-            Assert.IsNotNull(modelStore);
             Assert.IsNotNull(imageStore);
             Assert.IsNotNull(backgroundStore);
             Assert.IsNotNull(anchor);
-
-            this.modelStore = modelStore;
 
             this.imageStore = imageStore;
 
@@ -73,11 +69,9 @@ namespace YggdrAshill.Samples
 
             backgroundStore.gameObject.SetActive(false);
             imageStore.gameObject.SetActive(false);
-            modelStore.gameObject.SetActive(false);
 
             backgroundStore.SetBackgroundChanger(backgroundChanger);
             imageStore.SetTargetTransform(targetTransform);
-            modelStore.SetTargetTransform(targetTransform);
         }
 
         internal void DeactivateStage()

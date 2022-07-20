@@ -10,12 +10,23 @@ namespace YggdrAshill.Samples
 
         private bool loaded;
 
+        private bool textureIsAssigned;
         internal void SetTexture(Texture2D texture)
         {
+            const string TextureName = "_MainTex";
+
             DeapplyIfLoaded();
 
-            material.SetTexture("_MainTex", texture);
+            if (textureIsAssigned)
+            {
+                var previousTexture = material.GetTexture(TextureName);
 
+                Destroy(previousTexture);
+            }
+
+            material.SetTexture(TextureName, texture);
+
+            textureIsAssigned = true;
             loaded = true;
 
             ApplyIfLoaded();
