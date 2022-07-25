@@ -4,6 +4,7 @@ using TMPro;
 using System.IO;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using System;
 
 namespace YggdrAshill.Samples
 {
@@ -34,11 +35,10 @@ namespace YggdrAshill.Samples
             text.text = Path.GetFileNameWithoutExtension(filePath);
         }
 
-        private BackgroundChanger backgroundChanger;
-
-        internal void SetBackgroundChanger(BackgroundChanger backgroundChanger)
+        private LoadedBackgroundImage loadedBackgroundImage;
+        internal void SetLoadedBackgroundImage(LoadedBackgroundImage loadedBackgroundImage)
         {
-            this.backgroundChanger = backgroundChanger;
+            this.loadedBackgroundImage = loadedBackgroundImage;
         }
 
         private void Load()
@@ -57,7 +57,7 @@ namespace YggdrAshill.Samples
 
             token.ThrowIfCancellationRequested();
 
-            backgroundChanger.SetTexture(texture);
+            loadedBackgroundImage.Render(texture);
         }
 
         private CancellationTokenSource source;

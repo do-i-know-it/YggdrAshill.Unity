@@ -101,11 +101,11 @@ namespace YggdrAshill.Samples
             }
         }
 
-        internal void SetBackgroundChanger(BackgroundChanger backgroundChanger)
+        internal void SetLoadedBackgroundImage(LoadedBackgroundImage loadedBackgroundImage)
         {
             foreach (var button in backgroundButtons)
             {
-                button.SetBackgroundChanger(backgroundChanger);
+                button.SetLoadedBackgroundImage(loadedBackgroundImage);
             }
         }
 
