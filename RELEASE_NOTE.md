@@ -1,4 +1,7 @@
-# Release notes for version 0.12.2
+# Release notes for version 0.13.0
 
-- Imported URP.
-- Modify lighting and shaders.
+- Removed unnecessary textures and scenes.
+- Modified prefabs.
+  - loading all images from local storage.
+  - refining looks of UI.
+- Modified scenes to make demo experience real.

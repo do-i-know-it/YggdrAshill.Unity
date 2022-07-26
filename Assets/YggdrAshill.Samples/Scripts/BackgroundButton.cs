@@ -1,7 +1,10 @@
-﻿using System.IO;
-using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using System.IO;
+using System.Threading;
+using Cysharp.Threading.Tasks;
+using System;
 
 namespace YggdrAshill.Samples
 {
@@ -10,48 +13,93 @@ namespace YggdrAshill.Samples
         [SerializeField] private Button button;
         [SerializeField] private TextMeshProUGUI text;
 
-        private string filePath;
+        private ICapsule<Texture2D> capsule;
+        private void DisposeCapsuleIfNeeded()
+        {
+            if (capsule == null)
+            {
+                return;
+            }
 
+            capsule.Dispose();
+            capsule = null;
+        }
         internal void Register(string filePath)
         {
-            this.filePath = filePath;
+            RecreateCancellationTokenSource();
 
-            text.text = Path.GetFileName(filePath);
+            DisposeCapsuleIfNeeded();
 
-            if (prefab != null)
-            {
-                Resources.UnloadAsset(prefab);
-                prefab = null;
-            }
+            capsule = new Texture2DFromLocalFile(filePath);
+
+            text.text = Path.GetFileNameWithoutExtension(filePath);
         }
 
-        private BackgroundChanger backgroundChanger;
-
-        internal void SetBackgroundChanger(BackgroundChanger backgroundChanger)
+        private LoadedBackgroundImage loadedBackgroundImage;
+        internal void SetLoadedBackgroundImage(LoadedBackgroundImage loadedBackgroundImage)
         {
-            this.backgroundChanger = backgroundChanger;
+            this.loadedBackgroundImage = loadedBackgroundImage;
         }
-
-        private Texture2D prefab;
 
         private void Load()
         {
-            if (prefab == null)
+            LoadAsync(source.Token).Forget();
+        }
+        private async UniTask LoadAsync(CancellationToken token)
+        {
+            token.ThrowIfCancellationRequested();
+
+            var texture = await capsule.LoadAysnc(token);
+
+            token.ThrowIfCancellationRequested();
+
+            await UniTask.SwitchToMainThread(token);
+
+            token.ThrowIfCancellationRequested();
+
+            loadedBackgroundImage.Render(texture);
+        }
+
+        private CancellationTokenSource source;
+        private void CreateCancellationTokenSourceIfNeeded()
+        {
+            if (source != null)
             {
-                prefab = Resources.Load<Texture2D>(filePath);
+                return;
             }
 
-            backgroundChanger.SetTexture(prefab);
+            source = new CancellationTokenSource();
+        }
+        private void DisposeCancellationTokenSourceIfNeeded()
+        {
+            if (source == null)
+            {
+                return;
+            }
+
+            source.Cancel();
+            source = null;
+        }
+        private void RecreateCancellationTokenSource()
+        {
+            DisposeCancellationTokenSourceIfNeeded();
+            CreateCancellationTokenSourceIfNeeded();
         }
 
         private void OnEnable()
         {
+            CreateCancellationTokenSourceIfNeeded();
+
             button.onClick.AddListener(Load);
         }
 
         private void OnDisable()
         {
             button.onClick.RemoveListener(Load);
+
+            DisposeCancellationTokenSourceIfNeeded();
+
+            DisposeCapsuleIfNeeded();
         }
     }
 }
